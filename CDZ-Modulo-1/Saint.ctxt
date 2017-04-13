@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Saint
+comment1.params=nome\ armadura
+comment1.target=Saint(java.lang.String,\ Armadura)
+comment2.params=
+comment2.target=void\ vestirArmadura()
+comment3.params=
+comment3.target=boolean\ isArmaduraVestida()
+numComments=4

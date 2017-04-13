@@ -12,4 +12,8 @@ public class Saint {
     public void vestirArmadura() {
         armaduraVestida = true;
     }
+    
+    public boolean isArmaduraVestida() {
+        return armaduraVestida;
+    }
 }
