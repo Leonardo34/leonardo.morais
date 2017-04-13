@@ -1,3 +1,3 @@
 # leonardo.morais
 
-teste de novo 
+Repositorio para exercicios desenvolvidos durante o projeto CRESCER/2017-1
