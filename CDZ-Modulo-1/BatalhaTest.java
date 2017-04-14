@@ -15,4 +15,13 @@ public class BatalhaTest {
         batalha.iniciar();
         assertEquals(90.0, jubileu.getLife(), 0.0001);
     }
+    
+    @Test
+    public void categoriasIguaisIniciarComPrimeiroSaint() {
+        Saint jubileu = new Saint("Jubileu", new Armadura("Cisnei", Categoria.OURO));
+        Saint irineu = new Saint("Irineu", new Armadura("Virgem", Categoria.OURO));
+        Batalha batalha = new Batalha(irineu, jubileu);
+        batalha.iniciar();
+        assertEquals(90.0, jubileu.getLife(), 0);
+    }
 }
