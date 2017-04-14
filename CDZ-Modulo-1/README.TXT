@@ -1,12 +1,8 @@
 ----------------------------------------------------------------------------
-Este é o arquivo README do projeto. Você deve descrever aqui o seu projeto.
-Informe ao usuário (alguém que não sabe nada sobre este projeto!) tudo que
-ele/ela precisa saber. Os comentários devem incluir, pelo menos:
+Repositório para exercícios desenvolvidos durante o Modulo-1 do Projeto
+Crescer2017/1, modulo destinado ao desenvolvimento de aplicações
+sob o paradigma orientado a objetos utilizando a linguagem Java.
+
+Autor: Leonardo Broch de Morais
 ------------------------------------------------------------------------
 
-TITULO DO PROJETO:
-OBJETIVO DO PROJETO:
-VERSÃO ou DATA:
-COMO INICIAR O PROJETO:
-AUTORES:
-INSTRUÇÕES PARA O USUÁRIO:
