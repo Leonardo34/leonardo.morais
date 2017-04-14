@@ -1,5 +1,5 @@
 #BlueJ class context
-comment0.params=constelacao\ categotia
+comment0.params=constelacao\ categoria
 comment0.target=Armadura(java.lang.String,\ Categoria)
 comment1.params=
 comment1.target=Categoria\ getCategoria()
