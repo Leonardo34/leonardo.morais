@@ -1,8 +1,8 @@
 
 public enum Categoria {
-    OURO(1), 
+    OURO(3), 
     PRATA(2), 
-    BRONZE(3);
+    BRONZE(1);
     
     private int valor;
     
