@@ -42,4 +42,8 @@ public class Saint {
     public double getLife() {
         return hp;
     }
+    
+    public Categoria getCategoria() {
+        return armadura.getCategoria();
+    }
 }
