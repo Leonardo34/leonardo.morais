@@ -37,4 +37,11 @@ public class SaintTest {
         Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
         assertEquals(Status.VIVO, saint.getStatus());
     }
+    
+    @Test
+    public void testarMetodoPerdeVida() {
+        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
+        saint.perderVida(60);
+        assertEquals(40.0, saint.getLife(), 0.0001);
+    }
 }
