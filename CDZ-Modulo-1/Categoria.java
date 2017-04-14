@@ -1,6 +1,6 @@
 
 public enum Categoria {
-    OURO(3), 
+    OURO(1), 
     PRATA(2), 
     BRONZE(3);
     
