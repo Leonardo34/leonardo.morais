@@ -1,7 +1,6 @@
 #BlueJ class context
-comment0.target=Categoria
-comment1.params=valor
-comment1.target=Categoria(int)
-comment2.params=
-comment2.target=int\ getValor()
-numComments=3
+comment0.params=valor
+comment0.target=Categoria(int)
+comment1.params=
+comment1.target=int\ getValor()
+numComments=2

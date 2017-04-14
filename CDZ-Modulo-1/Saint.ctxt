@@ -1,13 +1,12 @@
 #BlueJ class context
-comment0.target=Saint
-comment1.params=nome\ armadura
-comment1.target=Saint(java.lang.String,\ Armadura)
+comment0.params=nome\ armadura
+comment0.target=Saint(java.lang.String,\ Armadura)
+comment1.params=
+comment1.target=void\ vestirArmadura()
 comment2.params=
-comment2.target=void\ vestirArmadura()
+comment2.target=boolean\ isArmaduraVestida()
 comment3.params=
-comment3.target=boolean\ isArmaduraVestida()
-comment4.params=
-comment4.target=Genero\ getGenero()
-comment5.params=genero
-comment5.target=void\ setGenero(Genero)
-numComments=6
+comment3.target=Genero\ getGenero()
+comment4.params=genero
+comment4.target=void\ setGenero(Genero)
+numComments=5
