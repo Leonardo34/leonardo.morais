@@ -12,7 +12,7 @@ public class Saint {
         this.armadura = armadura;
         this.genero = Genero.NAO_INFORMADO;
         this.status = Status.VIVO;
-        hp = 100;
+        this.hp = 100;
     }
     
     public void vestirArmadura() {
@@ -29,5 +29,17 @@ public class Saint {
     
     public void setGenero(Genero genero) {
         this.genero = genero;
-    } 
+    }
+    
+    public void perderVida(double hp) {
+        this.hp -= hp;
+    }
+    
+    public Status getStatus() {
+        return status;
+    }
+    
+    public double getLife() {
+        return hp;
+    }
 }
