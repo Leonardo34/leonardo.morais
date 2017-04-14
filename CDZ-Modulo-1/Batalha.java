@@ -14,4 +14,12 @@ public class Batalha {
             saintDois.perderVida(10);
         }
     }
+    
+    public Saint getSaintUm() {
+        return saintUm;
+    }
+    
+    public Saint getSaintDois() {
+        return saintDois;
+    }
 }
