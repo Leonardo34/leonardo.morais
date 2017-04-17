@@ -1,6 +1,7 @@
 
 public class Batalha {
     private Saint saintUm, saintDois;
+    private static final double DANO = 10;
     
     public Batalha(Saint saintUm, Saint saintDois) {
         this.saintUm = saintUm;
@@ -9,9 +10,9 @@ public class Batalha {
     
     public void iniciar() {
         if (saintDois.getCategoria().getValor() > saintUm.getCategoria().getValor()) {
-            saintUm.perderVida(10);
+            saintUm.perderVida(DANO);
         } else {
-            saintDois.perderVida(10);
+            saintDois.perderVida(DANO);
         }
     }
     
