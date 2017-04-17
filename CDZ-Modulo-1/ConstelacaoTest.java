@@ -16,4 +16,25 @@ public class ConstelacaoTest {
             assertEquals(null, golpes[i]);
         }
     }
+    
+    @Test 
+    public void testarCorretoFuncionamentoAdicaoGolpes() {
+        Constelacao constelacao = new Constelacao("Algum nome");
+        Golpe[] golpes = new Golpe[3];
+        golpes[0] = new Golpe("Kamehameha", 8001);
+        golpes[1] = new Golpe("Rasengan", 5);
+        golpes[2] = new Golpe("Raduken", 100);
+        for (int i = 0; i < golpes.length; i++) {
+            constelacao.adicionarGolpe(golpes[i]);
+        }
+        for (int i = 0; i < golpes.length; i++) {
+            assertEquals(golpes[i], constelacao.getGolpes()[i]);
+        }
+        
+        constelacao.adicionarGolpe(new Golpe("Espadada", 1));
+        
+        for (int i = 0; i < golpes.length; i++) {
+            assertEquals(golpes[i], constelacao.getGolpes()[i]);
+        }
+    }
 }
