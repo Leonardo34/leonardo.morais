@@ -94,4 +94,24 @@ public class SaintTest {
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
         new GoldSaint("Bernardo", new Armadura("Café", Categoria.OURO));
     }
+    
+    @Test
+    public void vidaSaintMenorUmStatusMorto() throws Exception {
+        Saint saint = new GoldSaint("Shaka", new Armadura("Touro", Categoria.OURO));
+        saint.perderVida(99);
+        assertEquals(Status.VIVO, saint.getStatus());
+        saint.perderVida(1);
+        assertEquals(0, saint.getVida(), 0);
+        assertEquals(Status.MORTO, saint.getStatus());
+    }
+    
+    @Test
+    public void saintComStatusMortoNaoPerdeVida() throws Exception {
+        Saint saint = new GoldSaint("Shaka", new Armadura("Touro", Categoria.OURO));
+        saint.perderVida(200);
+        assertEquals(-100, saint.getVida(), 0);
+        saint.perderVida(100);
+        assertEquals(Status.MORTO, saint.getStatus());
+        assertEquals(-100, saint.getVida(), 0);
+    }
 }
