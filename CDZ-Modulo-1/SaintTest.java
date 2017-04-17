@@ -80,18 +80,18 @@ public class SaintTest {
     
     @Test
     public void aoInstanciarUmSaintPrataSeisSentidosDespertados() throws Exception {;
-        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.PRATA));
+        Saint saint = new SilverSaint("Shaka", new Armadura("Virgem", Categoria.PRATA));
         assertEquals(6, saint.getSentidosDespertados());
     }
     
     @Test
     public void aoInstanciarUmSaintOuroSeteSentidosDespertados() throws Exception {;
-        Saint saint = new Saint("Shaka", new Armadura("Touro", Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", new Armadura("Touro", Categoria.OURO));
         assertEquals(7, saint.getSentidosDespertados());
     }
     
     @Test(expected=Exception.class)
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
-        new Saint("Bernardo", new Armadura("Café", Categoria.OURO));
+        new GoldSaint("Bernardo", new Armadura("Café", Categoria.OURO));
     }
 }
