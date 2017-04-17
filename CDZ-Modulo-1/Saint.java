@@ -14,7 +14,14 @@ public class Saint {
         this.genero = Genero.NAO_INFORMADO;
         this.status = Status.VIVO;
         this.hp = 100;
-        this.qtdSentidosDespertados = 5;
+        
+        if (getCategoria() == Categoria.PRATA) {
+            this.qtdSentidosDespertados = 6;
+        } else if (getCategoria() == Categoria.OURO) {
+            this.qtdSentidosDespertados = 7;
+        } else {
+            this.qtdSentidosDespertados = 5;
+        }
     }
     
     public void vestirArmadura() {

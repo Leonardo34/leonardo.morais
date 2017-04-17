@@ -73,8 +73,20 @@ public class SaintTest {
     }
     
     @Test
-    public void aoInstanciarUmSaintCincoSentidosDespertados() {;
-        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
+    public void aoInstanciarUmSaintBronzeCincoSentidosDespertados() {;
+        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.BRONZE));
         assertEquals(5, saint.getSentidosDespertados());
+    }
+    
+    @Test
+    public void aoInstanciarUmSaintPrataSeisSentidosDespertados() {;
+        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.PRATA));
+        assertEquals(6, saint.getSentidosDespertados());
+    }
+    
+    @Test
+    public void aoInstanciarUmSaintOuroSeteSentidosDespertados() {;
+        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
+        assertEquals(7, saint.getSentidosDespertados());
     }
 }
