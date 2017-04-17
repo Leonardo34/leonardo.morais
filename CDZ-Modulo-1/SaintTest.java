@@ -51,4 +51,10 @@ public class SaintTest {
         saint.perderVida(60);
         assertEquals(40.0, saint.getVida(), 0.0001);
     }
+    
+    @Test
+    public void aoInstanciarSaintVidaECem() {
+        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
+        assertEquals(100.0, saint.getVida(), 0);
+    }
 }
