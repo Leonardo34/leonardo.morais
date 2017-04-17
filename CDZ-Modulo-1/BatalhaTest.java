@@ -14,6 +14,7 @@ public class BatalhaTest {
         Batalha batalha = new Batalha(jubileu, irineu);
         batalha.iniciar();
         assertEquals(90.0, jubileu.getVida(), 0.0001);
+        assertEquals(100, irineu.getVida(), 0.0001);
     }
     
     @Test
@@ -23,5 +24,6 @@ public class BatalhaTest {
         Batalha batalha = new Batalha(irineu, jubileu);
         batalha.iniciar();
         assertEquals(90.0, jubileu.getVida(), 0);
+        assertEquals(100, irineu.getVida(), 0);
     }
 }
