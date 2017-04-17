@@ -6,7 +6,7 @@ public class Saint {
     private Genero genero;
     private Status status;
     private double hp;
-    private int qtdSentidosDespertados;
+    protected int qtdSentidosDespertados;
     
     public Saint(String nome, Armadura armadura) throws Exception {
         this.nome = nome;
@@ -20,7 +20,7 @@ public class Saint {
         } else if (getCategoria() == Categoria.OURO) {
             this.qtdSentidosDespertados = 7;
             String constelacao = armadura.getConstelacao();
-             if ( !constelacao.equals("Áries") 
+            if ( !constelacao.equals("Áries") 
             && !constelacao.equals("Touro")
             && !constelacao.equals("Gêmeos")
             && !constelacao.equals("Câncer")
@@ -35,8 +35,6 @@ public class Saint {
                 // dar erro
                 throw new Exception("Constelação inválida");
             }
-        } else {
-            this.qtdSentidosDespertados = 5;
         }
     }
     
