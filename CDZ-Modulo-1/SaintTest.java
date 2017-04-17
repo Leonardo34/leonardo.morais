@@ -38,6 +38,13 @@ public class SaintTest {
         assertEquals(Status.VIVO, saint.getStatus());
     }
     
+    @Test 
+    public void testarSetGeneroSaint() {
+        Saint jubileu = new Saint("Jubileu", new Armadura("Touro", Categoria.OURO));
+        jubileu.setGenero(Genero.FEMININO);
+        assertEquals(Genero.FEMININO, jubileu.getGenero());
+    }
+    
     @Test
     public void testarMetodoPerdeVida() {
         Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
