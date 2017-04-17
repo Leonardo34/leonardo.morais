@@ -31,15 +31,15 @@ public class Saint {
         this.genero = genero;
     }
     
-    public void perderVida(double hp) {
-        this.hp -= hp;
+    public void perderVida(double dano) {
+        hp -= dano;
     }
     
     public Status getStatus() {
         return status;
     }
     
-    public double getLife() {
+    public double getVida() {
         return hp;
     }
     
