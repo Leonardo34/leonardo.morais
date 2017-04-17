@@ -57,4 +57,18 @@ public class SaintTest {
         Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
         assertEquals(100.0, saint.getVida(), 0);
     }
+    
+    @Test
+    public void saintLeva100DeDano() {
+        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
+        saint.perderVida(100);
+        assertEquals(0, saint.getVida(), 0.0001);
+    }
+    
+    @Test
+    public void saintLevaMenos1000DeDano() {
+        Saint saint = new Saint("Shaka", new Armadura("Virgem", Categoria.OURO));
+        saint.perderVida(-1000);
+        assertEquals(1100, saint.getVida(), 0.0001);
+    }
 }
