@@ -11,4 +11,8 @@ public class Armadura {
     public Categoria getCategoria() {
         return categoria;
     }
+    
+    public String getConstelacao() {
+        return constelacao;
+    }
 }
