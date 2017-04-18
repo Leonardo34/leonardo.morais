@@ -32,10 +32,7 @@ public class ConstelacaoTest {
         }
         
         constelacao.adicionarGolpe(new Golpe("Espadada", 1));
-        
-        for (int i = 0; i < golpes.length; i++) {
-            assertEquals(golpes[i], constelacao.getGolpes().get(i));
-        }
+        assertEquals(new Golpe("Espadada", 1), constelacao.getGolpes().get(3));
     }
     
     @Test
