@@ -77,7 +77,7 @@ public class Saint {
     
     public Golpe getProximoGolpe() {
         Golpe golpe = getGolpes()[indiceGolpe++];
-        if (indiceGolpe == Constelacao.MAX_GOLPES) {
+        if (indiceGolpe == getGolpes().length) {
             indiceGolpe = 0;
         }
         return golpe;
