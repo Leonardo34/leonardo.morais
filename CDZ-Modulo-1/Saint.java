@@ -1,4 +1,5 @@
 import java.security.InvalidParameterException;
+import java.util.List;
 
 public class Saint {
     private String nome;
@@ -67,7 +68,7 @@ public class Saint {
         return qtdSentidosDespertados;
     }
     
-    public Golpe[] getGolpes() {
+    public List<Golpe> getGolpes() {
         return armadura.getConstelacao().getGolpes();
     }
     
@@ -77,11 +78,11 @@ public class Saint {
     
     public Golpe getProximoGolpe() throws Exception {
         if (armadura.getConstelacao().getQuantidadeGolpes() == 0) {
-            throw new Exception();
+            throw new Exception("Nenhum Golpe foi aprendido por este Saint");
         }
         if (indiceGolpe == armadura.getConstelacao().getQuantidadeGolpes()) {
             indiceGolpe = 0;
         }
-        return getGolpes()[indiceGolpe++];
+        return getGolpes().get(indiceGolpe++);
     }
 }

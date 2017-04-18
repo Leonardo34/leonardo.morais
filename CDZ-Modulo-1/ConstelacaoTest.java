@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.List;
 
 public class ConstelacaoTest {
     
@@ -11,10 +12,8 @@ public class ConstelacaoTest {
     public void testarCorretaInstanciacaoObjetoConstelacao() {
         Constelacao constelacao = new Constelacao("Algum nome");
         assertEquals("Algum nome", constelacao.getNome());
-        Golpe[] golpes = constelacao.getGolpes();
-        for (int i = 0; i < golpes.length; i++) {
-            assertEquals(null, golpes[i]);
-        }
+        List<Golpe> golpes = constelacao.getGolpes();
+        assertEquals(true, golpes.isEmpty());
     }
     
     @Test 
@@ -29,13 +28,13 @@ public class ConstelacaoTest {
         }
         
         for (int i = 0; i < golpes.length; i++) {
-            assertEquals(golpes[i], constelacao.getGolpes()[i]);
+            assertEquals(golpes[i], constelacao.getGolpes().get(i));
         }
         
         constelacao.adicionarGolpe(new Golpe("Espadada", 1));
         
         for (int i = 0; i < golpes.length; i++) {
-            assertEquals(golpes[i], constelacao.getGolpes()[i]);
+            assertEquals(golpes[i], constelacao.getGolpes().get(i));
         }
     }
     
@@ -44,9 +43,7 @@ public class ConstelacaoTest {
         Constelacao constelacao = new Constelacao("Algum nome");
         Golpe golpe = new Golpe("Kamehameha", 8001);
         constelacao.adicionarGolpe(golpe);
-        assertEquals(golpe, constelacao.getGolpes()[0]);
-        assertEquals(null, constelacao.getGolpes()[1]);
-        assertEquals(null, constelacao.getGolpes()[2]);
+        assertEquals(golpe, constelacao.getGolpes().get(0));
     }
     
     @Test
@@ -56,9 +53,8 @@ public class ConstelacaoTest {
         Golpe naruto = new Golpe("Rasengan", 5);
         constelacao.adicionarGolpe(goku);
         constelacao.adicionarGolpe(naruto);
-        assertEquals(goku, constelacao.getGolpes()[0]);
-        assertEquals(naruto, constelacao.getGolpes()[1]);
-        assertEquals(null, constelacao.getGolpes()[2]);
+        assertEquals(goku, constelacao.getGolpes().get(0));
+        assertEquals(naruto, constelacao.getGolpes().get(1));
     }
     
     

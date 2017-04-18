@@ -130,7 +130,7 @@ public class SaintTest {
         saint.aprenderGolpe(new Golpe("Não lembro de CDZ", 10000));
         
         for (int i = 0; i < golpes.length; i++) {
-            assertEquals(golpes[i], saint.getGolpes()[i]);
+            assertEquals(golpes[i], saint.getGolpes().get(i));
         }
     }
     
