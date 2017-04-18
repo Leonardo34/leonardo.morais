@@ -35,9 +35,7 @@ public class Saint {
     public void perderVida(double dano) {
         if (status != Status.MORTO) {
             hp -= dano;
-            if (hp < 1) {
-                setStatus(Status.MORTO);
-            }
+            atualizarStatus();
         }     
     }
     
@@ -45,8 +43,10 @@ public class Saint {
         return status;
     }
     
-    private void setStatus(Status status) {
-        this.status = status;
+    private void atualizarStatus() {
+        if (hp < 1) {
+            status = Status.MORTO;
+        }
     }
     
     public double getVida() {
