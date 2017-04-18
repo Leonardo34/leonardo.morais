@@ -114,4 +114,23 @@ public class SaintTest {
         assertEquals(Status.MORTO, saint.getStatus());
         assertEquals(-100, saint.getVida(), 0);
     }
+    
+    @Test
+    public void golpesAprendidosPorSaintDevemSerSalvos() throws Exception {
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Golpe[] golpes = new Golpe[3];
+        golpes[0] = new Golpe("Kamehameha", 8001);
+        golpes[1] = new Golpe("Rasengan", 5);
+        golpes[2] = new Golpe("Raduken", 100);
+       
+        for (int i = 0; i < golpes.length; i++) {
+            saint.aprenderGolpe(golpes[i]);
+        }
+        
+        saint.aprenderGolpe(new Golpe("Não lembro de CDZ", 10000));
+        
+        for (int i = 0; i < golpes.length; i++) {
+            assertEquals(golpes[i], saint.getGolpes()[i]);
+        }
+    }
 }
