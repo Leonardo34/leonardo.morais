@@ -20,6 +20,10 @@ public class ListaSaints {
         return saints;
     }
     
+    public void remove(Saint saint) {
+        saints.remove(saint);
+    }
+    
     public Saint buscarPorNome(String nome) {
         for (Saint saint : saints) {
             if (saint.getNome().equals(nome)) {
@@ -27,5 +31,15 @@ public class ListaSaints {
             }
         }
         return null;
+    }
+    
+    public List<Saint> buscarPorCategoria(Categoria categoria) {
+        List<Saint> retorno = new ArrayList<>();
+        for (Saint saint : saints) {
+            if (saint.getCategoria() == categoria) {
+                retorno.add(saint);
+            }
+        }
+        return retorno;
     }
 }
