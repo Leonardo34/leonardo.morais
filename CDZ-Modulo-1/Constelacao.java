@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class Constelacao {
     private String nome;
     private List<Golpe> golpes;
-    private static final int MAX_GOLPES = 3;
     
     public Constelacao(String nome) {
         this.nome = nome;
