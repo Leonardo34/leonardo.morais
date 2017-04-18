@@ -6,6 +6,7 @@ public class Saint {
     private Genero genero;
     private Status status;
     private double hp;
+    private int indiceGolpe;
     protected int qtdSentidosDespertados;
     
     public Saint(String nome, Armadura armadura) throws Exception {
@@ -14,6 +15,7 @@ public class Saint {
         this.genero = Genero.NAO_INFORMADO;
         this.status = Status.VIVO;
         this.hp = 100;
+        this.indiceGolpe = 0;
     }
     
     public void vestirArmadura() {
@@ -67,5 +69,13 @@ public class Saint {
     
     public void aprenderGolpe(Golpe golpe) {
         armadura.getConstelacao().adicionarGolpe(golpe);
+    }
+    
+    public Golpe getProximoGolpe() {
+        Golpe golpe = getGolpes()[indiceGolpe++];
+        if (indiceGolpe == Constelacao.MAX_GOLPES) {
+            indiceGolpe = 0;
+        }
+        return golpe;
     }
 }
