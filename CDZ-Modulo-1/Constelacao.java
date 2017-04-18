@@ -3,7 +3,7 @@ public class Constelacao {
     private String nome;
     private Golpe[] golpes;
     private int qtdGolpes;
-    public static final int MAX_GOLPES = 3;
+    private static final int MAX_GOLPES = 3;
     
     public Constelacao(String nome) {
         this.nome = nome;
