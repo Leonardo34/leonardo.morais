@@ -20,6 +20,10 @@ public class Saint {
         this.indiceGolpe = 0;
     }
     
+    public String getNome() {
+        return nome;
+    }
+    
     public void vestirArmadura() {
         armaduraVestida = true;
     }

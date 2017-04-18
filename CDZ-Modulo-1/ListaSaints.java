@@ -7,4 +7,25 @@ public class ListaSaints {
     public ListaSaints() {
         this.saints = new ArrayList<>();
     }
+    
+    public void adicionar(Saint saint) {
+        saints.add(saint);
+    }
+    
+    public Saint get(int indice) {
+        return saints.get(indice);
+    }
+    
+    public List<Saint> todos() {
+        return saints;
+    }
+    
+    public Saint buscarPorNome(String nome) {
+        for (Saint saint : saints) {
+            if (saint.getNome().equals(nome)) {
+                return saint;
+            }
+        }
+        return null;
+    }
 }
