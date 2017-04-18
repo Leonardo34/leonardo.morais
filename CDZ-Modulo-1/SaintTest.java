@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.security.InvalidParameterException;
 
 public class SaintTest {
     
@@ -65,11 +66,10 @@ public class SaintTest {
         assertEquals(0, saint.getVida(), 0.0001);
     }
     
-    @Test
+    @Test(expected=InvalidParameterException.class)
     public void saintLevaMenos1000DeDano() throws Exception {
         Saint saint = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         saint.perderVida(-1000);
-        assertEquals(1100, saint.getVida(), 0.0001);
     }
     
     @Test
