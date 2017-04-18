@@ -75,11 +75,13 @@ public class Saint {
         armadura.getConstelacao().adicionarGolpe(golpe);
     }
     
-    public Golpe getProximoGolpe() {
-        Golpe golpe = getGolpes()[indiceGolpe++];
-        if (indiceGolpe == getGolpes().length) {
+    public Golpe getProximoGolpe() throws Exception {
+        if (armadura.getConstelacao().getQuantidadeGolpes() == 0) {
+            throw new Exception();
+        }
+        if (indiceGolpe == armadura.getConstelacao().getQuantidadeGolpes()) {
             indiceGolpe = 0;
         }
-        return golpe;
+        return getGolpes()[indiceGolpe++];
     }
 }

@@ -151,4 +151,29 @@ public class SaintTest {
         assertEquals(golpes[2], saint.getProximoGolpe());
         assertEquals(golpes[0], saint.getProximoGolpe());
     }
+    
+    @Test
+    public void testarMetodoProximoGolpe() throws Exception {
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Golpe[] golpes = new Golpe[3];
+        golpes[0] = new Golpe("Kamehameha", 8001);
+        golpes[1] = new Golpe("Rasengan", 5);
+        golpes[2] = new Golpe("Raduken", 100);
+        
+        saint.aprenderGolpe(golpes[0]);     
+        assertEquals(golpes[0], saint.getProximoGolpe());
+        assertEquals(golpes[0], saint.getProximoGolpe());
+        saint.aprenderGolpe(golpes[1]);
+        assertEquals(golpes[1], saint.getProximoGolpe());
+        assertEquals(golpes[0], saint.getProximoGolpe());
+        saint.aprenderGolpe(golpes[2]);
+        assertEquals(golpes[1], saint.getProximoGolpe());
+        assertEquals(golpes[2], saint.getProximoGolpe());
+    }
+    
+    @Test(expected=Exception.class)
+    public void aoAcessarProximoGolpeDeSaintSemGolpeException() throws Exception {
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        saint.getProximoGolpe();
+    }
 }

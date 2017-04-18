@@ -24,4 +24,8 @@ public class Constelacao {
             golpes[qtdGolpes++] = golpe;
         }
     }
+    
+    public int getQuantidadeGolpes() {
+        return qtdGolpes;
+    }
 }
