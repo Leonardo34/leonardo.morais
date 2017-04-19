@@ -146,4 +146,28 @@ public class ListaSaintsTest {
         assertEquals(cafe, listaOrdenadaVida.get(1));
         assertEquals(shaka, listaOrdenadaVida.get(2));
     }
+    
+    @Test
+    public void saintsDevemSerOrdenadosPorVidaDescendente() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe); 
+        lista.adicionar(cafezao);
+        cafe.perderVida(50);
+        lista.ordenar(TipoOrdenacao.DESCENDENTE);
+        List<Saint> listaOrdenadaVida = lista.todos();
+        assertEquals(shaka, listaOrdenadaVida.get(0));
+        assertEquals(cafezao, listaOrdenadaVida.get(1));
+        assertEquals(cafe, listaOrdenadaVida.get(2));
+        shaka.perderVida(20);
+        cafezao.perderVida(100);
+        lista.ordenar(TipoOrdenacao.DESCENDENTE);
+        listaOrdenadaVida = lista.todos();
+        assertEquals(shaka, listaOrdenadaVida.get(0));
+        assertEquals(cafe, listaOrdenadaVida.get(1));
+        assertEquals(cafezao, listaOrdenadaVida.get(2));
+    }
 }
