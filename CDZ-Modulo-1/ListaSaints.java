@@ -65,4 +65,17 @@ public class ListaSaints {
         }
         return saintMaiorVida;
     }
+    
+    public Saint getSaintMenorVida() {
+        if (saints.isEmpty()) {
+            return null;
+        }
+        Saint saintMenorVida = saints.get(0);
+        for (Saint saint : saints) {
+            if (saint.getVida() < saintMenorVida.getVida()) {
+                saintMenorVida = saint;
+            }
+        }
+        return saintMenorVida;
+    }
 }

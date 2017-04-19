@@ -90,6 +90,7 @@ public class ListaSaintsTest {
         ListaSaints lista = new ListaSaints();
         Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        assertEquals(null, lista.getSaintMaiorVida());
         lista.adicionar(shaka);
         lista.adicionar(cafe);        
         assertEquals(shaka, lista.getSaintMaiorVida());
@@ -101,5 +102,24 @@ public class ListaSaintsTest {
         assertEquals(shaka, lista.getSaintMaiorVida());
         shaka.perderVida(90);
         assertEquals(cafe, lista.getSaintMaiorVida());
+    }
+    
+    @Test
+    public void garantirFuncionamentoMetodoGetSaintMenorVida() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        assertEquals(null, lista.getSaintMenorVida());
+        lista.adicionar(shaka);
+        lista.adicionar(cafe);        
+        assertEquals(shaka, lista.getSaintMenorVida());
+        shaka.perderVida(10);
+        assertEquals(shaka, lista.getSaintMenorVida());
+        cafe.perderVida(5);
+        assertEquals(shaka, lista.getSaintMenorVida());
+        cafe.perderVida(50);
+        assertEquals(cafe, lista.getSaintMenorVida());
+        shaka.perderVida(90);
+        assertEquals(shaka, lista.getSaintMenorVida());
     }
 }
