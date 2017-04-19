@@ -41,6 +41,7 @@ public class ConstelacaoTest {
         Golpe golpe = new Golpe("Kamehameha", 8001);
         constelacao.adicionarGolpe(golpe);
         assertEquals(golpe, constelacao.getGolpes().get(0));
+        assertEquals(1, constelacao.getGolpes().size());
     }
     
     @Test
