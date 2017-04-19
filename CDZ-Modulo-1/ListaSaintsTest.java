@@ -65,4 +65,23 @@ public class ListaSaintsTest {
         assertEquals(saintOuroUm, listaSaintsOuro.get(0));
         assertEquals(saintOuroDois, listaSaintsOuro.get(1));
     }
+    
+    @Test
+    public void buscarPorSaintsVivosRetornaTodosSaintsVivos() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe);
+        List<Saint> listaSaintsVivos = lista.buscarPorStatus(Status.VIVO);
+        assertEquals(listaSaintsVivos.get(0), shaka);
+        assertEquals(listaSaintsVivos.get(1), cafe);
+        shaka.perderVida(200);
+        listaSaintsVivos = lista.buscarPorStatus(Status.VIVO);
+        assertEquals(1, listaSaintsVivos.size());
+        assertEquals(cafe, listaSaintsVivos.get(0));
+        cafe.perderVida(100);
+        listaSaintsVivos = lista.buscarPorStatus(Status.VIVO);
+        assertEquals(true, listaSaintsVivos.isEmpty());
+    }
 }

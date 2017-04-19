@@ -42,4 +42,14 @@ public class ListaSaints {
         }
         return retorno;
     }
+    
+    public List<Saint> buscarPorStatus(Status status) {
+        List<Saint> retorno = new ArrayList<>();
+        for (Saint saint : saints) {
+            if (saint.getStatus() == status) {
+                retorno.add(saint);
+            }
+        }
+        return retorno;
+    }
 }
