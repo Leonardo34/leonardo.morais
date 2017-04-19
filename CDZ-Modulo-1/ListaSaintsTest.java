@@ -41,7 +41,7 @@ public class ListaSaintsTest {
     }
     
     @Test
-    public void buscarSaintPorCategoriaSemNenhumMenbroListaVazia() throws Exception {
+    public void buscarSaintPorCategoriaSemNenhumMembroListaVazia() throws Exception {
         ListaSaints lista = new ListaSaints();
         Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Saint saintDois = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
