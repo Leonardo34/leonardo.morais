@@ -52,4 +52,17 @@ public class ListaSaints {
         }
         return retorno;
     }
+    
+    public Saint getSaintMaiorVida() {
+        if (saints.isEmpty()) {
+            return null;
+        }
+        Saint saintMaiorVida = saints.get(0);
+        for (Saint saint : saints) {
+            if (saint.getVida() > saintMaiorVida.getVida()) {
+                saintMaiorVida = saint;
+            }
+        }
+        return saintMaiorVida;
+    }
 }

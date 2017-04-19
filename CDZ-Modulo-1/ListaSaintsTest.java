@@ -84,4 +84,22 @@ public class ListaSaintsTest {
         listaSaintsVivos = lista.buscarPorStatus(Status.VIVO);
         assertEquals(true, listaSaintsVivos.isEmpty());
     }
+    
+    @Test
+    public void garantirFuncionamentoMetodoGetSaintMaiorVida() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe);        
+        assertEquals(shaka, lista.getSaintMaiorVida());
+        shaka.perderVida(10);
+        assertEquals(cafe, lista.getSaintMaiorVida());
+        cafe.perderVida(5);
+        assertEquals(cafe, lista.getSaintMaiorVida());
+        cafe.perderVida(50);
+        assertEquals(shaka, lista.getSaintMaiorVida());
+        shaka.perderVida(90);
+        assertEquals(cafe, lista.getSaintMaiorVida());
+    }
 }
