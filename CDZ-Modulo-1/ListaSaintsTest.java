@@ -23,4 +23,19 @@ public class ListaSaintsTest {
         assertEquals(shuka, lista.buscarPorNome("Shuka"));
         assertEquals(null, lista.buscarPorNome("Zé"));
     }
+    
+    @Test
+    public void saintsComNomesIguaisRetornarPrimeiroInserido() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saintDois = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shuka = new GoldSaint("Shuka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(saint);
+        lista.adicionar(saintDois);
+        lista.adicionar(shuka);
+        assertEquals(saint, lista.buscarPorNome("Shaka"));
+        assertEquals(shuka, lista.buscarPorNome("Shuka"));
+        assertEquals(null, lista.buscarPorNome("Zé"));
+        assertEquals(saint, lista.buscarPorNome("Shaka"));
+    }
 }
