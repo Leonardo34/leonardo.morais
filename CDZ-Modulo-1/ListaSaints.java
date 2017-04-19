@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class ListaSaints {
     private List<Saint> saints;
@@ -34,13 +36,9 @@ public class ListaSaints {
     }
     
     public List<Saint> buscarPorCategoria(Categoria categoria) {
-        List<Saint> retorno = new ArrayList<>();
-        for (Saint saint : saints) {
-            if (saint.getCategoria() == categoria) {
-                retorno.add(saint);
-            }
-        }
-        return retorno;
+        return this.saints.stream()
+               .filter(s -> s.getCategoria() == categoria)
+               .collect(Collectors.toList());            
     }
     
     public List<Saint> buscarPorStatus(Status status) {
