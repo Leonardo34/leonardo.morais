@@ -78,4 +78,17 @@ public class ListaSaints {
         }
         return saintMenorVida;
     }
+    
+    public void ordenar() {
+        // Inserction Sort O(n^2)
+        for (int i = 1; i < saints.size(); i++) {
+            int j = i;
+            Saint aux = saints.get(i);
+            while ((j > 0) && (saints.get(j - 1).getVida() > aux.getVida())) {
+                saints.set(j, saints.get(j - 1));
+                j--;
+            }
+            saints.set(j, aux);
+        }
+    }
 }
