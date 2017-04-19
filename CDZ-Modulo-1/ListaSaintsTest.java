@@ -10,7 +10,7 @@ public class ListaSaintsTest {
     @Test
     public void buscarPorNomeNaoInseridoRetornaNull() {
         ListaSaints lista = new ListaSaints();
-        assertEquals(null, lista.buscarPorNome("Zé"));
+        assertNull(lista.buscarPorNome("Zé"));
     }
     
     @Test
@@ -22,7 +22,7 @@ public class ListaSaintsTest {
         lista.adicionar(shuka);
         assertEquals(saint, lista.buscarPorNome("Shaka"));
         assertEquals(shuka, lista.buscarPorNome("Shuka"));
-        assertEquals(null, lista.buscarPorNome("Zé"));
+        assertNull(lista.buscarPorNome("Zé"));
     }
     
     @Test
@@ -36,7 +36,7 @@ public class ListaSaintsTest {
         lista.adicionar(shuka);
         assertEquals(saint, lista.buscarPorNome("Shaka"));
         assertEquals(shuka, lista.buscarPorNome("Shuka"));
-        assertEquals(null, lista.buscarPorNome("Zé"));
+        assertNull(lista.buscarPorNome("Zé"));
         assertEquals(saint, lista.buscarPorNome("Shaka"));
     }
     
@@ -90,7 +90,7 @@ public class ListaSaintsTest {
         ListaSaints lista = new ListaSaints();
         Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        assertEquals(null, lista.getSaintMaiorVida());
+        assertNull(lista.getSaintMaiorVida());
         lista.adicionar(shaka);
         lista.adicionar(cafe);        
         assertEquals(shaka, lista.getSaintMaiorVida());
@@ -109,7 +109,7 @@ public class ListaSaintsTest {
         ListaSaints lista = new ListaSaints();
         Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        assertEquals(null, lista.getSaintMenorVida());
+        assertNull(lista.getSaintMenorVida());
         lista.adicionar(shaka);
         lista.adicionar(cafe);        
         assertEquals(shaka, lista.getSaintMenorVida());
