@@ -170,4 +170,27 @@ public class ListaSaintsTest {
         assertEquals(cafe, listaOrdenadaVida.get(1));
         assertEquals(cafezao, listaOrdenadaVida.get(2));
     }
+    
+    @Test
+    public void ordenarListaCompletamenteDesordenada() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe); 
+        lista.adicionar(cafezao);
+        shaka.perderVida(30);
+        cafe.perderVida(20);
+        cafezao.perderVida(10);
+        lista.ordenar(TipoOrdenacao.DESCENDENTE);
+        List<Saint> listaOrdenadaDesc = lista.todos();
+        assertEquals(cafezao, listaOrdenadaDesc.get(0));
+        assertEquals(cafe, listaOrdenadaDesc.get(1));
+        assertEquals(shaka, listaOrdenadaDesc.get(2));
+        lista.ordenar(TipoOrdenacao.ASCENDENTE);
+        assertEquals(shaka, listaOrdenadaDesc.get(0));
+        assertEquals(cafe, listaOrdenadaDesc.get(1));
+        assertEquals(cafezao, listaOrdenadaDesc.get(2));
+    }
 }
