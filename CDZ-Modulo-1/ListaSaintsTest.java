@@ -264,4 +264,40 @@ public class ListaSaintsTest {
         assertEquals(cafezao, diff.get(1));
         assertEquals(2, diff.size());
     }
+    
+    @Test
+    public void intersecaoDeListaDiferentesDeveSerVazia() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe); 
+        lista.adicionar(cafezao);
+        ListaSaints listaDois = new ListaSaints();
+        Saint mestre = new GoldSaint("Mestre Dos Magos", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint naruto = new GoldSaint("Naruto", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint goku = new GoldSaint("Goku", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        listaDois.adicionar(mestre);
+        listaDois.adicionar(naruto); 
+        listaDois.adicionar(goku);
+        List<Saint> intersecao = lista.intersec(listaDois).todos();
+        assertEquals(true, intersecao.isEmpty());
+    }
+    
+    @Test
+    public void intersecaoDeListasIguaisDeveSerIgualAListaOriginal() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe); 
+        lista.adicionar(cafezao);
+        ListaSaints listaDois = new ListaSaints();
+        listaDois.adicionar(shaka);
+        listaDois.adicionar(cafe); 
+        listaDois.adicionar(cafezao);
+        assertEquals(lista.intersec(listaDois).todos(), lista.todos());
+    }
 }

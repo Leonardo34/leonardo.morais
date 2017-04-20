@@ -131,4 +131,14 @@ public class ListaSaints {
         }
         return diff;
     }
+    
+    public ListaSaints intersec(ListaSaints listaIntersec) {
+        ListaSaints intersecao = new ListaSaints();
+        for (Saint saint : saints) {
+            if (listaIntersec.todos().contains(saint)) {
+                intersecao.adicionar(saint);
+            }
+        }
+        return intersecao;
+    }
 }
