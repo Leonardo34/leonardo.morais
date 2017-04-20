@@ -309,12 +309,12 @@ public class ListaSaintsTest {
         june.perderVida(15.5);
         lista.adicionar(june);
 
-        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao("Dragao"), Categoria.OURO));
+        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
         dohko.perderVida(90);
         dohko.vestirArmadura();
         lista.adicionar(dohko);
 
         String csv = lista.getCSV();
-        assertEquals("June, 84.5, Camaleão, BRONZE, VIVO, FEMININO, false\nDohko, 10.0, Dragao, OURO, VIVO, NAO_INFORMADO, true\n", csv);
+        assertEquals("June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false\nDohko,10.0,,OURO,VIVO,NAO_INFORMADO,true\n", csv);
     }
 }

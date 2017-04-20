@@ -92,12 +92,12 @@ public class Saint {
     
     @Override 
     public String toString() {
-        return nome + ", " + 
-                    hp + ", " + 
-                    armadura.getConstelacao().getNome() + ", " + 
-                    getCategoria() + ", " + 
-                    status + ", " + 
-                    genero + ", " + 
+        return nome + "," + 
+                    hp + "," + 
+                    armadura.getConstelacao().getNome() + "," + 
+                    getCategoria() + "," + 
+                    status + "," + 
+                    genero + "," + 
                     armaduraVestida;
     }
 }
