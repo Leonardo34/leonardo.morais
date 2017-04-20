@@ -141,4 +141,12 @@ public class ListaSaints {
         }
         return intersecao;
     }
+    
+    public String getCSV() {
+        String s = "";
+        for (Saint saint : saints) {
+            s += saint;
+        }
+        return s;
+    }
 }
