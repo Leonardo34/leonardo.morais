@@ -193,4 +193,41 @@ public class ListaSaintsTest {
         assertEquals(cafe, listaOrdenadaDesc.get(1));
         assertEquals(cafezao, listaOrdenadaDesc.get(2));
     }
+    
+    @Test
+    public void unirListaDeSaintsDiferentes() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe); 
+        lista.adicionar(cafezao);
+        ListaSaints listaDois = new ListaSaints();
+        Saint mestre = new GoldSaint("Mestre Dos Magos", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint naruto = new GoldSaint("Naruto", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint goku = new GoldSaint("Goku", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        listaDois.adicionar(mestre);
+        listaDois.adicionar(naruto); 
+        listaDois.adicionar(goku);
+        List<Saint> uniao = lista.unir(listaDois).todos();
+        assertEquals(shaka, uniao.get(0));
+        assertEquals(cafe, uniao.get(1));
+        assertEquals(cafezao, uniao.get(2));
+        assertEquals(mestre, uniao.get(3));
+        assertEquals(naruto, uniao.get(4));
+        assertEquals(goku, uniao.get(5));
+    }
+    
+    @Test
+    public void unirListaSaintsIguais() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        ListaSaints listaDois = new ListaSaints();
+        listaDois.adicionar(shaka);
+        List<Saint> uniao = lista.unir(listaDois).todos();
+        assertEquals(shaka, uniao.get(0));
+        assertEquals(1, uniao.size());
+    }
 }

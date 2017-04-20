@@ -110,4 +110,15 @@ public class ListaSaints {
             ordenarDescendente();
         }
     }
+    
+    public ListaSaints unir(ListaSaints listaUnir) {
+        ListaSaints uniao = new ListaSaints();
+        for (Saint saint : saints) {
+            if (!listaUnir.todos().contains(saint)) {
+                uniao.adicionar(saint);
+            }
+        }
+        uniao.todos().addAll(listaUnir.todos());
+        return uniao;
+    }
 }
