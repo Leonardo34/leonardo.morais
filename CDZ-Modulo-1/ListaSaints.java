@@ -121,4 +121,14 @@ public class ListaSaints {
         uniao.todos().addAll(listaUnir.todos());
         return uniao;
     }
+    
+    public ListaSaints diff(ListaSaints listaDiff) {
+        ListaSaints diff = new ListaSaints();
+        for (Saint saint : saints) {
+            if (!listaDiff.todos().contains(saint)) {
+                diff.adicionar(saint);
+            }
+        }
+        return diff;
+    }
 }

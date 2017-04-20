@@ -230,4 +230,38 @@ public class ListaSaintsTest {
         assertEquals(shaka, uniao.get(0));
         assertEquals(1, uniao.size());
     }
+    
+    @Test
+    public void diffDeListaSaintsIguaisDeveSerVazia() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        ListaSaints listaDois = new ListaSaints();
+        listaDois.adicionar(shaka);
+        List<Saint> diff = lista.diff(listaDois).todos();
+        assertEquals(true, diff.isEmpty());
+    }
+    
+    @Test
+    public void diffDeListaSaintsDiferentes() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        lista.adicionar(shaka);
+        lista.adicionar(cafe); 
+        lista.adicionar(cafezao);
+        ListaSaints listaDois = new ListaSaints();
+        Saint mestre = new GoldSaint("Mestre Dos Magos", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint naruto = new GoldSaint("Naruto", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint goku = new GoldSaint("Goku", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        listaDois.adicionar(mestre);
+        listaDois.adicionar(naruto); 
+        listaDois.adicionar(goku);
+        listaDois.adicionar(shaka);
+        List<Saint> diff = lista.diff(listaDois).todos();
+        assertEquals(cafe, diff.get(0));
+        assertEquals(cafezao, diff.get(1));
+        assertEquals(2, diff.size());
+    }
 }
