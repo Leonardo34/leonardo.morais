@@ -145,7 +145,7 @@ public class ListaSaints {
     public String getCSV() {
         String s = "";
         for (Saint saint : saints) {
-            s += saint;
+            s += saint + "\n";
         }
         return s;
     }

@@ -98,6 +98,6 @@ public class Saint {
                     getCategoria() + ", " + 
                     status + ", " + 
                     genero + ", " + 
-                    armaduraVestida + "\n";
+                    armaduraVestida;
     }
 }

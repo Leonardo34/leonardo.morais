@@ -315,7 +315,6 @@ public class ListaSaintsTest {
         lista.adicionar(dohko);
 
         String csv = lista.getCSV();
-        System.out.println(csv);
         assertEquals("June, 84.5, Camaleão, BRONZE, VIVO, FEMININO, false\nDohko, 10.0, Dragao, OURO, VIVO, NAO_INFORMADO, true\n", csv);
     }
 }
