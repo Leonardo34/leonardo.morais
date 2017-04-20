@@ -300,4 +300,22 @@ public class ListaSaintsTest {
         listaDois.adicionar(cafezao);
         assertEquals(lista.intersec(listaDois).todos(), lista.todos());
     }
+    
+    @Test
+    public void garantirCorretaFormatacaoCSV() throws Exception {
+        ListaSaints lista = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        june.setGenero(Genero.FEMININO);
+        june.perderVida(15.5);
+        lista.adicionar(june);
+
+        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao("Dragao"), Categoria.OURO));
+        dohko.perderVida(90);
+        dohko.vestirArmadura();
+        lista.adicionar(dohko);
+
+        String csv = lista.getCSV();
+        System.out.println(csv);
+        assertEquals("June, 84.5, Camaleão, BRONZE, VIVO, FEMININO, false\nDohko, 10.0, Dragao, OURO, VIVO, NAO_INFORMADO, true\n", csv);
+    }
 }
