@@ -12,7 +12,7 @@ public class SaintTest {
         // AAA
         // 1. Arrange - Montagem do cenario de teste 
         Armadura touro = new Armadura(new Constelacao("Touro"), Categoria.OURO);
-        Saint jubileu = new Saint("Jubileu", touro);
+        Saint jubileu = new GoldSaint("Jubileu", touro);
         
         // 2. Action - Invocar a ação a ser testada       
         jubileu.vestirArmadura();
@@ -23,52 +23,52 @@ public class SaintTest {
     
     @Test
     public void vestirArmaduraDeixaArmaduraNaoVestida() throws Exception {
-        Saint jubileu = new Saint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        Saint jubileu = new BronzeSaint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
         assertEquals(false, jubileu.isArmaduraVestida());
     }
     
     @Test
     public void aoCriarSaintGeneroENaoInformado() throws Exception {
-        Saint saint = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         assertEquals(Genero.NAO_INFORMADO, saint.getGenero());
     }
     
     @Test
     public void aoInstanciarSaintStatusVivo() throws Exception {
-        Saint saint = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         assertEquals(Status.VIVO, saint.getStatus());
     }
     
     @Test 
     public void testarSetGeneroSaint() throws Exception {
-        Saint jubileu = new Saint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        Saint jubileu = new SilverSaint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
         jubileu.setGenero(Genero.FEMININO);
         assertEquals(Genero.FEMININO, jubileu.getGenero());
     }
     
     @Test
     public void testarMetodoPerdeVida() throws Exception {
-        Saint saint = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         saint.perderVida(60);
         assertEquals(40.0, saint.getVida(), 0.0001);
     }
     
     @Test
     public void aoInstanciarSaintVidaECem() throws Exception {
-        Saint saint = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         assertEquals(100.0, saint.getVida(), 0);
     }
     
     @Test
     public void saintLeva100DeDano() throws Exception {
-        Saint saint = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         saint.perderVida(100);
         assertEquals(0, saint.getVida(), 0.0001);
     }
     
     @Test(expected=InvalidParameterException.class)
     public void saintLevaMenos1000DeDano() throws Exception {
-        Saint saint = new Saint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         saint.perderVida(-1000);
     }
     

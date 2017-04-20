@@ -304,17 +304,15 @@ public class ListaSaintsTest {
     @Test
     public void garantirCorretaFormatacaoCSV() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         lista.adicionar(june);
-
-        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
+        Saint dohko = new GoldSaint("Dohko", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         dohko.perderVida(90);
         dohko.vestirArmadura();
         lista.adicionar(dohko);
-
         String csv = lista.getCSV();
-        assertEquals("June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false\nDohko,10.0,,OURO,VIVO,NAO_INFORMADO,true\n", csv);
+        assertEquals("June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false\nDohko,10.0,Touro,OURO,VIVO,NAO_INFORMADO,true\n", csv);
     }
 }

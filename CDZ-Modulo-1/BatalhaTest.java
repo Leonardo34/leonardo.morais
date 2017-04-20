@@ -7,8 +7,8 @@ public class BatalhaTest {
     
     @Test
     public void iniciarBatalhaComSaintDeMaiorCategoria() throws Exception {
-        Saint jubileu = new Saint("Jubileu", new Armadura(new Constelacao("Cisnei"), Categoria.BRONZE));
-        Saint irineu = new Saint("Irineu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint jubileu = new BronzeSaint("Jubileu", new Armadura(new Constelacao("Cisnei"), Categoria.BRONZE));
+        Saint irineu = new GoldSaint("Irineu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Batalha batalha = new Batalha(jubileu, irineu);
         batalha.iniciar();
         assertEquals(90.0, jubileu.getVida(), 0.0001);
@@ -17,8 +17,8 @@ public class BatalhaTest {
     
     @Test
     public void categoriasIguaisIniciarComPrimeiroSaint() throws Exception {
-        Saint jubileu = new Saint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint irineu = new Saint("Irineu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint jubileu = new GoldSaint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint irineu = new GoldSaint("Irineu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Batalha batalha = new Batalha(irineu, jubileu);
         batalha.iniciar();
         assertEquals(90.0, jubileu.getVida(), 0);
