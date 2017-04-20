@@ -89,4 +89,15 @@ public class Saint {
         }
         return getGolpes().get(indiceGolpe++);
     }
+    
+    @Override 
+    public String toString() {
+        return nome + ", " + 
+                    hp + ", " + 
+                    armadura.getConstelacao().getNome() + ", " + 
+                    getCategoria() + ", " + 
+                    status + ", " + 
+                    genero + ", " + 
+                    armaduraVestida + "\n";
+    }
 }
