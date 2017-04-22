@@ -304,7 +304,7 @@ public class ListaSaintsTest {
     @Test
     public void garantirCorretaFormatacaoCSV() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint june = new BronzeSaint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        Saint june = new BronzeSaint("June", "Camaleão");
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         lista.adicionar(june);

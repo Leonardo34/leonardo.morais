@@ -11,7 +11,7 @@ public abstract class Saint {
     private int indiceGolpe;
     protected int qtdSentidosDespertados;
     
-    public Saint(String nome, Armadura armadura) throws Exception {
+    public Saint(String nome, Armadura armadura) {
         this.nome = nome;
         this.armadura = armadura;
         this.genero = Genero.NAO_INFORMADO;

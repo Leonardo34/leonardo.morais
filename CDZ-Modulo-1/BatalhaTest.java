@@ -7,7 +7,7 @@ public class BatalhaTest {
     
     @Test
     public void iniciarBatalhaComSaintDeMaiorCategoria() throws Exception {
-        Saint jubileu = new BronzeSaint("Jubileu", new Armadura(new Constelacao("Cisnei"), Categoria.BRONZE));
+        Saint jubileu = new BronzeSaint("Jubileu", "Cisnei");
         Saint irineu = new GoldSaint("Irineu", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         Batalha batalha = new Batalha(jubileu, irineu);
         batalha.iniciar();

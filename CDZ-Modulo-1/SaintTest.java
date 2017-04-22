@@ -23,7 +23,7 @@ public class SaintTest {
     
     @Test
     public void vestirArmaduraDeixaArmaduraNaoVestida() throws Exception {
-        Saint jubileu = new BronzeSaint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        Saint jubileu = new BronzeSaint("Jubileu", "Touro");
         assertEquals(false, jubileu.isArmaduraVestida());
     }
     
@@ -73,8 +73,8 @@ public class SaintTest {
     }
     
     @Test
-    public void aoInstanciarUmSaintBronzeCincoSentidosDespertados() throws Exception {;
-        Saint saint = new BronzeSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+    public void aoInstanciarUmSaintBronzeCincoSentidosDespertados() throws Exception {
+        Saint saint = new BronzeSaint("Shaka", "Touro");
         assertEquals(5, saint.getSentidosDespertados());
     }
     
@@ -175,5 +175,11 @@ public class SaintTest {
     public void aoAcessarProximoGolpeDeSaintSemGolpeException() throws Exception {
         Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
         saint.getProximoGolpe();
+    }
+    
+    @Test
+    public void aoInstanciarBronzeSaintArmaduraDeveSerBronze() {
+        Saint saint = new BronzeSaint("Shaka", "Touro");
+        assertEquals(saint.getCategoria(), Categoria.BRONZE);
     }
 }
