@@ -16,8 +16,8 @@ public class ListaSaintsTest {
     @Test
     public void buscarPorNomeSaintInseridoRetornaSaint() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint shuka = new GoldSaint("Shuka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", "Touro");
+        Saint shuka = new GoldSaint("Shuka", "Touro");
         lista.adicionar(saint);
         lista.adicionar(shuka);
         assertEquals(saint, lista.buscarPorNome("Shaka"));
@@ -28,9 +28,9 @@ public class ListaSaintsTest {
     @Test
     public void saintsComNomesIguaisRetornarPrimeiroInserido() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint saintDois = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint shuka = new GoldSaint("Shuka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint saint = new GoldSaint("Shaka", "Touro");
+        Saint saintDois = new GoldSaint("Shaka", "Touro");
+        Saint shuka = new GoldSaint("Shuka", "Touro");
         lista.adicionar(saint);
         lista.adicionar(saintDois);
         lista.adicionar(shuka);
@@ -43,8 +43,8 @@ public class ListaSaintsTest {
     @Test
     public void buscarSaintPorCategoriaSemNenhumMembroListaVazia() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint saint = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint saintDois = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        Saint saint = new GoldSaint("Shaka", "Touro");
+        Saint saintDois = new SilverSaint("Marin", "Aguia");
         lista.adicionar(saint);
         lista.adicionar(saintDois);
         assertEquals(true, lista.buscarPorCategoria(Categoria.BRONZE).isEmpty());
@@ -53,10 +53,10 @@ public class ListaSaintsTest {
     @Test
     public void adicionarDoisSaintsOuroBuscarPorOuro() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint saintOuroUm = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint saintPrata = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
-        Saint saintOuroDois = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint saintBronze = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.BRONZE));
+        Saint saintOuroUm = new GoldSaint("Shaka", "Touro");
+        Saint saintPrata = new SilverSaint("Marin", "Aguia");
+        Saint saintOuroDois = new GoldSaint("Shaka", "Touro");
+        Saint saintBronze = new BronzeSaint("Seiya", "Pegaso");
         lista.adicionar(saintOuroUm);
         lista.adicionar(saintPrata);
         lista.adicionar(saintBronze);
@@ -69,8 +69,8 @@ public class ListaSaintsTest {
     @Test
     public void buscarPorSaintsVivosRetornaTodosSaintsVivos() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe);
         List<Saint> listaSaintsVivos = lista.buscarPorStatus(Status.VIVO);
@@ -88,8 +88,8 @@ public class ListaSaintsTest {
     @Test
     public void garantirFuncionamentoMetodoGetSaintMaiorVida() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
         assertNull(lista.getSaintMaiorVida());
         lista.adicionar(shaka);
         lista.adicionar(cafe);        
@@ -107,8 +107,8 @@ public class ListaSaintsTest {
     @Test
     public void garantirFuncionamentoMetodoGetSaintMenorVida() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
         assertNull(lista.getSaintMenorVida());
         lista.adicionar(shaka);
         lista.adicionar(cafe);        
@@ -126,9 +126,9 @@ public class ListaSaintsTest {
     @Test
     public void saintsDevemSerOrdenadosPorVidaAscendente() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
+        Saint cafezao = new GoldSaint("Cafezao", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe); 
         lista.adicionar(cafezao);
@@ -150,9 +150,9 @@ public class ListaSaintsTest {
     @Test
     public void saintsDevemSerOrdenadosPorVidaDescendente() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
+        Saint cafezao = new GoldSaint("Cafezao", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe); 
         lista.adicionar(cafezao);
@@ -174,9 +174,9 @@ public class ListaSaintsTest {
     @Test
     public void ordenarListaCompletamenteDesordenada() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
+        Saint cafezao = new GoldSaint("Cafezao", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe); 
         lista.adicionar(cafezao);
@@ -197,16 +197,16 @@ public class ListaSaintsTest {
     @Test
     public void unirListaDeSaintsDiferentes() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
+        Saint cafezao = new GoldSaint("Cafezao", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe); 
         lista.adicionar(cafezao);
         ListaSaints listaDois = new ListaSaints();
-        Saint mestre = new GoldSaint("Mestre Dos Magos", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint naruto = new GoldSaint("Naruto", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint goku = new GoldSaint("Goku", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint mestre = new GoldSaint("Mestre Dos Magos", "Touro");
+        Saint naruto = new GoldSaint("Naruto", "Touro");
+        Saint goku = new GoldSaint("Goku", "Touro");
         listaDois.adicionar(mestre);
         listaDois.adicionar(naruto); 
         listaDois.adicionar(goku);
@@ -222,7 +222,7 @@ public class ListaSaintsTest {
     @Test
     public void unirListaSaintsIguais() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
         lista.adicionar(shaka);
         ListaSaints listaDois = new ListaSaints();
         listaDois.adicionar(shaka);
@@ -234,7 +234,7 @@ public class ListaSaintsTest {
     @Test
     public void diffDeListaSaintsIguaisDeveSerVazia() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
         lista.adicionar(shaka);
         ListaSaints listaDois = new ListaSaints();
         listaDois.adicionar(shaka);
@@ -245,16 +245,16 @@ public class ListaSaintsTest {
     @Test
     public void diffDeListaSaintsDiferentes() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
+        Saint cafezao = new GoldSaint("Cafezao", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe); 
         lista.adicionar(cafezao);
         ListaSaints listaDois = new ListaSaints();
-        Saint mestre = new GoldSaint("Mestre Dos Magos", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint naruto = new GoldSaint("Naruto", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint goku = new GoldSaint("Goku", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint mestre = new GoldSaint("Mestre Dos Magos", "Touro");
+        Saint naruto = new GoldSaint("Naruto", "Touro");
+        Saint goku = new GoldSaint("Goku", "Touro");
         listaDois.adicionar(mestre);
         listaDois.adicionar(naruto); 
         listaDois.adicionar(goku);
@@ -268,16 +268,16 @@ public class ListaSaintsTest {
     @Test
     public void intersecaoDeListaDiferentesDeveSerVazia() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
+        Saint cafezao = new GoldSaint("Cafezao", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe); 
         lista.adicionar(cafezao);
         ListaSaints listaDois = new ListaSaints();
-        Saint mestre = new GoldSaint("Mestre Dos Magos", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint naruto = new GoldSaint("Naruto", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint goku = new GoldSaint("Goku", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint mestre = new GoldSaint("Mestre Dos Magos", "Touro");
+        Saint naruto = new GoldSaint("Naruto", "Touro");
+        Saint goku = new GoldSaint("Goku", "Touro");
         listaDois.adicionar(mestre);
         listaDois.adicionar(naruto); 
         listaDois.adicionar(goku);
@@ -288,9 +288,9 @@ public class ListaSaintsTest {
     @Test
     public void intersecaoDeListasIguaisDeveSerIgualAListaOriginal() throws Exception {
         ListaSaints lista = new ListaSaints();
-        Saint shaka = new GoldSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafe = new GoldSaint("Cafe", new Armadura(new Constelacao("Touro"), Categoria.OURO));
-        Saint cafezao = new GoldSaint("Cafezao", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint shaka = new GoldSaint("Shaka", "Touro");
+        Saint cafe = new GoldSaint("Cafe", "Touro");
+        Saint cafezao = new GoldSaint("Cafezao", "Touro");
         lista.adicionar(shaka);
         lista.adicionar(cafe); 
         lista.adicionar(cafezao);
@@ -308,7 +308,7 @@ public class ListaSaintsTest {
         june.setGenero(Genero.FEMININO);
         june.perderVida(15.5);
         lista.adicionar(june);
-        Saint dohko = new GoldSaint("Dohko", new Armadura(new Constelacao("Touro"), Categoria.OURO));
+        Saint dohko = new GoldSaint("Dohko", "Touro");
         dohko.perderVida(90);
         dohko.vestirArmadura();
         lista.adicionar(dohko);
