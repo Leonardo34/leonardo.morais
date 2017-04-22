@@ -41,7 +41,7 @@ public class SaintTest {
     
     @Test 
     public void testarSetGeneroSaint() throws Exception {
-        Saint jubileu = new SilverSaint("Jubileu", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        Saint jubileu = new SilverSaint("Jubileu", "Touro");
         jubileu.setGenero(Genero.FEMININO);
         assertEquals(Genero.FEMININO, jubileu.getGenero());
     }
@@ -80,7 +80,7 @@ public class SaintTest {
     
     @Test
     public void aoInstanciarUmSaintPrataSeisSentidosDespertados() throws Exception {
-        Saint saint = new SilverSaint("Shaka", new Armadura(new Constelacao("Touro"), Categoria.PRATA));
+        Saint saint = new SilverSaint("Shaka", "Touro");
         assertEquals(6, saint.getSentidosDespertados());
     }
     
@@ -181,5 +181,11 @@ public class SaintTest {
     public void aoInstanciarBronzeSaintArmaduraDeveSerBronze() {
         Saint saint = new BronzeSaint("Shaka", "Touro");
         assertEquals(saint.getCategoria(), Categoria.BRONZE);
+    }
+    
+    @Test
+    public void aoInstanciarSilverSaintArmaduraDeveSerPrata() {
+        Saint saint = new SilverSaint("Marin", "Aguia");
+        assertEquals(saint.getCategoria(), Categoria.PRATA);
     }
 }
