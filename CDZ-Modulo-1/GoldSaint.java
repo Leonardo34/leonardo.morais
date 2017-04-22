@@ -8,6 +8,10 @@ public class GoldSaint extends Saint {
         super(nome, armadura);
         this.qtdSentidosDespertados = 7;
         String constelacao = armadura.getConstelacao().getNome();
+        checarConstelacao(constelacao);
+    }
+    
+    private void checarConstelacao(String constelacao) throws Exception {
         if ( !constelacao.equals("Áries") 
             && !constelacao.equals("Touro")
             && !constelacao.equals("Gêmeos")
