@@ -11,6 +11,6 @@ public class GolpeTest {
     public void testarConstrucaoObjetoGolpe() {
         Golpe golpe = new Golpe("kamehameha", 8001);
         assertEquals("kamehameha", golpe.getNome());
-        assertEquals(8001, golpe.getFatorDano());
+        assertEquals(8001, golpe.getFatorDano(), 0);
     }
 }
