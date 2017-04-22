@@ -78,4 +78,52 @@ public class GolpearTest {
         movimento.executar();
         assertEquals(Status.MORTO, saintApanha.getStatus());
     }
+    
+    @Test
+    public void golpearComSaintBronzeSemArmadura() {
+        Saint saint = new BronzeSaint("Goku", "Touro");
+        saint.aprenderGolpe(new Golpe("Kamehameha", 20));
+        saint.aprenderGolpe(new Golpe("Chute", 5));
+        saint.aprenderGolpe(new Golpe("Soco", 5));
+        Saint saintApanha = new BronzeSaint("Seiya", "Pegasus");
+        Movimento movimento = new Golpear(saint, saintApanha);
+        movimento.executar();
+        assertEquals(80, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(75, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(70, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(50, saintApanha.getVida(), 0);
+        saint.aprenderGolpe(new Golpe("Chidori", 10));
+        movimento.executar();
+        assertEquals(45, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(40, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(30, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(10, saintApanha.getVida(), 0);
+        movimento.executar();
+    }
+    
+    @Test
+    public void golpearComSaintBronzeComArmadura() {
+        Saint saint = new BronzeSaint("Goku", "Touro");
+        saint.aprenderGolpe(new Golpe("Kamehameha", 20));
+        saint.aprenderGolpe(new Golpe("Chute", 5));
+        saint.aprenderGolpe(new Golpe("Soco", 5));
+        Saint saintApanha = new BronzeSaint("Seiya", "Pegasus");
+        Movimento movimento = new Golpear(saint, saintApanha);
+        movimento.executar();
+        assertEquals(80, saintApanha.getVida(), 0);
+        Movimento vestirArmadura = new VestirArmadura(saint);
+        vestirArmadura.executar();
+        movimento.executar();
+        assertEquals(70, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(60, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(20, saintApanha.getVida(), 0);
+    }
 }
