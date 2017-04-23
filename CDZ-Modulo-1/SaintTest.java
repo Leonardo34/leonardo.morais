@@ -193,4 +193,25 @@ public class SaintTest {
         Saint saint = new GoldSaint("Shaka", "Touro");
         assertEquals(saint.getCategoria(), Categoria.OURO);
     }
+    
+    @Test(expected=Exception.class)
+    public void pegarMovimentoDeSaintSemMovimentoGeraException() throws Exception {
+        Saint saint = new GoldSaint("Shaka", "Touro");
+        saint.getProximoMovimento();
+    }
+    
+    @Test
+    public void pegarProximoMovimentoComMovimentosAdicionados() throws Exception {
+        Saint saint = new GoldSaint("Shaka", "Touro");
+        Movimento vestirArmadura = new VestirArmadura(saint);
+        saint.adicionarMovimento(vestirArmadura);
+        assertEquals(saint.getProximoMovimento(), vestirArmadura);
+        assertEquals(saint.getProximoMovimento(), vestirArmadura);
+        Movimento golpear = new Golpear(saint, new SilverSaint("Goku", "Aries"));
+        saint.adicionarMovimento(golpear);
+        assertEquals(saint.getProximoMovimento(), golpear);
+        assertEquals(saint.getProximoMovimento(), vestirArmadura);
+        assertEquals(saint.getProximoMovimento(), golpear);
+        assertEquals(saint.getProximoMovimento(), vestirArmadura);
+    }
 }

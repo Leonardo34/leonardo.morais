@@ -1,5 +1,6 @@
 import java.security.InvalidParameterException;
 import java.util.List;
+import java.util.ArrayList;
 
 public abstract class Saint {
     private String nome;
@@ -10,6 +11,8 @@ public abstract class Saint {
     private double hp;
     private int indiceGolpe;
     protected int qtdSentidosDespertados;
+    private List<Movimento> movimentos;
+    private int indiceMovimento;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -18,6 +21,8 @@ public abstract class Saint {
         this.status = Status.VIVO;
         this.hp = 100;
         this.indiceGolpe = 0;
+        this.movimentos = new ArrayList<>();
+        this.indiceMovimento = 0;
     }
     
     public String getNome() {
@@ -88,6 +93,20 @@ public abstract class Saint {
             indiceGolpe = 0;
         }
         return getGolpes().get(indiceGolpe++);
+    }
+    
+    public void adicionarMovimento(Movimento movimento) {
+        movimentos.add(movimento);
+    }
+    
+    public Movimento getProximoMovimento() throws Exception {
+        if (movimentos.isEmpty()) {
+            throw new Exception("Este Saint não possui nenhum Movimento");
+        }
+        if (indiceMovimento == movimentos.size()) {
+            indiceMovimento = 0;
+        }
+        return movimentos.get(indiceMovimento++);
     }
     
     @Override 
