@@ -33,4 +33,23 @@ public class BatalhaTest {
         Batalha batalha = new Batalha(saintDois, saintUm);
         batalha.iniciar();
     }
+    
+    @Test
+    public void batalharAteAMorteComSaintsDeArmadura() throws Exception {
+        Saint saintUm = new GoldSaint("Shaka", "Touro");
+        Saint saintDois = new GoldSaint("Sasuke", "Áries");
+        saintUm.aprenderGolpe(new Golpe("Chute", 5));
+        saintUm.aprenderGolpe(new Golpe("MegaSoco", 7));
+        saintDois.aprenderGolpe(new Golpe("Chidori", 10));
+        saintUm.adicionarMovimento(new Golpear(saintUm, saintDois));
+        saintDois.adicionarMovimento(new Golpear(saintDois, saintUm));
+        saintUm.vestirArmadura();
+        saintDois.vestirArmadura();
+        Batalha batalha = new Batalha(saintDois, saintUm);
+        batalha.iniciar();
+        assertEquals(52, saintDois.getVida(), 0);
+        assertEquals(-20, saintUm.getVida(), 0);
+        assertEquals(Status.VIVO, saintDois.getStatus());
+        assertEquals(Status.MORTO, saintUm.getStatus());
+    }
 }
