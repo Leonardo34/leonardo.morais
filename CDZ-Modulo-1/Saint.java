@@ -86,7 +86,7 @@ public abstract class Saint {
     }
     
     public Golpe getProximoGolpe() throws Exception {
-        if (armadura.getConstelacao().getQuantidadeGolpes() == 0) {
+        if (getGolpes().isEmpty()) {
             throw new Exception("Nenhum Golpe foi aprendido por este Saint");
         }
         if (indiceGolpe == armadura.getConstelacao().getQuantidadeGolpes()) {
