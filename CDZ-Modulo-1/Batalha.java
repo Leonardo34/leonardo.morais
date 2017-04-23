@@ -1,7 +1,6 @@
 
 public class Batalha {
     private Saint saintUm, saintDois;
-    private static final double DANO = 10;
     
     public Batalha(Saint saintUm, Saint saintDois) {
         if (saintDois.getCategoria().getValor() > saintUm.getCategoria().getValor()) {
@@ -17,11 +16,7 @@ public class Batalha {
         Saint saintAtaca = saintUm;
         while (saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO) {
             saintAtaca.getProximoMovimento().executar();
-            if (saintAtaca == saintUm) {
-                saintAtaca = saintDois;
-            } else {
-                saintAtaca = saintUm;
-            }
+            saintAtaca = saintAtaca == saintUm ? saintDois : saintUm;
         }
     }
     
