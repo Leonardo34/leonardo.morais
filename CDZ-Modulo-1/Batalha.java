@@ -4,15 +4,24 @@ public class Batalha {
     private static final double DANO = 10;
     
     public Batalha(Saint saintUm, Saint saintDois) {
-        this.saintUm = saintUm;
-        this.saintDois = saintDois;
+        if (saintDois.getCategoria().getValor() > saintUm.getCategoria().getValor()) {
+            this.saintUm = saintDois;
+            this.saintDois = saintUm;
+        } else {
+            this.saintUm = saintUm;
+            this.saintDois = saintDois;
+        }
     }
     
-    public void iniciar() {
-        if (saintDois.getCategoria().getValor() > saintUm.getCategoria().getValor()) {
-            saintUm.perderVida(DANO);
-        } else {
-            saintDois.perderVida(DANO);
+    public void iniciar() throws Exception {
+        Saint saintAtaca = saintUm;
+        while (saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO) {
+            saintAtaca.getProximoMovimento().executar();
+            if (saintAtaca == saintUm) {
+                saintAtaca = saintDois;
+            } else {
+                saintAtaca = saintUm;
+            }
         }
     }
     

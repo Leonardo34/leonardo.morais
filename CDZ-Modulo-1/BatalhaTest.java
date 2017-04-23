@@ -6,22 +6,31 @@ import org.junit.Test;
 public class BatalhaTest {
     
     @Test
-    public void iniciarBatalhaComSaintDeMaiorCategoria() throws Exception {
-        Saint jubileu = new BronzeSaint("Jubileu", "Cisnei");
-        Saint irineu = new GoldSaint("Irineu", "Touro");
-        Batalha batalha = new Batalha(jubileu, irineu);
+    public void batalharAteAMorteComSaintsSemArmadura() throws Exception {
+        Saint saintUm = new GoldSaint("Shaka", "Touro");
+        Saint saintDois = new BronzeSaint("Seiya", "Pegasus");
+        saintUm.aprenderGolpe(new Golpe("Chute", 5));
+        saintUm.aprenderGolpe(new Golpe("MegaSoco", 20));
+        saintDois.aprenderGolpe(new Golpe("Chidori", 50));
+        saintUm.adicionarMovimento(new Golpear(saintUm, saintDois));
+        saintDois.adicionarMovimento(new Golpear(saintDois, saintUm));
+        Batalha batalha = new Batalha(saintDois, saintUm);
         batalha.iniciar();
-        assertEquals(90.0, jubileu.getVida(), 0.0001);
-        assertEquals(100, irineu.getVida(), 0.0001);
+        assertEquals(75, saintDois.getVida(), 0);
+        assertEquals(0, saintUm.getVida(), 0);
+        assertEquals(Status.VIVO, saintDois.getStatus());
+        assertEquals(Status.MORTO, saintUm.getStatus());
     }
     
-    @Test
-    public void categoriasIguaisIniciarComPrimeiroSaint() throws Exception {
-        Saint jubileu = new GoldSaint("Jubileu", "Touro");
-        Saint irineu = new GoldSaint("Irineu", "Touro");
-        Batalha batalha = new Batalha(irineu, jubileu);
+    @Test(expected=Exception.class)
+    public void batalharComSaintSemMovimentoGeraException() throws Exception {
+        Saint saintUm = new GoldSaint("Shaka", "Touro");
+        Saint saintDois = new BronzeSaint("Seiya", "Pegasus");
+        saintUm.aprenderGolpe(new Golpe("Chute", 5));
+        saintUm.aprenderGolpe(new Golpe("MegaSoco", 20));
+        saintDois.aprenderGolpe(new Golpe("Chidori", 50));
+        saintUm.adicionarMovimento(new Golpear(saintUm, saintDois));
+        Batalha batalha = new Batalha(saintDois, saintUm);
         batalha.iniciar();
-        assertEquals(90.0, jubileu.getVida(), 0);
-        assertEquals(100, irineu.getVida(), 0);
     }
 }
