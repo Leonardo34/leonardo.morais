@@ -86,5 +86,5 @@ public class BatalhaTest {
         assertEquals(100, saintUm.getVida(), 0);
         assertEquals(Status.VIVO, saintDois.getStatus());
         assertEquals(Status.VIVO, saintUm.getStatus());
-    }
+    }   
 }
