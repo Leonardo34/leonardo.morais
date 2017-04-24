@@ -17,6 +17,7 @@ public class GolpearTest {
         assertEquals(90, saintApanha.getVida(), 0);
         movimento.executar();
         assertEquals(80, saintApanha.getVida(), 0);
+        assertEquals(100, saint.getVida(), 0);
     }
     
     @Test
@@ -34,6 +35,7 @@ public class GolpearTest {
         assertEquals(82, saintApanha.getVida(), 0);
         movimento.executar();
         assertEquals(42, saintApanha.getVida(), 0);
+        assertEquals(100, saint.getVida(), 0);
     }
     
     @Test
@@ -43,6 +45,7 @@ public class GolpearTest {
         Movimento movimento = new Golpear(saint, saintApanha);
         movimento.executar();
         assertEquals(100, saintApanha.getVida(), 0);
+        assertEquals(100, saint.getVida(), 0);
     }
     
     @Test
@@ -58,6 +61,7 @@ public class GolpearTest {
         saint.aprenderGolpe(new Golpe("Soco", 5));
         movimento.executar();
         assertEquals(55, saintApanha.getVida(), 0);
+        assertEquals(100, saint.getVida(), 0);
     }
     
     @Test
@@ -77,6 +81,7 @@ public class GolpearTest {
         assertEquals(5, saintApanha.getVida(), 0);
         movimento.executar();
         assertEquals(Status.MORTO, saintApanha.getStatus());
+        assertEquals(100, saint.getVida(), 0);
     }
     
     @Test
@@ -105,6 +110,7 @@ public class GolpearTest {
         movimento.executar();
         assertEquals(10, saintApanha.getVida(), 0);
         movimento.executar();
+        assertEquals(100, saint.getVida(), 0);
     }
     
     @Test
@@ -125,5 +131,6 @@ public class GolpearTest {
         assertEquals(60, saintApanha.getVida(), 0);
         movimento.executar();
         assertEquals(20, saintApanha.getVida(), 0);
+        assertEquals(100, saint.getVida(), 0);
     }
 }
