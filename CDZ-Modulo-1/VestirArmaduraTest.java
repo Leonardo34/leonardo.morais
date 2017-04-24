@@ -15,4 +15,10 @@ public class VestirArmaduraTest {
         movimento.executar();
         assertTrue(saint.isArmaduraVestida());
     }
+    
+    @Test(expected = NullPointerException.class)
+    public void vestirArmaduraComSaintNull() {
+        Movimento movimento = new VestirArmadura(null);
+        movimento.executar();
+    }
 }
