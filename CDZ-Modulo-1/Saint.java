@@ -109,6 +109,18 @@ public abstract class Saint {
         return movimentos.get(indiceMovimento++);
     }
     
+    public boolean estaAptoBatalhar() {
+        if (getGolpes().isEmpty()) {
+            return false;
+        }
+        for (Movimento mov : movimentos) {
+            if (mov instanceof Golpear) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     @Override 
     public String toString() {
         return nome + "," + 

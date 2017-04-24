@@ -214,4 +214,37 @@ public class SaintTest {
         assertEquals(saint.getProximoMovimento(), golpear);
         assertEquals(saint.getProximoMovimento(), vestirArmadura);
     }
+    
+    @Test
+    public void saintSemGolpesNaoEstaAptoABatalhar() {
+        Saint saint = new BronzeSaint("Seiya", "Pegasus");
+        Movimento golpear = new Golpear(saint, new SilverSaint("Goku", "Aries"));
+        saint.adicionarMovimento(golpear);
+        assertFalse(saint.estaAptoBatalhar());
+    }
+    
+    @Test
+    public void saintSemMovimentosNaoEstaAptoABatalhar() {
+        Saint saint = new BronzeSaint("Seiya", "Pegasus");
+        saint.aprenderGolpe(new Golpe("Chute", 10));
+        assertFalse(saint.estaAptoBatalhar());
+    }
+    
+    @Test
+    public void saintSemMovimentosDeDanoNaoEstaAptoABatalhar() {
+        Saint saint = new BronzeSaint("Seiya", "Pegasus");
+        saint.aprenderGolpe(new Golpe("Chute", 10));
+        saint.adicionarMovimento(new VestirArmadura(saint));
+        assertFalse(saint.estaAptoBatalhar());
+    }
+    
+    @Test
+    public void saintComGolpesEMovimentosDeDanoEstaAptoABatalhar() {
+        Saint saint = new BronzeSaint("Seiya", "Pegasus");
+        saint.aprenderGolpe(new Golpe("Chute", 10));
+        Saint saintDois = new SilverSaint("Goku", "Vegeta");
+        saint.adicionarMovimento(new Golpear(saint, saintDois));
+        saint.adicionarMovimento(new VestirArmadura(saint));
+        assertTrue(saint.estaAptoBatalhar());
+    }
 }
