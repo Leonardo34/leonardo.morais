@@ -247,4 +247,12 @@ public class SaintTest {
         saint.adicionarMovimento(new VestirArmadura(saint));
         assertTrue(saint.estaAptoBatalhar());
     }
+
+	@Test
+	public void quantidadeSaintsDeveSerIncrementadaACadaInstanSaint() throws Exception {
+		int quantidadeInicial = Saint.getQuantidadeSaints();
+		Saint saint = new BronzeSaint("Seiya", "Pegasus");
+		Saint saintDois = new BronzeSaint("Seiya2", "Pegasus");
+		assertEquals(2, Saint.getQuantidadeSaints() - quantidadeInicial);
+	}
 }
