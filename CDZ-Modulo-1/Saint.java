@@ -13,7 +13,7 @@ public abstract class Saint {
     protected int qtdSentidosDespertados;
     private List<Movimento> movimentos;
     private int indiceMovimento;
-	private static int numeroSaints = 0;
+    private static int numeroSaints = 0;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -24,12 +24,12 @@ public abstract class Saint {
         this.indiceGolpe = 0;
         this.movimentos = new ArrayList<>();
         this.indiceMovimento = 0;
-		Saint.numeroSaints++;
+        Saint.numeroSaints++;
     }
 
-	public static int getQuantidadeSaints() {
-		return numeroSaints;
-	}
+    public static int getQuantidadeSaints() {
+        return numeroSaints;
+    }
     
     public String getNome() {
         return nome;
