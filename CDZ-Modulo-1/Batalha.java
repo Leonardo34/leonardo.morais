@@ -13,11 +13,13 @@ public class Batalha {
     }
     
     public void iniciar() throws Exception {
-        Saint saintAtaca = saintUm;
-        while (saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO) {
-            saintAtaca.getProximoMovimento().executar();
-            saintAtaca = saintAtaca == saintUm ? saintDois : saintUm;
-        }
+        if (saintUm.estaAptoBatalhar() && saintDois.estaAptoBatalhar()) {
+            Saint saintAtaca = saintUm;
+            while (saintUm.getStatus() != Status.MORTO && saintDois.getStatus() != Status.MORTO) {
+                saintAtaca.getProximoMovimento().executar();
+                saintAtaca = saintAtaca == saintUm ? saintDois : saintUm;
+            }
+        }    
     }
     
     public Saint getSaintUm() {
