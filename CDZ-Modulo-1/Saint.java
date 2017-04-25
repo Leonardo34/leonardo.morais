@@ -26,8 +26,8 @@ public abstract class Saint {
         this.indiceGolpe = 0;
         this.movimentos = new ArrayList<>();
         this.indiceMovimento = 0;
-        this.id = numeroSaints;
         Saint.numeroSaints++;
+        this.id = numeroSaints;
     }
 
     public static int getQuantidadeSaints() {
