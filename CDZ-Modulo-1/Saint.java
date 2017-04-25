@@ -29,6 +29,11 @@ public abstract class Saint {
         Saint.numeroSaints++;
         this.id = numeroSaints;
     }
+    
+    @Override
+    protected void finalize() {
+        Saint.numeroSaints--;
+    }
 
     public static int getQuantidadeSaints() {
         return numeroSaints;
