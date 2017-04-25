@@ -16,6 +16,7 @@ public abstract class Saint {
     private int id;
     
     private static int numeroSaints = 0;
+    private static int acumuladorQtdSaints = 0;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -27,7 +28,7 @@ public abstract class Saint {
         this.movimentos = new ArrayList<>();
         this.indiceMovimento = 0;
         Saint.numeroSaints++;
-        this.id = numeroSaints;
+        this.id = ++Saint.acumuladorQtdSaints;
     }
     
     @Override
@@ -37,6 +38,10 @@ public abstract class Saint {
 
     public static int getQuantidadeSaints() {
         return numeroSaints;
+    }
+    
+    public static int getAcumuladorSaints() {
+        return acumuladorQtdSaints;
     }
     
     public String getNome() {
@@ -89,6 +94,10 @@ public abstract class Saint {
     
     public int getSentidosDespertados() {
         return qtdSentidosDespertados;
+    }
+
+    public int getID() {
+        return id;
     }
     
     public List<Golpe> getGolpes() {

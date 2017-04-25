@@ -255,8 +255,27 @@ public class SaintTest {
 
     @Test
     public void quantidadeSaintsDeveSerIncrementadaACadaInstanSaint() throws Exception {
+        assertEquals(0, Saint.getQuantidadeSaints());
         Saint saint = new BronzeSaint("Seiya", "Pegasus");
         Saint saintDois = new BronzeSaint("Seiya2", "Pegasus");
         assertEquals(2, Saint.getQuantidadeSaints());
+    }
+    
+    @Test
+    public void identificadorSaintDeveIncrementarACadaSaintCriado() throws Exception {
+        int idInicial = Saint.getAcumuladorSaints();
+        Saint saint = new BronzeSaint("Seiya", "Pegasus");
+        assertEquals(idInicial + 1, saint.getID());
+    }
+    
+    @Test
+    public void criarTresSaintsEChecarIDs() throws Exception {
+        int idInicial = Saint.getAcumuladorSaints();
+        Saint bronze = new BronzeSaint("Seiya", "Pegasus");
+        Saint silver = new SilverSaint("Goku", "Goham");
+        Saint gold = new GoldSaint("Satan", "Áries");
+        assertEquals(idInicial + 1, bronze.getID());
+        assertEquals(idInicial + 2, silver.getID());
+        assertEquals(idInicial + 3, gold.getID());
     }
 }
