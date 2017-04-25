@@ -13,6 +13,8 @@ public abstract class Saint {
     protected int qtdSentidosDespertados;
     private List<Movimento> movimentos;
     private int indiceMovimento;
+    private int id;
+    
     private static int numeroSaints = 0;
     
     public Saint(String nome, Armadura armadura) {
@@ -24,6 +26,7 @@ public abstract class Saint {
         this.indiceGolpe = 0;
         this.movimentos = new ArrayList<>();
         this.indiceMovimento = 0;
+        this.id = numeroSaints;
         Saint.numeroSaints++;
     }
 
