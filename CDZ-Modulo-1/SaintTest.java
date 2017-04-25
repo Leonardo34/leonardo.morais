@@ -7,6 +7,11 @@ import java.security.InvalidParameterException;
 
 public class SaintTest {
     
+    @After
+    public void tearDown() {
+        System.gc();
+    }
+    
     @Test
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
         // AAA
@@ -250,9 +255,8 @@ public class SaintTest {
 
     @Test
     public void quantidadeSaintsDeveSerIncrementadaACadaInstanSaint() throws Exception {
-        int quantidadeInicial = Saint.getQuantidadeSaints();
         Saint saint = new BronzeSaint("Seiya", "Pegasus");
         Saint saintDois = new BronzeSaint("Seiya2", "Pegasus");
-        assertEquals(2, Saint.getQuantidadeSaints() - quantidadeInicial);
+        assertEquals(2, Saint.getQuantidadeSaints());
     }
 }
