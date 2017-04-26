@@ -21,4 +21,10 @@ public class SorteDoDiaTest {
         double porcentagemSortes = (totalSortes * 100) / NUM_ITERACOES;
         assertEquals(50, porcentagemSortes, 2);
     }
+    
+    @Test
+    public void estouComDadoFalso() {
+        SorteDoDia sorteDoDia = new SorteDoDia(new DadoFalso());
+        assertTrue(sorteDoDia.estaComSorte());
+    }
 }
