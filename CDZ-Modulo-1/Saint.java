@@ -141,7 +141,7 @@ public abstract class Saint {
             return false;
         }
         for (Movimento mov : movimentos) {
-            if (mov instanceof Golpear) {
+            if (mov.isMovimentoDeAtaque()) {
                 return true;
             }
         }
