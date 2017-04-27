@@ -26,4 +26,9 @@ public class AtaqueDuplo implements Movimento {
             System.out.println(e.getMessage());            
         }
     }
+    
+    @Override
+    public boolean isMovimentoDeAtaque() {
+        return true;
+    }
 }

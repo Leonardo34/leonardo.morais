@@ -17,4 +17,9 @@ public class Golpear implements Movimento {
             System.out.println(e.getMessage());
         }
     }
+    
+    @Override
+    public boolean isMovimentoDeAtaque() {
+        return true;
+    }
 }

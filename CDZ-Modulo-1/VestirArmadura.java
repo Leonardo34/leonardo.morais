@@ -10,4 +10,9 @@ public class VestirArmadura implements Movimento {
     public void executar() {
         saint.vestirArmadura();
     }
+    
+    @Override
+    public boolean isMovimentoDeAtaque() {
+        return false;
+    }
 }
