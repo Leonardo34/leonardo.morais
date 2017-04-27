@@ -13,8 +13,7 @@ public class AtaqueDuplo implements Movimento {
     @Override
     public void executar() {
         boolean dobroDano = sorteador.sortear() % 3 == 0;
-        int multiploDano = golpeador.isArmaduraVestida() ? 
-            1 + golpeador.getCategoria().getValor() : 1;
+        int multiploDano = golpeador.getMultiploDano();
         try {    
             double vidaPerder = golpeador.getProximoGolpe().getFatorDano() * multiploDano;
             if (dobroDano) {
@@ -24,7 +23,7 @@ public class AtaqueDuplo implements Movimento {
                 golpeador.perderVida((PORC_CASO_ATAQUE_FALHE * 100) / golpeador.getVida());                
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage());            
         }
     }
 }

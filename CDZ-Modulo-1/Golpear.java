@@ -9,9 +9,7 @@ public class Golpear implements Movimento {
     
     @Override
     public void executar() {
-        int multiploDano = 
-            golpeador.isArmaduraVestida() ? 
-            1 + golpeador.getCategoria().getValor() : 1;
+        int multiploDano = golpeador.getMultiploDano();
         try {
             double vidaPerder = golpeador.getProximoGolpe().getFatorDano() * multiploDano;
             golpeado.perderVida(vidaPerder);

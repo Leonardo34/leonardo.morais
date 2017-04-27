@@ -118,6 +118,10 @@ public abstract class Saint {
         return getGolpes().get(indiceGolpe++);
     }
     
+    public int getMultiploDano() {
+        return armaduraVestida ? 1 + getCategoria().getValor() : 1;
+    }
+    
     public void adicionarMovimento(Movimento movimento) {
         movimentos.add(movimento);
     }
