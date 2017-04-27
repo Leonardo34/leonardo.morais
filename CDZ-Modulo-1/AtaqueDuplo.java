@@ -5,7 +5,7 @@ public class AtaqueDuplo implements Movimento {
     private static final int PORC_CASO_ATAQUE_FALHE = 5;
     
     public AtaqueDuplo(Saint golpeador, Saint golpeado, Sorteador sorteador) {
-        this.golpeador = golpeado;
+        this.golpeador = golpeador;
         this.golpeado = golpeado;
         this.sorteador = sorteador;
     }
@@ -20,7 +20,7 @@ public class AtaqueDuplo implements Movimento {
                 golpeado.perderVida(vidaPerder * 2);
             } else {
                 golpeado.perderVida(vidaPerder);
-                golpeador.perderVida((PORC_CASO_ATAQUE_FALHE * 100) / golpeador.getVida());                
+                golpeador.perderVida((PORC_CASO_ATAQUE_FALHE * golpeador.getVida()) / 100);                
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());            
