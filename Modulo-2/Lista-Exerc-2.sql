@@ -16,8 +16,8 @@ select IDEmpregado,
 select IDEmpregado as ID,
 	NomeEmpregado as Nome,
 	(Salario * 13) as SalarioAnual,
-	(Comissao * 12) as ComissaoAnual,
-	(Salario * 13 + Comissao * 12) as RendaAnual
+	(ISNULL(Comissao, 0) * 12) as ComissaoAnual,
+	(Salario * 13 + ISNULL(Comissao, 0) * 12) as RendaAnual
 	from Empregado;
 
 -- Exercicio 4
@@ -30,5 +30,5 @@ select IDEmpregado,
 	where (Salario * 13) <= 18500 OR Cargo = 'Atendente';
 
 select * from Empregado;
-	 
-	
+
+select COUNT(distinct Cargo) as NumCargos from Empregado;
