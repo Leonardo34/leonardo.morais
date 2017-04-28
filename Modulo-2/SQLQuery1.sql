@@ -20,6 +20,8 @@ Create table Produto (
 		constraint PK_Produto primary key (IDProduto)
 );
 
+--Exercicio 4
+
 insert into Produto (IDProduto, NomeCurto, NomeDescritivo, DataCriacao, LocalEstoque, Quantidade)
 	values (1, 'Café', 'Café Loco', convert(datetime, '1980/12/17', 111), 'Céu', 8001);
 
