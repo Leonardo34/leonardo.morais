@@ -6,9 +6,10 @@ select IDEmpregado, NomeEmpregado from Empregado order by DataAdmissao;
 
 select IDEmpregado,
 	 NomeEmpregado, 
-	 Comissao 
+	 Comissao
 	 from Empregado 
-	 where Comissao is null; 
+	 where Comissao is null
+	 order by Salario; 
 
 -- Exercicio 3
 
