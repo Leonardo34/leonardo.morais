@@ -13,7 +13,8 @@ select IDEmpregado,
 
 -- Exercicio 3
 
-select NomeEmpregado as Nome,
+select IDEmpregado as ID,
+	NomeEmpregado as Nome,
 	(Salario * 13) as SalarioAnual,
 	(Comissao * 12) as ComissaoAnual,
 	(Salario * 13 + Comissao * 12) as RendaAnual
