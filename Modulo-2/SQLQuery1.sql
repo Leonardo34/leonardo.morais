@@ -6,6 +6,8 @@ select * into CidadeAux from Cidade;
 
 truncate table CidadeAux;
 
+select * into CidadeAux from Cidade where UF = 'RS';
+
 select * from CidadeAux;
 
 --Exercicio 3
