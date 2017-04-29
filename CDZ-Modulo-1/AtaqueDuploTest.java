@@ -43,4 +43,25 @@ public class AtaqueDuploTest {
         assertEquals(80, saintApanha.getVida(), 0);
         assertEquals(90.25, saint.getVida(), 0);
     }
+    
+    @Test
+    public void ataqueDuploComArmaduraCausaDanoDobradoMaisFatorArm() throws Exception {
+        Saint saint = new GoldSaint("Goku", "Touro");
+        saint.aprenderGolpe(new Golpe("Kamehameha", 10));
+        Saint saintApanha = new BronzeSaint("Seiya", "Pegasus");
+        Movimento vestirArmadura = new VestirArmadura(saint);
+        vestirArmadura.executar();
+        Movimento movimento = new AtaqueDuplo(saint, saintApanha, new Sorteador() {
+            @Override
+            public int sortear() {
+                return 6;
+            }
+        });
+        movimento.executar();
+        assertEquals(100, saint.getVida(), 0);
+        assertEquals(20, saintApanha.getVida(), 0);
+        movimento.executar();
+        assertEquals(Status.MORTO, saintApanha.getStatus());
+        assertEquals(100, saint.getVida(), 0);
+    }
 }
