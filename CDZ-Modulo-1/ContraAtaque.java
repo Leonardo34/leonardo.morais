@@ -11,7 +11,11 @@ public class ContraAtaque implements Movimento {
     
     @Override
     public void executar() {
-        
+        if (golpeado.getVida() < 50 && !golpeado.isArmaduraVestida()) {
+            if (sorteador.sortear() < 5) {
+                golpeado.bloquearProximoAtaque();
+            }
+        }
     }
     
     @Override
