@@ -53,7 +53,7 @@ public class SaintTest {
     @Test
     public void testarMetodoPerdeVida() throws Exception {
         Saint saint = new GoldSaint("Shaka", "Touro");
-        saint.perderVida(60);
+        saint.perderVida(60, new BronzeSaint("Seiya", "Peg"));
         assertEquals(40.0, saint.getVida(), 0.0001);
     }
     
@@ -277,5 +277,22 @@ public class SaintTest {
         assertEquals(idInicial + 1, bronze.getID());
         assertEquals(idInicial + 2, silver.getID());
         assertEquals(idInicial + 3, gold.getID());
+    }
+    
+    @Test 
+    public void contraAtacarNaoPerdeVidaECausDanoAdversario() {
+        Saint saint = new BronzeSaint("Seiya", "Pegasus");
+        Saint golpeador = new SilverSaint("Goku", "Touro");
+        saint.bloquearProximoAtaque();
+        saint.perderVida(20, golpeador);
+        assertEquals(100, saint.getVida(), 0);
+        assertEquals(75, golpeador.getVida(), 0);
+        saint.perderVida(20, golpeador);
+        assertEquals(80, saint.getVida(), 0);
+        assertEquals(75, golpeador.getVida(), 0);
+        saint.bloquearProximoAtaque();
+        saint.perderVida(20, golpeador);
+        assertEquals(80, saint.getVida(), 0);
+        assertEquals(56.25, golpeador.getVida(), 0);
     }
 }

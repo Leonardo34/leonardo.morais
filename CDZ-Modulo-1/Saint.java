@@ -3,6 +3,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 public abstract class Saint {
+    private static final double PORCENTAGEM_DANO_CONTRA_ATAQUE = 0.25;    
+    private static int numeroSaints = 0;
+    private static int acumuladorQtdSaints = 0;
+    
     private String nome;
     private Armadura armadura;
     private boolean armaduraVestida;
@@ -14,9 +18,7 @@ public abstract class Saint {
     private List<Movimento> movimentos;
     private int indiceMovimento;
     private int id;
-    
-    private static int numeroSaints = 0;
-    private static int acumuladorQtdSaints = 0;
+    private boolean vaiContraAtacar;
     
     public Saint(String nome, Armadura armadura) {
         this.nome = nome;
@@ -29,6 +31,7 @@ public abstract class Saint {
         this.indiceMovimento = 0;
         Saint.numeroSaints++;
         this.id = ++Saint.acumuladorQtdSaints;
+        this.vaiContraAtacar = false;
     }
     
     @Override
@@ -72,6 +75,23 @@ public abstract class Saint {
             hp -= dano;
             atualizarStatus();
         }     
+    }
+    
+    public void perderVida(double dano, Saint golpeador) {
+        if (vaiContraAtacar) {
+            contraAtacar(golpeador);
+        } else {
+            perderVida(dano);
+        }
+    }
+    
+    private void contraAtacar(Saint golpeador) {
+        golpeador.perderVida(PORCENTAGEM_DANO_CONTRA_ATAQUE * golpeador.getVida());
+        vaiContraAtacar = false;
+    }
+    
+    public void bloquearProximoAtaque() {
+        vaiContraAtacar = true;
     }
     
     public Status getStatus() {
