@@ -2,7 +2,7 @@
 public class AtaqueDuplo implements Movimento {
     private Saint golpeador, golpeado;
     private Sorteador sorteador;
-    private static final int PORC_CASO_ATAQUE_FALHE = 5;
+    private static final double PORC_CASO_ATAQUE_FALHE = 0.05;
     
     public AtaqueDuplo(Saint golpeador, Saint golpeado, Sorteador sorteador) {
         this.golpeador = golpeador;
@@ -12,15 +12,13 @@ public class AtaqueDuplo implements Movimento {
     
     @Override
     public void executar() {
-        boolean dobroDano = sorteador.sortear() % 3 == 0;
-        int multiploDano = golpeador.getMultiploDano();
         try {    
-            double vidaPerder = golpeador.getProximoGolpe().getFatorDano() * multiploDano;
-            if (dobroDano) {
-                golpeado.perderVida(vidaPerder * 2);
+            double vidaPerder = golpeador.getProximoGolpe().getFatorDano() * golpeador.getMultiploDano();
+            if (sorteador.sortear() % 3 == 0) {
+                golpeado.perderVida(vidaPerder * 2, golpeador);
             } else {
-                golpeado.perderVida(vidaPerder);
-                golpeador.perderVida((PORC_CASO_ATAQUE_FALHE * golpeador.getVida()) / 100);                
+                golpeado.perderVida(vidaPerder, golpeador);
+                golpeador.perderVida(PORC_CASO_ATAQUE_FALHE * golpeador.getVida());                
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());            
