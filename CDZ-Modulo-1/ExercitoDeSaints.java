@@ -16,5 +16,5 @@ public abstract class ExercitoDeSaints {
         return exercito.isEmpty();
     }
     
-    public abstract Saint getProximoSaint();
+    public abstract Saint getProximoSaint() throws ExercitoVazioException;
 }
