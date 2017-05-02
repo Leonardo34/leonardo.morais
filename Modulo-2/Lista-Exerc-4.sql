@@ -47,7 +47,10 @@ select *, CustoReal = CASE
 
 -- Exercicio 7
 
-select * from Licitacao where Identificador = 17255;
+select Valor_Realizado from Licitacao where Identificador = 17255 OR Identificador = 17120;
+
+/* A Diferença do orçamento entre os dois projetos é pequena, considerando seus valores totais
+
 
 
 
