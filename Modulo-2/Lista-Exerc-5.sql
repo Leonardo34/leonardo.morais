@@ -42,6 +42,6 @@ select Nome,
 update Cidade
 	set Nome = Nome + '*'
 	where IDCidade in (select MAX(IDCidade)
-							from Cidade 
-							group by Nome, UF
-							having COUNT(Nome) > 1 AND COUNT(UF) > 1);
+						from Cidade 
+						group by Nome, UF
+						having COUNT(Nome) > 1 AND COUNT(UF) > 1);
