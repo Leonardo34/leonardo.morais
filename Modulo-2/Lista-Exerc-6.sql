@@ -21,3 +21,8 @@ select UF, COUNT(1)
 	from Cidade CID
 	inner join Cliente CLI on CID.IDCidade = CLI.IDCidade
 	group by CID.UF;
+
+-- Exercicio 4
+
+insert into Produto(Nome, PrecoCusto, PrecoVenda, Situacao) 
+	values('Galocha Maragato', 35.67, 77.95, 'A');
