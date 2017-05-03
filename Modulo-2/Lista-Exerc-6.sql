@@ -36,3 +36,7 @@ insert into Produto(Nome, PrecoCusto, PrecoVenda, Situacao)
 	values('Galocha Maragato', 35.67, 77.95, 'A');
 
 -- Exercicio 5
+
+select * from Produto 
+	where IDProduto NOT IN (Select IDProduto
+								from PedidoItem);
