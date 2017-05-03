@@ -17,12 +17,22 @@ select COUNT(*) as Quantidade,
 
 -- Exercicio 3
 
-select UF, COUNT(1)
+Select * from (select TOP(1) UF, COUNT(1) as Quantidade
 	from Cidade CID
 	inner join Cliente CLI on CID.IDCidade = CLI.IDCidade
-	group by CID.UF;
+	group by CID.UF
+	order by Quantidade) as Tabela1
+	Union
+	Select * from (select TOP(1) UF, COUNT(1) as Quantidade
+	from Cidade CID
+	inner join Cliente CLI on CID.IDCidade = CLI.IDCidade
+	group by CID.UF
+	order by Quantidade DESC)
+	as Tabela2;
 
 -- Exercicio 4
 
 insert into Produto(Nome, PrecoCusto, PrecoVenda, Situacao) 
 	values('Galocha Maragato', 35.67, 77.95, 'A');
+
+-- Exercicio 5
