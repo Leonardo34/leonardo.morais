@@ -1,11 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Ewert);
 
-
-body {   
-    background: -webkit-gradient(linear, left top, right top, from(#CCCCCC), to(green)) no-repeat;
-    background: -moz-linear-gradient(left, #CCCCCC, #000000);
-    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#CCCCCC', EndColorStr='#000000');           
-}
 h1 {
     color:green;
 }
@@ -23,6 +17,11 @@ font {
     width: 1220px;
     height: 300px;
 }
+.subTitulo {
+    background: -webkit-gradient(linear, left top, right top, from(#CCCCCC), to(green)) no-repeat;
+    background: -moz-linear-gradient(left, #CCCCCC, #000000);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#CCCCCC', EndColorStr='#000000');  
+}
 .topo {
     font-family: 'Ewert';
     font-size: 22px;
@@ -38,6 +37,9 @@ font {
 }
 .topo:hover ~ h3 {
     color: #7B96B8;
+    background: -webkit-gradient(linear, left top, right top, from(#fff), to(gray)) no-repeat;
+    background: -moz-linear-gradient(left, #CCCCCC, #000000);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#CCCCCC', EndColorStr='#000000');  
 }
 @keyframes blur {
   from {
