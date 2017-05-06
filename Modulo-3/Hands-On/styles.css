@@ -1,18 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Ewert);
 h1 {
-    background-image: url("background.jpg");
-    color:green
+    color:green;
 }
 h3 {
-    color: green
+    color: green;
 }
 p {
-    text-align: left
+    text-align: left;
 }
 font {
-    color: black
+    color: black;
 }
 #image {
     width: 1220px;
     height: 300px;
+}
+.topo {
+    font-family: 'Ewert';font-size: 22px;
+    background-image: url("img/background.jpg");
+    text-align: center;
+    font-size: 100px;
+    color: green;
+    animation: blur .75s ease-out infinite;
+}
+.topo:hover {
+    border: solid 5px black;
+}
+@keyframes blur {
+  from {
+    text-shadow:0px 0px 10px #fff,
+      0px 0px 10px #fff, 
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #7B96B8,
+      0px 0px 150px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px -10px 100px #7B96B8,
+      0px -10px 100px #7B96B8;
+  }
 }
 
