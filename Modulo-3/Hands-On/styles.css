@@ -1,8 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Ewert);
+
+
+body {   
+    background: -webkit-gradient(linear, left top, right top, from(#CCCCCC), to(green)) no-repeat;
+    background: -moz-linear-gradient(left, #CCCCCC, #000000);
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#CCCCCC', EndColorStr='#000000');           
+}
 h1 {
     color:green;
 }
 h3 {
+    font-size: 25px;
     color: green;
 }
 p {
@@ -16,7 +24,8 @@ font {
     height: 300px;
 }
 .topo {
-    font-family: 'Ewert';font-size: 22px;
+    font-family: 'Ewert';
+    font-size: 22px;
     background-image: url("img/background.jpg");
     text-align: center;
     font-size: 100px;
