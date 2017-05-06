@@ -24,7 +24,11 @@ font {
     animation: blur .75s ease-out infinite;
 }
 .topo:hover {
-    color: red;
+    color: #7B96B8;
+    background-image: url("img/background-2.jpg");
+}
+.topo:hover ~ h3 {
+    color: #7B96B8;
 }
 @keyframes blur {
   from {
