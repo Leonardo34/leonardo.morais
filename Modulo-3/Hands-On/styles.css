@@ -24,7 +24,7 @@ font {
     animation: blur .75s ease-out infinite;
 }
 .topo:hover {
-    border: solid 5px black;
+    color: red;
 }
 @keyframes blur {
   from {
