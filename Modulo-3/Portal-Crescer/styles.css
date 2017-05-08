@@ -12,11 +12,21 @@ body {
     color: white;
     background-color: #c4170c;
     text-align: center;
-    margin-bottom: 50px;
 }
 .noticia {
     background-color: #fff;
+    padding: 40px 40px 40px 40px;
+    border-radius: 5px;
+}
+.noticia .titulo {
+    color: #c4170c;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+}
+.subTitulo {
+    color: #bbb;
+}
+.cont {
+    padding: 40px 40px 40px 40px;
     width: 50%;
-    position: absolute;
-    left: 100px;
 }
