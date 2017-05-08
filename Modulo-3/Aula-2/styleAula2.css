@@ -6,26 +6,26 @@
     height: 25vh;
     font-size: 0;
 }
-.bloco {
+.blocoVermelho, .blocoAzul, .blocoRoxo, .blocoAmarelo {
     font-size: initial;
     height: 100%;
     display: inline-block;
     border: 2px solid black;
 }
-#divItemUm {
+.blocoVermelho {
     width: 25%;
     background-color: red;
 }
 
-#divItemDois {
+.blocoAzul {
     width: 50%;
     background-color: blue;
 }
-#divItemTres {
+.blocoRoxo {
     width: 100%;
     background-color:purple;
 }
-#divItemQuatro {
+.blocoAmarelo {
     width: 10%;
     background-color:yellow;
 }
