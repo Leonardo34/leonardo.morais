@@ -12,6 +12,7 @@ body {
     color: white;
     background-color: #c4170c;
     text-align: center;
+    padding: 10px 10px 10px 10px;
 }
 .container {
     float: left;
