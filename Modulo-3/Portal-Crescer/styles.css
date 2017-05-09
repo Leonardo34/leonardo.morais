@@ -1,11 +1,13 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0px 0px 0px 0px;
     background-color: #fafafa;
 }
+
 .header {
     width: 100%;
     font-size: 40px;
@@ -14,22 +16,26 @@ body {
     text-align: center;
     padding: 10px 10px 10px 10px;
 }
+
 .container {
     float: left;
     padding: 40px 40px 40px 40px;
     width: 50%;
 }
+
 .clearfix:after {
     content: "";
     display: block;
     clear: both;
 }
+
 .noticia {
     background-color: #fff;
     padding: 20px 40px 40px 40px;
     border: 0.2px solid lightgrey;
     border-radius: 5px;
 }
+
 .titulo {
     color: #c4170c;
     letter-spacing: 0.05px;
@@ -37,24 +43,29 @@ body {
     margin-bottom: 20px;
     display: inline-block;
 }
+
 .subTitulo {
     color: #bbb;
 }
+
 .imagemConteudo {
     height: 150px;
     width: auto;
     margin: 10px 10px;
     float: right;
 }
+
 .texto {
     color:  #333;
     line-height: 30px;
     font-weight: 600;
 }
+
 .rodapeNoticia {
     color: #bbb;
     text-align: right;
 }
+
 .texto::first-letter {
     float: left;
     padding: 8px 8px 0px 0px;
