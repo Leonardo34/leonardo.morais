@@ -49,6 +49,7 @@ body {
 .texto {
     color:  #333;
     line-height: 30px;
+    font-weight: 600;
 }
 .rodapeNoticia {
     color: #bbb;
