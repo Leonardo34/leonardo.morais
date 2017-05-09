@@ -13,12 +13,19 @@ body {
     background-color: #c4170c;
     text-align: center;
 }
+.container {
+    padding: 40px 40px 40px 40px;
+    width: 50%;
+    content: "";
+    display: block;
+    clear: both;
+}
 .noticia {
     background-color: #fff;
     padding: 40px 40px 40px 40px;
     border-radius: 5px;
 }
-.noticia .titulo {
+.titulo {
     color: #c4170c;
     letter-spacing: 0.3px;
     margin-bottom: 20px;
@@ -26,7 +33,15 @@ body {
 .subTitulo {
     color: #bbb;
 }
-.cont {
-    padding: 40px 40px 40px 40px;
-    width: 50%;
+.imagemConteudo {
+    height: 150px;
+    width: auto;
+    margin: 10px 20px;
+    float: right;
+}
+.texto::first-letter {
+    float: left;
+    padding: 8px 8px 0px 0px;
+    color: #c4170c;
+    font-size: 50px;
 }
