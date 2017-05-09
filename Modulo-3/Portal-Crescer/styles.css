@@ -14,8 +14,11 @@ body {
     text-align: center;
 }
 .container {
+    float: left;
     padding: 40px 40px 40px 40px;
     width: 50%;
+}
+.clearfix:after {
     content: "";
     display: block;
     clear: both;
@@ -29,6 +32,7 @@ body {
     color: #c4170c;
     letter-spacing: 0.3px;
     margin-bottom: 20px;
+    display: inline-block;
 }
 .subTitulo {
     color: #bbb;
