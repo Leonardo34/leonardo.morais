@@ -40,7 +40,7 @@ body {
 .imagemConteudo {
     height: 150px;
     width: auto;
-    margin: 10px 20px;
+    margin: 10px 10px;
     float: right;
 }
 .texto::first-letter {
