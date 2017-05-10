@@ -34,7 +34,7 @@ body {
     top: 70%;
     transform: translate(-50%, -50%);
     border: 0.2px solid lightgrey;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 0px;
 }
 
