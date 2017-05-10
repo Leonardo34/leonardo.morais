@@ -25,6 +25,7 @@ body {
 
 .rodape:hover {
     height: 200px;
+    transition: 2s;
 }
 
 .rodape:hover .texto {
