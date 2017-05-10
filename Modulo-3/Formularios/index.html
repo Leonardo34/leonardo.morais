@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <meta charset="UTF-8"/>
+    <style> 
+        .form {
+            float: right;
+        }
+
+        .form button, input {
+            float: right;
+            margin-left: 10px;
+        }
+    </style>
+    <title>Street Fighter</title>
+  </head>
+
+  <body>
+    <div class="container clearfix">
+        <form>
+        <h1><strong>Formulario de Cadastro</strong></h1>
+        <hr>
+        <div class="row">
+            <div class="form col-md-6">
+                <label for="email"><strong>Email</strong></label>
+                <input type="email" class="form-control" id="email" placeholder="leonardo.morais@cwi.com.br">
+            </div>
+            <div class="form col-md-6">
+                <label for="nome"><strong>Nome Completo</strong></label>
+                <input type="text" class="form-control" id="nome" placeholder="Ex.: Leonardo Morais">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="form col-md-6">
+                <label for="estado">Estado</label>
+                <input type="text" class="form-control" id="estado">
+            </div>
+            <div class="form col-md-6">
+                <label for="data">Data Nascimento</label>
+                <input type="date" class="form-control" id="data">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="form col-md-6">
+                <label for="sexo">Sexo</label>
+                 <select class="form-control" id="sexo">
+                    <option>M</option>
+                    <option>F</option>
+                </select>
+            </div>
+            <div class="form col-md-6">
+                <label for="cidade">Cidade</label>
+                <input type="text" class="form-control" id="cidade">
+            </div>
+        </div>
+        <hr>
+        <div class="row"> 
+            <div class="form col-md-6">
+                <input type="reset" value="Limpar" class="btn btn-deafault">
+                <button type="button" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+        <hr>
+        </form>
+    </div>
+  </body>
+</html>
