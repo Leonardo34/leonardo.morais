@@ -68,6 +68,10 @@ body {
     float: left;
 }
 
+.text .avatar {
+    width: 259px;
+}
+
 .clearfix:after {
     content: "";
     display: block;
