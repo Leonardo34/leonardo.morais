@@ -6,6 +6,7 @@ var daisyGame = function(petalas) {
 };
 console.log(daisyGame(4));
 console.log(daisyGame(3));
+
 // ----------------------------------------------------
 
 var maiorTexto = function(textos) {
@@ -19,21 +20,21 @@ var maiorTexto = function(textos) {
 };
 console.log(maiorTexto(["Leonardo", "Morais", "Broch", "Leo", "Leozin"]));
 console.log(maiorTexto(["NaN", "Not", "AAAA"]));
+
 // -----------------------------------------------------
 
-var imprimir = function (nomes, callback) {
+var imprimir = (nomes, callback) => 
     nomes.forEach(callback);
-};
 imprimir(
     ['bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos'], function(instrutor) {
         console.log("Ola querido instrutor: ", instrutor);
     }
 );
+
 // --------------------------------------------------------
 
-var adicionar = function(a) {
-    return (b) => a + b
-}
+var adicionar = (a) => (b) => a + b
+
 console.log(adicionar(2)(2));
 
 // ------------------------------------------------------------
@@ -52,6 +53,7 @@ var fiboSum = function(num) {
     return sum;
 }
 console.log(fiboSum(7));
+
 // ------------------------------------------------------------
 
 var queroCafe = (mascada, precos) => 
