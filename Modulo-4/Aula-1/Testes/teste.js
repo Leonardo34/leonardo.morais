@@ -26,4 +26,17 @@ describe('Função fiboSum deve retornar a soma de todos os elementos de fibonac
     it('Soma da sequencia de fibonacci até o setimo elemento é 33', function() {
         expect(fiboSum(7)).toEqual(33);
     });
+    it('Soma da sequencia de fibonacci até o terceiro elemento é 4', function() {
+        expect(fiboSum(3)).toEqual(4);
+    });
+    it('Soma da sequencia de fibonacci até o oitavo elemento é 54', function() {
+        expect(fiboSum(8)).toEqual(54);
+    });
+});
+
+describe('Quero Caféeeeee', function() {
+    it('Quero caféeee', function() {
+        var cafes = queroCafe(4, [5, 4, 3, 2, 1]);
+        expect(cafes).toEqual("1,2,3");
+    });
 });
