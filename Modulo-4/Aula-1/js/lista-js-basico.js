@@ -10,13 +10,13 @@ console.log(daisyGame(3));
 // ----------------------------------------------------
 
 var maiorTexto = function(textos) {
-    var maiorPalavra = "";
+    var maiorTexto = "";
     for (var texto of textos) {
-        if (texto.length > maiorPalavra.length) {
-            maiorPalavra = texto;
+        if (texto.length > maiorTexto.length) {
+            maiorTexto = texto;
         }
     }
-    return maiorPalavra;
+    return maiorTexto;
 };
 console.log(maiorTexto(["Leonardo", "Morais", "Broch", "Leo", "Leozin"]));
 console.log(maiorTexto(["NaN", "Not", "AAAA"]));
