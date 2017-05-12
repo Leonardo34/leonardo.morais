@@ -6,6 +6,7 @@ var daisyGame = function(petalas) {
 };
 console.log(daisyGame(4));
 console.log(daisyGame(3));
+// ----------------------------------------------------
 
 var maiorTexto = function(textos) {
     var maiorPalavra = "";
@@ -18,22 +19,24 @@ var maiorTexto = function(textos) {
 };
 console.log(maiorTexto(["Leonardo", "Morais", "Broch", "Leo", "Leozin"]));
 console.log(maiorTexto(["NaN", "Not", "AAAA"]));
+// -----------------------------------------------------
 
 var imprimir = function (nomes, callback) {
-    for (var nome of nomes) {
-        callback(nome);
-    }
+    nomes.forEach(callback);
 };
 imprimir(
     ['bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos'], function(instrutor) {
         console.log("Ola querido instrutor: ", instrutor);
     }
 );
+// --------------------------------------------------------
 
 var adicionar = function(a) {
     return (b) => a + b
 }
 console.log(adicionar(2)(2));
+
+// ------------------------------------------------------------
 
 var fiboSum = function(num) {
     var fibonacci = function(n) {
@@ -49,6 +52,7 @@ var fiboSum = function(num) {
     return sum;
 }
 console.log(fiboSum(7));
+// ------------------------------------------------------------
 
 var queroCafe = (mascada, precos) => 
     precos.filter((p) => p < mascada).sort().toString();
