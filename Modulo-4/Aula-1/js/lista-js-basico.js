@@ -25,6 +25,7 @@ console.log(maiorTexto(["NaN", "Not", "AAAA"]));
 
 var imprimir = (nomes, callback) => 
     nomes.forEach(callback);
+    
 imprimir(
     ['bernardo', 'nunes', 'fabrício', 'ben-hur', 'carlos'], function(instrutor) {
         console.log("Ola querido instrutor: ", instrutor);

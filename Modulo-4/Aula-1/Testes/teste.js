@@ -22,3 +22,8 @@ describe('Função Adicionar deve retornar a soma de dois numeros', function() {
     });
 });
 
+describe('Função fiboSum deve retornar a soma de todos os elementos de fibonacci até um numero n', function() {
+    it('Soma da sequencia de fibonacci até o setimo elemento é 33', function() {
+        expect(fiboSum(7)).toEqual(33);
+    });
+});
