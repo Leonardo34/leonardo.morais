@@ -34,3 +34,18 @@ var adicionar = function(a) {
     return (b) => a + b
 }
 console.log(adicionar(2)(2));
+
+var fiboSum = function(num) {
+    var fibonacci = function(n) {
+        if (n <= 2) {
+            return 1;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+    var sum = 0;
+    for (var i = num; i >= 1; i--) {
+        sum += fibonacci(i);
+    }
+    return sum;
+}
+console.log(fiboSum(7));
