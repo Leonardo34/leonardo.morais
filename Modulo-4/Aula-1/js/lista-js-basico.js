@@ -49,3 +49,8 @@ var fiboSum = function(num) {
     return sum;
 }
 console.log(fiboSum(7));
+
+var queroCafe = (mascada, precos) => 
+    precos.filter((p) => p < mascada).sort().toString();
+
+console.log(queroCafe(4, [5, 4, 3, 2, 1]));
