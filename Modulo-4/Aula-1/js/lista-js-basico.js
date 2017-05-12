@@ -29,3 +29,8 @@ imprimir(
         console.log("Ola querido instrutor: ", instrutor);
     }
 );
+
+var adicionar = function(a) {
+    return (b) => a + b
+}
+console.log(adicionar(2)(2));
