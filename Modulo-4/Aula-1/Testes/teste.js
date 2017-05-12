@@ -11,4 +11,14 @@ describe('Teste do maior texto em um array', function() {
     it('MaiorTexto deve retornar a maior string do array', function() {
         expect(maiorTexto(["Leonardo", "Leozin", "AAA"])).toEqual("Leonardo");
     });
-})
+});
+
+describe('Função Adicionar deve retornar a soma de dois numeros', function() {
+    it('Adicionar 2 com 8 deve retornar 10', function() {
+        expect(adicionar(2)(8)).toEqual(10);
+    });
+    it('Adcionar 100 com 200 deve retornar 300', function() {
+        expect(adicionar(100)(200)).toEqual(300);
+    });
+});
+
