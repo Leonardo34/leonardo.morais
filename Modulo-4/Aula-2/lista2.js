@@ -24,13 +24,11 @@ console.log(seriesInvalidas(series));
 var filtrarSeriesPorAno = (series, ano) => 
     series.filter(s => s.anoEstreia >= ano);
 
-
-
 console.log(filtrarSeriesPorAno(series, 2015));
 
 // ------------------------------------------------------------------------------
 
-var mediaEpisodios = function(series) {
+var mediaEpisodios = (series) => {
     return series.reduce((total, serie) => 
         total + serie.numeroEpisodios, 0) / series.length;
 };
@@ -102,4 +100,12 @@ creditosIlluminatis(series[1]);
 
 // ------------------------------------------------------------------------
 
+var encontraSerieIlluminati = (series) => {
+    var isSerieIlluminati = (serie) => {
+        return serie.elenco.filter(e => 
+            e.includes(".")).length === serie.elenco.length;
+    };
+    return series.filter(isSerieIlluminati);
+}
 
+console.log(encontraSerieIlluminati(series));
