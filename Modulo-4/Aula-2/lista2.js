@@ -24,4 +24,17 @@ console.log(seriesInvalidas(series));
 var filtrarSeriesPorAno = (series, ano) => 
     series.filter(s => s.anoEstreia >= ano);
 
+
+
 console.log(filtrarSeriesPorAno(series, 2015));
+
+// ------------------------------------------------------------------------------
+
+var mediaEpisodios = (series) => {
+    return series.reduce((total, serie) => 
+            total + serie.numeroEpisodios) / series.length;
+};
+
+console.log(mediaEpisodios(series));
+
+
