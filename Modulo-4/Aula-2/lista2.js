@@ -33,7 +33,7 @@ console.log(filtrarSeriesPorAno(series, 2015));
 var mediaEpisodios = function(series) {
     return series.reduce((total, serie) => 
         total + serie.numeroEpisodios, 0) / series.length;
-}
+};
 
 console.log(mediaEpisodios(series));
 
@@ -46,9 +46,9 @@ console.log(procurarPorNome(series, "Leonardo Morais"));
 
 // -------------------------------------------------------------------------------
 
-var mascadaEmSerie = (serie) => {
-    return serie.elenco.length * 40000 + serie.diretor.length * 100000;
-};
+var mascadaEmSerie = (serie) => 
+    serie.elenco.length * 40000 + serie.diretor.length * 100000;
+
 
 console.log(mascadaEmSerie(series[0]));
 
@@ -60,5 +60,14 @@ var queroGenero = (gen, series) => {
 };
 
 console.log(queroGenero("Caos", series));
+
+// ------------------------------------------------------------------------------------
+
+var queroTitulo = (tit, series) => {
+    return series.filter(s => s.titulo.includes(tit))
+        .map(s => s.titulo);
+};
+
+console.log(queroTitulo("The", series));
 
 
