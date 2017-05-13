@@ -70,4 +70,36 @@ var queroTitulo = (tit, series) => {
 
 console.log(queroTitulo("The", series));
 
+// ------------------------------------------------------------------------------------
+
+var creditosIlluminatis = (serie) => {
+    console.log("Titulo: ", serie.titulo);
+    serie.diretor.sort(ordenarPorUltimoNome);
+    serie.elenco.sort(ordenarPorUltimoNome);
+    console.log("DIRETORES");
+    serie.diretor.forEach(imprimir);
+    console.log("ELENCO");
+    serie.elenco.forEach(imprimir);
+};
+
+var imprimir = (elenco) => console.log(elenco);
+
+var ordenarPorUltimoNome = (a, b) => {
+    let splitA = a.split(" ");
+    let splitB = b.split(" ");
+    let ultimoNomeA = splitA[splitA.length - 1];
+    let ultimoNomeB = splitB[splitB.length - 1];
+    if (ultimoNomeA > ultimoNomeB) {
+        return 1;
+    } else if (ultimoNomeA < ultimoNomeB) {
+        return -1;
+    } else {
+        return 0;
+    }
+};
+
+creditosIlluminatis(series[1]);
+
+// ------------------------------------------------------------------------
+
 
