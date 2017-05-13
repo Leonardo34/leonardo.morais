@@ -44,4 +44,12 @@ var procurarPorNome = (series, nome) =>
 
 console.log(procurarPorNome(series, "Leonardo Morais"));
 
+// -------------------------------------------------------------------------------
+
+var mascadaEmSerie = (serie) => {
+    return serie.elenco.length * 40000 + serie.diretor.length * 100000;
+};
+
+console.log(mascadaEmSerie(series[0]));
+
 
