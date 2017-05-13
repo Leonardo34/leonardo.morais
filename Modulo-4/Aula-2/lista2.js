@@ -30,10 +30,10 @@ console.log(filtrarSeriesPorAno(series, 2015));
 
 // ------------------------------------------------------------------------------
 
-var mediaEpisodios = (series) => {
+var mediaEpisodios = function(series) {
     return series.reduce((total, serie) => 
-            total + serie.numeroEpisodios) / series.length;
-};
+        total + serie.numeroEpisodios, 0) / series.length;
+}
 
 console.log(mediaEpisodios(series));
 
