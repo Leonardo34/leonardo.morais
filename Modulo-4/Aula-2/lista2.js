@@ -37,4 +37,11 @@ var mediaEpisodios = function(series) {
 
 console.log(mediaEpisodios(series));
 
+// ---------------------------------------------------------------------------------
+
+var procurarPorNome = (series, nome) => 
+    series.filter(s => s.elenco.indexOf(nome) >= 0).length > 0;
+
+console.log(procurarPorNome(series, "Leonardo Morais"));
+
 
