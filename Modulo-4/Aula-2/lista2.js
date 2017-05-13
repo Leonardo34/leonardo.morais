@@ -52,4 +52,13 @@ var mascadaEmSerie = (serie) => {
 
 console.log(mascadaEmSerie(series[0]));
 
+// -----------------------------------------------------------------------------------
+
+var queroGenero = (gen, series) => {
+    return series.filter(s => s.genero.indexOf(gen) >= 0)
+        .map(s => s.titulo);
+};
+
+console.log(queroGenero("Caos", series));
+
 
