@@ -28,17 +28,17 @@ console.log(filtrarSeriesPorAno(series, 2015));
 
 // ------------------------------------------------------------------------------
 
-var mediaEpisodios = (series) => {
-    return series.reduce((total, serie) => 
+var mediaEpisodios = (series) => 
+    series.reduce((total, serie) => 
         total + serie.numeroEpisodios, 0) / series.length;
-};
+
 
 console.log(mediaEpisodios(series));
 
 // ---------------------------------------------------------------------------------
 
 var procurarPorNome = (series, nome) => 
-    series.filter(s => s.elenco.indexOf(nome) >= 0).length > 0;
+    series.some(s => s.elenco.indexOf(nome) >= 0);
 
 console.log(procurarPorNome(series, "Leonardo Morais"));
 
@@ -52,19 +52,19 @@ console.log(mascadaEmSerie(series[0]));
 
 // -----------------------------------------------------------------------------------
 
-var queroGenero = (gen, series) => {
-    return series.filter(s => s.genero.indexOf(gen) >= 0)
+var queroGenero = (gen, series) => 
+    series.filter(s => s.genero.indexOf(gen) >= 0)
         .map(s => s.titulo);
-};
+
 
 console.log(queroGenero("Caos", series));
 
 // ------------------------------------------------------------------------------------
 
-var queroTitulo = (tit, series) => {
-    return series.filter(s => s.titulo.includes(tit))
+var queroTitulo = (tit, series) => 
+    series.filter(s => s.titulo.includes(tit))
         .map(s => s.titulo);
-};
+
 
 console.log(queroTitulo("The", series));
 
@@ -102,8 +102,7 @@ creditosIlluminatis(series[1]);
 
 var encontraSerieIlluminati = (series) => {
     var isSerieIlluminati = (serie) => {
-        return serie.elenco.filter(e => 
-            e.includes(".")).length === serie.elenco.length;
+        return serie.elenco.every(e => e.includes("."));
     };
     let seriesIlluminati = series.filter(isSerieIlluminati);
     let hashTag = "#";
@@ -113,6 +112,6 @@ var encontraSerieIlluminati = (series) => {
         )
     );
     return hashTag;
-}
+};
 
 console.log(encontraSerieIlluminati(series));
