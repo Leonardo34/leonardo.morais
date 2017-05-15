@@ -83,8 +83,8 @@ var creditosIlluminatis = (serie) => {
 var imprimir = (elenco) => console.log(elenco);
 
 var ordenarPorUltimoNome = (a, b) => {
-    let splitA = a.split(" ");
-    let splitB = b.split(" ");
+    let splitA = a.trim().split(" ");
+    let splitB = b.trim().split(" ");
     let ultimoNomeA = splitA[splitA.length - 1];
     let ultimoNomeB = splitB[splitB.length - 1];
     return ultimoNomeA.localeCompare(ultimoNomeB);
