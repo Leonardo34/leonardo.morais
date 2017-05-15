@@ -105,7 +105,14 @@ var encontraSerieIlluminati = (series) => {
         return serie.elenco.filter(e => 
             e.includes(".")).length === serie.elenco.length;
     };
-    return series.filter(isSerieIlluminati);
+    let seriesIlluminati = series.filter(isSerieIlluminati);
+    let hashTag = "#";
+    seriesIlluminati.forEach(
+        (s) => s.elenco.forEach(
+            e => hashTag += e.charAt(e.indexOf(".") - 1)
+        )
+    );
+    return hashTag;
 }
 
 console.log(encontraSerieIlluminati(series));
