@@ -54,7 +54,7 @@ console.log(mascadaEmSerie(series[0]));
 
 var queroGenero = (gen, series) => 
     series.filter(s => s.genero.indexOf(gen) >= 0)
-        .map(s => s.titulo);
+    .map(s => s.titulo);
 
 
 console.log(queroGenero("Caos", series));
@@ -63,7 +63,7 @@ console.log(queroGenero("Caos", series));
 
 var queroTitulo = (tit, series) => 
     series.filter(s => s.titulo.includes(tit))
-        .map(s => s.titulo);
+    .map(s => s.titulo);
 
 
 console.log(queroTitulo("The", series));
@@ -87,13 +87,7 @@ var ordenarPorUltimoNome = (a, b) => {
     let splitB = b.split(" ");
     let ultimoNomeA = splitA[splitA.length - 1];
     let ultimoNomeB = splitB[splitB.length - 1];
-    if (ultimoNomeA > ultimoNomeB) {
-        return 1;
-    } else if (ultimoNomeA < ultimoNomeB) {
-        return -1;
-    } else {
-        return 0;
-    }
+    return ultimoNomeA.localeCompare(ultimoNomeB);
 };
 
 creditosIlluminatis(series[1]);
