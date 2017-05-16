@@ -112,7 +112,9 @@ console.log(encontraSerieIlluminati(series));
 
 // -----------------------------------------------------------------------------
 
-var arredondar = (number, casas = 2) => parseFloat(number.toFixed(casas));
+Number.prototype.arredondar = function(casas = 2) { 
+    return parseFloat(this.toFixed(casas));
+}
 
-console.log(arredondar(5.1456));
-console.log(arredondar(5.1456, 3));
+console.log(5.1455.arredondar());
+console.log(5.1455.arredondar(3));
