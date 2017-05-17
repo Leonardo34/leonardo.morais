@@ -12,6 +12,7 @@ var carregarPokemon = (pokemonId) => {
             console.log(json);
             let pokemon = new Pokemon(json);
             pokemon.render();
+            pokemon.renderStats();
         })
     });
     console.log(url);
