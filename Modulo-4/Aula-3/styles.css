@@ -1,5 +1,6 @@
 body {
     background-image: url("img/background.jpg");
+    margin: 0 auto;
 }
 
 .pokemons-container {
@@ -8,7 +9,7 @@ body {
     margin: 0 auto;
     background-color:#EFFAB4;
     border: 0.2px solid lightgrey;
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
 #detalhesPokemon {
