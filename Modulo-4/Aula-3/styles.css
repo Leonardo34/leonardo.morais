@@ -1,0 +1,18 @@
+body {
+    background-image: url("img/background.jpg");
+}
+
+.pokemons-container {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+    background-color:#EFFAB4;
+    border: 0.2px solid lightgrey;
+    border-radius: 20px;
+}
+
+#detalhesPokemon {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+}
