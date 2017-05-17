@@ -7,8 +7,9 @@
   </head>
   <body ng-app="tutorialAngularJS">
     <div ng-controller="TutorialController">
+      <input type="text" ng-model="filtro.nome" class="form-control" placeholder="Entre com o nome para pesquisa">  
       <ul>
-          <li ng-repeat="each in pokemons">
+          <li ng-repeat="each in pokemons | filter:filtro.nome">
             <hr>
             <h6>Nome: {{each.nome}}, Id: {{each.id}}</h6>
           </li>
