@@ -6,5 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var carregarPokemon = (pokemonId) => {
-    console.log(pokemonId);
+    let url = "http://pokeapi.co/api/v2/pokemon/" + pokemonId + "/";
+    fetch(url).then(response => {
+        response.json().then(json => {
+            console.log(json);
+        })
+    });
+    console.log(url);
 };
+
