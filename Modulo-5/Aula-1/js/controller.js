@@ -1,5 +1,9 @@
 var myApp = angular.module('tutorialAngularJS', []);
 
 myApp.controller('TutorialController', function($scope) {
-    $scope.pokemon = {nome: "Pikachu", id: 25};
+    $scope.pokemons = [
+        {nome: "Pikachu", id: 25},
+        {nome: "Mewtwo", id: 150},
+        {nome: "Mew", id: 151},
+    ]
 });
