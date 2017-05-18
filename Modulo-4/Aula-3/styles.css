@@ -23,6 +23,10 @@ body {
     border-radius: 30px;
 }
 
+#detalhesPokemon ul {
+    list-style: none;
+}
+
 .options {
     position: relative;
     width: 50%;
