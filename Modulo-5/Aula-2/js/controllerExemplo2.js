@@ -8,18 +8,16 @@ myApp.filter('mascada', function() {
 
 myApp.controller('exemplo02Controller', function($scope) {
 
-    let instrutores = [
-    {
+    let instrutores = [{
         nome: 'Bernardo',
         aula: [{
             numero: 1,
             nome: 'OO'
         },
         {
-        numero: 4,
-        nome: 'Javascript'
-        }
-        ]
+            numero: 4,
+            nome: 'Javascript'
+        }]
     },
     {
         nome: 'Nunes',
