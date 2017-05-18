@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body ng-app="dataApp">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h1>Conversor de Data</h1>
+        </div>
+      </div>
+    </nav>
+    <div class="col-md-4" ng-controller="dataController">
+      <input type="text" ng-model="filtro.data" class="form-control" placeholder="Entre com a data a ser convertida">
+      <hr>
+      <button type="button" class="btn btn-success" ng-click="alert(filtro.data)">Converter</button> 
+      <h2>{{date}}</h2>
+    </div>
+  </body>
+</html>
