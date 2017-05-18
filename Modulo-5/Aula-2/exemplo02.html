@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/controllerExemplo2.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body ng-app="exemplo02App">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h1>Exemplo 02</h1>
+        </div>
+      </div>
+    </nav>   
+    <ul ng-controller="exemplo02Controller">
+        <li ng-repeat="each in instrutores">
+            {{ each.nome | mascada }}
+        </li>
+    </ul>
+</html>
