@@ -28,9 +28,10 @@ class Pokemon {
         this.json.stats.forEach(stat => {
             let progress = document.createElement("progress");
             let statName = document.createElement("h6");
-            statName.innerText = stat.stat.name;
+            statName.innerText = stat.stat.name + ": " + stat.base_stat;
             progress.max = 100;
             progress.value = stat.base_stat;
+            progress.innerHTML = stat.base_stat;
             div.appendChild(statName);
             div.appendChild(progress);
         });
