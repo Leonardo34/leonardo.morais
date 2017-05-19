@@ -4,23 +4,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/controllerExemplo2.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css"></link>
   </head>
   <body ng-app="exemplo02App">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default header">
       <div class="container-fluid">
         <div class="navbar-header">
           <h1>Crescer-2017/1</h1>
         </div>
       </div>
     </nav>
-    <div class="container-fluid">   
-      <ul ng-controller="exemplo02Controller" class="col-md-6 list-group">
+    <div class="container">   
+      <ul ng-controller="exemplo02Controller" class="list-group">
         <div class="list-group-item" ng-repeat="each in aulas | orderBy: 'numero'">
           <li>
-              <div class="col-md-5">{{ each.nome }}</div>
-              <div class="col-md-5">{{ each.instrutor | mascada }}</div>
+              <div class="col-md-6">{{ each | aula }}</div>
+              <div class="col-md-6">{{ each.instrutor | mascada }}</div>
           </li>
         </div>
       </ul>
     </div>
+  </body>
 </html>

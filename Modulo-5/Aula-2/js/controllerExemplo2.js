@@ -6,6 +6,12 @@ myApp.filter('mascada', function() {
     }
 });
 
+myApp.filter('aula', function() {
+    return function(input) {
+        return "00" + input.numero + " - " + input.nome.toUpperCase();
+    }
+});
+
 myApp.controller('exemplo02Controller', function($scope) {
 
     let instrutores = [{
