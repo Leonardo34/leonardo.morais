@@ -9,13 +9,18 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <h1>Exemplo 02</h1>
+          <h1>Crescer-2017/1</h1>
         </div>
       </div>
-    </nav>   
-    <ul ng-controller="exemplo02Controller">
-        <li ng-repeat="each in instrutores">
-            {{ each.nome | mascada }}
-        </li>
-    </ul>
+    </nav>
+    <div class="container-fluid">   
+      <ul ng-controller="exemplo02Controller" class="col-md-6 list-group">
+        <div class="list-group-item" ng-repeat="each in aulas | orderBy: 'numero'">
+          <li>
+              <div class="col-md-5">{{ each.nome }}</div>
+              <div class="col-md-5">{{ each.instrutor | mascada }}</div>
+          </li>
+        </div>
+      </ul>
+    </div>
 </html>

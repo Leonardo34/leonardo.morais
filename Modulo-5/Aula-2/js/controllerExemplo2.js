@@ -41,5 +41,10 @@ myApp.controller('exemplo02Controller', function($scope) {
         }]
     }];
 
-    $scope.instrutores = instrutores;
+    $scope.aulas = [];
+    instrutores.forEach(instrutor => {
+        instrutor.aula.forEach(a => {
+            $scope.aulas.push({instrutor: instrutor.nome, numero: a.numero, nome: a.nome})
+        })
+    });
 });
