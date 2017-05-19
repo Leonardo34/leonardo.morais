@@ -55,6 +55,6 @@ myApp.controller('exemplo02Controller', function($scope) {
     });
 
     $scope.update = (aula) => {
-        $scope.aulas.push(aula);
+        $scope.aulas.push(angular.copy(aula));
     };
 });
