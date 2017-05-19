@@ -7,3 +7,8 @@ body {
     width: 50%;
     margin: 0 auto;
 }
+
+.btn-primary {
+    width: 30%;
+    margin-left: 35%;
+}
