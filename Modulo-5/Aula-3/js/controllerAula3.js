@@ -14,47 +14,12 @@ myApp.filter('aula', function() {
 
 myApp.controller('exemplo02Controller', function($scope) {
 
-    let instrutores = [{
-        nome: 'Bernardo',
-        aula: [{
-            numero: 1,
-            nome: 'OO'
-        },
-        {
-            numero: 4,
-            nome: 'Javascript'
-        }]
-    },
-    {
-        nome: 'Nunes',
-        aula: [{
-            numero: 2,
-            nome: 'Banco de Dados I'
-        }]
-    },
-    {
-        nome: 'Pedro (PHP)',
-        aula: [{
-            numero: 3,
-            nome: 'HTML e CSS'
-        }]
-    },
-    {
-        nome: 'Zanatta',
-        aula: [{
-            numero: 5,
-            nome: 'AngularJS'
-        }]
-    }];
+    $scope.instrutores = [];
 
-    $scope.aulas = [];
-    instrutores.forEach(instrutor => {
-        instrutor.aula.forEach(a => {
-            $scope.aulas.push({instrutor: instrutor.nome, numero: a.numero, nome: a.nome})
-        })
-    });
-
-    $scope.update = (aula) => {
-        $scope.aulas.push(angular.copy(aula));
+    $scope.update = (instrutor) => {
+        if ($scope.cadastroInstrutor.$valid) {
+            $scope.instrutores.push(angular.copy(instrutor));
+            delete $scope.instrutor;
+        }
     };
 });
