@@ -14,21 +14,15 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-      <div class="panel panel-default">
-        <div class="panel-heading">TEMA 02</div>
-        <div class="panel-body">
-          <p>Apresentar os Instrutores aplicando filtro para apresentar aula e também o filtro da mascada</p>
-        </div>   
-        <ul ng-controller="exemplo02Controller" class="list-group">
-          <div class="list-group-item" ng-repeat="each in aulas | orderBy: 'numero'">
-            <li>
-                <div class="col-md-6">{{ each | aula }}</div>
-                <div class="col-md-6">{{ each.instrutor | mascada }}</div>
-            </li>
-          </div>
-        </ul>
-      </div>
+    <div class="container">   
+      <ul ng-controller="exemplo02Controller" class="list-group">
+        <div class="list-group-item" ng-repeat="each in aulas | orderBy: 'numero'">
+          <li>
+              <div class="col-md-6">{{ each | aula }}</div>
+              <div class="col-md-6">{{ each.instrutor | mascada }}</div>
+          </li>
+        </div>
+      </ul>
     </div>
   </body>
 </html>
