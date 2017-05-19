@@ -18,7 +18,7 @@ myApp.controller('exemplo02Controller', function($scope) {
 
     $scope.update = (instrutor) => {
         if ($scope.cadastroInstrutor.$valid) {
-            $scope.instrutores.push(angular.copy(instrutor));
+            $scope.instrutores.push(instrutor);
             delete $scope.instrutor;
         }
     };
