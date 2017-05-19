@@ -20,17 +20,26 @@
         <div class="panel-body">
           <p>Aula sobre formulários com AngularJS</p>
         </div>  
-        <ul class="list-group">
-          <div class="list-group-item" ng-repeat="each in instrutores | orderBy: 'nome'">
-            <li>
-                {{ each.nome }}
-                {{ each.sobrenome }}  Idade: 
-                {{ each.idade }} Email: 
-                {{ each.email }} Aula ministrada: 
-                {{ each.aula }}
-            </li>
-          </div>
-        </ul>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                    <th>Idade</th>
+                    <th>Aula Ministrada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="each in instrutores | orderBy: 'nome'">
+                    <td>{{ each.nome }}</td>
+                    <td>{{ each.sobrenome }}</td>
+                    <td>{{ each.email }}</td>
+                    <td>{{ each.idade }}</td>
+                    <td>{{ each.aula }}</td>
+                </tr>
+            </tbody>
+        </table>
         <hr>
         <form novalidate name="cadastroInstrutor">
           <div class="formHeader">
