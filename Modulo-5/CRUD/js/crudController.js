@@ -4,6 +4,7 @@ myApp.controller('crudController', function($scope) {
     let idGenerator = 0;
 
     $scope.aulas = [];
+    $scope.instrutores = [];
 
     $scope.saveAula = (aula) => {
         if ($scope.cadastroAula.$valid && !existeAulaComNome(aula.nome)) {
