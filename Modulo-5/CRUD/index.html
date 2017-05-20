@@ -77,20 +77,24 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>Sobrenome</th>
                     <th>Email</th>
                     <th>Idade</th>
                     <th>Aula Ministrada</th>
+                    <th>Remover</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="each in instrutores | orderBy: 'nome'">
+                    <td>{{ each.id }}</td>
                     <td>{{ each.nome }}</td>
                     <td>{{ each.sobrenome }}</td>
                     <td>{{ each.email }}</td>
                     <td>{{ each.idade }}</td>
                     <td>{{ each.aula }}</td>
+                    <td><button class="glyphicon glyphicon-trash" ng-click="removeInstrutor(each)"></button></td>
                 </tr>
             </tbody>
         </table>
