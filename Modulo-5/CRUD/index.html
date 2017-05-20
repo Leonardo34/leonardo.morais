@@ -37,7 +37,7 @@
             </tbody>
         </table>
         <hr>
-        <form novalidate name="cadastroInstrutor">
+        <form novalidate name="cadastroAula">
           <div class="formHeader">
             <h3>Nova aula</h3>
           </div>
@@ -45,8 +45,29 @@
             <span class="input-group-addon" id="sizing-addon1">$</span>
             <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
           </div>
-          <hr>
-          <button type="submit" class="btn btn-primary" ng-click="update(aula)">Submit</button>
+          <br>
+          <button type="submit" class="btn btn-primary" ng-click="update(aula)">Adicionar aula</button>
+        </form>
+        <hr>
+        <form novalidate name="alterarAula">
+          <div class="formHeader">
+            <h3>Editar Aula</h3>
+          </div>
+          <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+            <label for="sel1">Selecione a aula a alterar pelo id:</label>
+                <select class="form-control" id="sel1" ng-model="edit.id">
+                    <option ng-repeat="each in aulas | orderBy: 'id'">
+                        {{ each.id }}
+                    </option>
+                </select>
+          </div>
+          <br>
+          <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+            <span class="input-group-addon" id="sizing-addon1">$</span>
+            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="edit.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary" ng-click="alter(edit)">Alterar aula</button>
         </form>
       </div>
     </div>
