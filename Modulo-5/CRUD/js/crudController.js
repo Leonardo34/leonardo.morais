@@ -36,6 +36,13 @@ myApp.controller('crudController', function($scope) {
         }
     }
 
+    $scope.removeInstrutor = (instrutor) => {
+        if (!instrutor.dandoAula) {
+            let indice = $scope.instrutores.indexOf(instrutor);
+            $scope.instrutores.splice(indice, 1);
+        }
+    }
+
     var getAulaById = (id) => {
         let index = $scope.aulas.findIndex(a => a.id === id);
         return $scope.aulas[index];

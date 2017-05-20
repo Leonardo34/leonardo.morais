@@ -99,6 +99,7 @@
                     <th>Email</th>
                     <th>Idade</th>
                     <th>Aula Ministrada</th>
+                    <th>Esta Dando Aula</th>
                     <th>Remover</th>
                 </tr>
             </thead>
@@ -110,13 +111,14 @@
                     <td>{{ each.email }}</td>
                     <td>{{ each.idade }}</td>
                     <td>{{ each.aula }}</td>
+                    <td>{{ each.dandoAula }}
                     <td><button class="glyphicon glyphicon-trash" ng-click="removeInstrutor(each)"></button></td>
                 </tr>
             </tbody>
         </table>
         <hr>
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editar Aula   <span class="caret"></span></button>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Adicionar Instrutor   <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li>
                     <form novalidate name="cadastroInstrutor">
@@ -144,7 +146,7 @@
                         </div>
                         <br>
                         <div class="checkbox col-md-6 col-md-offset-3">
-                            <label><input type="checkbox" ng-model="instrutor.deuAula">Intrutor Já deu Aula</label>
+                            <label><input type="checkbox" ng-model="instrutor.dandoAula">Instutor está dando aula</label>
                         </div>
                         <br>
                         <div class="input-group input-group-lg col-md-6 col-md-offset-3">
@@ -156,7 +158,7 @@
                                 </select>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary" ng-click="saveInstrutor(instrutor)">Submit</button>
+                        <button type="submit" class="btn btn-primary" ng-click="saveInstrutor(instrutor)">Salvar Instrutor</button>
                         <hr>
                     </form>
                 </li>
