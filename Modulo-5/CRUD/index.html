@@ -5,6 +5,8 @@
     <script src="js/crudController.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../Aula-2/css/styles.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body ng-app="crudApp">
     <nav class="navbar navbar-default header">
@@ -37,38 +39,52 @@
             </tbody>
         </table>
         <hr>
-        <form novalidate name="cadastroAula">
-          <div class="formHeader">
-            <h3>Nova aula</h3>
-          </div>
-          <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-            <span class="input-group-addon" id="sizing-addon1">$</span>
-            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
-          </div>
-          <br>
-          <button type="submit" class="btn btn-primary" ng-click="saveAula(aula)">Adicionar aula</button>
-        </form>
-        <hr>
-        <form novalidate name="alterarAula">
-          <div class="formHeader">
-            <h3>Editar Aula</h3>
-          </div>
-          <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-            <label for="sel1">Selecione a aula a alterar pelo id:</label>
-                <select class="form-control" id="sel1" ng-model="edit.id">
-                    <option ng-repeat="each in aulas | orderBy: 'id'" value="{{ each.id }}">
-                        {{ each.id }}
-                    </option>
-                </select>
-          </div>
-          <br>
-          <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-            <span class="input-group-addon" id="sizing-addon1">$</span>
-            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="edit.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
-          </div>
-          <br>
-          <button type="submit" class="btn btn-primary" ng-click="updateAula(edit)">Alterar aula</button>
-        </form>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Adicionar nova Aula   <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                    <form novalidate name="cadastroAula">
+                        <div class="formHeader">
+                            <h3>Nova aula</h3>
+                        </div>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary" ng-click="saveAula(aula)">Adicionar aula</button>
+                    </form>
+                </li>
+            </ul>
+            <hr>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editar Aula   <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                    <form novalidate name="alterarAula">
+                        <div class="formHeader">
+                            <h3>Editar Aula</h3>
+                        </div>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <label for="sel1">Selecione a aula a alterar pelo id:</label>
+                            <select class="form-control" id="sel1" ng-model="edit.id">
+                                <option ng-repeat="each in aulas | orderBy: 'id'" value="{{ each.id }}">
+                                    {{ each.id }}
+                                </option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="edit.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary" ng-click="updateAula(edit)">Alterar aula</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
         <hr>
         <div class="panel-heading">Trabalho AngularJS CRUD</div>
         <div class="panel-body">
