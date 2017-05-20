@@ -21,3 +21,9 @@ body {
 .panel-heading, .panel-body {
     text-align: center;
 }
+
+.profile:hover {
+    width: 60px;
+    height: 60px;
+    transition: 3s;
+}
