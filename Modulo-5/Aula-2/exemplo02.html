@@ -14,15 +14,21 @@
         </div>
       </div>
     </nav>
-    <div class="container">   
-      <ul ng-controller="exemplo02Controller" class="list-group">
-        <div class="list-group-item" ng-repeat="each in aulas | orderBy: 'numero'">
-          <li>
-              <div class="col-md-6">{{ each | aula }}</div>
-              <div class="col-md-6">{{ each.instrutor | mascada }}</div>
-          </li>
-        </div>
-      </ul>
+    <div class="container" ng-controller="exemplo02Controller"> 
+      <div class="panel panel-default">
+        <div class="panel-heading">Tema02</div>
+        <div class="panel-body">
+          <p>Listar todos instrutores em ordem pelo numero da aula aplicando filtro aula e mascada</p>
+        </div>  
+        <ul class="list-group">
+          <div class="list-group-item" ng-repeat="each in aulas | orderBy: 'numero'">
+            <li>
+                <div class="col-md-6">{{ each | aula }}</div>
+                <div class="col-md-6">{{ each.instrutor | mascada }}</div>
+            </li>
+          </div>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
