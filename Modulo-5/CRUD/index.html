@@ -104,8 +104,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="each in instrutores | orderBy: 'nome'">
-                    <td>{{ each.id }}</td>
+                <tr ng-repeat="each in instrutores | orderBy: 'nome'" class="instrutor">
+                    <td><img src="{{each.image}}" class="img-rounded" alt="Cinque Terre" width="20" height="20">{{ each.id }}</td>
                     <td>{{ each.nome }}</td>
                     <td>{{ each.sobrenome }}</td>
                     <td>{{ each.email }}</td>
@@ -145,6 +145,10 @@
                             <input type="email" ng-model="instrutor.email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1" required />
                         </div>
                         <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="text" ng-model="instrutor.image" class="form-control" placeholder="Link com Imagem de perfil" aria-describedby="sizing-addon1" />
+                        </div>
                         <div class="checkbox col-md-6 col-md-offset-3">
                             <label><input type="checkbox" ng-model="instrutor.dandoAula">Instutor está dando aula</label>
                         </div>
