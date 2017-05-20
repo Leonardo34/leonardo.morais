@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/crudController.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Aula-2/css/styles.css"></link>
+  </head>
+  <body ng-app="crudApp">
+    <nav class="navbar navbar-default header">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h1>CRUD COM ANGULARJS</h1>
+        </div>
+      </div>
+    </nav>
+    <div class="container"> 
+      <div class="panel panel-default"  ng-controller="crudController">
+        <div class="panel-heading">Trabalho AngularJS CRUD</div>
+        <div class="panel-body">
+          <p>Realizar CRUD de aulas e instrutores</p>
+        </div>  
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Aula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="each in aulas | orderBy: 'nome'">
+                    <td>{{ each.id }}
+                    <td>{{ each.nome }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <form novalidate name="cadastroInstrutor">
+          <div class="formHeader">
+            <h3>Nova aula</h3>
+          </div>
+          <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+            <span class="input-group-addon" id="sizing-addon1">$</span>
+            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-primary" ng-click="update(aula)">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
