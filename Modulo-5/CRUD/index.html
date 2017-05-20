@@ -32,7 +32,7 @@
                 <tr ng-repeat="each in aulas | orderBy: 'nome'">
                     <td>{{ each.id }}
                     <td>{{ each.nome }}</td>
-                    <td><button class="glyphicon glyphicon-trash" ng-click="remove(each)"></button></td>
+                    <td><button class="glyphicon glyphicon-trash" ng-click="removeAula(each)"></button></td>
                 </tr>
             </tbody>
         </table>
@@ -46,7 +46,7 @@
             <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
           </div>
           <br>
-          <button type="submit" class="btn btn-primary" ng-click="update(aula)">Adicionar aula</button>
+          <button type="submit" class="btn btn-primary" ng-click="saveAula(aula)">Adicionar aula</button>
         </form>
         <hr>
         <form novalidate name="alterarAula">
@@ -56,7 +56,7 @@
           <div class="input-group input-group-lg col-md-6 col-md-offset-3">
             <label for="sel1">Selecione a aula a alterar pelo id:</label>
                 <select class="form-control" id="sel1" ng-model="edit.id">
-                    <option ng-repeat="each in aulas | orderBy: 'id'">
+                    <option ng-repeat="each in aulas | orderBy: 'id'" value="{{ each.id }}">
                         {{ each.id }}
                     </option>
                 </select>
@@ -67,7 +67,7 @@
             <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="edit.nome" class="form-control" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
           </div>
           <br>
-          <button type="submit" class="btn btn-primary" ng-click="alter(edit)">Alterar aula</button>
+          <button type="submit" class="btn btn-primary" ng-click="updateAula(edit)">Alterar aula</button>
         </form>
       </div>
     </div>
