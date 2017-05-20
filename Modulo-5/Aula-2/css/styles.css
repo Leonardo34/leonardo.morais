@@ -27,3 +27,7 @@ body {
     height: 60px;
     transition: 3s;
 }
+
+.profile {
+    transition: 2s;
+}
