@@ -34,7 +34,7 @@
                 <tr ng-repeat="each in aulas | orderBy: 'nome'">
                     <td>{{ each.id }}
                     <td>{{ each.nome }}</td>
-                    <td><button class="glyphicon glyphicon-trash btn-warning" ng-click="removeAula(each)"></button></td>
+                    <td><button class="glyphicon glyphicon-trash btn-danger" ng-click="removeAula(each)"></button></td>
                 </tr>
             </tbody>
         </table>
@@ -47,12 +47,12 @@
                         <div class="formHeader">
                             <h3>Nova aula</h3>
                         </div>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control info" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': cadastroAula.nomeAula.$invalid, 'has-success': cadastroAula.nomeAula.$valid }">
+                            <input type="text" name="nomeAula" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control info" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon status" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <button type="submit" ng-disabled="cadastroAula.$invalid" class="btn btn-success" ng-click="saveAula(aula)">Adicionar aula</button>
+                        <button type="submit" ng-disabled="cadastroAula.$invalid" ng-class="{ 'btn btn-warning': cadastroAula.$invalid, 'btn btn-success': cadastroAula.$valid }" ng-click="saveAula(aula)">Adicionar aula</button>
                     </form>
                 </li>
             </ul>
@@ -75,12 +75,12 @@
                             </select>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="edit.nome" class="form-control info" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': alteraroAula.nomeAula.$invalid, 'has-success': alterarAula.nomeAula.$valid }">
+                            <input type="text" name="nomeAula" ng-minlength="3" ng-maxlength="20" ng-model="edit.nome" class="form-control info" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <button type="submit" ng-disabled="alterarAula.$invalid" class="btn btn-success" ng-click="updateAula(edit)">Alterar aula</button>
+                        <button type="submit" ng-class="{ 'btn btn-warning': alterarAula.$invalid, 'btn btn-success': alterarAula.$valid }" ng-disabled="alterarAula.$invalid" class="btn btn-success" ng-click="updateAula(edit)">Alterar aula</button>
                     </form>
                 </li>
             </ul>
@@ -116,7 +116,7 @@
                         </ul>
                     </td>
                     <td>{{ each.dandoAula | statusAula }}
-                    <td><button class="glyphicon glyphicon-trash btn-warning" ng-click="removeInstrutor(each)"></button></td>
+                    <td><button class="glyphicon glyphicon-trash btn-danger" ng-click="removeInstrutor(each)"></button></td>
                 </tr>
             </tbody>
         </table>
@@ -129,28 +129,28 @@
                         <div class="formHeader">
                             <h3>Novo Instrutor</h3>
                         </div>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="instrutor.nome" class="form-control info" placeholder="Nome Instrutor" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': cadastroInstrutor.nomeInstrutor.$invalid, 'has-success': cadastroInstrutor.nomeInstrutor.$valid }">
+                            <input type="text" name="nomeInstrutor" ng-minlength="3" ng-maxlength="20" ng-model="instrutor.nome" class="form-control info" placeholder="Nome Instrutor" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-maxlength="20" ng-model="instrutor.sobrenome" class="form-control info" placeholder="Sobrenome Instrutor" aria-describedby="sizing-addon1" />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': cadastroInstrutor.sobrenomeInstrutor.$invalid, 'has-success': cadastroInstrutor.sobrenomeInstrutor.$valid }">
+                            <input type="text" name="sobrenomeInstrutor" ng-maxlength="20" ng-model="instrutor.sobrenome" class="form-control info" placeholder="Sobrenome Instrutor" aria-describedby="sizing-addon1" />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="number" ng-model="instrutor.idade" class="form-control info" placeholder="Idade" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': cadastroInstrutor.idadeInstrutor.$invalid, 'has-success': cadastroInstrutor.idadeInstrutor.$valid }">
+                            <input type="number" name="idadeInstrutor" ng-model="instrutor.idade" class="form-control info" placeholder="Idade" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="email" ng-model="instrutor.email" class="form-control info" placeholder="Email" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': cadastroInstrutor.emailInstrutor.$invalid, 'has-success': cadastroInstrutor.emailInstrutor.$valid }">
+                            <input type="email" name="emailInstrutor" ng-model="instrutor.email" class="form-control info" placeholder="Email" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-model="instrutor.image" class="form-control info" placeholder="Link com Imagem de perfil" aria-describedby="sizing-addon1" />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': cadastroInstrutor.imagemInstrutor.$invalid, 'has-success': cadastroInstrutor.imagemInstrutor.$valid }">
+                            <input type="text" name="imagemInstrutor" ng-model="instrutor.image" class="form-control info" placeholder="Link com Imagem de perfil" aria-describedby="sizing-addon1" />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <div class="checkbox col-md-6 col-md-offset-3">
@@ -166,7 +166,7 @@
                             </select>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-success" ng-disabled="cadastroInstrutor.$invalid" ng-click="saveInstrutor(instrutor)">Salvar Instrutor</button>
+                        <button type="submit" ng-class="{ 'btn btn-warning': cadastroInstrutor.$invalid, 'btn btn-success': cadastroInstrutor.$valid }" ng-disabled="cadastroInstrutor.$invalid" ng-click="saveInstrutor(instrutor)">Salvar Instrutor</button>
                         <hr>
                     </form>
                 </li>
@@ -190,28 +190,28 @@
                             </select>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="editInstrutor.nome" class="form-control info" placeholder="Nome Instrutor" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': editarInstrutor.nomeInstrutor.$invalid, 'has-success': editarInstrutor.nomeInstrutor.$valid }">
+                            <input type="text" name="nomeInstrutor" ng-minlength="3" ng-maxlength="20" ng-model="editInstrutor.nome" class="form-control info" placeholder="Nome Instrutor" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-maxlength="20" ng-model="editInstrutor.sobrenome" class="form-control info" placeholder="Sobrenome Instrutor" aria-describedby="sizing-addon1" />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': editarInstrutor.sobrenomeInstrutor.$invalid, 'has-success': editarInstrutor.sobrenomeInstrutor.$valid }">
+                            <input type="text" name="sobrenomeInstrutor" ng-maxlength="20" ng-model="editInstrutor.sobrenome" class="form-control info" placeholder="Sobrenome Instrutor" aria-describedby="sizing-addon1" />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="number" ng-model="editInstrutor.idade" class="form-control info" placeholder="Idade" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': editarInstrutor.idadeInstrutor.$invalid, 'has-success': editarInstrutor.idadeInstrutor.$valid }">
+                            <input type="number" name="idadeInstrutor" ng-model="editInstrutor.idade" class="form-control info" placeholder="Idade" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="email" ng-model="editInstrutor.email" class="form-control info" placeholder="Email" aria-describedby="sizing-addon1" required />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': editarInstrutor.emailInstrutor.$invalid, 'has-success': editarInstrutor.emailInstrutor.$valid }">
+                            <input type="email" name="emailInstrutor" ng-model="editInstrutor.email" class="form-control info" placeholder="Email" aria-describedby="sizing-addon1" required />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <br>
-                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
-                            <input type="text" ng-model="editInstrutor.image" class="form-control info" placeholder="Link com Imagem de perfil" aria-describedby="sizing-addon1" />
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': editarInstrutor.imagemInstrutor.$invalid, 'has-success': editarInstrutor.imagemInstrutor.$valid }">
+                            <input type="text" name="imagemInstrutor" ng-model="editInstrutor.image" class="form-control info" placeholder="Link com Imagem de perfil" aria-describedby="sizing-addon1" />
                             <span class="input-group-addon" id="sizing-addon1">$</span>
                         </div>
                         <div class="checkbox col-md-6 col-md-offset-3">
@@ -227,7 +227,7 @@
                             </select>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-success" ng-disabled="editarInstrutor.$invalid" ng-click="updateInstrutor(editInstrutor)">Salvar Instrutor</button>
+                        <button type="submit" ng-class="{ 'btn btn-warning': editarInstrutor.$invalid, 'btn btn-success': editorInstrutor.$valid }" ng-disabled="editarInstrutor.$invalid" ng-click="updateInstrutor(editInstrutor)">Salvar Instrutor</button>
                         <hr>
                     </form>
                 </li>

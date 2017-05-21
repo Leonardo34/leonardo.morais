@@ -8,9 +8,10 @@ body {
     margin: 0 auto;
 }
 
-.btn-primary, .btn-success {
+.btn-primary, .btn-success, .btn-warning {
     width: 30%;
     margin-left: 35%;
+    transition: 2s;
 }
 
 
