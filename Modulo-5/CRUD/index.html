@@ -34,7 +34,7 @@
                 <tr ng-repeat="each in aulas | orderBy: 'nome'">
                     <td>{{ each.id }}
                     <td>{{ each.nome }}</td>
-                    <td><button class="glyphicon glyphicon-trash" ng-click="removeAula(each)"></button></td>
+                    <td><button class="glyphicon glyphicon-trash btn-warning" ng-click="removeAula(each)"></button></td>
                 </tr>
             </tbody>
         </table>

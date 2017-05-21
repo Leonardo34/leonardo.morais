@@ -29,10 +29,12 @@ myApp.controller('crudController', function($scope) {
     }
 
     $scope.saveInstrutor = (instrutor) => {
-        if ($scope.cadastroInstrutor.$valid) {
+        if ($scope.cadastroInstrutor.$valid && !existeInstrutorComNome(instrutor.nome)) {
             instrutor.id = idInstrutorGenerator++;
             $scope.instrutores.push(instrutor);
             delete $scope.instrutor;
+        } else {
+            window.alert("O formulário contém problemas");
         }
     }
 
@@ -40,6 +42,8 @@ myApp.controller('crudController', function($scope) {
         if (!instrutor.dandoAula) {
             let indice = $scope.instrutores.indexOf(instrutor);
             $scope.instrutores.splice(indice, 1);
+        } else {
+            window.alert("Não é possível excluir este instrutor. Está dando aula.");
         }
     }
 
@@ -50,5 +54,9 @@ myApp.controller('crudController', function($scope) {
 
     var existeAulaComNome = (nome) => {
         return $scope.aulas.some(a => a.nome === nome);
+    }
+
+    var existeInstrutorComNome = (nome) => {
+        return $scope.instrutores.some(ins => ins.nome === nome);
     }
 });
