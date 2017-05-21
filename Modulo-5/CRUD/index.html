@@ -110,7 +110,11 @@
                     <td>{{ each.nome + " " +  each.sobrenome }}</td>
                     <td>{{ each.email }}</td>
                     <td>{{ each.idade }}</td>
-                    <td>{{ each.aula }}</td>
+                    <td>
+                        <ul>
+                            <li ng-repeat="aula in getAulasByIds(each.aula) | orderBy: 'nome'">{{ aula.nome }}</li>
+                        </ul>
+                    </td>
                     <td>{{ each.dandoAula | statusAula }}
                     <td><button class="glyphicon glyphicon-trash btn-warning" ng-click="removeInstrutor(each)"></button></td>
                 </tr>

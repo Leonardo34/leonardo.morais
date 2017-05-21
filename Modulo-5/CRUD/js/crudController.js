@@ -89,6 +89,8 @@ myApp.controller('crudController', function($scope) {
         }
     }
 
+    $scope.getAulasByIds = (ids) => $scope.aulas.filter(a => ids.some(id => id == a.id));
+
     var getAulaById = (id) => {
         let index = $scope.aulas.findIndex(a => a.id === id);
         return $scope.aulas[index];
