@@ -96,7 +96,6 @@
                     <th>ID</th>
                     <th>Image</th>
                     <th>Nome</th>
-                    <th>Sobrenome</th>
                     <th>Email</th>
                     <th>Idade</th>
                     <th>Aula Ministrada</th>
@@ -108,8 +107,7 @@
                 <tr ng-repeat="each in instrutores | orderBy: 'nome'" class="instrutor">
                     <td>{{ each.id }}</td>
                     <td><img src="{{each.image}}" class="img-rounded profile" alt="Cinque Terre" width="20" height="20"></td>
-                    <td>{{ each.nome }}</td>
-                    <td>{{ each.sobrenome }}</td>
+                    <td>{{ each.nome + " " +  each.sobrenome }}</td>
                     <td>{{ each.email }}</td>
                     <td>{{ each.idade }}</td>
                     <td>{{ each.aula }}</td>
