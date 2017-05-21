@@ -8,10 +8,11 @@ body {
     margin: 0 auto;
 }
 
-.btn-primary {
+.btn-primary, .btn-success {
     width: 30%;
     margin-left: 35%;
 }
+
 
 .formHeader {
     text-align: center;
