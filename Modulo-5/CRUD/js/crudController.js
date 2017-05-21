@@ -29,7 +29,8 @@ myApp.controller('crudController', function($scope) {
     }
 
     $scope.saveInstrutor = (instrutor) => {
-        if ($scope.cadastroInstrutor.$valid && !existeInstrutorComNome(instrutor.nome)) {
+        if ($scope.cadastroInstrutor.$valid && !existeInstrutorComNome(instrutor.nome)
+                && !existeInstrutorComEmail(instrutor.email)) {
             instrutor.id = idInstrutorGenerator++;
             if (typeof instrutor.image === "undefined") {
                 instrutor.image = "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg";
@@ -73,5 +74,9 @@ myApp.controller('crudController', function($scope) {
 
     var existeInstrutorComNome = (nome) => {
         return $scope.instrutores.some(ins => ins.nome === nome);
+    }
+
+    var existeInstrutorComEmail = (email) => {
+        return $scope.instrutores.some(ins => ins.email === email);
     }
 });
