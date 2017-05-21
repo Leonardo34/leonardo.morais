@@ -47,9 +47,21 @@ myApp.controller('crudController', function($scope) {
         }
     }
 
+    $scope.updateInstrutor = (instrutor) => {
+        if ($scope.editarInstrutor.$valid) {
+            let index = getIndexInstrutorById(parseInt(instrutor.id));
+            $scope.instrutores[index] = instrutor;
+            delete $scope.editInstrutor;
+        }
+    }
+
     var getAulaById = (id) => {
         let index = $scope.aulas.findIndex(a => a.id === id);
         return $scope.aulas[index];
+    }
+
+    var getIndexInstrutorById = (id) => {
+        return $scope.instrutores.findIndex(ins => ins.id === id);
     }
 
     var existeAulaComNome = (nome) => {

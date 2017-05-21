@@ -170,6 +170,67 @@
                 </li>
             </ul>
         </div>
+        <hr>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editar Instrutor   <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                    <form novalidate name="editarInstrutor">
+                        <div class="formHeader">
+                            <h3>Editar instrutor</h3>
+                        </div>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <label for="sel1">Selecione o Instrutor a alterar:</label>
+                            <select class="form-control" id="sel1" ng-model="editInstrutor.id">
+                                <option ng-repeat="each in instrutores | orderBy: 'nome'" value="{{ each.id }}">
+                                    {{ each.nome + " " + each.sobrenome }}
+                                </option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="text" ng-minlength="3" ng-maxlength="20" ng-model="editInstrutor.nome" class="form-control" placeholder="Nome Instrutor" aria-describedby="sizing-addon1" required />
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="text" ng-maxlength="20" ng-model="editInstrutor.sobrenome" class="form-control" placeholder="Sobrenome Instrutor" aria-describedby="sizing-addon1" />
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="number" ng-model="editInstrutor.idade" class="form-control" placeholder="Idade" aria-describedby="sizing-addon1" required />
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="email" ng-model="editInstrutor.email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1" required />
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                            <input type="text" ng-model="editInstrutor.image" class="form-control" placeholder="Link com Imagem de perfil" aria-describedby="sizing-addon1" />
+                        </div>
+                        <div class="checkbox col-md-6 col-md-offset-3">
+                            <label><input type="checkbox" ng-model="editInstrutor.dandoAula">Instutor está dando aula</label>
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <label for="instrutor1">Selecione a aula ministrada pelo instrutor:</label>
+                                <select class="form-control" id="instrutor1" ng-model="editInstrutor.aula">
+                                    <option ng-repeat="each in aulas | orderBy: 'id'" value="{{ each.id }}">
+                                        {{ each.nome }}
+                                    </option>
+                                </select>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary" ng-click="updateInstrutor(editInstrutor)">Salvar Instrutor</button>
+                        <hr>
+                    </form>
+                </li>
+            </ul>
+        </div>
       </div>
     </div>
   </body>
