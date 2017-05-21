@@ -31,3 +31,12 @@ body {
 .profile {
     transition: 2s;
 }
+
+ .info + span {
+    transition: all linear 0.5s;
+    background-color: rgba(38, 217, 44, 0.7);
+ }
+
+ .info.ng-invalid + span {
+    background-color: rgba(255, 55, 44, 0.5);
+ }

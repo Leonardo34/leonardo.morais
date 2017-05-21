@@ -72,7 +72,7 @@ myApp.controller('crudController', function($scope) {
             delete $scope.editInstrutor;
             window.alert("Instrutor atualizado com sucesso");
         } else {
-            window.alert("Não é possível excluir este instrutor. Está dando aula.");
+            window.alert("O formulário contém problemas");
         }
     }
 
