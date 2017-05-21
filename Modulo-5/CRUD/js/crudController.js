@@ -26,8 +26,13 @@ myApp.controller('crudController', function($scope) {
     }
 
     $scope.removeAula = (aula) => {
-        let indice = $scope.aulas.indexOf(aula);
-        $scope.aulas.splice(indice, 1);
+        if (!aulaEstaSendoUtilizada(aula)) {
+            let indice = $scope.aulas.indexOf(aula);
+            $scope.aulas.splice(indice, 1);
+            window.alert("Aula removida com sucesso");
+        } else {
+            window.alert("Não é possível excluir esta aula. Está sendo utilizada.");
+        }
     }
 
     $scope.updateAula = (aula) => {
@@ -104,5 +109,9 @@ myApp.controller('crudController', function($scope) {
 
     var existeInstrutorComEmail = (email) => {
         return $scope.instrutores.some(ins => ins.email === email);
+    }
+
+    var aulaEstaSendoUtilizada = (aula) => {
+        return $scope.instrutores.some(ins => ins.aula == aula.id);
     }
 });
