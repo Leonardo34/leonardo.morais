@@ -1,5 +1,11 @@
 var myApp = angular.module('crudApp', []);
 
+myApp.filter('statusAula', function() {
+    return function(input) {
+        return input ? "Sim" : "Não";
+    }
+});
+
 myApp.controller('crudController', function($scope) {
     let idAulaGenerator = 0;
     let idInstrutorGenerator = 0;
