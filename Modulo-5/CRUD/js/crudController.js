@@ -3,6 +3,7 @@ var myApp = angular.module('crudApp', []);
 myApp.controller('crudController', function($scope) {
     let idAulaGenerator = 0;
     let idInstrutorGenerator = 0;
+    let defaultImage = "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg";
 
     $scope.aulas = [];
     $scope.instrutores = [];
@@ -12,6 +13,9 @@ myApp.controller('crudController', function($scope) {
             aula.id = idAulaGenerator++;
             $scope.aulas.push(aula);
             delete $scope.aula;
+            window.alert("Aula incluída com sucesso");
+        } else {
+            window.alert("Formulário Contém problemas");
         }
     }
 
@@ -22,9 +26,13 @@ myApp.controller('crudController', function($scope) {
 
     $scope.updateAula = (aula) => {
         if ($scope.alterarAula.$valid && !existeAulaComNome(aula.nome)) {
-            let aulaUpdate = getAulaById(parseInt(aula.id));
+            aula.id = parseInt(aula.id);
+            let aulaUpdate = getAulaById(aula.id);
             aulaUpdate.nome = aula.nome;
             delete $scope.edit;
+            windo.alert("Aula atualizada com sucesso");
+        } else {
+            window.alert("O formulário contém problemas");
         }
     }
 
@@ -34,10 +42,11 @@ myApp.controller('crudController', function($scope) {
                 !existeInstrutorComEmail(instrutor.email)) {
             instrutor.id = idInstrutorGenerator++;
             if (typeof instrutor.image === "undefined") {
-                instrutor.image = "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg";
+                instrutor.image = defaultImage;
             }
             $scope.instrutores.push(instrutor);
             delete $scope.instrutor;
+            windo.alert("Instrutor incluído com sucesso");
         } else {
             window.alert("O formulário contém problemas");
         }
@@ -47,16 +56,23 @@ myApp.controller('crudController', function($scope) {
         if (!instrutor.dandoAula) {
             let indice = $scope.instrutores.indexOf(instrutor);
             $scope.instrutores.splice(indice, 1);
+            window.alert("Instrutor removido com sucesso");
         } else {
             window.alert("Não é possível excluir este instrutor. Está dando aula.");
         }
     }
 
     $scope.updateInstrutor = (instrutor) => {
-        if ($scope.editarInstrutor.$valid) {
-            let index = getIndexInstrutorById(parseInt(instrutor.id));
+        if ($scope.editarInstrutor.$valid &&
+                !existeInstrutorComNome(instrutor.nome, instrutor.sobrenome) &&
+                !existeInstrutorComEmail(instrutor.email)) {
+            instrutor.id = parseInt(instrutor.id);
+            let index = getIndexInstrutorById(instrutor.id);
             $scope.instrutores[index] = instrutor;
             delete $scope.editInstrutor;
+            window.alert("Instrutor atualizado com sucesso");
+        } else {
+            window.alert("Não é possível excluir este instrutor. Está dando aula.");
         }
     }
 
