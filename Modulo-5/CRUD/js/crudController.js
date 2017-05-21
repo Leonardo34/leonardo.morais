@@ -75,14 +75,14 @@ myApp.controller('crudController', function($scope) {
     }
 
     $scope.updateInstrutor = (instrutor) => {
-        if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome) &&
-                !existeInstrutorComEmail(instrutor.email)) {
-            instrutor.id = parseInt(instrutor.id);
+        instrutor.id = parseInt(instrutor.id);
+        if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id) &&
+                !existeInstrutorComEmail(instrutor.email, instrutor.id)) {
             let index = getIndexInstrutorById(instrutor.id);
             $scope.instrutores[index] = instrutor;
             delete $scope.editInstrutor;
             window.alert("Instrutor atualizado com sucesso");
-        } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome)) {
+        } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id)) {
             window.alert("Instrutor já cadastrado.");
         } else {
             window.alert("Email já está sendo utilizado.");
@@ -102,16 +102,18 @@ myApp.controller('crudController', function($scope) {
         return $scope.aulas.some(a => a.nome === nome);
     }
 
-    var existeInstrutorComNome = (nome, sobrenome) => {
+    var existeInstrutorComNome = (nome, sobrenome, id = -1) => {
         return $scope.instrutores.some(ins => 
-                ins.nome === nome && ins.sobrenome === sobrenome);
+                ins.nome === nome && 
+                ins.sobrenome === sobrenome &&
+                ins.id !== id);
     }
 
-    var existeInstrutorComEmail = (email) => {
-        return $scope.instrutores.some(ins => ins.email === email);
+    var existeInstrutorComEmail = (email, id = -1) => {
+        return $scope.instrutores.some(ins => ins.email === email && ins.id !== id);
     }
 
     var aulaEstaSendoUtilizada = (aula) => {
-        return $scope.instrutores.some(ins => ins.aula == aula.id);
+        return $scope.instrutores.some(ins => ins.aula.some(a => a == aula.id));
     }
 });

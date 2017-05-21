@@ -155,7 +155,7 @@
                         <br>
                         <div class="input-group input-group-lg col-md-6 col-md-offset-3">
                             <label for="instrutor1">Selecione a aula ministrada pelo instrutor:</label>
-                            <select class="form-control" id="instrutor1" ng-model="instrutor.aula">
+                            <select multiple class="form-control" id="instrutor1" ng-model="instrutor.aula">
                                 <option ng-repeat="each in aulas | orderBy: 'id'" value="{{ each.id }}">
                                     {{ each.nome }}
                                 </option>
