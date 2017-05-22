@@ -51,9 +51,7 @@ myApp.controller('crudController', function($scope, toastr) {
         if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome) &&
                 !existeInstrutorComEmail(instrutor.email)) {
             instrutor.id = idInstrutorGenerator++;
-            if (typeof instrutor.image === "undefined") {
-                instrutor.image = defaultImage;
-            }
+            checarImagem(instrutor);
             $scope.instrutores.push(instrutor);
             delete $scope.instrutor;
             toastr.success("Instrutor incluído com sucesso");
@@ -78,6 +76,7 @@ myApp.controller('crudController', function($scope, toastr) {
         instrutor.id = parseInt(instrutor.id);
         if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id) &&
                 !existeInstrutorComEmail(instrutor.email, instrutor.id)) {
+            checarImagem(instrutor);
             let index = getIndexInstrutorById(instrutor.id);
             $scope.instrutores[index] = instrutor;
             delete $scope.editInstrutor;
@@ -117,5 +116,11 @@ myApp.controller('crudController', function($scope, toastr) {
 
     var aulaEstaSendoUtilizada = (aula) => {
         return $scope.instrutores.some(ins => ins.aula.some(a => a == aula.id));
+    }
+
+    var checarImagem = (instrutor) => {
+        if (typeof instrutor.image === "undefined") {
+            instrutor.image = defaultImage;
+        }
     }
 });
