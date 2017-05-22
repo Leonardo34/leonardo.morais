@@ -1,0 +1,67 @@
+<div class="panel-heading">Trabalho AngularJS CRUD</div>
+        <div class="panel-body">
+          <p>CRUD Aulas</p>
+        </div>  
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Aula</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="each in aulas | orderBy: 'nome'">
+                    <td>{{ each.id }}
+                    <td>{{ each.nome }}</td>
+                    <td><button class="glyphicon glyphicon-trash btn-danger" ng-click="removeAula(each)"></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Adicionar nova Aula   <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                    <form novalidate name="cadastroAula" class="novaAula">
+                        <div class="formHeader">
+                            <h3>Nova aula</h3>
+                        </div>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': cadastroAula.nomeAula.$invalid, 'has-success': cadastroAula.nomeAula.$valid }">
+                            <input type="text" name="nomeAula" ng-minlength="3" ng-maxlength="20" ng-model="aula.nome" class="form-control info" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+                            <span class="input-group-addon status" id="sizing-addon1">$</span>
+                        </div>
+                        <br>
+                        <button type="submit" ng-disabled="cadastroAula.$invalid" ng-class="{ 'btn btn-warning': cadastroAula.$invalid, 'btn btn-success': cadastroAula.$valid }" ng-click="saveAula(aula)">Adicionar aula</button>
+                    </form>
+                </li>
+            </ul>
+            <hr>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editar Aula   <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                    <form novalidate name="alterarAula" class="aulaForm">
+                        <div class="formHeader">
+                            <h3>Editar Aula</h3>
+                        </div>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                            <label for="sel1">Selecione a aula a alterar pelo id:</label>
+                            <select class="form-control" id="sel1" ng-model="edit.id" required>
+                                <option ng-repeat="each in aulas | orderBy: 'id'" value="{{ each.id }}">
+                                    {{ each.id }}
+                                </option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="input-group input-group-lg col-md-6 col-md-offset-3" ng-class="{ 'has-error': alteraroAula.nomeAula.$invalid, 'has-success': alterarAula.nomeAula.$valid }">
+                            <input type="text" name="nomeAula" ng-minlength="3" ng-maxlength="20" ng-model="edit.nome" class="form-control info" placeholder="Nome Aula" aria-describedby="sizing-addon1" required />
+                            <span class="input-group-addon" id="sizing-addon1">$</span>
+                        </div>
+                        <br>
+                        <button type="submit" ng-class="{ 'btn btn-warning': alterarAula.$invalid, 'btn btn-success': alterarAula.$valid }" ng-disabled="alterarAula.$invalid" class="btn btn-success" ng-click="updateAula(edit)">Alterar aula</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
