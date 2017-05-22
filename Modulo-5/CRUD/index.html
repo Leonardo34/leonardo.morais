@@ -186,7 +186,7 @@
                         </div>
                         <div class="input-group input-group-lg col-md-6 col-md-offset-3">
                             <label for="sel1">Selecione o Instrutor a alterar:</label>
-                            <select class="form-control" id="sel1" ng-model="editInstrutor.id">
+                            <select class="form-control" id="sel1" ng-model="editInstrutor.id" required>
                                 <option ng-repeat="each in instrutores | orderBy: 'nome'" value="{{ each.id }}">
                                     {{ each.nome + " " + each.sobrenome }}
                                 </option>
