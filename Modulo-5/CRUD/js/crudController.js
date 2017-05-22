@@ -1,4 +1,4 @@
-var myApp = angular.module('crudApp', []);
+var myApp = angular.module('crudApp', ['toastr']);
 
 myApp.filter('statusAula', function() {
     return function(input) {
@@ -6,7 +6,7 @@ myApp.filter('statusAula', function() {
     }
 });
 
-myApp.controller('crudController', function($scope) {
+myApp.controller('crudController', function($scope, toastr) {
     let idAulaGenerator = 0;
     let idInstrutorGenerator = 0;
     let defaultImage = "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg";
@@ -19,9 +19,9 @@ myApp.controller('crudController', function($scope) {
             aula.id = idAulaGenerator++;
             $scope.aulas.push(aula);
             delete $scope.aula;
-            window.alert("Aula incluída com sucesso");
+            toastr.success("Aula inserida com sucesso");
         } else {
-            window.alert("Aula já cadastrada.");
+            toastr.error("Aula já cadastrada.");
         }
     }
 
@@ -29,9 +29,9 @@ myApp.controller('crudController', function($scope) {
         if (!aulaEstaSendoUtilizada(aula)) {
             let indice = $scope.aulas.indexOf(aula);
             $scope.aulas.splice(indice, 1);
-            window.alert("Aula removida com sucesso");
+            toastr.success("Aula removida com sucesso");
         } else {
-            window.alert("Não é possível excluir esta aula. Está sendo utilizada.");
+            toastr.error("Não é possível excluir esta aula. Está sendo utilizada.");
         }
     }
 
@@ -41,9 +41,9 @@ myApp.controller('crudController', function($scope) {
             let aulaUpdate = getAulaById(aula.id);
             aulaUpdate.nome = aula.nome;
             delete $scope.edit;
-            windo.alert("Aula atualizada com sucesso");
+            toastr.success("Aula atualizada com sucesso");
         } else {
-            window.alert("Aula já cadastrada.");
+            toastr.error("Aula já cadastrada.");
         }
     }
 
@@ -56,11 +56,11 @@ myApp.controller('crudController', function($scope) {
             }
             $scope.instrutores.push(instrutor);
             delete $scope.instrutor;
-            windo.alert("Instrutor incluído com sucesso");
+            toastr.success("Instrutor incluído com sucesso");
         } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome)) {
-            window.alert("Instrutor já cadastrado.");
+            toastr.error("Instrutor já cadastrado.");
         } else {
-            window.alert("Email já está sendo utilizado.");
+            toastr.error("Email já está sendo utilizado.");
         }
     }
 
@@ -68,9 +68,9 @@ myApp.controller('crudController', function($scope) {
         if (!instrutor.dandoAula) {
             let indice = $scope.instrutores.indexOf(instrutor);
             $scope.instrutores.splice(indice, 1);
-            window.alert("Instrutor removido com sucesso");
+            toastr.success("Instrutor removido com sucesso");
         } else {
-            window.alert("Não é possível excluir este instrutor. Está dando aula.");
+            toastr.error("Não é possível excluir este instrutor. Está dando aula.");
         }
     }
 
@@ -81,11 +81,11 @@ myApp.controller('crudController', function($scope) {
             let index = getIndexInstrutorById(instrutor.id);
             $scope.instrutores[index] = instrutor;
             delete $scope.editInstrutor;
-            window.alert("Instrutor atualizado com sucesso");
+            toastr.success("Instrutor atualizado com sucesso");
         } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id)) {
-            window.alert("Instrutor já cadastrado.");
+            toastr.error("Instrutor já cadastrado.");
         } else {
-            window.alert("Email já está sendo utilizado.");
+            toastr.error("Email já está sendo utilizado.");
         }
     }
 
