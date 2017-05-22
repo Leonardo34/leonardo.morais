@@ -61,8 +61,6 @@ myApp.controller('aulaController', function($scope, toastr) {
         }
     }
 
-    $scope.getAulasByIds = (ids) => $scope.aulas.filter(a => ids.some(id => id == a.id));
-
     var getAulaById = (id) => {
         let index = $scope.aulas.findIndex(a => a.id === id);
         return $scope.aulas[index];
@@ -141,4 +139,6 @@ myApp.controller('instrutoresController', function($scope, toastr) {
     var getIndexInstrutorById = (id) => {
         return $scope.instrutores.findIndex(ins => ins.id === id);
     }
+
+    $scope.getAulasByIds = (ids) => $scope.aulas.filter(a => ids.some(id => id == a.id));
 })
