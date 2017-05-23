@@ -10,41 +10,35 @@ myApp.controller('instrutoresController', function($scope, $rootScope, $location
     }
 
     $scope.saveInstrutor = (instrutor) => {
-        if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome) &&
-                !existeInstrutorComEmail(instrutor.email)) {
-            checarImagem(instrutor);
-            instrutorService.saveInstrutor(instrutor).then(() => carregarInstrutores());
+        checarImagem(instrutor);
+        instrutorService.saveInstrutor(instrutor).then(function(success) {
+            carregarInstrutores();
             delete $scope.instrutor;
             toastr.success("Instrutor incluído com sucesso");
-        } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome)) {
-            toastr.error("Instrutor já cadastrado.");
-        } else {
-            toastr.error("Email já está sendo utilizado.");
-        }
+        }, function(error) {
+            toastr.error("Houve um problema");
+        });
     }
 
     $scope.removeInstrutor = (instrutor) => {
-        if (!instrutor.dandoAula) {
-            instrutorService.removeInstrutor(instrutor).then(() => carregarInstrutores());
+        instrutorService.removeInstrutor(instrutor).then(function(success) {
+            carregarInstrutores();
             toastr.success("Instrutor removido com sucesso");
-        } else {
-            toastr.error("Não é possível excluir este instrutor. Está dando aula.");
-        }
+        }, function(error) {
+            toastr.error("Houve um problema");
+        });
     }
 
     $scope.updateInstrutor = (instrutor) => {
         instrutor.id = parseInt(instrutor.id);
-        if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id) &&
-                !existeInstrutorComEmail(instrutor.email, instrutor.id)) {
-            checarImagem(instrutor);
-            instrutorService.updateInstrutor(instrutor).then(() => carregarInstrutores());
+        checarImagem(instrutor);
+        instrutorService.updateInstrutor(instrutor).then(function(success) {
+            carregarInstrutores();
             delete $scope.editInstrutor;
             toastr.success("Instrutor atualizado com sucesso");
-        } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id)) {
-            toastr.error("Instrutor já cadastrado.");
-        } else {
-            toastr.error("Email já está sendo utilizado.");
-        }
+        }, function(error) {
+            toastr.error("Houve um problema");
+        });
     }
 
     var existeInstrutorComNome = (nome, sobrenome, id = -1) => {

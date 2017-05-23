@@ -28,14 +28,14 @@ myApp.controller('aulaController', function($scope, $rootScope, $location, toast
     }
 
     $scope.updateAula = (aula) => {
-            aula.id = parseInt(aula.id);
-            aulaService.updateAula(aula).then(function(success) {
-                carregarAulas();
-                delete $scope.edit;
-                toastr.success("Aula atualizada com sucesso");
-            }, function(error) {
-                toastr.error("Houve um problema");
-            });
+        aula.id = parseInt(aula.id);
+        aulaService.updateAula(aula).then(function(success) {
+            carregarAulas();
+            delete $scope.edit;
+            toastr.success("Aula atualizada com sucesso");
+        }, function(error) {
+            toastr.error("Houve um problema");
+        });
     }
 
     var getAulaById = (id) => {
