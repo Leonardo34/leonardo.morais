@@ -9,33 +9,33 @@ myApp.controller('aulaController', function($scope, $rootScope, $location, toast
     } 
 
     $scope.saveAula = (aula) => {
-        if (!existeAulaComNome(aula.nome)) {
-            aulaService.saveAula(aula).then(() => carregarAulas());
-            delete $scope.aula;
+        aulaService.saveAula(aula).then(function(success) {
+            carregarAulas();
             toastr.success("Aula inserida com sucesso");
-        } else {
-            toastr.error("Aula já cadastrada.");
-        }
+            delete $scope.aula;
+        }, function(error) {
+            toastr.error("Houve um problema");
+        });  
     }
 
     $scope.removeAula = (aula) => {
-        if (!aulaEstaSendoUtilizada(aula)) {
-            aulaService.removeAula(aula).then(() => carregarAulas());
+        aulaService.removeAula(aula).then(function(success) {
+            carregarAulas();
             toastr.success("Aula removida com sucesso");
-        } else {
-            toastr.error("Não é possível excluir esta aula. Está sendo utilizada.");
-        }
+        }, function(error) {
+            toastr.error("Houve um problema");
+        });
     }
 
     $scope.updateAula = (aula) => {
-        if (!existeAulaComNome(aula.nome)) {
             aula.id = parseInt(aula.id);
-            aulaService.updateAula(aula).then(() => carregarAulas());
-            delete $scope.edit;
-            toastr.success("Aula atualizada com sucesso");
-        } else {
-            toastr.error("Aula já cadastrada.");
-        }
+            aulaService.updateAula(aula).then(function(success) {
+                carregarAulas();
+                delete $scope.edit;
+                toastr.success("Aula atualizada com sucesso");
+            }, function(error) {
+                toastr.error("Houve um problema");
+            });
     }
 
     var getAulaById = (id) => {
