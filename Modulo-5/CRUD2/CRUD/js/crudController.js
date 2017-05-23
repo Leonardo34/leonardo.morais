@@ -27,6 +27,14 @@ myApp.service('aulaService', function($http) {
     this.saveAula = function(aula) {
         return $http.post('http://localhost:3000/aulas', aula);
     }
+
+    this.updateAula = function(aula) {
+        return $http.put('http://localhost:3000/aulas/' + aula.id, aula);
+    }
+
+    this.removeAula = function(aula) {
+        return $http.delete('http://localhost:3000/aulas/' + aula.id);
+    }
 })
 
 myApp.controller('principalController', function($scope) {
@@ -48,8 +56,7 @@ myApp.controller('aulaController', function($scope, toastr, aulaService) {
 
     $scope.saveAula = (aula) => {
         if (!existeAulaComNome(aula.nome)) {
-            aulaService.saveAula(aula);
-            carregarAulas();
+            aulaService.saveAula(aula).then(() => carregarAulas());
             delete $scope.aula;
             toastr.success("Aula inserida com sucesso");
         } else {
@@ -59,8 +66,7 @@ myApp.controller('aulaController', function($scope, toastr, aulaService) {
 
     $scope.removeAula = (aula) => {
         if (!aulaEstaSendoUtilizada(aula)) {
-            let indice = $scope.aulas.indexOf(aula);
-            $scope.aulas.splice(indice, 1);
+            aulaService.removeAula(aula).then(() => carregarAulas());
             toastr.success("Aula removida com sucesso");
         } else {
             toastr.error("Não é possível excluir esta aula. Está sendo utilizada.");
@@ -70,8 +76,7 @@ myApp.controller('aulaController', function($scope, toastr, aulaService) {
     $scope.updateAula = (aula) => {
         if (!existeAulaComNome(aula.nome)) {
             aula.id = parseInt(aula.id);
-            let aulaUpdate = getAulaById(aula.id);
-            aulaUpdate.nome = aula.nome;
+            aulaService.updateAula(aula).then(() => carregarAulas());
             delete $scope.edit;
             toastr.success("Aula atualizada com sucesso");
         } else {
