@@ -7,14 +7,6 @@
     {
       "nome": "Java",
       "id": 3
-    },
-    {
-      "nome": "Seila",
-      "id": 4
-    },
-    {
-      "nome": "Puta fome",
-      "id": 5
     }
   ],
   "instrutores": [
@@ -32,18 +24,14 @@
     },
     {
       "nome": "Odin",
-      "sobrenome": "Fazendo Curva",
+      "sobrenome": "Curvando",
       "idade": 666,
-      "email": "odin@illuminatti.net",
-      "dandoAula": true,
+      "email": "odin@god.com.br",
       "aula": [
-        "2",
-        "3",
-        "4",
-        "5"
+        "3"
       ],
-      "image": "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg",
-      "id": 1
+      "id": 1,
+      "image": "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg"
     }
   ]
 }
