@@ -7,6 +7,14 @@
     {
       "nome": ".NET",
       "id": 2
+    },
+    {
+      "nome": "Javascript",
+      "id": 3
+    },
+    {
+      "nome": "Go horse",
+      "id": 5
     }
   ],
   "instrutores": [
