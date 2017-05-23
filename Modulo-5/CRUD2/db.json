@@ -1,42 +1,26 @@
 {
   "aulas": [
     {
-      "nome": "Banco de Dados I",
+      "nome": "Orientação a Objetos",
+      "id": 1
+    },
+    {
+      "nome": ".NET",
       "id": 2
-    },
-    {
-      "id": 3,
-      "nome": "Java"
-    },
-    {
-      "nome": "Javascript",
-      "id": 4
     }
   ],
   "instrutores": [
     {
-      "nome": "Nunes",
-      "sobrenome": "Illuminatti",
-      "idade": 31,
-      "email": "nunes@illuminatti.net",
-      "dandoAula": true,
-      "aula": [
-        "2"
-      ],
-      "image": "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg",
-      "id": 2
-    },
-    {
-      "id": 3,
       "nome": "Bernardo",
       "sobrenome": "Rezende",
       "idade": 29,
-      "email": "bernardo@illluminatti.net",
-      "image": "https://avatars2.githubusercontent.com/u/526075?v=3&s=400",
+      "email": "bernard@cwi.com.br",
       "aula": [
-        "3",
-        "4"
-      ]
+        "1"
+      ],
+      "dandoAula": true,
+      "image": "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg",
+      "id": 1
     }
   ]
 }

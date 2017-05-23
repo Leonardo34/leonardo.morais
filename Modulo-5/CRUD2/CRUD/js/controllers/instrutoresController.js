@@ -11,20 +11,20 @@ myApp.controller('instrutoresController', function($scope, $rootScope, $location
 
     $scope.saveInstrutor = (instrutor) => {
         checarImagem(instrutor);
-        instrutorService.saveInstrutor(instrutor).then(function(success) {
+        instrutorService.saveInstrutor(instrutor).then( success => {
             carregarInstrutores();
             delete $scope.instrutor;
             toastr.success("Instrutor incluído com sucesso");
-        }, function(error) {
+        }, error => {
             toastr.error("Houve um problema");
         });
     }
 
     $scope.removeInstrutor = (instrutor) => {
-        instrutorService.removeInstrutor(instrutor).then(function(success) {
+        instrutorService.removeInstrutor(instrutor).then( success => {
             carregarInstrutores();
             toastr.success("Instrutor removido com sucesso");
-        }, function(error) {
+        }, error => {
             toastr.error("Houve um problema");
         });
     }
@@ -32,11 +32,11 @@ myApp.controller('instrutoresController', function($scope, $rootScope, $location
     $scope.updateInstrutor = (instrutor) => {
         instrutor.id = parseInt(instrutor.id);
         checarImagem(instrutor);
-        instrutorService.updateInstrutor(instrutor).then(function(success) {
+        instrutorService.updateInstrutor(instrutor).then( success => {
             carregarInstrutores();
             delete $scope.editInstrutor;
             toastr.success("Instrutor atualizado com sucesso");
-        }, function(error) {
+        }, error => {
             toastr.error("Houve um problema");
         });
     }

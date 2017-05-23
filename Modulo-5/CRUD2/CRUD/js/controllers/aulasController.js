@@ -9,31 +9,31 @@ myApp.controller('aulaController', function($scope, $rootScope, $location, toast
     } 
 
     $scope.saveAula = (aula) => {
-        aulaService.saveAula(aula).then(function(success) {
+        aulaService.saveAula(aula).then( success => {
             carregarAulas();
             toastr.success("Aula inserida com sucesso");
             delete $scope.aula;
-        }, function(error) {
+        }, error => {
             toastr.error("Houve um problema");
         });  
     }
 
     $scope.removeAula = (aula) => {
-        aulaService.removeAula(aula).then(function(success) {
+        aulaService.removeAula(aula).then( success => {
             carregarAulas();
             toastr.success("Aula removida com sucesso");
-        }, function(error) {
+        }, error => {
             toastr.error("Houve um problema");
         });
     }
 
     $scope.updateAula = (aula) => {
         aula.id = parseInt(aula.id);
-        aulaService.updateAula(aula).then(function(success) {
+        aulaService.updateAula(aula).then( success => {
             carregarAulas();
             delete $scope.edit;
             toastr.success("Aula atualizada com sucesso");
-        }, function(error) {
+        }, error => {
             toastr.error("Houve um problema");
         });
     }
