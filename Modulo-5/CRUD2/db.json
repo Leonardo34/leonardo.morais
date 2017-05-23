@@ -1,12 +1,8 @@
 {
   "aulas": [
     {
-      "nome": "Javascript",
-      "id": 2
-    },
-    {
-      "nome": "Java",
-      "id": 3
+      "nome": "Teste",
+      "id": 1
     }
   ],
   "instrutores": [
@@ -15,22 +11,11 @@
       "nome": "Bernardo",
       "sobrenome": "Rezende",
       "idade": 29,
-      "email": "bernardo@cwi.com.br",
+      "email": "bernard0@gmail.com",
+      "aula": [
+        "1"
+      ],
       "dandoAula": true,
-      "aula": [
-        2
-      ],
-      "image": "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg"
-    },
-    {
-      "nome": "Odin",
-      "sobrenome": "Curvando",
-      "idade": 666,
-      "email": "odin@god.com.br",
-      "aula": [
-        "3"
-      ],
-      "id": 1,
       "image": "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg"
     }
   ]
