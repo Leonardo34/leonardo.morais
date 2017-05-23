@@ -14,4 +14,14 @@ myApp.service('aulaService', function($http) {
     this.removeAula = function(aula) {
         return $http.delete('http://localhost:3000/aulas/' + aula.id);
     }
+});
+
+myApp.service('instrutorService', function($http) {
+    this.getInstrutores = function() {
+        return $http.get('http://localhost:3000/instrutores');
+    }
+
+    this.saveInstrutor = function(instrutor) {
+        return $http.post('http://localhost:3000/instrutores', instrutor);
+    }
 })
