@@ -19,6 +19,16 @@ myApp.filter('statusAula', function() {
     }
 });
 
+myApp.service('aulaService', function($http) {
+    this.getAulas = function() {
+        return $http.get('http://localhost:3000/aulas');
+    }
+
+    this.saveAula = function(aula) {
+        return $http.post('http://localhost:3000/aulas', aula);
+    }
+})
+
 myApp.controller('principalController', function($scope) {
     $scope.aulas = [];
     $scope.instrutores = [];
@@ -26,12 +36,20 @@ myApp.controller('principalController', function($scope) {
     $scope.idInstrutorGenerator = {id: 0};
 });
 
-myApp.controller('aulaController', function($scope, toastr) {
+myApp.controller('aulaController', function($scope, toastr, aulaService) {
+
+    carregarAulas();
+
+    function carregarAulas() {
+        aulaService.getAulas().then(response => {
+            $scope.aulas = response.data;
+        })
+    }
 
     $scope.saveAula = (aula) => {
         if (!existeAulaComNome(aula.nome)) {
-            aula.id = $scope.idAulaGenerator.id++;
-            $scope.aulas.push(aula);
+            aulaService.saveAula(aula);
+            carregarAulas();
             delete $scope.aula;
             toastr.success("Aula inserida com sucesso");
         } else {
