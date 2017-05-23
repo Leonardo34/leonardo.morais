@@ -19,22 +19,20 @@ myApp.filter('statusAula', function() {
     }
 });
 
-myApp.controller('principalController', function($scope) {
-    $scope.aulas = [];
-    $scope.instrutores = [];
-    $scope.idAulaGenerator = {id: 0};
-    $scope.idInstrutorGenerator = {id: 0};
+myApp.controller('principalController', function($scope, $rootScope) {
+    $rootScope.aulas = [];
+    $rootScope.instrutores = [];
 });
 
-myApp.controller('aulaController', function($scope, toastr, aulaService) {
+myApp.controller('aulaController', function($scope, $rootScope, toastr, aulaService) {
 
     carregarAulas();
 
     function carregarAulas() {
         aulaService.getAulas().then(response => {
-            $scope.aulas = response.data;
+            $rootScope.aulas = response.data;
         })
-    }
+    } 
 
     $scope.saveAula = (aula) => {
         if (!existeAulaComNome(aula.nome)) {
@@ -80,8 +78,16 @@ myApp.controller('aulaController', function($scope, toastr, aulaService) {
     }
 });
 
-myApp.controller('instrutoresController', function($scope, toastr) {
+myApp.controller('instrutoresController', function($scope, $rootScope, toastr, instrutorService) {
     let defaultImage = "http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg";
+
+    carregarInstrutores();
+
+    function carregarInstrutores() {
+        instrutorService.getInstrutores().then(response => {
+            $rootScope.instrutores = response.data;
+        })
+    }
 
     $scope.saveInstrutor = (instrutor) => {
         if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome) &&
