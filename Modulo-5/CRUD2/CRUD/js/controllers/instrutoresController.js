@@ -41,25 +41,10 @@ myApp.controller('instrutoresController', function($scope, $rootScope, $location
         });
     }
 
-    var existeInstrutorComNome = (nome, sobrenome, id = -1) => {
-        return $scope.instrutores.some(ins => 
-                ins.nome === nome && 
-                ins.sobrenome === sobrenome &&
-                ins.id !== id);
-    }
-
-    var existeInstrutorComEmail = (email, id = -1) => {
-        return $scope.instrutores.some(ins => ins.email === email && ins.id !== id);
-    }
-
     var checarImagem = (instrutor) => {
         if (typeof instrutor.image === "undefined") {
             instrutor.image = defaultImage;
         }
-    }
-
-    var getIndexInstrutorById = (id) => {
-        return $scope.instrutores.findIndex(ins => ins.id === id);
     }
 
     $scope.getAulasByIds = (ids) => $scope.aulas.filter(a => ids.some(id => id == a.id));

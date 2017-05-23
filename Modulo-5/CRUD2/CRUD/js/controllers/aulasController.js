@@ -37,17 +37,4 @@ myApp.controller('aulaController', function($scope, $rootScope, $location, toast
             toastr.error("Houve um problema");
         });
     }
-
-    var getAulaById = (id) => {
-        let index = $scope.aulas.findIndex(a => a.id === id);
-        return $scope.aulas[index];
-    }
-
-    var aulaEstaSendoUtilizada = (aula) => {
-        return $scope.instrutores.some(ins => ins.aula.some(a => a == aula.id));
-    }
-
-    var existeAulaComNome = (nome) => {
-        return $scope.aulas.some(a => a.nome === nome);
-    }
 });
