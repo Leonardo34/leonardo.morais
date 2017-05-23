@@ -92,9 +92,8 @@ myApp.controller('instrutoresController', function($scope, $rootScope, toastr, i
     $scope.saveInstrutor = (instrutor) => {
         if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome) &&
                 !existeInstrutorComEmail(instrutor.email)) {
-            instrutor.id = $scope.idInstrutorGenerator.id++;
             checarImagem(instrutor);
-            $scope.instrutores.push(instrutor);
+            instrutorService.saveInstrutor(instrutor).then(() => carregarInstrutores());
             delete $scope.instrutor;
             toastr.success("Instrutor incluído com sucesso");
         } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome)) {
@@ -106,8 +105,7 @@ myApp.controller('instrutoresController', function($scope, $rootScope, toastr, i
 
     $scope.removeInstrutor = (instrutor) => {
         if (!instrutor.dandoAula) {
-            let indice = $scope.instrutores.indexOf(instrutor);
-            $scope.instrutores.splice(indice, 1);
+            instrutorService.removeInstrutor(instrutor).then(() => carregarInstrutores());
             toastr.success("Instrutor removido com sucesso");
         } else {
             toastr.error("Não é possível excluir este instrutor. Está dando aula.");
@@ -119,8 +117,7 @@ myApp.controller('instrutoresController', function($scope, $rootScope, toastr, i
         if (!existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id) &&
                 !existeInstrutorComEmail(instrutor.email, instrutor.id)) {
             checarImagem(instrutor);
-            let index = getIndexInstrutorById(instrutor.id);
-            $scope.instrutores[index] = instrutor;
+            instrutorService.updateInstrutor(instrutor).then(() => carregarInstrutores());
             delete $scope.editInstrutor;
             toastr.success("Instrutor atualizado com sucesso");
         } else if (existeInstrutorComNome(instrutor.nome, instrutor.sobrenome, instrutor.id)) {

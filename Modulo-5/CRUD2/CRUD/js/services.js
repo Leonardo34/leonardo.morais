@@ -24,4 +24,12 @@ myApp.service('instrutorService', function($http) {
     this.saveInstrutor = function(instrutor) {
         return $http.post('http://localhost:3000/instrutores', instrutor);
     }
+
+    this.updateInstrutor = function(instrutor) {
+        return $http.put('http://localhost:3000/instrutores/' + instrutor.id, instrutor);
+    }
+
+    this.removeInstrutor = function(instrutor) {
+        return $http.delete('http://localhost:3000/instrutores/' + instrutor.id);
+    }
 })
