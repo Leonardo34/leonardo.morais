@@ -1,0 +1,6 @@
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\Demo-Console\Aula1\Demo1\bin\Debug\Demo1.exe.config
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\Demo-Console\Aula1\Demo1\bin\Debug\Demo1.exe
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\Demo-Console\Aula1\Demo1\bin\Debug\Demo1.pdb
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\Demo-Console\Aula1\Demo1\obj\Debug\Demo1.csprojResolveAssemblyReference.cache
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\Demo-Console\Aula1\Demo1\obj\Debug\Demo1.exe
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\Demo-Console\Aula1\Demo1\obj\Debug\Demo1.pdb
