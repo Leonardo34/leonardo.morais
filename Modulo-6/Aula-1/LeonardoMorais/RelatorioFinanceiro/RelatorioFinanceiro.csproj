@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demonstrativo.cs" />
+    <Compile Include="Desconto.cs" />
+    <Compile Include="Empregado.cs" />
+    <Compile Include="FolhaPagamento.cs" />
+    <Compile Include="HorasCalculadas.cs" />
+    <Compile Include="IFolhaPagamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

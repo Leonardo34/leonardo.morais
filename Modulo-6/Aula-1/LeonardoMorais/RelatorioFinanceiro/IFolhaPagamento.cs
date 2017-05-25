@@ -8,5 +8,7 @@ namespace RelatorioFinanceiro
 {
     interface IFolhaPagamento
     {
+        Demonstrativo gerarDemonstrativo(int horasCategoria, double salarioBase,
+            double horasExtras, double horasDescontadas);
     }
 }
