@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolhaPagamentoProject", "FolhaPagamentoProject\FolhaPagamentoProject.csproj", "{68BDDC62-7375-4CB9-B765-0D0FD7F47283}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelatorioFinanceiro", "RelatorioFinanceiro\RelatorioFinanceiro.csproj", "{1404FB90-88C7-4967-A53B-34F13C26A20A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{68BDDC62-7375-4CB9-B765-0D0FD7F47283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68BDDC62-7375-4CB9-B765-0D0FD7F47283}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68BDDC62-7375-4CB9-B765-0D0FD7F47283}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68BDDC62-7375-4CB9-B765-0D0FD7F47283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1404FB90-88C7-4967-A53B-34F13C26A20A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1404FB90-88C7-4967-A53B-34F13C26A20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1404FB90-88C7-4967-A53B-34F13C26A20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1404FB90-88C7-4967-A53B-34F13C26A20A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FolhaPagamentoProject
+namespace RelatorioFinanceiro
 {
-    class Program
+    class HorasCalculadas
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
