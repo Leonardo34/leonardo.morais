@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FolhaPagamentoTest
+namespace Demonstrativo.Folha
 {
-    class Demonstrativo
+    public class Demonstrativo
     {
         public Demonstrativo(
         double salarioBase,
@@ -42,5 +42,6 @@ namespace FolhaPagamentoTest
         public double TotalDescontos { get; private set; }
         public double TotalLiquido { get; private set; }
         public Desconto Fgts { get; private set; }
+
     }
 }

@@ -13,3 +13,10 @@ C:\Users\Leonardo\Pictures\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\Fo
 C:\Users\Leonardo\Pictures\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\obj\Debug\FolhaPagamentoTest.csprojResolveAssemblyReference.cache
 C:\Users\Leonardo\Pictures\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\obj\Debug\FolhaPagamentoTest.dll
 C:\Users\Leonardo\Pictures\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\obj\Debug\FolhaPagamentoTest.pdb
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\obj\Debug\FolhaPagamentoTest.csprojResolveAssemblyReference.cache
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\obj\Debug\FolhaPagamentoTest.dll
+C:\Users\leonardo.morais\Documents\leonardo.morais\Modulo-6\Aula-1\LeonardoMoraisTest\FolhaPagamentoTest\obj\Debug\FolhaPagamentoTest.pdb
