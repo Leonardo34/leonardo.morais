@@ -92,8 +92,8 @@ namespace Repositorio
 
         public IList<Funcionario> OrdenadosPorCargo()
         {
-            return Funcionarios.
-                    OrderBy(f => f.Cargo.Titulo)
+            return Funcionarios
+                    .OrderBy(f => f.Cargo.Titulo)
                     .ThenBy(f => f.Nome)
                     .ToList();
         }
@@ -107,7 +107,9 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                    .Where(f => turnos.Contains(f.TurnoTrabalho) || turnos.Length == 0)
+                    .ToList();
         }        
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
