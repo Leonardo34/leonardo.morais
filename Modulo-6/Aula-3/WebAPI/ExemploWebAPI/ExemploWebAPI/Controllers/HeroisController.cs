@@ -10,58 +10,19 @@ namespace ExemploWebAPI.Controllers
 {
     public class HeroisController : ApiController
     {
-        public List<Heroi> GetHerois()
+        private static List<Heroi> Herois = new List<Heroi>();
+        private static int IdGenerator = 0;
+
+        public List<Heroi> GetHerois(int? id = null)
         {
-            List<Heroi> herois = new List<Heroi>() {
-                new Heroi()
-                {
-                    Id = 1,
-                    Nome = "Goku",
-                    Poder = new Poder()
-                    {
-                        Nome = "Kamehameha",
-                        Dano = 20
-                    }
-                },
-                new Heroi()
-                {
-                    Id = 2,
-                    Nome = "Naruto",
-                    Poder = new Poder()
-                    {
-                        Nome = "Rasengan",
-                        Dano = 200
-                    }
-                }
-            };
-            return herois;    
+            return id == null ? Herois : Herois.Where(h => h.Id == id).ToList();    
         }
 
-        public IEnumerable<Heroi> GetHeroiById(int id)
+        public IHttpActionResult Post(Heroi heroi)
         {
-            List<Heroi> herois = new List<Heroi>() {
-                new Heroi()
-                {
-                    Id = 1,
-                    Nome = "Goku",
-                    Poder = new Poder()
-                    {
-                        Nome = "Kamehameha",
-                        Dano = 20
-                    }
-                },
-                new Heroi()
-                {
-                    Id = 2,
-                    Nome = "Naruto",
-                    Poder = new Poder()
-                    {
-                        Nome = "Rasengan",
-                        Dano = 200
-                    }
-                }
-            };
-            return herois.Where(h => h.Id == id);
+            heroi.Id = IdGenerator++;
+            Herois.Add(heroi);
+            return Ok();
         }
     }
 }
