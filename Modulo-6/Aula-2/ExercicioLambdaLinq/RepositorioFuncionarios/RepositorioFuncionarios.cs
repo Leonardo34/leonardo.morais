@@ -133,12 +133,15 @@ namespace Repositorio
         {
             var funcionariosConsiderados = turno == null ?
                 Funcionarios : BuscarPorTurno(new TurnoTrabalho[] { (TurnoTrabalho) turno });
+
             return funcionariosConsiderados.Sum(f => f.Cargo.Salario) / funcionariosConsiderados.Count;
         }
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                    .Where(f => f.DataNascimento.Month == DateTime.Now.Month)
+                    .ToList();
         }
 
         public IList<dynamic> BuscaRapida()
