@@ -12,6 +12,7 @@ namespace ExemploWebAPI.Controllers
     {
         private static List<Heroi> Herois = new List<Heroi>();
         private static int IdGenerator = 0;
+        private readonly object objetoLock = new object();
 
         public List<Heroi> GetHerois(int? id = null)
         {
@@ -20,8 +21,15 @@ namespace ExemploWebAPI.Controllers
 
         public IHttpActionResult Post(Heroi heroi)
         {
-            heroi.Id = IdGenerator++;
-            Herois.Add(heroi);
+            if (heroi == null)
+            {
+                return BadRequest();
+            }
+            lock (objetoLock)
+            {
+                heroi.Id = IdGenerator++;
+                Herois.Add(heroi);
+            }
             return Ok();
         }
     }
