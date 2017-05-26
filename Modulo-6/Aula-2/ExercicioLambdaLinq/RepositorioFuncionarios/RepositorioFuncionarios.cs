@@ -13,7 +13,7 @@ namespace Repositorio
     public class RepositorioFuncionarios
     {
         public List<Funcionario> Funcionarios { get; private set; }
-        
+
         public RepositorioFuncionarios()
         {
             CriarBase();
@@ -102,27 +102,29 @@ namespace Repositorio
         {
             return Funcionarios
                     .Where(f => f.Nome.IndexOf(nome, StringComparison.OrdinalIgnoreCase) > 0)
-                    .ToList();          
-        }        
+                    .ToList();
+        }
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
             return Funcionarios
                     .Where(f => turnos.Contains(f.TurnoTrabalho) || turnos.Length == 0)
                     .ToList();
-        }        
+        }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
             return Funcionarios
-                    .Where(f => CalcularIdade(f.DataNascimento) >= idade - 5 && CalcularIdade(f.DataNascimento) <= idade + 5)
+                    .Where(f => CalcularIdade(f.DataNascimento) >= idade - 5
+                        && CalcularIdade(f.DataNascimento) <= idade + 5)
                     .ToList();
         }
 
         private int CalcularIdade(DateTime dataNascimento)
         {
             int idade = DateTime.Now.Year - dataNascimento.Year;
-            if (DateTime.Now.Month < dataNascimento.Month || (DateTime.Now.Month == dataNascimento.Month && DateTime.Now.Day < dataNascimento.Day))
+            if (DateTime.Now.Month < dataNascimento.Month ||
+                (DateTime.Now.Month == dataNascimento.Month && DateTime.Now.Day < dataNascimento.Day))
             {
                 idade--;
             }
@@ -132,7 +134,7 @@ namespace Repositorio
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
             var funcionariosConsiderados = turno == null ?
-                Funcionarios : BuscarPorTurno(new TurnoTrabalho[] { (TurnoTrabalho) turno });
+                Funcionarios : BuscarPorTurno(new TurnoTrabalho[] { (TurnoTrabalho)turno });
 
             return funcionariosConsiderados.Sum(f => f.Cargo.Salario) / funcionariosConsiderados.Count;
         }
@@ -153,7 +155,14 @@ namespace Repositorio
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                    .GroupBy(f => f.TurnoTrabalho)
+                    .Select(funcionarios => new
+                    {
+                        Turno = funcionarios.FirstOrDefault().TurnoTrabalho,
+                        Quantidade = funcionarios.Count()
+                    })
+                    .ToArray();
         }
 
         public dynamic FuncionarioMaisComplexo()
