@@ -27,7 +27,7 @@ namespace ExemploWebAPI.Controllers
             }
             lock (objetoLock)
             {
-                heroi.Id = IdGenerator++;
+                heroi.Id = ++IdGenerator;
                 Herois.Add(heroi);
             }
             return Ok();
