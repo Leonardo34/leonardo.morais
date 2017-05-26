@@ -167,8 +167,6 @@ namespace Repositorio
 
         public dynamic FuncionarioMaisComplexo()
         {
-            // TODO: Concluir construção do objeto de retorno
-
             Regex regex = new Regex("[AEIOUaeiou]");
             var funcionarioMaisComplexo = Funcionarios
                 .Where(f => f.TurnoTrabalho != TurnoTrabalho.Tarde && f.Cargo.Titulo != "Desenvolvedor Júnior")
