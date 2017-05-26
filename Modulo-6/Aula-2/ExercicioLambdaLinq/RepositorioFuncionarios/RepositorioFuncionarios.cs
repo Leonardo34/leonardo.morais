@@ -167,15 +167,13 @@ namespace Repositorio
 
         public dynamic FuncionarioMaisComplexo()
         {
-            // TODO: Concluir construção do objeto de retorno e refatorar lógica para não
-            // executar duas buscas
-            Regex regex = new Regex("[AEIOUaeiou]");
-            var maxConsoantes = Funcionarios
-                .Where(f => f.TurnoTrabalho != TurnoTrabalho.Tarde && f.Cargo.Titulo != "Desenvolvedor Júnior")
-                .Max(f => regex.Replace(f.Nome, "").Length);
+            // TODO: Concluir construção do objeto de retorno
 
+            Regex regex = new Regex("[AEIOUaeiou]");
             var funcionarioMaisComplexo = Funcionarios
-                .Where(f => regex.Replace(f.Nome, "").Length == maxConsoantes).First();
+                .Where(f => f.TurnoTrabalho != TurnoTrabalho.Tarde && f.Cargo.Titulo != "Desenvolvedor Júnior")
+                .OrderBy(f => regex.Replace(f.Nome, "").Length)
+                .Last();
 
             return new { Nome = funcionarioMaisComplexo.Nome };
         }
