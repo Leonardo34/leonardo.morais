@@ -86,38 +86,38 @@ namespace Repositorio
         public IList<Funcionario> BuscarPorCargo(Cargo cargo)
         {
             return Funcionarios
-                    .Where(f => f.Cargo.Equals(cargo))
-                    .ToList();
+                .Where(f => f.Cargo.Equals(cargo))
+                .ToList();
         }
 
         public IList<Funcionario> OrdenadosPorCargo()
         {
             return Funcionarios
-                    .OrderBy(f => f.Cargo.Titulo)
-                    .ThenBy(f => f.Nome)
-                    .ToList();
+                .OrderBy(f => f.Cargo.Titulo)
+                .ThenBy(f => f.Nome)
+                .ToList();
         }
 
         public IList<Funcionario> BuscarPorNome(string nome)
         {
             return Funcionarios
-                    .Where(f => f.Nome.IndexOf(nome, StringComparison.OrdinalIgnoreCase) > 0)
-                    .ToList();
+                .Where(f => f.Nome.IndexOf(nome, StringComparison.OrdinalIgnoreCase) > 0)
+                .ToList();
         }
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
             return Funcionarios
-                    .Where(f => turnos.Contains(f.TurnoTrabalho) || turnos.Length == 0)
-                    .ToList();
+                .Where(f => turnos.Contains(f.TurnoTrabalho) || turnos.Length == 0)
+                .ToList();
         }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
             return Funcionarios
-                    .Where(f => CalcularIdade(f.DataNascimento) >= idade - 5
-                        && CalcularIdade(f.DataNascimento) <= idade + 5)
-                    .ToList();
+                .Where(f => CalcularIdade(f.DataNascimento) >= idade - 5
+                    && CalcularIdade(f.DataNascimento) <= idade + 5)
+                .ToList();
         }
 
         private int CalcularIdade(DateTime dataNascimento)
@@ -133,8 +133,8 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            var funcionariosConsiderados = turno == null ?
-                Funcionarios : BuscarPorTurno(new TurnoTrabalho[] { (TurnoTrabalho)turno });
+            var funcionariosConsiderados = turno == null ? Funcionarios : 
+                BuscarPorTurno(new TurnoTrabalho[] { (TurnoTrabalho)turno });
 
             return funcionariosConsiderados.Sum(f => f.Cargo.Salario) / funcionariosConsiderados.Count;
         }
@@ -142,27 +142,27 @@ namespace Repositorio
         public IList<Funcionario> AniversariantesDoMes()
         {
             return Funcionarios
-                    .Where(f => f.DataNascimento.Month == DateTime.Now.Month)
-                    .ToList();
+                .Where(f => f.DataNascimento.Month == DateTime.Now.Month)
+                .ToList();
         }
 
         public IList<dynamic> BuscaRapida()
         {
             return Funcionarios
-                    .Select(f => new { NomeFuncionario = f.Nome, TituloCargo = f.Cargo.Titulo })
-                    .ToArray();
+                .Select(f => new { NomeFuncionario = f.Nome, TituloCargo = f.Cargo.Titulo })
+                .ToArray();
         }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
             return Funcionarios
-                    .GroupBy(f => f.TurnoTrabalho)
-                    .Select(funcionarios => new
-                    {
-                        Turno = funcionarios.FirstOrDefault().TurnoTrabalho,
-                        Quantidade = funcionarios.Count()
-                    })
-                    .ToArray();
+                .GroupBy(f => f.TurnoTrabalho)
+                .Select(funcionarios => new
+                {
+                    Turno = funcionarios.FirstOrDefault().TurnoTrabalho,
+                    Quantidade = funcionarios.Count()
+                })
+                .ToArray();
         }
 
         public dynamic FuncionarioMaisComplexo()
@@ -175,7 +175,14 @@ namespace Repositorio
                 .OrderBy(f => regex.Replace(f.Nome, "").Length)
                 .Last();
 
-            return new { Nome = funcionarioMaisComplexo.Nome };
+            return new
+            {
+                Nome = funcionarioMaisComplexo.Nome,
+                DataNascimento = $"{funcionarioMaisComplexo.DataNascimento.Day}/{funcionarioMaisComplexo.DataNascimento.Month}/{funcionarioMaisComplexo.DataNascimento.Year}",
+                SalarioRS = $"R$ {funcionarioMaisComplexo.Cargo.Salario}",
+                SalarioUS = $"${funcionarioMaisComplexo.Cargo.Salario}",
+                QuantidadeMesmoCargo = BuscarPorCargo(funcionarioMaisComplexo.Cargo).Count
+            };
         }
     }
 }
