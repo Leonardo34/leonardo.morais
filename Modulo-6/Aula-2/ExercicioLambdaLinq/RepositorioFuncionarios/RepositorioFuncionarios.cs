@@ -131,7 +131,9 @@ namespace Repositorio
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            throw new NotImplementedException();
+            var funcionariosConsiderados = turno == null ?
+                Funcionarios : BuscarPorTurno(new TurnoTrabalho[] { (TurnoTrabalho) turno });
+            return funcionariosConsiderados.Sum(f => f.Cargo.Salario) / funcionariosConsiderados.Count;
         }
 
         public IList<Funcionario> AniversariantesDoMes()
