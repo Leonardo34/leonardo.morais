@@ -1,11 +1,15 @@
-myApp.controller('chatController', function($scope, mensagemService) {
-    $scope.mensagens = [];
-    carregarMensagens();
+myApp.controller('chatController', function($scope, chatService) {
+    $scope.chats = [];
+    carregarChats();
 
-    function carregarMensagens() {
-        mensagemService.getMensagens().then(response => {
-            $scope.mensagens = response.data;
-            console.log($scope.mensagens);
+    function carregarChats() {
+        chatService.getMensagens().then(response => {
+            $scope.chats = response.data;
+            console.log($scope.chats);
         })
+    }
+
+    $scope.carregarChats = function(chat) {
+        $scope.chatAtual = chat;
     }
 });
