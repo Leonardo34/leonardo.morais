@@ -10,5 +10,6 @@ namespace ChatAPI.Models
         public int Id { get; set; }
         public string Conteudo { get; set; }
         public Usuario Autor { get; set; }
+        public DateTime DataEnvio { get; set; }
     }
 }
