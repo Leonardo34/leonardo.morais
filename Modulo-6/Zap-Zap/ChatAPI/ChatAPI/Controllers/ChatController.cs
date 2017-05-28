@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ChatAPI.Models;
+using System.Text.RegularExpressions;
 
 namespace ChatAPI.Controllers
 {
@@ -22,6 +23,8 @@ namespace ChatAPI.Controllers
                 return BadRequest();
             }
             mensagem.Id = ++IdMensagemGenerator;
+            mensagem.Conteudo =
+                Regex.Replace(mensagem.Conteudo, "andre nunes", "$$$$$ $$$$$", RegexOptions.IgnoreCase);
             mensagem.DataEnvio = DateTime.Now;
             chat.AdicionarMensagem(mensagem);
             return Ok();
