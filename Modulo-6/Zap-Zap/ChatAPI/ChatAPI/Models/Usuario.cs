@@ -5,10 +5,10 @@ using System.Web;
 
 namespace ChatAPI.Models
 {
-    public class Mensagem
+    public class Usuario
     {
         public int Id { get; set; }
-        public string Conteudo { get; set; }
-        public Usuario Autor { get; set; }
+        public string Nome { get; set; }
+        public string UrlImagemPerfil { get; set; } 
     }
 }
