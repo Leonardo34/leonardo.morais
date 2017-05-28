@@ -23,7 +23,7 @@
                     <div class="row">
                         <div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input ng-model="filtro.nomeChat" type="text" class="  search-query form-control" placeholder="Conversation" />
+                                <input ng-model="filtro.nomeChat" type="text" class="pull-right search-query form-control" placeholder="Conversation" />
                                 <button class="btn btn-danger" type="button">
                                     <span class=" glyphicon glyphicon-search"></span>
                                 </button>
@@ -94,12 +94,12 @@
                     <div class="chat_area">
                         <ul class="list-unstyled">
                             <li class="left clearfix" ng-repeat="each in chatAtual.Mensagens">
-                                <span class="chat-img1 pull-left">
+                                <span class="chat-img1" ng-class="{ 'pull-left': each.Autor.Nome != usuario.Nome, 'pull-right': each.Autor.Nome == usuario.Nome }">
                                     <img src="{{ each.Autor.UrlImagemPerfil }}" alt="User Avatar" class="img-circle">
                                 </span>
                                 <div class="chat-body1 clearfix">
                                     <p>{{each.Conteudo}}</p>
-                                    <div class="chat_time pull-right">{{each.DataEnvio}}</div>
+                                    <div class="chat_time" ng-class="{ 'pull-right': each.Autor.Nome != usuario.Nome, 'pull-left': each.Autor.Nome == usuario.Nome }">{{each.Autor.Nome}}</div>
                                 </div>
                             </li>
                         </ul>
