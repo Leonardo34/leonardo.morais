@@ -12,10 +12,6 @@ myApp.controller('chatController', function($scope, chatService) {
     
     function carregarChatAtual(procurarMensagemNaoLida = false) {
         chatService.getChatById($scope.chatAtual.Id).then(res => {
-            if (procurarMensagemNaoLida && recebeuNovaMensagem(res.data[0], $scope.chatAtual)) {
-                var audio = new Audio('audio/alert.mp3');
-                audio.play();
-            }
             $scope.chatAtual = res.data[0];
         })
     }
@@ -29,6 +25,16 @@ myApp.controller('chatController', function($scope, chatService) {
             localStorage.setItem("nomeUsuario", prompt("Digite seu apelido"));
             localStorage.setItem("urlImagem", prompt("Digite o endereço da sua foto de perfil"));
         }
+    }
+
+    function buscarNovasMensagens(id) {
+        chatService.getChatById(id).then(res => {
+            if (recebeuNovaMensagem(res.data[0], $scope.chatAtual)) {
+                var audio = new Audio('audio/alert.mp3');
+                audio.play();
+            }
+            $scope.chatAtual = res.data[0];
+        })
     }
 
     $scope.abrirChat = function(chat) {
@@ -46,6 +52,6 @@ myApp.controller('chatController', function($scope, chatService) {
 
     window.setInterval(() => {
         carregarChats();
-        carregarChatAtual(true);
+        buscarNovasMensagens($scope.chatAtual.Id);
     }, 1000);
 });
