@@ -9,10 +9,18 @@ myApp.controller('chatController', function($scope, chatService) {
         })
     }
     
-    function carregarChatAtual() {
+    function carregarChatAtual(procurarMensagemNaoLida = false) {
         chatService.getChatById($scope.chatAtual.Id).then(res => {
+            if (procurarMensagemNaoLida && recebeuNovaMensagem(res.data[0], $scope.chatAtual)) {
+                var audio = new Audio('audio/alert.mp3');
+                audio.play();
+            }
             $scope.chatAtual = res.data[0];
         })
+    }
+
+    function recebeuNovaMensagem(newChat, oldChat) {
+        return newChat.Mensagens.length > oldChat.Mensagens.length;
     }
 
     $scope.abrirChat = function(chat) {
@@ -30,6 +38,6 @@ myApp.controller('chatController', function($scope, chatService) {
 
     window.setInterval(() => {
         carregarChats();
-        carregarChatAtual();
+        carregarChatAtual(true);
     }, 1000);
 });
