@@ -1,6 +1,6 @@
 myApp.controller('chatController', function($scope, chatService) {
     $scope.chats = [];
-    $scope.usuario = {Nome: "Leonardo", UrlImagemPerfil: "https://avatars1.githubusercontent.com/u/14354193?v=3&s=400"};
+    $scope.usuario = {Nome: prompt("Digite seu apelido"), UrlImagemPerfil: prompt("Url de sua foto de perfil")};
     carregarChats();
 
     function carregarChats() {
