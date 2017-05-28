@@ -1,12 +1,17 @@
 myApp.controller('chatController', function($scope, chatService) {
     $scope.chats = [];
-    $scope.usuario = {Nome: "Leonarfo", UrlImagemPerfil: "agsuasuahs"};
+    $scope.usuario = {Nome: "Leonardo", UrlImagemPerfil: "https://avatars1.githubusercontent.com/u/14354193?v=3&s=400"};
     carregarChats();
 
     function carregarChats() {
         chatService.getChats().then(response => {
             $scope.chats = response.data;
-            console.log($scope.chats);
+        })
+    }
+    
+    function carregarChatAtual() {
+        chatService.getChatById($scope.chatAtual.Id).then(res => {
+            $scope.chatAtual = res.data[0];
         })
     }
 
@@ -16,7 +21,9 @@ myApp.controller('chatController', function($scope, chatService) {
 
     $scope.enviarMensagem = function(mensagem) {
         mensagem.Autor = $scope.usuario;
-        chatService.saveMensagem(mensagem, $scope.chatAtual.Id);
-        carregarChats();
+        chatService.saveMensagem(mensagem, $scope.chatAtual.Id).then(response => {
+            carregarChats();
+            carregarChatAtual();
+        });
     }
 });
