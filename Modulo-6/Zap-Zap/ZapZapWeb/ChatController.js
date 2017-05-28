@@ -25,5 +25,11 @@ myApp.controller('chatController', function($scope, chatService) {
             carregarChats();
             carregarChatAtual();
         });
+        delete $scope.novaMensagem;
     }
+
+    window.setInterval(() => {
+        carregarChats();
+        carregarChatAtual();
+    }, 1000);
 });
