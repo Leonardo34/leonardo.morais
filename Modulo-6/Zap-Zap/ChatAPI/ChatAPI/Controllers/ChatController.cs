@@ -11,24 +11,31 @@ namespace ChatAPI.Controllers
     public class ChatController : ApiController
     {
         private static List<Chat> SalasBatePapo = PopularBatePapo();
-        private static List<Usuario> Usuarios = new List<Usuario>();
-        private static int IdUsuarioGenerator = 0;
-        private static int IdChatGenerator = 0;
 
         private static object ObjetoLock = new object();
 
-        public IHttpActionResult Post(Mensagem mensagem)
+        [HttpPost]
+        public IHttpActionResult Post(int id, [FromBody] Mensagem mensagem)
         {
+            var chat = SalasBatePapo.FirstOrDefault(s => s.Id == id);
+            if (chat == null)
+            {
+                return BadRequest();
+            }
+            chat.AdicionarMensagem(mensagem);
             return Ok();
         }
 
-        public List<Chat> GetBatePapos(int? id = null)
+        [HttpGet]
+        public List<Chat> Get()
         {
-            if (id == null)
-            {
-                return SalasBatePapo;
-            }
-            return SalasBatePapo.Where(s => s.Id == id).ToList();
+            return SalasBatePapo;
+        }
+
+        [HttpGet]
+        private Chat Get(int id)
+        {
+            return SalasBatePapo.FirstOrDefault(s => s.Id == id);
         }
 
         private static List<Chat> PopularBatePapo()
@@ -39,14 +46,12 @@ namespace ChatAPI.Controllers
                 {
                     Id = 1,
                     NomeChat = "Sapecagem",
-                    Usuarios = new List<Usuario>(),
                     Mensagens = new List<Mensagem>()
                 },
                 new Chat()
                 {
                     Id = 2,
                     NomeChat = "Memes",
-                    Usuarios = new List<Usuario>(),
                     Mensagens = new List<Mensagem>()
                 }
             };

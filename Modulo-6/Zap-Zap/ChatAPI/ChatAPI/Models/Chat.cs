@@ -9,7 +9,11 @@ namespace ChatAPI.Models
     {
         public int Id { get; set; }
         public string NomeChat { get; set; }
-        public List<Usuario> Usuarios { get; set; }
         public List<Mensagem> Mensagens { get; set; }
+
+        public void AdicionarMensagem(Mensagem mensagem)
+        {
+            Mensagens.Add(mensagem);
+        }
     }
 }
