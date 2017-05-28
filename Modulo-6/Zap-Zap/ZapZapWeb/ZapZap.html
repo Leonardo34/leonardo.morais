@@ -3,18 +3,20 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="app.js"></script>
+    <script src="mensagensService.js"></script>
+    <script src="ChatController.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
     <script src="https://use.fontawesome.com/45e03a14ce.js"></script>
 </head>
 
-<body>
-    <div class="main_section">
+<body ng-app="zapZapApp">
+    <div class="main_section" ng-controller="chatController">
         <div class="container">
             <div class="chat_container">
                 <div class="col-sm-3 chat_sidebar">
