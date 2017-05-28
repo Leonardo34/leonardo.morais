@@ -47,6 +47,7 @@ namespace ChatAPI.Controllers
                 {
                     Id = 1,
                     NomeChat = "Sapecagem",
+                    UrlImagemChat = "https://i.ytimg.com/vi/5nkapBfeh_o/maxresdefault.jpg",
                     DataCriacao = DateTime.Now,
                     Mensagens = new List<Mensagem>()
                 },
@@ -54,6 +55,7 @@ namespace ChatAPI.Controllers
                 {
                     Id = 2,
                     NomeChat = "Memes",
+                    UrlImagemChat = "http://www.whatstube.com.br/wp-content/uploads/2015/10/sexta-feira-curticao.jpg", 
                     DataCriacao = DateTime.Now,
                     Mensagens = new List<Mensagem>()
                 }
