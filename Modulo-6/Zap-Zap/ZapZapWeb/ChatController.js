@@ -1,7 +1,8 @@
 myApp.controller('chatController', function($scope, chatService) {
     $scope.chats = [];
-    $scope.usuario = {Nome: prompt("Digite seu apelido"), UrlImagemPerfil: prompt("Url de sua foto de perfil")};
+    carregarUsuarioSessao();
     carregarChats();
+    $scope.usuario = {Nome: localStorage.getItem("nomeUsuario"), UrlImagemPerfil: localStorage.getItem("urlImagem")};
 
     function carregarChats() {
         chatService.getChats().then(response => {
@@ -21,6 +22,13 @@ myApp.controller('chatController', function($scope, chatService) {
 
     function recebeuNovaMensagem(newChat, oldChat) {
         return newChat.Mensagens.length > oldChat.Mensagens.length;
+    }
+
+    function carregarUsuarioSessao() {
+        if (typeof localStorage.usuario === "undefined") {
+            localStorage.setItem("nomeUsuario", prompt("Digite seu apelido"));
+            localStorage.setItem("urlImagem", prompt("Digite o endereço da sua foto de perfil"));
+        }
     }
 
     $scope.abrirChat = function(chat) {
