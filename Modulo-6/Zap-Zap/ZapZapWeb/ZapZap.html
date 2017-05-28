@@ -52,7 +52,7 @@
                             <ul class="list-unstyled">
                                 <li class="left clearfix" ng-repeat="each in chats | filter: {NomeChat: filtro.nomeChat}" ng-click="abrirChat(each)">
                                     <span class="chat-img pull-left">
-                                        <img src="http://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/t5vj46jc2ecyp2ptmcfo.jpg" alt="User Avatar" class="img-circle">
+                                        <img src="{{ each.UrlImagemChat }}" alt="User Avatar" class="img-circle">
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header_sec">
