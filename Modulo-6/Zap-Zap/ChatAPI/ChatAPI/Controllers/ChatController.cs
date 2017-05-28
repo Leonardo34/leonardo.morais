@@ -11,29 +11,30 @@ namespace ChatAPI.Controllers
     public class ChatController : ApiController
     {
         private static List<Chat> SalasBatePapo = PopularBatePapo();
-
-        private static object ObjetoLock = new object();
+        private static int IdMensagemGenerator = 0;
 
         [HttpPost]
         public IHttpActionResult Post(int id, [FromBody] Mensagem mensagem)
         {
-            var chat = SalasBatePapo.FirstOrDefault(s => s.Id == id);
+            var chat = BatePapoById(id);
             if (chat == null)
             {
                 return BadRequest();
             }
+            mensagem.Id = ++IdMensagemGenerator;
+            mensagem.DataEnvio = DateTime.Now;
             chat.AdicionarMensagem(mensagem);
             return Ok();
         }
 
         [HttpGet]
-        public List<Chat> Get()
+        public List<Chat> GetBatePapos(int? id = null)
         {
-            return SalasBatePapo;
+            return id == null ? SalasBatePapo :
+                SalasBatePapo.Where(s => s.Id == id).ToList();
         }
 
-        [HttpGet]
-        private Chat Get(int id)
+        private Chat BatePapoById(int id)
         {
             return SalasBatePapo.FirstOrDefault(s => s.Id == id);
         }
