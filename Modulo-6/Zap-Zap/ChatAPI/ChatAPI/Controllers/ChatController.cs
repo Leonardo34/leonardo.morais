@@ -47,12 +47,14 @@ namespace ChatAPI.Controllers
                 {
                     Id = 1,
                     NomeChat = "Sapecagem",
+                    DataCriacao = DateTime.Now,
                     Mensagens = new List<Mensagem>()
                 },
                 new Chat()
                 {
                     Id = 2,
                     NomeChat = "Memes",
+                    DataCriacao = DateTime.Now,
                     Mensagens = new List<Mensagem>()
                 }
             };
