@@ -4,6 +4,10 @@ myApp.service('chatService', function($http) {
     }
 
     this.saveMensagem = function(mensagem, chatId) {
-        $http.post('http://localhost:49756/api/chat/' + chatId, mensagem);
+        return $http.post('http://localhost:49756/api/chat/' + chatId, mensagem);
+    }
+
+    this.getChatById = function(id) {
+        return $http.get('http://localhost:49756/api/chat/' + id);
     }
 });
