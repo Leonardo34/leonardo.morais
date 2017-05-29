@@ -21,7 +21,8 @@ myApp.controller('chatController', function($scope, chatService) {
     }
 
     function carregarUsuarioSessao() {
-        if (typeof localStorage.usuario === "undefined") {
+        if (typeof localStorage.nomeUsuario === "undefined"
+                || typeof localStorage.urlImagem === "undefined") {
             localStorage.setItem("nomeUsuario", prompt("Digite seu apelido"));
             localStorage.setItem("urlImagem", prompt("Digite o endereço da sua foto de perfil"));
         }
