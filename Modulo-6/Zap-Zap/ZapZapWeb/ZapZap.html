@@ -35,17 +35,6 @@
                                 <span class="caret pull-right"></span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <li><a href="#"> All Conversation </a>
-                                    <ul class="sub_menu_ list-unstyled">
-                                        <li><button href="#"> All Conversation </button> </li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li><a href="#">Separated link</a></li>
                             </ul>
                         </div>
                         <div class="member_list">
@@ -76,8 +65,7 @@
                             <span class="chat-img-header pull-left">
                                 <img src="{{ chatAtual.UrlImagemChat }}" alt="User Avatar" class="img-circle">
                             </span>
-                            
-                            <div class="pull-left"><h3>{{chatAtual.NomeChat}}</div>
+                            <div class="pull-left chat-header"><h3>{{chatAtual.NomeChat}}</div>
                             <div
                                 class="pull-right">
                                 <div class="dropdown">
@@ -96,7 +84,7 @@
 
                     <div class="chat_area">
                         <ul class="list-unstyled">
-                            <li class="left clearfix" ng-repeat="each in chatAtual.Mensagens">
+                            <li class="left clearfix" ng-repeat="each in chatAtual.Mensagens" ng-class="{ 'admin_chat': each.Autor.Nome == usuario.Nome }">
                                 <span class="chat-img1" ng-class="{ 'pull-left': each.Autor.Nome != usuario.Nome, 'pull-right': each.Autor.Nome == usuario.Nome }">
                                     <img src="{{ each.Autor.UrlImagemPerfil }}" alt="User Avatar" class="img-circle">
                                 </span>
