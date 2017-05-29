@@ -11,17 +11,22 @@ namespace Demo1WebAPI.Controllers
 {
     public class ProdutosController : ApiController
     {
-        private ProdutoRepositorio ProdutosRepositorio = new ProdutoRepositorio();
+        private ProdutoRepositorio repositorio = new ProdutoRepositorio();
 
         public IHttpActionResult Post(Produto produto)
         {
             List<string> listaErros;
             if (!produto.validar(out listaErros))
             {
-                return BadRequest(string.Join(".", listaErros.ToArray()));
+                return BadRequest(string.Join(".\n", listaErros.ToArray()));
             }
-            ProdutosRepositorio.Criar(produto);
+            repositorio.Criar(produto);
             return Ok(produto);
+        }
+
+        public IHttpActionResult Get()
+        {
+            return Ok(repositorio.Listar());
         }
     }
 }
