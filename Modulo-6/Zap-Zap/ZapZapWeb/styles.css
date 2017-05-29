@@ -207,3 +207,7 @@ body {
    height: 50px;
    width: 50px;
 }
+.chat-header {
+   margin-left: 35px;
+   margin-top: 0;
+}
