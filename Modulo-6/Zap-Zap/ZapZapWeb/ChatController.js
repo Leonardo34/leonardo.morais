@@ -52,6 +52,8 @@ myApp.controller('chatController', function($scope, chatService) {
 
     window.setInterval(() => {
         carregarChats();
-        buscarNovasMensagens($scope.chatAtual.Id);
+        if (typeof $scope.chatAtual !== "undefined") {
+            buscarNovasMensagens($scope.chatAtual.Id);
+        }
     }, 1000);
 });
