@@ -35,5 +35,33 @@ namespace Demo1.Infraestrutura.Repositorios
                 }
             }
         }
+
+        public List<Produto> Listar()
+        {
+            var produtos = new List<Produto>();
+            using (var conexaoDb = new SqlConnection(CONEXAO_STRING))
+            {
+                conexaoDb.Open();
+                using (var command = conexaoDb.CreateCommand())
+                {
+                    command.CommandText =
+                        @"Select Id, Nome, Preco, Estoque from Produto;";
+                    
+
+                    var dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        produtos.Add(new Produto()
+                        {
+                            Id = (int)dataReader["Id"],
+                            Preco = (decimal)dataReader["Preco"],
+                            Nome = (string)dataReader["Nome"],
+                            Estoque = (int)dataReader["Estoque"]
+                        });
+                    }
+                }
+            }
+            return produtos;
+        }
     }
 }
