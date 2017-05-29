@@ -51,7 +51,7 @@ namespace ChatAPI.Controllers
                     Id = 1,
                     NomeChat = "Sapecagem",
                     Descricao = "O bate-papo mais sapeca do brasil",
-                    UrlImagemChat = "https://i.ytimg.com/vi/5nkapBfeh_o/maxresdefault.jpg",
+                    UrlImagemChat = "http://img.ibxk.com.br/ns/rexposta/2016/05/28/28103856145020.jpg?watermark=neaki&watermark=neaki",
                     DataCriacao = DateTime.Now,
                     Mensagens = new List<Mensagem>()
                 },
