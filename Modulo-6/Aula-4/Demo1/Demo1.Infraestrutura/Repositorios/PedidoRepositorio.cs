@@ -14,7 +14,19 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Alterar(Pedido pedido)
         {
-            throw new NotImplementedException();
+            using (var conexaoDb = new SqlConnection(CONEXAO_STRING))
+            {
+                conexaoDb.Open();
+                using (var command = conexaoDb.CreateCommand())
+                {
+                    command.CommandText =
+                        @"UPDATE Produto SET NomeCliente = @nome WHERE Id = @pedidoId";
+                    command.Parameters.AddWithValue("nome", pedido.NomeCliente);
+                    command.Parameters.AddWithValue("pedidoId", pedido.Id);
+                    command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+            }
         }
 
         public void Criar(Pedido pedido)
@@ -25,7 +37,7 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var command = conexaoDb.CreateCommand())
                 {
                     command.CommandText =
-                        @"INSERT INTO Produto (NomeCliente) VALUES (@nome)";
+                        @"INSERT INTO Pedido (NomeCliente) VALUES (@nome)";
                     command.Parameters.AddWithValue("nome", pedido.NomeCliente);
                     command.ExecuteNonQuery();
                     command.Parameters.Clear();
