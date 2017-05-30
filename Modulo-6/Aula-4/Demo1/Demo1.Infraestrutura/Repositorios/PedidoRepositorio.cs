@@ -20,7 +20,7 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var command = conexaoDb.CreateCommand())
                 {
                     command.CommandText =
-                        @"UPDATE Produto SET NomeCliente = @nome WHERE Id = @pedidoId";
+                        @"UPDATE Pedido SET NomeCliente = @nome WHERE Id = @pedidoId";
                     command.Parameters.AddWithValue("nome", pedido.NomeCliente);
                     command.Parameters.AddWithValue("pedidoId", pedido.Id);
                     command.ExecuteNonQuery();
@@ -69,7 +69,18 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public void Excluir(int id)
         {
-            throw new NotImplementedException();
+            using (var conexaoDb = new SqlConnection(CONEXAO_STRING))
+            {
+                conexaoDb.Open();
+                using (var command = conexaoDb.CreateCommand())
+                {
+                    command.CommandText =
+                        @"DELETE FROM Pedid WHERE Id = @pedidoId";
+                    command.Parameters.AddWithValue("pedidoId", id);
+                    command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+            }
         }
 
         public IEnumerable<Pedido> Listar()
