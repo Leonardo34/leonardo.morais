@@ -129,7 +129,38 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public Pedido Obter(int id)
         {
-            throw new NotImplementedException();
+            Pedido pedido = new Pedido();
+            using (var conexaoDb = new SqlConnection(CONEXAO_STRING))
+            {
+                conexaoDb.Open();
+                using (var command = conexaoDb.CreateCommand())
+                {
+                    command.CommandText =
+                        @"SELECT Id, NomeCliente FROM Pedido WHERE Id = @id";
+                    command.Parameters.AddWithValue("id", id);
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.Read())
+                    {
+                        pedido.Id = id;
+                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
+                        pedido.Itens = new List<ItemPedido>();
+                    }
+                    command.CommandText = @"SELECT PedidoId, ProdutoId, Quantidade
+                        FROM ItemPedido where PedidoId = @pedidoId";
+                    command.Parameters.AddWithValue("pedidoId", pedido.Id);
+                    dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        pedido.Itens.Add(new ItemPedido()
+                        {
+                            Id = (int)dataReader["Id"],
+                            ProdutoId = (int)dataReader["ProdutoId"],
+                            Quantidade = (int)dataReader["Quantidade"]
+                        });
+                    }
+                }
+            }
+            return pedido;
         }
     }
 }

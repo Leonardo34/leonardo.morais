@@ -45,5 +45,10 @@ namespace Demo1WebAPI.Controllers
         {
             return Ok(repositorio.Listar());
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            return Ok(repositorio.Obter(id));
+        }
     }
 }
