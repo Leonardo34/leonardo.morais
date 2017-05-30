@@ -73,7 +73,7 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var command = conexaoDb.CreateCommand())
                 {
                     command.CommandText =
-                        @"DELETE FROM Pedid WHERE Id = @pedidoId";
+                        @"DELETE FROM Pedido WHERE Id = @pedidoId";
                     command.Parameters.AddWithValue("pedidoId", id);
                     command.ExecuteNonQuery();
                     command.Parameters.Clear();
