@@ -40,5 +40,10 @@ namespace Demo1WebAPI.Controllers
             repositorio.Excluir(id);
             return Ok();
         }
+
+        public IHttpActionResult Get()
+        {
+            return Ok(repositorio.Listar());
+        }
     }
 }

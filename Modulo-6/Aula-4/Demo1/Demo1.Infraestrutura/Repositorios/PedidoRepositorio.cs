@@ -85,7 +85,46 @@ namespace Demo1.Infraestrutura.Repositorios
 
         public IEnumerable<Pedido> Listar()
         {
-            throw new NotImplementedException();
+            List<Pedido> pedidos = new List<Pedido>();
+            using (var conexaoDb = new SqlConnection(CONEXAO_STRING))
+            {
+                conexaoDb.Open();
+                using (var command = conexaoDb.CreateCommand())
+                {
+                    command.CommandText =
+                        @"SELECT Id, NomeCliente FROM Pedido";
+                    var dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        pedidos.Add(new Pedido()
+                        {
+                            Id = (int)dataReader["Id"],
+                            NomeCliente = (string)dataReader["NomeCliente"],
+                            Itens = new List<ItemPedido>()
+                        });
+                    }
+
+                    foreach (var each in pedidos)
+                    {
+                        command.CommandText = @"SELECT PedidoId, ProdutoId, Quantidade
+                            FROM ItemPedido where PedidoId = @pedidoId";
+                        command.Parameters.AddWithValue("pedidoId", each.Id);
+                        dataReader = command.ExecuteReader();
+                        command.Parameters.Clear();
+                        while (dataReader.Read())
+                        {
+                            each.Itens.Add(new ItemPedido()
+                            {
+                                Id = (int)dataReader["Id"],
+                                ProdutoId = (int)dataReader["ProdutoId"],
+                                Quantidade = (int)dataReader["Quantidade"]
+                            });
+                        }
+                    }
+                }
+            }
+            return pedidos;
         }
 
         public Pedido Obter(int id)
