@@ -42,11 +42,14 @@ namespace Demo1.Infraestrutura.Repositorios
                     command.ExecuteNonQuery();
                     command.Parameters.Clear();
 
+                    command.CommandText = "SELECT @@IDENTITY";
+                    pedido.Id = (int)(decimal)command.ExecuteScalar();
+
                     foreach (var item in pedido.Itens)
                     {
                         command.CommandText = @"INSERT INTO ItemPedido (PedidoId, ProdutoId, Quantidade) 
                             VALUES(@pedidoId, @produtoId, @quantidade)";
-                        command.Parameters.AddWithValue("pedidoId", item.Id);
+                        command.Parameters.AddWithValue("pedidoId", pedido.Id);
                         command.Parameters.AddWithValue("produtoId", item.ProdutoId);
                         command.Parameters.AddWithValue("quantidade", item.Quantidade);
                         command.ExecuteNonQuery();
@@ -58,11 +61,6 @@ namespace Demo1.Infraestrutura.Repositorios
                         command.Parameters.AddWithValue("itemProdutoId", item.ProdutoId);
                         command.Parameters.Clear();
                     }
-                }
-                using (var command = conexaoDb.CreateCommand())
-                {
-                    command.CommandText = "SELECT @@IDENTITY";
-                    pedido.Id = (int)(decimal)command.ExecuteScalar();
                 }
             }
         }
@@ -104,7 +102,7 @@ namespace Demo1.Infraestrutura.Repositorios
                             Itens = new List<ItemPedido>()
                         });
                     }
-
+                    dataReader.Close();
                     foreach (var each in pedidos)
                     {
                         command.CommandText = @"SELECT PedidoId, ProdutoId, Quantidade
@@ -116,11 +114,12 @@ namespace Demo1.Infraestrutura.Repositorios
                         {
                             each.Itens.Add(new ItemPedido()
                             {
-                                Id = (int)dataReader["Id"],
+                                Id = (int)dataReader["PedidoId"],
                                 ProdutoId = (int)dataReader["ProdutoId"],
                                 Quantidade = (int)dataReader["Quantidade"]
                             });
                         }
+                        dataReader.Close();
                     }
                 }
             }
@@ -145,15 +144,17 @@ namespace Demo1.Infraestrutura.Repositorios
                         pedido.NomeCliente = (string)dataReader["NomeCliente"];
                         pedido.Itens = new List<ItemPedido>();
                     }
+                    dataReader.Close();
+
                     command.CommandText = @"SELECT PedidoId, ProdutoId, Quantidade
                         FROM ItemPedido where PedidoId = @pedidoId";
                     command.Parameters.AddWithValue("pedidoId", pedido.Id);
                     dataReader = command.ExecuteReader();
                     while (dataReader.Read())
                     {
-                        pedido.Itens.Add(new ItemPedido()
+                       pedido.Itens.Add(new ItemPedido()
                         {
-                            Id = (int)dataReader["Id"],
+                            Id = (int)dataReader["PedidoId"],
                             ProdutoId = (int)dataReader["ProdutoId"],
                             Quantidade = (int)dataReader["Quantidade"]
                         });
