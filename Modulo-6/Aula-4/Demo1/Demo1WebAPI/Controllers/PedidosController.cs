@@ -34,5 +34,11 @@ namespace Demo1WebAPI.Controllers
             repositorio.Alterar(pedido);
             return Ok(pedido);
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            repositorio.Excluir(id);
+            return Ok();
+        }
     }
 }
