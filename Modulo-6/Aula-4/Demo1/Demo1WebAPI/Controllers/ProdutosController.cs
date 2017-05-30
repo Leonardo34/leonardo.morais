@@ -28,5 +28,27 @@ namespace Demo1WebAPI.Controllers
         {
             return Ok(repositorio.Listar());
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            return Ok(repositorio.Obter(id));
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            repositorio.Excluir(id);
+            return Ok();
+        }
+
+        public IHttpActionResult Put(Produto produto)
+        {
+            List<string> listaErros;
+            if (!produto.validar(out listaErros))
+            {
+                return BadRequest(string.Join(".\n", listaErros.ToArray()));
+            }
+            repositorio.Alterar(produto);
+            return Ok(produto);
+        }
     }
 }
