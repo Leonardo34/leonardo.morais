@@ -19,12 +19,14 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         public void Salvar(Revisor revisor)
         {
             revisorContexto.Revisores.Add(revisor);
+            revisorContexto.SaveChanges();
         }
 
         public Revisor Excluir(int id)
         {
             var revisorExcluido = revisorContexto.Revisores.FirstOrDefault(r => r.Id == id);
             revisorContexto.Revisores.Remove(revisorExcluido);
+            revisorContexto.SaveChanges();
             return revisorExcluido;
         }
     }

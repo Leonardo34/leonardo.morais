@@ -30,6 +30,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         {
             var livroRemovido = livroContexto.Livros.FirstOrDefault(l => l.Isbn == id);
             livroContexto.Livros.Remove(livroRemovido);
+            livroContexto.SaveChanges();
             return livroRemovido;
         }
     }
