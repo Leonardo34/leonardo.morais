@@ -11,12 +11,12 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto.Contexto autorContexto = new Contexto.Contexto();
 
-        private List<Autor> Listar()
+        public List<Autor> Listar()
         {
             return autorContexto.Autores.ToList();
         }
 
-        private void Salvar(Autor autor)
+        public void Salvar(Autor autor)
         {
             autorContexto.Autores.Add(autor);
         }
