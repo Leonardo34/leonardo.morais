@@ -50,6 +50,7 @@
     <Compile Include="Contexto\Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
     <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
     <Compile Include="Migrations\201705301940494_AlterTables.cs" />
