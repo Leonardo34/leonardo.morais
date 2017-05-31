@@ -24,5 +24,10 @@ namespace EditoraCrescer.WebAPI.Controllers
             repositorio.Salvar(livro);
             return Ok();
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            return Ok(repositorio.Excluir(id));
+        }
     }
 }
