@@ -1,4 +1,4 @@
-app.controller('editoraController', function($scope, livrosService) { 
+app.controller('editoraController', function($scope, livrosService, $routeParams) { 
     $scope.title = 'Editora Crescer'; 
     $scope.promo = '#EuSeiJavascript';
     carregarLivros();

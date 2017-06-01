@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
     <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"crossorigin="anonymous">
         <link rel="stylesheet" href="styles/styles.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,22 +14,13 @@
     </head>
 
     <body ng-app="editoraCrescerApp">
-        <div class="main" ng-controller="editoraController">
+        <div class="main">
 		<div class="container">
-
-			<h1 class="grow">{{title}}</h1>
+			<h1 class="grow">Editora Crescer</h1>
 			<hr>
-			<h2 class="grow">{{promo}}</h2>
+			<h2 class="grow">#EuSeiJavascript</h2>
 			<hr>
-
-			<div ng-repeat="each in livros" class="col-md-6">
-				<div class="thumbnail">
-					<img ng-src="{{ each.Capa }}">
-					<p class="title">{{ each.Titulo }}</p>
-					<p class="title">{{ each.Descricao }}</p>
-					<p class="date">{{ each.DataPublicacao | date }}</p>
-				</div>
-			</div>
+            <ng-view></ng-view>		
 		</div>
 	</div>
     </body>

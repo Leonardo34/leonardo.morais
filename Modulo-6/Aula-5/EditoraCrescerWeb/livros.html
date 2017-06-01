@@ -1,0 +1,8 @@
+<div ng-repeat="each in livros" class="col-md-6">
+	<div class="thumbnail">
+		<img ng-src="{{ each.Capa }}">
+		<p class="title"><a href="#!/livro/{{each.Isbn}}">{{ each.Titulo }}</a></p>
+		<p class="title">{{ each.Descricao }}</p>
+		<p class="date">{{ each.DataPublicacao | date }}</p>
+	</div>
+</div>
