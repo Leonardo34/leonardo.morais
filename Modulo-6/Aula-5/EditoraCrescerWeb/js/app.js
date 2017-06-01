@@ -6,7 +6,7 @@ app.config(function ($routeProvider) {
       controller: 'editoraController',
       templateUrl: 'livros.html'
     })
-    .when('/livro/{id}', {
+    .when('/livro/:id', {
       controller: 'livroController',
       templateUrl: 'detalhes.html'
     })
