@@ -39,7 +39,5 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         {
             return contexto.Livros.Where(l => l.IdAutor == idAutor).ToList();
         }
-
-
     }
 }

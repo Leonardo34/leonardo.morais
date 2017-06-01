@@ -9,25 +9,30 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 {
     public class RevisorRepositorio
     {
-        private Contexto.Contexto revisorContexto = new Contexto.Contexto();
+        private Contexto.Contexto contexto = new Contexto.Contexto();
 
         public List<Revisor> Listar()
         {
-            return revisorContexto.Revisores.ToList();
+            return contexto.Revisores.ToList();
         }
 
         public void Salvar(Revisor revisor)
         {
-            revisorContexto.Revisores.Add(revisor);
-            revisorContexto.SaveChanges();
+            contexto.Revisores.Add(revisor);
+            contexto.SaveChanges();
         }
 
         public Revisor Excluir(int id)
         {
-            var revisorExcluido = revisorContexto.Revisores.FirstOrDefault(r => r.Id == id);
-            revisorContexto.Revisores.Remove(revisorExcluido);
-            revisorContexto.SaveChanges();
+            var revisorExcluido = contexto.Revisores.FirstOrDefault(r => r.Id == id);
+            contexto.Revisores.Remove(revisorExcluido);
+            contexto.SaveChanges();
             return revisorExcluido;
+        }
+
+        public Revisor Obter(int id)
+        {
+            return contexto.Revisores.FirstOrDefault(r => r.Id == id);
         }
     }
 }
