@@ -34,12 +34,15 @@ namespace EditoraCrescer.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, new { data = livro });
         }
 
+        [Route("{genero}")]
+        [HttpGet]
         public HttpResponseMessage ObterLivrosPorGenero(string genero)
         {
             return Request.CreateResponse(HttpStatusCode.OK, new { data = 
                 repositorio.ObterPorGenero(genero) });
         }
 
+        [HttpPost]
         public IHttpActionResult Post(Livro livro)
         {
             repositorio.Salvar(livro);

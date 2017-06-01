@@ -23,6 +23,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         public void Salvar(Livro livro)
         {
             contexto.Livros.Add(livro);
+            livro.DataPublicacao = DateTime.Now;
             contexto.SaveChanges();
         }
 
