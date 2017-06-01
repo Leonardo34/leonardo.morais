@@ -8,7 +8,7 @@ app.config(function ($routeProvider) {
     })
     .when('/livro/{id}', {
       controller: 'livroController',
-      templateUrl: 'detalhe.html'
-    });
+      templateUrl: 'detalhes.html'
+    })
     //.otherwise({redirectTo: '/livros'});
 }); 
