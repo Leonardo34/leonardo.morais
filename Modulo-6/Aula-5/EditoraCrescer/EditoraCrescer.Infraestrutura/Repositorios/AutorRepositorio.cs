@@ -9,25 +9,37 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 {
     public class AutorRepositorio
     {
-        private Contexto.Contexto autorContexto = new Contexto.Contexto();
+        private Contexto.Contexto contexto = new Contexto.Contexto();
 
         public List<Autor> Listar()
         {
-            return autorContexto.Autores.ToList();
+            return contexto.Autores.ToList();
         }
 
         public void Salvar(Autor autor)
         {
-            autorContexto.Autores.Add(autor);
-            autorContexto.SaveChanges();
+            contexto.Autores.Add(autor);
+            contexto.SaveChanges();
         }
 
         public Autor Excluir(int id)
         {
-            var autorExcluido = autorContexto.Autores.FirstOrDefault(a => a.Id == id);
-            autorContexto.Autores.Remove(autorExcluido);
-            autorContexto.SaveChanges();
+            var autorExcluido = contexto.Autores.FirstOrDefault(a => a.Id == id);
+            contexto.Autores.Remove(autorExcluido);
+            contexto.SaveChanges();
             return autorExcluido;
         }
+
+        public Autor Obter(int id)
+        {
+            return contexto.Autores.FirstOrDefault(a => a.Id == id);
+        }
+
+        public List<Livro> ObterLivrosAutor(int idAutor)
+        {
+            return contexto.Livros.Where(l => l.IdAutor == idAutor).ToList();
+        }
+
+
     }
 }
