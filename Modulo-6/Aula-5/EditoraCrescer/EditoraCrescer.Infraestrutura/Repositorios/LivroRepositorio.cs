@@ -15,9 +15,17 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         public LivroRepositorio()
         { }
 
-        public List<Livro> Listar()
+        public dynamic Listar()
         {
-            return contexto.Livros.ToList();
+            return contexto.Livros
+                .Select(l => new {
+                    Isbn = l.Isbn,
+                    Titulo = l.Titulo,
+                    Capa = l.Capa,
+                    NomeAutor = l.Autor.Nome,
+                    Genero = l.Genero
+                })
+                .ToList();
         }
 
         public void Salvar(Livro livro)
