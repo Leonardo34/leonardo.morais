@@ -13,20 +13,23 @@ namespace EditoraCrescer.WebAPI.Controllers
     {
         private RevisorRepositorio repositorio = new RevisorRepositorio();
 
+        [HttpGet]
         public IHttpActionResult Get()
         {
-            return Ok(repositorio.Listar());
+            return Ok(new { data = repositorio.Listar() });
         }
 
+        [HttpPost]
         public IHttpActionResult Post(Revisor revisor)
         {
             repositorio.Salvar(revisor);
             return Ok();
         }
 
+        [HttpPost]
         public IHttpActionResult Delete(int id)
         {
-            return Ok(repositorio.Excluir(id));
+            return Ok(new { data = repositorio.Excluir(id) });
         }
     }
 }

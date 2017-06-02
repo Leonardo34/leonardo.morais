@@ -13,17 +13,21 @@ namespace EditoraCrescer.WebAPI.Controllers
     {
         private AutorRepositorio repositorio = new AutorRepositorio();
 
-        public IHttpActionResult Get()
+        [HttpGet]
+        public HttpResponseMessage Get()
         {
-            return Ok(repositorio.Listar());
+            return Request.CreateResponse(HttpStatusCode.OK, 
+                new { data = repositorio.Listar() });
         }
 
+        [HttpPost]
         public IHttpActionResult Post(Autor autor)
         {
             repositorio.Salvar(autor);
-            return Ok();
+            return Ok(new { data = autor });
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             return Ok(repositorio.Excluir(id));

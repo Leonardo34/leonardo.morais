@@ -16,9 +16,10 @@ namespace EditoraCrescer.WebAPI.Controllers
         private LivroRepositorio repositorio = new LivroRepositorio();
 
         [HttpGet]
-        public IHttpActionResult Get()
+        public HttpResponseMessage Get()
         {
-            return Ok(repositorio.Listar());
+            return Request.CreateResponse(HttpStatusCode.OK,
+                new { data = repositorio.Listar() });
         }
 
         [Route("{isbn:int}")]
@@ -49,6 +50,7 @@ namespace EditoraCrescer.WebAPI.Controllers
             return Ok();
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             return Ok(repositorio.Excluir(id));
