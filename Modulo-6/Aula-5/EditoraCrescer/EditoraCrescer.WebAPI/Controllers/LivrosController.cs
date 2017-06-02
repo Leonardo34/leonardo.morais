@@ -1,6 +1,7 @@
 ﻿using EditoraCrescer.Infraestrutura.Contexto;
 using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
+using EditoraCrescer.WebAPI.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace EditoraCrescer.WebAPI.Controllers
         private LivroRepositorio repositorio = new LivroRepositorio();
 
         [HttpGet]
+        [AutenticacaoBasic64]
         public HttpResponseMessage Get()
         {
             return Request.CreateResponse(HttpStatusCode.OK,
