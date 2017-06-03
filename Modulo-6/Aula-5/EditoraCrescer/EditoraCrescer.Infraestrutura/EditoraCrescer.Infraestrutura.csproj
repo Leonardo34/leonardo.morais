@@ -68,6 +68,14 @@
     <Compile Include="Migrations\201706011824272_AdicionarCapaLivro.Designer.cs">
       <DependentUpon>201706011824272_AdicionarCapaLivro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706031541355_update.cs" />
+    <Compile Include="Migrations\201706031541355_update.Designer.cs">
+      <DependentUpon>201706031541355_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706031600359_update1.cs" />
+    <Compile Include="Migrations\201706031600359_update1.Designer.cs">
+      <DependentUpon>201706031600359_update1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutorRepositorio.cs" />
@@ -88,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706011824272_AdicionarCapaLivro.resx">
       <DependentUpon>201706011824272_AdicionarCapaLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706031541355_update.resx">
+      <DependentUpon>201706031541355_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706031600359_update1.resx">
+      <DependentUpon>201706031600359_update1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
