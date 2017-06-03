@@ -1,4 +1,4 @@
-var app = angular.module("editoraCrescerApp", ['toastr', 'ngRoute']);
+var app = angular.module("editoraCrescerApp", ['toastr', 'ngRoute', 'ui.bootstrap']);
 
 app.config(function ($routeProvider) {
   $routeProvider
@@ -10,5 +10,5 @@ app.config(function ($routeProvider) {
       controller: 'livroController',
       templateUrl: 'detalhes.html'
     })
-    //.otherwise({redirectTo: '/livros'});
+    .otherwise({redirectTo: '/livros'});
 }); 
