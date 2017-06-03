@@ -17,7 +17,6 @@ namespace EditoraCrescer.WebAPI.Controllers
         private LivroRepositorio repositorio = new LivroRepositorio();
 
         [HttpGet]
-        [AutenticacaoBasic64]
         public HttpResponseMessage Get()
         {
             return Request.CreateResponse(HttpStatusCode.OK,
@@ -43,6 +42,16 @@ namespace EditoraCrescer.WebAPI.Controllers
         {
             return Request.CreateResponse(HttpStatusCode.OK, new { data = 
                 repositorio.ObterPorGenero(genero) });
+        }
+
+        [Route("lancamentos")]
+        [HttpGet]
+        public HttpResponseMessage ObterLancamentos()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, new
+            {
+                data = repositorio.ListarLancamentos()
+            });
         }
 
         [HttpPost]
