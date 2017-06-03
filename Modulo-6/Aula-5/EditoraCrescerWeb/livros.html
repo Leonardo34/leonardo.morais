@@ -1,8 +1,21 @@
+<div  class="slides_control">
+  <div>
+	<carousel>
+        <slide ng-repeat="each in lancamentos" active="each.active">
+          <img class="imagemLancamento" ng-src="{{each.Capa}}">
+          <div class="carousel-caption">
+            <h4>{{each.Titulo}}</h4>
+          </div>
+        </slide>
+      </carousel>
+  </div>
+</div>
+
 <div ng-repeat="each in livros" class="col-md-6">
 	<div class="thumbnail">
 		<img ng-src="{{ each.Capa }}">
 		<p class="title"><a href="#!/livro/{{each.Isbn}}">{{ each.Titulo }}</a></p>
-		<p class="title">{{ each.Descricao }}</p>
-		<p class="date">{{ each.DataPublicacao | date }}</p>
+		<p class="title">{{ each.Genero }}</p>
+		<p class="date">{{ each.NomeAutor }}</p>
 	</div>
 </div>
