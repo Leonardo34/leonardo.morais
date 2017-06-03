@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EditoraCrescer.Infraestrutura.Contexto;
+using System.Linq.Expressions;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
@@ -12,26 +13,28 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto.Contexto contexto = new Contexto.Contexto();
 
-        public LivroRepositorio()
-        { }
-
         public dynamic Listar()
         {
             return contexto.Livros
-                .Select(l => new {
-                    Isbn = l.Isbn,
-                    Titulo = l.Titulo,
-                    Capa = l.Capa,
-                    NomeAutor = l.Autor.Nome,
-                    Genero = l.Genero
-                })
+                .Select(camposBasicos)
+                .ToList();
+        }
+
+        public dynamic ListarLancamentos()
+        {
+            DateTime seteDiasAtras = DateTime.Now.AddDays(-7);
+
+            return contexto.Livros
+                .Where(l => l.DataPublicacao != null &&
+                    l.DataPublicacao > seteDiasAtras)
+                .OrderByDescending(l => l.DataPublicacao)
+                .Select(camposBasicos)
                 .ToList();
         }
 
         public void Salvar(Livro livro)
         {
             contexto.Livros.Add(livro);
-            livro.DataPublicacao = DateTime.Now;
             contexto.SaveChanges();
         }
 
@@ -54,5 +57,15 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 .Where(l => l.Genero.Contains(genero))
                 .ToList();
         }
+
+        private Expression<Func<Livro, dynamic>> camposBasicos =
+            (l => new
+            {
+                Isbn = l.Isbn,
+                Titulo = l.Titulo,
+                Capa = l.Capa,
+                NomeAutor = l.Autor.Nome,
+                Genero = l.Genero
+            });
     }
 }
