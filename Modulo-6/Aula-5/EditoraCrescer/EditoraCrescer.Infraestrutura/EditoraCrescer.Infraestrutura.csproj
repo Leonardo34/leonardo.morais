@@ -55,7 +55,9 @@
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AutorMap.cs" />
     <Compile Include="Mappings\LivroMap.cs" />
+    <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\RevisorMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\201705301940494_AlterTables.cs" />
     <Compile Include="Migrations\201705301940494_AlterTables.Designer.cs">
       <DependentUpon>201705301940494_AlterTables.cs</DependentUpon>
@@ -75,6 +77,10 @@
     <Compile Include="Migrations\201706031600359_update1.cs" />
     <Compile Include="Migrations\201706031600359_update1.Designer.cs">
       <DependentUpon>201706031600359_update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706041844272_AdicaoUsuarios.cs" />
+    <Compile Include="Migrations\201706041844272_AdicaoUsuarios.Designer.cs">
+      <DependentUpon>201706041844272_AdicaoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706031600359_update1.resx">
       <DependentUpon>201706031600359_update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041844272_AdicaoUsuarios.resx">
+      <DependentUpon>201706041844272_AdicaoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
