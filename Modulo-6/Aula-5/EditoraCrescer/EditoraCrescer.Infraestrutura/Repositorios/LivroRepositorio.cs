@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EditoraCrescer.Infraestrutura.Contexto;
 using System.Linq.Expressions;
+using System.Data.Entity;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
@@ -13,9 +14,16 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto.Contexto contexto = new Contexto.Contexto();
 
-        public dynamic Listar()
+        public dynamic Listar(int skip, int take)
         {
+            DateTime seteDiasAtras = DateTime.Now.AddDays(-7);
+
             return contexto.Livros
+                .Where(l => l.DataPublicacao != null &&
+                    DbFunctions.TruncateTime(l.DataPublicacao.Value) < seteDiasAtras)
+                .OrderByDescending(l => l.DataPublicacao)
+                .Skip(skip)
+                .Take(take)
                 .Select(camposBasicos)
                 .ToList();
         }
