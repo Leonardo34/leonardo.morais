@@ -1,7 +1,5 @@
 app.controller('editoraController', function($scope, livrosService) { 
     const livrosPorPagina = 6;
-    $scope.title = 'Editora Crescer'; 
-    $scope.promo = '#EuSeiJavascript';
     
     $scope.paginacao = {
         take: 6,

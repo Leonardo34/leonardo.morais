@@ -19,14 +19,21 @@
     </head>
 
     <body ng-app="editoraCrescerApp">
+        <nav class="navbar navbar-default header">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                     <h1>EDITORA CRESCER</h1>
+                </div>
+            </div>
+            <ul class="nav nav-tabs">
+                <li role="presentation"><a href="#!/livros">NOSSOS PRODUTOS</a></li>
+                <li role="presentation"><a href="#!/login">LOGIN</a></li>
+            </ul>
+        </nav>
         <div class="main">
-		<div class="container">
-			<h1 class="grow">Editora Crescer</h1>
-			<hr>
-			<h2 class="grow">#EuSeiJavascript</h2>
-			<hr>
-            <ng-view></ng-view>		
-		</div>
-	</div>
+		    <div class="container">
+                <ng-view></ng-view>		
+		    </div>
+	    </div>
     </body>
 </html>
