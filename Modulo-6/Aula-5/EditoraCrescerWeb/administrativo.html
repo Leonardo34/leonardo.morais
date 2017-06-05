@@ -1,1 +1,11 @@
-<h1>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+<div ng-repeat="each in livros" class="col-md-4">
+	<div class="thumbnail">
+		<img ng-src="{{ each.Capa }}">
+		<p class="title"><a href="#!/livro/{{each.Isbn}}">{{ each.Titulo }}</a></p>
+		<p class="title">{{ each.Genero }}</p>
+		<p class="date">{{ each.NomeAutor }}</p>
+        <button type="button" ng-show="possuiPermissao('Colaborador') && each.DataPublicacao == null" ng-click="publicar(each.Isbn)" class="btn">Publicar</button>
+        <button type="button" ng-show="possuiPermissao('Revisor')" ng-click="revisar(each.Isbn)" class="btn">Revisar</button>
+        <button class="glyphicon glyphicon-trash btn-danger" ng-click="excluirLivro(each.Isbn)"></button>
+	</div>
+</div>
