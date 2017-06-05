@@ -56,7 +56,10 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public Livro ObterPorIsbn(int isbn)
         {
-            return contexto.Livros.FirstOrDefault(l => l.Isbn == isbn);
+            return contexto.Livros
+                .Include("Autor")
+                .Include("Revisor")
+                .FirstOrDefault(l => l.Isbn == isbn);
         }
 
         public List<Livro> ObterPorGenero(string genero)
@@ -64,6 +67,12 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             return contexto.Livros
                 .Where(l => l.Genero.Contains(genero))
                 .ToList();
+        }
+
+        public void Alterar(Livro livro)
+        {
+            contexto.Entry(livro).State = EntityState.Modified;
+            contexto.SaveChanges();
         }
 
         private Expression<Func<Livro, dynamic>> camposBasicos =
