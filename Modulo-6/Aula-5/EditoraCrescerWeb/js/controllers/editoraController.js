@@ -1,11 +1,19 @@
 app.controller('editoraController', function($scope, livrosService, $location) { 
-    const livrosPorPagina = 6;
-    console.log($scope.url);
+    const livrosPorPagina = 4;
+
     $scope.url.path = $location.path();
     $scope.paginacao = {
-        take: 6,
+        take: livrosPorPagina,
         skip: 0,
     };
+    $scope.previous = function() {
+        $scope.paginacao.skip -= livrosPorPagina;
+        carregarLivros();
+    }
+    $scope.next = function() {
+        $scope.paginacao.skip += livrosPorPagina;
+        carregarLivros();
+    }
 
     carregarLancamentos();
     carregarLivros();
@@ -13,8 +21,6 @@ app.controller('editoraController', function($scope, livrosService, $location) {
     function carregarLivros() {
         livrosService.getLivros($scope.paginacao).then(res => {
             $scope.livros = res.data.data;
-            $scope.paginacao.take += livrosPorPagina;
-            $scope.paginacao.skip += livrosPorPagina;
         })
     }
 

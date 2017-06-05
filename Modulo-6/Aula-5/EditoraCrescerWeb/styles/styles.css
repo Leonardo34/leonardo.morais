@@ -220,3 +220,15 @@ body {
 .login input[type="submit"]:focus {
   border-color: #05a;
 }
+
+.nav-pag {
+  width: 100%;
+}
+
+.next {
+  float: right;
+}
+
+.previous {
+  float: left;
+}
