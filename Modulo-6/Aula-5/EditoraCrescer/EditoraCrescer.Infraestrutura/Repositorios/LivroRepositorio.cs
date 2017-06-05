@@ -14,6 +14,14 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto.Contexto contexto = new Contexto.Contexto();
 
+        public List<Livro> ListarTodosLivros()
+        {
+            return contexto.Livros
+                .Include("Autor")
+                .Include("Revisor")
+                .ToList();
+        }
+
         public dynamic Listar(int skip, int take)
         {
             DateTime seteDiasAtras = DateTime.Now.AddDays(-7);
@@ -71,8 +79,18 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
 
         public void Alterar(Livro livro)
         {
-            contexto.Entry(livro).State = EntityState.Modified;
+            contexto.Entry(livro).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
+        }
+
+        public void Publicar(int isbn)
+        {
+            var livro = ObterPorIsbn(isbn);
+            if (livro != null)
+            {
+                livro.DataPublicacao = DateTime.Now;
+                Alterar(livro);
+            }
         }
 
         private Expression<Func<Livro, dynamic>> camposBasicos =

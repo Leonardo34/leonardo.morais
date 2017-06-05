@@ -54,6 +54,18 @@ namespace EditoraCrescer.WebAPI.Controllers
             });
         }
 
+        [Route("todosLivros")]
+        [HttpGet]
+        public HttpResponseMessage ObterTodosLivros()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, new
+            {
+                data =
+                repositorio.ListarTodosLivros()
+            });
+        }
+
+        [AutenticacaoBasic64]
         [HttpPost]
         public IHttpActionResult Post(Livro livro)
         {
@@ -61,10 +73,20 @@ namespace EditoraCrescer.WebAPI.Controllers
             return Ok();
         }
 
+        [AutenticacaoBasic64]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             return Ok(repositorio.Excluir(id));
+        }
+
+        [Route("publicar/{isbn:int}")]
+        [AutenticacaoBasic64]
+        [HttpPost]
+        public IHttpActionResult PublicarLivro(int isbn)
+        {
+            repositorio.Publicar(isbn);
+            return Ok();
         }
     }
 }
