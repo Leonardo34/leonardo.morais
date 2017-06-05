@@ -4,14 +4,14 @@
         <slide ng-repeat="each in lancamentos" active="each.active">
           <img class="imagemLancamento" ng-src="{{each.Capa}}">
           <div class="carousel-caption">
-            <h4>{{each.Titulo}}</h4>
+            <h4><a href="#!/livro/{{each.Isbn}}">{{each.Titulo}}</a></h4>
           </div>
         </slide>
       </carousel>
   </div>
 </div>
 
-<div ng-repeat="each in livros" class="col-md-6">
+<div ng-repeat="each in livros" class="col-md-4">
 	<div class="thumbnail">
 		<img ng-src="{{ each.Capa }}">
 		<p class="title"><a href="#!/livro/{{each.Isbn}}">{{ each.Titulo }}</a></p>

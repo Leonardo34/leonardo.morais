@@ -1,5 +1,5 @@
 app.controller('editoraController', function($scope, livrosService, $location) { 
-    const livrosPorPagina = 4;
+    const livrosPorPagina = 6;
 
     $scope.url.path = $location.path();
     $scope.paginacao = {
