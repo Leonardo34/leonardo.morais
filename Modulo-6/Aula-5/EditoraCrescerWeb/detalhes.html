@@ -1,6 +1,8 @@
 <div class="thumbnail">
 	<img ng-src="{{ livro.Capa }}">
 	<p class="title">{{ livro.Titulo }}</a></p>
-	<p class="title">{{ livro.Descricao }}</p>
+	<p class="title">{{ livro.Autor.Nome }}</p>
+	<p>{{ livro.Genero }}</p>
+	<p>{{ livro.Descricao }}</p>
 	<p class="date">{{ livro.DataPublicacao | date }}</p>
 </div>
