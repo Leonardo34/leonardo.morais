@@ -25,6 +25,7 @@ app.controller('adminController', function($scope, livrosService, toastr, $locat
     $scope.publicar = function(id) {
         livrosService.publicarLivro(id).then(res => {
             toastr.success("Livro publicado com sucesso");
+            carregarLivros();
         })
     }
 
@@ -32,7 +33,10 @@ app.controller('adminController', function($scope, livrosService, toastr, $locat
 
     }
 
-    $scope.excluirLivro = function() {
-        
+    $scope.excluirLivro = function(id) {
+        console.log('foi');
+        livrosService.excluirLivro(id).then(res => {
+            carregarLivros();
+        });
     }
 });

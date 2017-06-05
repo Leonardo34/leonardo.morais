@@ -26,4 +26,8 @@ app.service('livrosService', function($http) {
     this.publicarLivro = function(id) {
         return $http.post('http://localhost:49707/api/livros/publicar/' + id);
     }
+
+    this.excluirLivro = function(id) {
+        return $http.delete('http://localhost:49707/api/livros/?id=' + id);
+    }
 });

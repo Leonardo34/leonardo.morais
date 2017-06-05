@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.WebAPI", "ImobiliariaCrescer.WebAPI\ImobiliariaCrescer.WebAPI.csproj", "{39316FD3-C14A-4128-B277-8DAE91F63F51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.Infraestrutura", "ImobiliariaCrescer.Infraestrutura\ImobiliariaCrescer.Infraestrutura.csproj", "{300BE485-6F61-4C03-BC35-A0D60F3AE726}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39316FD3-C14A-4128-B277-8DAE91F63F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39316FD3-C14A-4128-B277-8DAE91F63F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39316FD3-C14A-4128-B277-8DAE91F63F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39316FD3-C14A-4128-B277-8DAE91F63F51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{300BE485-6F61-4C03-BC35-A0D60F3AE726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{300BE485-6F61-4C03-BC35-A0D60F3AE726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{300BE485-6F61-4C03-BC35-A0D60F3AE726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{300BE485-6F61-4C03-BC35-A0D60F3AE726}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
