@@ -23,6 +23,15 @@ app.config(function ($routeProvider) {
         }
       }
     })
+    .when('/novoLivro', {
+      controller: 'adminController',
+      templateUrl: 'novoLivro.html',
+      resolve: {
+        autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+        }
+      }
+    })
     .otherwise({redirectTo: '/livros'});
 }); 
 

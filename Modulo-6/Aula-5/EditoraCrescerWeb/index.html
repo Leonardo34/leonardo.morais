@@ -17,6 +17,7 @@
         <script src="js/controllers/editoraController.js"></script>
         <script src="js/controllers/loginController.js"></script>
         <script src="js/controllers/livroController.js"></script>
+        <script src="js/controllers/adminController.js"></script>
     </head>
 
     <body ng-app="editoraCrescerApp" ng-controller="headerController">
@@ -29,6 +30,7 @@
             <ul class="nav nav-tabs">
                 <li role="presentation" ng-class="{ 'active': url.path == '/livros' }"><a href="#!/livros">NOSSOS PRODUTOS</a></li>
                 <li role="presentation" ng-class="{ 'active': url.path == '/login' }" ng-hide="isAutenticado()"><a href="#!/login">LOGIN</a></li>
+                <li role="presentation" ng-hide="!isAutenticado()"><a href="#!/novoLivro">ADICIONAR LIVRO</a></li>
                 <li role="presentation" ng-click="logout()" ng-hide="!isAutenticado()"><a>LOGOUT</a></li>
             </ul>
         </nav>

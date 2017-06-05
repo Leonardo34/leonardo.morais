@@ -1,0 +1,14 @@
+<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">Novo Livro</h2>
+
+  <form class="login-container">
+    <p><input type="text" placeholder="Titulo" ng-model="novoLivro.Titulo" required></p>
+    <p><input type="text" placeholder="Descricao" ng-model="novoLivro.Descricao" required></p>
+    <p><input type="text" placeholder="Genero" ng-model="novoLivro.Genero" required></p>
+    <p><input type="text" placeholder="Capa" ng-model="novoLivro.Capa" required></p>
+    <p><input type="text" placeholder="Id Autor" ng-model="novoLivro.IdAutor" required></p>
+    <p><input type="submit" ng-click="enviarLivro()" value="Enviar Livro"></p>
+  </form>
+</div>

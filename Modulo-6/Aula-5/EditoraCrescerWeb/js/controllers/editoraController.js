@@ -1,15 +1,17 @@
-app.controller('editoraController', function($scope, livrosService, $location) { 
+app.controller('editoraController', function($scope, livrosService, toastr, $location) { 
     const livrosPorPagina = 6;
-
     $scope.url.path = $location.path();
+
     $scope.paginacao = {
         take: livrosPorPagina,
         skip: 0,
     };
+
     $scope.previous = function() {
         $scope.paginacao.skip -= livrosPorPagina;
         carregarLivros();
     }
+
     $scope.next = function() {
         $scope.paginacao.skip += livrosPorPagina;
         carregarLivros();
