@@ -21,6 +21,7 @@ namespace ImobiliariaCrescer.Infraestrutura.ContextoEntity
         public DbSet<Combo> Combos { get; set; }
         public DbSet<Imovel> Imoveis { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<EstoqueImovel> Estoques { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -31,6 +32,7 @@ namespace ImobiliariaCrescer.Infraestrutura.ContextoEntity
             modelBuilder.Configurations.Add(new ComboMap());
             modelBuilder.Configurations.Add(new ImovelMap());
             modelBuilder.Configurations.Add(new PedidoMap());
+            modelBuilder.Configurations.Add(new EstoqueImovelMap());
         }
     }
 }

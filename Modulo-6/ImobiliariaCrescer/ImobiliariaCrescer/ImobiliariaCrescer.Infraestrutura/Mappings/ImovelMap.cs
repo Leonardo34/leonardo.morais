@@ -13,6 +13,10 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
         public ImovelMap()
         {
             ToTable("Imoveis");
+
+            HasMany(x => x.Estoques)
+                .WithRequired(x => x.Imovel)
+                .HasForeignKey(x => x.IdImovel);
         }
     }
 }
