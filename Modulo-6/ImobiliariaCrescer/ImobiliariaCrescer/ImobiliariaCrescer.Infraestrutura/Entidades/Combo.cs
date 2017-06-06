@@ -10,7 +10,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public decimal Preco { get; set; }
+        public decimal PrecoPorDia { get; set; }
         public int Quartos { get; set; }
         public int Banheiros { get; set; }
         public int Cozinhas { get; set; }

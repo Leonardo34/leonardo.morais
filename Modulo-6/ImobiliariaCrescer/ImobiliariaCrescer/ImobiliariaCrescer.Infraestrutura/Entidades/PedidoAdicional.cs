@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ImobiliariaCrescer.Infraestrutura.Entidades
 {
-    public class Adicional
+    public class  PedidoAdicional
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public decimal PrecoPorDia { get; set; }
+        public int IdPedido { get; set; }
+        public Pedido Pedido { get; set; }
+        public int IdAdicional { get; set; }
+        public Adicional Adicional { get; set; }
         public int Quantidade { get; set; }
     }
 }

@@ -18,7 +18,8 @@ namespace ImobiliariaCrescer.Infraestrutura.Entidades
         public Imovel Imovel { get; set; }
         public int IdCombo { get; set; }
         public Combo Combo { get; set; }
-        public List<Adicional> Adicionais { get; set; }
-        public decimal TotalPago { get; set; }
+        public List<PedidoAdicional> Adicionais { get; set; }
+        public decimal? TotalPrevisto { get; set; }
+        public decimal? TotalPago { get; set; }
     }
 }
