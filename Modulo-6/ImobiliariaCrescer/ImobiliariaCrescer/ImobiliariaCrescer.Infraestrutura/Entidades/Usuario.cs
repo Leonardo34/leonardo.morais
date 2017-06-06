@@ -32,7 +32,6 @@ namespace ImobiliariaCrescer.Infraestrutura.Entidades
                 Senha = CriptografarSenha(senha);
             Permissoes = new List<Permissao>();
             Mensagens = new List<string>();
-            AtribuirPermissoes("Colaborador");
         }
 
         public string ResetarSenha()
