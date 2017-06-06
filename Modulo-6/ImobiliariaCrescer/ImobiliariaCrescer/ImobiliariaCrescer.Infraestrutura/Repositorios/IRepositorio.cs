@@ -10,8 +10,8 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
     {
         List<T> Listar();
         T ObterPorId(int id);
-        T Criar(T objeto);
-        T Alterar(T objeto);
+        void Criar(T objeto);
+        void Alterar(T objeto);
         void Deletar(int id);
     }
 }
