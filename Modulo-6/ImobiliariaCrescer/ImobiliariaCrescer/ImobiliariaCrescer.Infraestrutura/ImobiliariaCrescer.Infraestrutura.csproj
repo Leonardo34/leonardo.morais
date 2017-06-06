@@ -51,6 +51,7 @@
     <Compile Include="Entidades\Adicional.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Combo.cs" />
+    <Compile Include="Entidades\EstoqueImovel.cs" />
     <Compile Include="Entidades\Imovel.cs" />
     <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\Permissao.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Mappings\AdicionalMap.cs" />
     <Compile Include="Mappings\ClienteMap.cs" />
     <Compile Include="Mappings\ComboMap.cs" />
+    <Compile Include="Mappings\EstoqueImovelMap.cs" />
     <Compile Include="Mappings\ImovelMap.cs" />
     <Compile Include="Mappings\PedidoMap.cs" />
     <Compile Include="Mappings\PermissaoMap.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\ClienteRepositorio.cs" />
     <Compile Include="Repositorios\ComboRepositorio.cs" />
+    <Compile Include="Repositorios\EstoqueImovelRepositorio.cs" />
     <Compile Include="Repositorios\ImovelRepositorio.cs" />
     <Compile Include="Repositorios\IRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
