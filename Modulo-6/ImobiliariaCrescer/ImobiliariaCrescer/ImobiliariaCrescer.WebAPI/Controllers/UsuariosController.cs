@@ -1,5 +1,6 @@
 ﻿using ImobiliariaCrescer.Infraestrutura.Entidades;
 using ImobiliariaCrescer.Infraestrutura.Repositorios;
+using ImobiliariaCrescer.WebAPI.App_Start;
 using ImobiliariaCrescer.WebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,9 @@ using System.Web.Http;
 
 namespace ImobiliariaCrescer.WebAPI.Controllers
 {
+
+    [AllowAnonymous]
+    [RoutePrefix("api/acessos")]
     public class UsuariosController : ApiController
     {
         private UsuarioRepositorio repositorio = new UsuarioRepositorio();
