@@ -16,11 +16,11 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
 
             HasRequired(x => x.Imovel)
                 .WithMany()
-                .HasForeignKey(x => x.IdImovel);
+                .Map(x => x.MapKey("IdImovel"));
 
             HasRequired(x => x.Combo)
                 .WithMany()
-                .HasForeignKey(x => x.IdCombo);
+                .Map(x => x.MapKey("IdCombo"));
         }
     }
 }

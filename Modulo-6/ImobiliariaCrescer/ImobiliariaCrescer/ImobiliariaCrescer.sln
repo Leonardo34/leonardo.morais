@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.WebAPI",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.Infraestrutura", "ImobiliariaCrescer.Infraestrutura\ImobiliariaCrescer.Infraestrutura.csproj", "{300BE485-6F61-4C03-BC35-A0D60F3AE726}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImobiliariaCrescer.Dominio", "ImobiliariaCrescer.Dominio\ImobiliariaCrescer.Dominio.csproj", "{737611D5-FD0F-4F9D-A4E2-A60B1139D8B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{300BE485-6F61-4C03-BC35-A0D60F3AE726}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{300BE485-6F61-4C03-BC35-A0D60F3AE726}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{300BE485-6F61-4C03-BC35-A0D60F3AE726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737611D5-FD0F-4F9D-A4E2-A60B1139D8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737611D5-FD0F-4F9D-A4E2-A60B1139D8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737611D5-FD0F-4F9D-A4E2-A60B1139D8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737611D5-FD0F-4F9D-A4E2-A60B1139D8B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

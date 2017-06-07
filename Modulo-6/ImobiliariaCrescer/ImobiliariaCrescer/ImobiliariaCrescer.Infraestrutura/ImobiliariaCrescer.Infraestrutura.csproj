@@ -63,15 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextoEntity\Contexto.cs" />
-    <Compile Include="Entidades\Adicional.cs" />
-    <Compile Include="Entidades\Cliente.cs" />
-    <Compile Include="Entidades\Combo.cs" />
-    <Compile Include="Entidades\EstoqueImovel.cs" />
-    <Compile Include="Entidades\Imovel.cs" />
-    <Compile Include="Entidades\Pedido.cs" />
-    <Compile Include="Entidades\PedidoAdicional.cs" />
-    <Compile Include="Entidades\Permissao.cs" />
-    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Mappings\AdicionalMap.cs" />
     <Compile Include="Mappings\ClienteMap.cs" />
     <Compile Include="Mappings\ComboMap.cs" />
@@ -100,6 +91,10 @@
     <Compile Include="Migrations\201706062028371_UpdateDatabase1.cs" />
     <Compile Include="Migrations\201706062028371_UpdateDatabase1.Designer.cs">
       <DependentUpon>201706062028371_UpdateDatabase1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706072027384_CriarDominio.cs" />
+    <Compile Include="Migrations\201706072027384_CriarDominio.Designer.cs">
+      <DependentUpon>201706072027384_CriarDominio.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +128,18 @@
     <EmbeddedResource Include="Migrations\201706062028371_UpdateDatabase1.resx">
       <DependentUpon>201706062028371_UpdateDatabase1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706072027384_CriarDominio.resx">
+      <DependentUpon>201706072027384_CriarDominio.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entidades\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImobiliariaCrescer.Dominio\ImobiliariaCrescer.Dominio.csproj">
+      <Project>{737611D5-FD0F-4F9D-A4E2-A60B1139D8B5}</Project>
+      <Name>ImobiliariaCrescer.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

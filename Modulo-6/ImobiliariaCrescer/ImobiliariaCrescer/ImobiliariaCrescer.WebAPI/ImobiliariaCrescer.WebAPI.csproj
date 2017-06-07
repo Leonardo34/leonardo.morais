@@ -123,6 +123,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ImobiliariaCrescer.Dominio\ImobiliariaCrescer.Dominio.csproj">
+      <Project>{737611d5-fd0f-4f9d-a4e2-a60b1139d8b5}</Project>
+      <Name>ImobiliariaCrescer.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ImobiliariaCrescer.Infraestrutura\ImobiliariaCrescer.Infraestrutura.csproj">
       <Project>{300BE485-6F61-4C03-BC35-A0D60F3AE726}</Project>
       <Name>ImobiliariaCrescer.Infraestrutura</Name>

@@ -1,4 +1,5 @@
-﻿using ImobiliariaCrescer.Infraestrutura.Entidades;
+﻿
+using ImobiliariaCrescer.Infraestrutura.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;

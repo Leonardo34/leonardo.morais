@@ -16,7 +16,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
 
             HasMany(x => x.Estoques)
                 .WithRequired(x => x.Imovel)
-                .HasForeignKey(x => x.IdImovel);
+                .Map(x => x.MapKey("IdImovel"));
         }
     }
 }
