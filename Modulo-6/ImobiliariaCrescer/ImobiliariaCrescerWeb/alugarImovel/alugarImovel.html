@@ -1,1 +1,41 @@
-<h1> IMPLEMENTAR AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+<!-- multistep form -->
+<form id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Selecionar Cliente</li>
+    <li>Selecionar Tipo Imovel</li>
+    <li>Selecionar Combo</li>
+    <li>Selecionar Adicionais</li>
+  </ul>
+    <div ng-show="step == 1">
+        <fieldset>
+            <h2 class="fs-title">Escolha o cliente</h2>
+            <h3 class="fs-subtitle">Adicione o cliente através do CPF</h3>
+            <input type="text" name="cpf" placeholder="CPF" ng-model="cliente.Cpf"/>
+            <input type="button" name="next" class="next action-button" value="Next" ng-click="adicionarCliente()"/>
+        </fieldset>
+    </div>
+    <div ng-show="step == 2">
+        <fieldset>
+            <h2 class="fs-title">Escolha o Imovel</h2>
+            <h3 class="fs-subtitle">Adicione o tipo do imóvel que o cliente deseja alugar</h3>
+            <input type="text" name="twitter" placeholder="Twitter" />
+            <input type="text" name="facebook" placeholder="Facebook" />
+            <input type="text" name="gplus" placeholder="Google Plus" />
+            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="previous()"/>
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+    </div>
+    <div ng-show="step == 3">
+        <fieldset>
+            <h2 class="fs-title">Personal Details</h2>
+            <h3 class="fs-subtitle">We will never sell it</h3>
+            <input type="text" name="fname" placeholder="First Name" />
+            <input type="text" name="lname" placeholder="Last Name" />
+            <input type="text" name="phone" placeholder="Phone" />
+            <textarea name="address" placeholder="Address"></textarea>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="submit" name="submit" class="submit action-button" value="Submit" />
+        </fieldset>
+    </div>
+</form>
