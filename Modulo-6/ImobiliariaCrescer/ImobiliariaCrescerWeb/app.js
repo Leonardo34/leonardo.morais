@@ -8,11 +8,21 @@ app.config(function ($routeProvider) {
     })
     .when('/cadastroCliente', {
       controller: 'cadastroCliente.Controller',
-      templateUrl: 'cadastroCliente/cadastroCliente.html'
+      templateUrl: 'cadastroCliente/cadastroCliente.html',
+      resolve: {
+        autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+        }
+      }
     })
     .when('/alugarImovel', {
       controller: 'alugarImovel.Controller',
-      templateUrl: 'alugarImovel/alugarImovel.html'
+      templateUrl: 'alugarImovel/alugarImovel.html',
+      resolve: {
+        autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+        }
+      }
     });
 });
 
