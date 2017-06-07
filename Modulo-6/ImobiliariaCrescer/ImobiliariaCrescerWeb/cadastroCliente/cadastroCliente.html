@@ -3,13 +3,13 @@
   
   <h2 class="login-header">Novo Cliente</h2>
 
-  <form class="login-container">
+  <form name="cadastroCliente" class="login-container" novalidate>
     <p><input type="text" placeholder="Cpf" ng-model="cliente.Cpf" required></p>
     <p><input type="text" placeholder="Nome" ng-model="cliente.Nome" required></p>
     <p><input type="email" placeholder="Email" ng-model="cliente.Email" required></p>
     <p><input type="text" placeholder="Endereco" ng-model="cliente.Endereco" required></p>
     <p><input type="text" placeholder="Genero" ng-model="cliente.Genero" required></p>
     <p><input type="date" placeholder="Data Nascimento" ng-model="cliente.DataNascimento" required></p>
-    <p><input type="submit" ng-click="cadastrarCliente()" value="Cadastrar Cliente"></p>
+    <p><input type="submit" ng-disabled="cadastroCliente.$invalid" ng-click="cadastrarCliente()" value="Cadastrar Cliente"></p>
   </form>
 </div>

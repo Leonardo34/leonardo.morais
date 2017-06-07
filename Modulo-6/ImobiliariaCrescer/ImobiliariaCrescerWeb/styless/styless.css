@@ -83,14 +83,10 @@ body {
   border-color: #05a;
 }
 
+input[type="submit"]:disabled {
+    background: #dddddd;
+}
+
 .nav-pag {
   width: 100%;
-}
-
-.next {
-  float: right;
-}
-
-.previous {
-  float: left;
 }
