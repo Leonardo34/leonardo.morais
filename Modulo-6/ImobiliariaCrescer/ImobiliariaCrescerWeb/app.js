@@ -4,11 +4,13 @@ app.config(function ($routeProvider) {
     $routeProvider
     .when('/login', {
       controller: 'loginController',
-      templateUrl: 'login/login.html'
+      templateUrl: 'login/login.html',
+      css: 'styless/styless.css'
     })
     .when('/cadastroCliente', {
       controller: 'cadastroCliente.Controller',
       templateUrl: 'cadastroCliente/cadastroCliente.html',
+      css: 'styless/styless.css',
       resolve: {
         autenticado: function (authService) {
           return authService.isAutenticadoPromise();
@@ -18,6 +20,7 @@ app.config(function ($routeProvider) {
     .when('/alugarImovel', {
       controller: 'alugarImovel.Controller',
       templateUrl: 'alugarImovel/alugarImovel.html',
+      css: 'styless/styless.css',
       resolve: {
         autenticado: function (authService) {
           return authService.isAutenticadoPromise();

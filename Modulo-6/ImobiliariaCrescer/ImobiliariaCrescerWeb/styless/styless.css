@@ -1,10 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-body {
-  background: #456;
-  font-family: 'Open Sans', sans-serif;
-  height: 100vh;
-}
 
 .login {
   width: 400px;
@@ -97,14 +92,14 @@ input[type="submit"]:disabled {
 * {margin: 0; padding: 0;}
 
 body {
-	height: 100%;
+
+height:100vh;
 	background: 
 		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+    background-repeat:no-repeat;
+    font-family: montserrat, arial, verdana;
 }
 
-body {
-	font-family: montserrat, arial, verdana;
-}
 
 #msform {
 	width: 400px;

@@ -27,13 +27,13 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
     }
 
     $scope.adicionarAdicionais = function(adicionais) {
-        //$scope.step++;
+        $scope.step++;
         $scope.pedido.Adicionais = adicionais;
         console.log($scope.pedido);
     }
 
     $scope.confirmarPedido = function(diasAluguel) {
-        
+
     }
 
     $scope.previous = function() {
