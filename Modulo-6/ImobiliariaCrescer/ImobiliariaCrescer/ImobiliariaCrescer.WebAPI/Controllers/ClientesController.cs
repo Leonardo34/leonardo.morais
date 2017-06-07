@@ -38,7 +38,6 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
         }
 
         [AutenticacaoBasic64]
-        [Route("{cpf}")]
         [HttpGet]
         public HttpResponseMessage GetByCpf(string cpf)
         {
