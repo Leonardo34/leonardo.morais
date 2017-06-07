@@ -12,11 +12,14 @@
         <script src="https://rawgit.com/cwi-crescer-2017-1/instrutores/master/modulo-05-angularjs/auth/auth.module.js" type="text/javascript"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
         <script src="app.js"></script>
+        <script src="services/clienteService.js"></script>
         <script src="index.headerController.js"></script>
         <script src="login/loginController.js"></script>
+        <script src="cadastroCliente/cadastroCliente.Controller.js"></script>
+        <script src="alugarImovel/alugarImovel.Controller.js"></script>
     </head>
 
-    <body ng-app="imobiliariaCrescerApp">
+    <body ng-app="imobiliariaCrescerApp" ng-controller="headerController">
         <nav class="navbar navbar-default header">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -24,10 +27,10 @@
                 </div>
             </div>
             <ul class="nav nav-tabs">
-                <li role="presentation"><a href="#!/login">LOGIN</a></li>
-                <li role="presentation"><a>ALUGAR IMÓVEL</a></li>
-                <li role="presentation"><a href="#!/novoLivro">ADICIONAR CLIENTE</a></li>
-                <li role="presentation"><a>LOGOUT</a></li>
+                <li role="presentation" ng-class="{ 'active': url.path == '/login' }" ng-hide="isAutenticado()"><a href="#!/login">LOGIN</a></li>
+                <li role="presentation" ng-hide="!isAutenticado()" ng-class="{ 'active': url.path == '/alugarImovel' }"><a href="#!/alugarImovel">ALUGAR IMÓVEL</a></li>
+                <li role="presentation" ng-class="{ 'active': url.path == '/cadastroCliente' }" ng-hide="!isAutenticado()"><a href="#!/cadastroCliente">ADICIONAR CLIENTE</a></li>
+                <li role="presentation" ng-click="logout()" ng-hide="!isAutenticado()"><a>LOGOUT</a></li>
             </ul>
         </nav>
 		<div class="container">
