@@ -41,4 +41,26 @@
             <input type="submit" name="submit" class="submit action-button" value="Next" ng-click="selecionarCombo(Combo)"/>
         </fieldset>
     </div>
+    <div ng-show="step == 4">
+        <fieldset>
+            <h2 class="fs-title">Escolha os Adicionais</h2>
+            <h3 class="fs-subtitle">Adicione os adicionais que o cliente deseja adquirir</h3>
+            <select multiple required class="form-control" ng-model="AdicionaisSelecionados">
+                <option ng-repeat="each in adicionais | orderBy: 'Id'" value="{{ each }}">
+                    {{ each.Nome }}
+                </option>
+            </select>
+            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="previous()"/>
+            <input type="submit" name="submit" class="submit action-button" value="Next" ng-click="adicionarAdicionais(AdicionaisSelecionados)"/>
+        </fieldset>
+    </div>
+    <div ng-show="step == 5">
+        <fieldset>
+            <h2 class="fs-title">Pedido</h2>
+            <h3 class="fs-subtitle">Confirme os dados do pedido</h3>
+            <input type="number" max="30" name="diasAluguel" placeholder="Quantidade de dias alugados" ng-model="diasAluguel"/>
+            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="previous()"/>
+            <input type="submit" name="submit" class="submit action-button" value="Confirmar Pedido" ng-click="confirmarPedido(diasAluguel)"/>
+        </fieldset>
+    </div>
 </form>

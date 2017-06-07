@@ -26,6 +26,16 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
         obterAdicionaisDisponiveis();
     }
 
+    $scope.adicionarAdicionais = function(adicionais) {
+        //$scope.step++;
+        $scope.pedido.Adicionais = adicionais;
+        console.log($scope.pedido);
+    }
+
+    $scope.confirmarPedido = function(diasAluguel) {
+        
+    }
+
     $scope.previous = function() {
         if ($scope.step > 1) {
             $scope.step--;
@@ -45,6 +55,8 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
     }
 
     function obterAdicionaisDisponiveis() {
-        
+        locacaoService.buscarAdicionais().then(res => {
+            $scope.adicionais = res.data.data;
+        })
     }
 });

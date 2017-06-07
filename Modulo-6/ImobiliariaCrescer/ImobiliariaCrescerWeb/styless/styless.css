@@ -129,6 +129,11 @@ body {
 	display: none;
 }
 
+#msform select {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 #msform input, #msform textarea {
 	padding: 15px;
 	border: 1px solid #ccc;
@@ -139,6 +144,8 @@ body {
 	font-family: montserrat;
 	color: #2C3E50;
 	font-size: 13px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #msform .action-button {
