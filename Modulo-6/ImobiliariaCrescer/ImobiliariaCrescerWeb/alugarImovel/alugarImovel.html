@@ -2,10 +2,10 @@
 <form id="msform">
   <!-- progressbar -->
   <ul id="progressbar">
-    <li class="active">Selecionar Cliente</li>
-    <li>Selecionar Tipo Imovel</li>
-    <li>Selecionar Combo</li>
-    <li>Selecionar Adicionais</li>
+    <li ng-class="{ 'active': step >= 1 }">Selecionar Cliente</li>
+    <li ng-class="{ 'active': step >= 2 }">Selecionar Tipo Imovel</li>
+    <li ng-class="{ 'active': step >= 3 }">Selecionar Combo</li>
+    <li ng-class="{ 'active': step == 4 }">Selecionar Adicionais</li>
   </ul>
     <div ng-show="step == 1">
         <fieldset>
@@ -19,23 +19,26 @@
         <fieldset>
             <h2 class="fs-title">Escolha o Imovel</h2>
             <h3 class="fs-subtitle">Adicione o tipo do imóvel que o cliente deseja alugar</h3>
-            <input type="text" name="twitter" placeholder="Twitter" />
-            <input type="text" name="facebook" placeholder="Facebook" />
-            <input type="text" name="gplus" placeholder="Google Plus" />
+            <select required class="form-control" ng-model="tipoImovel">
+                <option ng-repeat="each in imoveis | orderBy: 'Id'" value="{{ each }}">
+                    {{ each.Tipo }}
+                </option>
+            </select>
             <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="previous()"/>
-            <input type="button" name="next" class="next action-button" value="Next" />
+            <input type="button" name="next" class="next action-button" value="Next" ng-click="selecionarImovel(tipoImovel)" />
         </fieldset>
     </div>
     <div ng-show="step == 3">
         <fieldset>
-            <h2 class="fs-title">Personal Details</h2>
-            <h3 class="fs-subtitle">We will never sell it</h3>
-            <input type="text" name="fname" placeholder="First Name" />
-            <input type="text" name="lname" placeholder="Last Name" />
-            <input type="text" name="phone" placeholder="Phone" />
-            <textarea name="address" placeholder="Address"></textarea>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="submit" name="submit" class="submit action-button" value="Submit" />
+            <h2 class="fs-title">Escolha o combo</h2>
+            <h3 class="fs-subtitle">Adicione o combo que o cliente deseja adquirir</h3>
+            <select required class="form-control" ng-model="Combo">
+                <option ng-repeat="each in combos | orderBy: 'Id'" value="{{ each }}">
+                    {{ each.Nome }}
+                </option>
+            </select>
+            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="previous()"/>
+            <input type="submit" name="submit" class="submit action-button" value="Next" ng-click="selecionarCombo(Combo)"/>
         </fieldset>
     </div>
 </form>

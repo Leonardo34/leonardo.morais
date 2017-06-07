@@ -8,14 +8,43 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
             .then(res => {
                 $scope.pedido.cliente = res.data.data;
                 $scope.step++;
+                obterImoveisDisponiveis();
             }, error => {
                 window.alert('Erro ao buscar usuario por CPF');
             });
+    }
+
+    $scope.selecionarImovel = function(tipoImovel) {
+        $scope.step++;
+        $scope.pedido.Imovel = tipoImovel;
+        obterCombosDisponiveis();
+    }
+
+    $scope.selecionarCombo = function(combo) {
+        $scope.step++;
+        $scope.pedido.Combo = combo;
+        obterAdicionaisDisponiveis();
     }
 
     $scope.previous = function() {
         if ($scope.step > 1) {
             $scope.step--;
         }
+    }
+
+    function obterImoveisDisponiveis() {
+        locacaoService.buscarImoveis().then(res => {
+            $scope.imoveis = res.data.data;
+        }) 
+    }
+
+    function obterCombosDisponiveis() {
+        locacaoService.buscarCombos().then(res => {
+            $scope.combos = res.data.data;
+        })
+    }
+
+    function obterAdicionaisDisponiveis() {
+        
     }
 });
