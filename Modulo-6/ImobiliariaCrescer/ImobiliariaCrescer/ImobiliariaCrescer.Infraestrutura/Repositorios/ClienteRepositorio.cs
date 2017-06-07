@@ -41,5 +41,11 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             return contexto.Clientes
                 .FirstOrDefault(c => c.Id == id);
         }
+
+        public Cliente ObterPorCpf(string cpf)
+        {
+            return contexto.Clientes
+                .FirstOrDefault(c => c.Cpf == cpf);
+        }
     }
 }

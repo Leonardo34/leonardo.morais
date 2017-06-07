@@ -38,9 +38,27 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
         }
 
         [AutenticacaoBasic64]
+        [Route("{cpf}")]
+        [HttpGet]
+        public HttpResponseMessage GetByCpf(string cpf)
+        {
+            var cliente = repositorio.ObterPorCpf(cpf);
+            if (cliente == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                   new { error = "Não existe cliente com o id informado" });
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = cliente });
+        }
+
+        [AutenticacaoBasic64]
         [HttpPost]
         public IHttpActionResult Post(Cliente cliente)
         {
+            if (repositorio.ObterPorCpf(cliente.Cpf) != null)
+            {
+                return BadRequest("Já existe cliente com este CPF cadastrado no sistema");
+            }
             repositorio.Criar(cliente);
             return Ok();
         }
