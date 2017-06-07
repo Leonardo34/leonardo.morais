@@ -5,6 +5,14 @@ app.config(function ($routeProvider) {
     .when('/login', {
       controller: 'loginController',
       templateUrl: 'login/login.html'
+    })
+    .when('/cadastroCliente', {
+      controller: 'cadastroCliente.Controller',
+      templateUrl: 'cadastroCliente/cadastroCliente.html'
+    })
+    .when('/alugarImovel', {
+      controller: 'alugarImovel.Controller',
+      templateUrl: 'alugarImovel/alugarImovel.html'
     });
 });
 
@@ -17,7 +25,7 @@ angular.module('imobiliariaCrescerApp').constant('authConfig', {
     urlLogin: '/login',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGIN com sucesso
-    urlPrivado: '/administrativo',
+    urlPrivado: '/alugarImovel',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGOUT
     urlLogout: '/login'
