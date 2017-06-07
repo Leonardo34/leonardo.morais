@@ -1,4 +1,6 @@
 app.controller('loginController', function($scope, authService, $location) { 
+    $scope.url.path = $location.path();
+
     $scope.login = function() {
         console.log("opa");
         authService.login($scope.usuario).then(res => {
