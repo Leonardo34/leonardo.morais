@@ -33,7 +33,9 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public List<Adicional> Listar()
         {
-            return contexto.Adicionais.ToList();
+            return contexto.Adicionais
+                .Where(a => a.Quantidade > 0)
+                .ToList();
         }
 
         public Adicional ObterPorId(int id)
