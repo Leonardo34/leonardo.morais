@@ -33,7 +33,9 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public List<PedidoAdicional> Listar()
         {
-            return contexto.PedidosAdicionais.ToList();
+            return contexto.PedidosAdicionais
+                .Include("Adcional")
+                .ToList();
         }
 
         public PedidoAdicional ObterPorId(int id)

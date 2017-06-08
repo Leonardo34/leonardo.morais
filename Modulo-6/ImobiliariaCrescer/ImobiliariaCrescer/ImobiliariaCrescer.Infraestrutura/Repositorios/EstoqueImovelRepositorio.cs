@@ -18,6 +18,26 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             contexto.SaveChanges();
         }
 
+        public void RetirarImovelEstoque(int idImovel, int idCombo)
+        {
+            var estoque = contexto.Estoques
+                .Where(e => e.Imovel.Id == idImovel && e.Combo.Id == idCombo)
+                .FirstOrDefault();
+
+            estoque.Quantidade -= 1;
+            Alterar(estoque);
+        }
+
+        public void AdicionarImovelEstoque(int idImovel, int idCombo)
+        {
+            var estoque = contexto.Estoques
+                .Where(e => e.Imovel.Id == idImovel && e.Combo.Id == idCombo)
+                .FirstOrDefault();
+
+            estoque.Quantidade += 1;
+            Alterar(estoque);
+        }
+
         public void Criar(EstoqueImovel objeto)
         {
             contexto.Entry(objeto.Combo).State = System.Data.Entity.EntityState.Unchanged;
