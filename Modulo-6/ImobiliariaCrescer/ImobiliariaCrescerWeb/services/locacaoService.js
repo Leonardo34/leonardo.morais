@@ -15,4 +15,9 @@ app.service('locacaoService', function($http) {
     this.buscarAdicionais = function() {
         return $http.get('http://localhost:50573/api/adicionais');
     }
+
+    this.confirmarLocacao = function(pedido) {
+        console.log(pedido);
+        return $http.post('http://localhost:50573/api/pedidos', pedido);
+    }
 });

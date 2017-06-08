@@ -45,7 +45,7 @@
         <fieldset>
             <h2 class="fs-title">Escolha os Adicionais</h2>
             <h3 class="fs-subtitle">Adicione os adicionais que o cliente deseja adquirir</h3>
-            <select multiple required class="form-control" ng-model="AdicionaisSelecionados">
+            <select multiple class="form-control" ng-model="AdicionaisSelecionados">
                 <option ng-repeat="each in adicionais | orderBy: 'Id'" value="{{ each }}">
                     {{ each.Nome }}
                 </option>

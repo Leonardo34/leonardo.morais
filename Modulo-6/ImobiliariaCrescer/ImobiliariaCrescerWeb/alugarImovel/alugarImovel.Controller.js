@@ -6,7 +6,7 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
     $scope.adicionarCliente = function() {
         locacaoService.buscarClientePorCpf($scope.cliente.Cpf)
             .then(res => {
-                $scope.pedido.cliente = res.data.data;
+                $scope.pedido.Cliente = res.data.data;
                 $scope.step++;
                 obterImoveisDisponiveis();
             }, error => {
@@ -28,12 +28,14 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
 
     $scope.adicionarAdicionais = function(adicionais) {
         $scope.step++;
-        $scope.pedido.Adicionais = adicionais;
+        $scope.pedido.Adicionais = adicionais.map(a => JSON.parse(a));
         console.log($scope.pedido);
     }
 
     $scope.confirmarPedido = function(diasAluguel) {
-
+        $scope.pedido.diasAluguel = parseInt(diasAluguel);
+        console.log($scope.pedido);
+        locacaoService.confirmarLocacao($scope.pedido);
     }
 
     $scope.previous = function() {
