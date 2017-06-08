@@ -7,13 +7,13 @@ namespace ImobiliariaCrescer.Infraestrutura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class fixBugLoco : IMigrationMetadata
+    public sealed partial class pacotao : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fixBugLoco));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(pacotao));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706081321547_fixBugLoco"; }
+            get { return "201706081615380_pacotao"; }
         }
         
         string IMigrationMetadata.Source

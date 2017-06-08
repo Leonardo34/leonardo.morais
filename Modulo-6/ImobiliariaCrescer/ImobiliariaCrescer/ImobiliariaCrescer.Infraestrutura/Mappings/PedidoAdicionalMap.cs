@@ -15,12 +15,14 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
             ToTable("PedidosAdicionais2");
 
             HasRequired(x => x.Adicional)
-                .WithMany()
-                .Map(x => x.MapKey("IdAdicional"));
+                .WithMany()           
+                .Map(x => x.MapKey("IdAdicional"))
+                .WillCascadeOnDelete(false);
 
             HasRequired(x => x.Pedido)
                 .WithMany()
-                .Map(x => x.MapKey("IdPedido"));
+                .Map(x => x.MapKey("IdPedido"))
+                .WillCascadeOnDelete(false); 
         }
     }
 }

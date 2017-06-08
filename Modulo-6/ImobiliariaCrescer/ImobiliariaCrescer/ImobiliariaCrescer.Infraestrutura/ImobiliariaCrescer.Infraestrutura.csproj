@@ -72,9 +72,9 @@
     <Compile Include="Mappings\PedidoMap.cs" />
     <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
-    <Compile Include="Migrations\201706081321547_fixBugLoco.cs" />
-    <Compile Include="Migrations\201706081321547_fixBugLoco.Designer.cs">
-      <DependentUpon>201706081321547_fixBugLoco.cs</DependentUpon>
+    <Compile Include="Migrations\201706081615380_pacotao.cs" />
+    <Compile Include="Migrations\201706081615380_pacotao.Designer.cs">
+      <DependentUpon>201706081615380_pacotao.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,8 +102,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706081321547_fixBugLoco.resx">
-      <DependentUpon>201706081321547_fixBugLoco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706081615380_pacotao.resx">
+      <DependentUpon>201706081615380_pacotao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

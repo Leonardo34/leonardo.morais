@@ -3,7 +3,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class fixBugLoco : DbMigration
+    public partial class pacotao : DbMigration
     {
         public override void Up()
         {
@@ -101,8 +101,8 @@ namespace ImobiliariaCrescer.Infraestrutura.Migrations
                         IdPedido = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Adicionais2", t => t.IdAdicional, cascadeDelete: true)
-                .ForeignKey("dbo.Pedidos2", t => t.IdPedido, cascadeDelete: true)
+                .ForeignKey("dbo.Adicionais2", t => t.IdAdicional)
+                .ForeignKey("dbo.Pedidos2", t => t.IdPedido)
                 .Index(t => t.IdAdicional)
                 .Index(t => t.IdPedido);
             
