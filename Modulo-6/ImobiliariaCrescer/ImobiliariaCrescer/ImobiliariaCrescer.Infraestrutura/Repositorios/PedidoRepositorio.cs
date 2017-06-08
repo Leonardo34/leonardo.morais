@@ -20,6 +20,13 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public void Criar(Pedido objeto)
         {
+            contexto.Entry(objeto.Combo).State = System.Data.Entity.EntityState.Unchanged;
+            contexto.Entry(objeto.Imovel).State = System.Data.Entity.EntityState.Unchanged;
+            contexto.Entry(objeto.Cliente).State = System.Data.Entity.EntityState.Unchanged;
+            foreach (var adicional in objeto.Adicionais)
+            {
+                contexto.Entry(adicional.Adicional).State = System.Data.Entity.EntityState.Unchanged;
+            }
             contexto.Pedidos.Add(objeto);
             contexto.SaveChanges();
         }
@@ -33,7 +40,12 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public List<Pedido> Listar()
         {
-            return contexto.Pedidos.ToList();
+            return contexto.Pedidos
+                .Include("Combo")
+                .Include("Imovel")
+                .Include("Cliente")
+                .Include("Adicionais")
+                .ToList();
         }
 
         public Pedido ObterPorId(int id)
