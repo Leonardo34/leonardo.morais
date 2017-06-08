@@ -20,6 +20,8 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
 
         public void Criar(EstoqueImovel objeto)
         {
+            contexto.Entry(objeto.Combo).State = System.Data.Entity.EntityState.Unchanged;
+            contexto.Entry(objeto.Imovel).State = System.Data.Entity.EntityState.Unchanged;
             contexto.Estoques.Add(objeto);
             contexto.SaveChanges();
         }
