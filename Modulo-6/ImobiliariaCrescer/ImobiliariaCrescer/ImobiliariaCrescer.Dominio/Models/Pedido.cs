@@ -18,5 +18,17 @@ namespace ImobiliariaCrescer.Infraestrutura.Entidades
         public List<PedidoAdicional> Adicionais { get; set; }
         public decimal? TotalPrevisto { get; set; }
         public decimal? TotalPago { get; set; }
+
+        public void CalcularPrecoLocacao()
+        {
+            TotalPrevisto = 0;
+            TimeSpan ts = DataEntregaPrevista - DataVenda;
+            var diffDays = ts.Days;
+            TotalPrevisto += Combo.PrecoPorDia * diffDays;
+            foreach (var adicional in Adicionais)
+            {
+                TotalPrevisto += adicional.Adicional.PrecoPorDia * diffDays;
+            }
+        }
     }
 }
