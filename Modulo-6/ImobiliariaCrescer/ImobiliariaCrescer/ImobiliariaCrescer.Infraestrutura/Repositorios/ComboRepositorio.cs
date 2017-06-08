@@ -36,6 +36,17 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
             return contexto.Combos.ToList();
         }
 
+        public List<Combo> ListarCombosDisponiveis(int idImovel)
+        {
+            return contexto.Estoques
+                .Include("Imovel")
+                .Where(e => e.Quantidade > 0 && e.Imovel.Id == idImovel)
+                .Select(e => e.Combo)
+                .GroupBy(c => c.Id)
+                .Select(group => group.FirstOrDefault())
+                .ToList();
+        }
+
         public Combo ObterPorId(int id)
         {
             return contexto.Combos.FirstOrDefault(c => c.Id == id);
