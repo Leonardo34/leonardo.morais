@@ -12,7 +12,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
     {
         public ComboMap()
         {
-            ToTable("Combos");
+            ToTable("Combos2");
         }
     }
 }

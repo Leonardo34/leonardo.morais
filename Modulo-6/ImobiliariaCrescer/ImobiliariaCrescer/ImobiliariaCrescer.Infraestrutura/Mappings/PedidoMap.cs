@@ -12,7 +12,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
     {
         public PedidoMap()
         {
-            ToTable("Pedidos");
+            ToTable("Pedidos2");
 
             HasRequired(x => x.Cliente)
                 .WithMany()
@@ -31,7 +31,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
                 {
                     x.MapLeftKey("IdPedido");
                     x.MapRightKey("IdAdicional");
-                    x.ToTable("PedidoAdicional");
+                    x.ToTable("PedidoAdicional2");
                 });
         }
     }

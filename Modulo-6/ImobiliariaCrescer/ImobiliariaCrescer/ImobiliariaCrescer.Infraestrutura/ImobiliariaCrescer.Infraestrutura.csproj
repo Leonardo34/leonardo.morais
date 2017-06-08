@@ -72,29 +72,9 @@
     <Compile Include="Mappings\PedidoMap.cs" />
     <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
-    <Compile Include="Migrations\201706051906452_CriacaoDoBanco.cs" />
-    <Compile Include="Migrations\201706051906452_CriacaoDoBanco.Designer.cs">
-      <DependentUpon>201706051906452_CriacaoDoBanco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706052022371_UpdateModelagem.cs" />
-    <Compile Include="Migrations\201706052022371_UpdateModelagem.Designer.cs">
-      <DependentUpon>201706052022371_UpdateModelagem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061746257_UpdateControleEstoqueImoveis.cs" />
-    <Compile Include="Migrations\201706061746257_UpdateControleEstoqueImoveis.Designer.cs">
-      <DependentUpon>201706061746257_UpdateControleEstoqueImoveis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061850393_UpdateDatabase.cs" />
-    <Compile Include="Migrations\201706061850393_UpdateDatabase.Designer.cs">
-      <DependentUpon>201706061850393_UpdateDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706062028371_UpdateDatabase1.cs" />
-    <Compile Include="Migrations\201706062028371_UpdateDatabase1.Designer.cs">
-      <DependentUpon>201706062028371_UpdateDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706072027384_CriarDominio.cs" />
-    <Compile Include="Migrations\201706072027384_CriarDominio.Designer.cs">
-      <DependentUpon>201706072027384_CriarDominio.cs</DependentUpon>
+    <Compile Include="Migrations\201706081321547_fixBugLoco.cs" />
+    <Compile Include="Migrations\201706081321547_fixBugLoco.Designer.cs">
+      <DependentUpon>201706081321547_fixBugLoco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,26 +93,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706051906452_CriacaoDoBanco.resx">
-      <DependentUpon>201706051906452_CriacaoDoBanco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706052022371_UpdateModelagem.resx">
-      <DependentUpon>201706052022371_UpdateModelagem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061746257_UpdateControleEstoqueImoveis.resx">
-      <DependentUpon>201706061746257_UpdateControleEstoqueImoveis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061850393_UpdateDatabase.resx">
-      <DependentUpon>201706061850393_UpdateDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706062028371_UpdateDatabase1.resx">
-      <DependentUpon>201706062028371_UpdateDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706072027384_CriarDominio.resx">
-      <DependentUpon>201706072027384_CriarDominio.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Entidades\" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +100,11 @@
       <Project>{737611D5-FD0F-4F9D-A4E2-A60B1139D8B5}</Project>
       <Name>ImobiliariaCrescer.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706081321547_fixBugLoco.resx">
+      <DependentUpon>201706081321547_fixBugLoco.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,7 +13,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
     {
         public AdicionalMap()
         {
-            ToTable("Adicionais");
+            ToTable("Adicionais2");
         }
     }
 }

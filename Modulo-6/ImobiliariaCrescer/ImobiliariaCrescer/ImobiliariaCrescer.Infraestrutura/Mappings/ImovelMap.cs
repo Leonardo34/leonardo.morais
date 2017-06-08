@@ -12,7 +12,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
     {
         public ImovelMap()
         {
-            ToTable("Imoveis");
+            ToTable("Imoveis2");
 
             HasMany(x => x.Estoques)
                 .WithRequired(x => x.Imovel)

@@ -12,7 +12,7 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
     {
         public PedidoAdicionalMap()
         {
-            ToTable("PedidosAdicionais");
+            ToTable("PedidosAdicionais2");
 
             HasRequired(x => x.Adicional)
                 .WithMany()

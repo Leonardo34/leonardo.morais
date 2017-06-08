@@ -12,12 +12,12 @@ namespace ImobiliariaCrescer.Infraestrutura.Mappings
     {
         public UsuarioMap()
         {
-            ToTable("Usuario");
+            ToTable("Usuario2");
             HasMany(x => x.Permissoes).WithMany().Map(x =>
             {
                 x.MapLeftKey("IdUsuario");
                 x.MapRightKey("IdPermissao");
-                x.ToTable("UsuarioPermissao");
+                x.ToTable("UsuarioPermissao2");
             });
         }
     }
