@@ -14,6 +14,7 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
     public class ImoveisController : ApiController
     {
         private ImovelRepositorio repositorio = new ImovelRepositorio();
+        private EstoqueImovelRepositorio estoqueRepositorio = new EstoqueImovelRepositorio();
 
         [AutenticacaoBasic64]
         [HttpGet]
@@ -42,6 +43,24 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
         public IHttpActionResult Post(Imovel imovel)
         {
             repositorio.Criar(imovel);
+            return Ok();
+        }
+
+        [AutenticacaoBasic64]
+        [Route("estoque")]
+        [HttpPost]
+        public IHttpActionResult PostEstoque(EstoqueImovel estoque)
+        {
+            estoqueRepositorio.Criar(estoque);
+            return Ok();
+        }
+
+        [AutenticacaoBasic64]
+        [Route("estoque/{id:int}")]
+        [HttpDelete]
+        public IHttpActionResult DeleteEstoque(int id)
+        {
+            estoqueRepositorio.Deletar(id);
             return Ok();
         }
 

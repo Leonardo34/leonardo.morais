@@ -24,6 +24,15 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
         }
 
         [AutenticacaoBasic64]
+        [Route("disponiveis/{idImovel:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetCombosDisponiveisParaImovel(int idImovel)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK,
+                new { data = repositorio.ListarCombosDisponiveis(idImovel) });
+        }
+
+        [AutenticacaoBasic64]
         [Route("{id:int}")]
         [HttpGet]
         public HttpResponseMessage GetById(int id)
