@@ -1,6 +1,7 @@
 ﻿using ImobiliariaCrescer.Infraestrutura.Entidades;
 using ImobiliariaCrescer.Infraestrutura.Repositorios;
 using ImobiliariaCrescer.WebAPI.App_Start;
+using ImobiliariaCrescer.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
     public class PedidosController : ApiController
     {
         private PedidoRepositorio repositorio = new PedidoRepositorio();
+        private ImovelRepositorio repositorioImoveis = new ImovelRepositorio();
+        private ClienteRepositorio repositorioClientes = new ClienteRepositorio();
+        private ComboRepositorio repositorioCombos = new ComboRepositorio();
+        private AdicionalRepositorio repositorioAdicionais = new AdicionalRepositorio();
+        private EstoqueImovelRepositorio repositorioEstoque = new EstoqueImovelRepositorio();
 
         [AutenticacaoBasic64]
         [HttpGet]
@@ -39,9 +45,57 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
 
         [AutenticacaoBasic64]
         [HttpPost]
-        public IHttpActionResult Post(Pedido pedido)
+        public IHttpActionResult Post(PedidoModel pedidoModel)
         {
+            var imovel = repositorioImoveis.ObterPorId(pedidoModel.Imovel.Id);
+            var combo = repositorioCombos.ObterPorId(pedidoModel.Combo.Id);
+            var cliente = repositorioClientes.ObterPorId(pedidoModel.Cliente.Id);
+            repositorioEstoque.RetirarImovelEstoque(imovel.Id, combo.Id);
+
+            var pedido = new Pedido()
+            {
+                Imovel = imovel,
+                Combo = combo,
+                Cliente = cliente,
+                DataVenda = DateTime.Now,
+                DataEntregaPrevista = DateTime.Now.AddDays(pedidoModel.DiasAluguel),
+                Adicionais = new List<PedidoAdicional>()
+            };
+            foreach (var adicional in pedidoModel.Adicionais)
+            {
+                var adc = repositorioAdicionais.ObterPorId(adicional.Id);
+                pedido.Adicionais.Add(new PedidoAdicional()
+                {
+                    Adicional = adc,
+                    Pedido = pedido,
+                    Quantidade = 1
+                });
+                adc.Quantidade -= 1;
+                repositorioAdicionais.Alterar(adc);
+            }
+            pedido.CalcularPrecoLocacao();
             repositorio.Criar(pedido);
+            return Ok();
+        }
+
+        [AutenticacaoBasic64]
+        [Route("devolver/{id:int}")]
+        [HttpPost]
+        public IHttpActionResult DevolverImovel(int id)
+        {
+            var pedido = repositorio.ObterPorId(id);
+            if (pedido.DataEntregaRealizada != null)
+            {
+                return BadRequest();
+            }
+            pedido.DataEntregaRealizada = DateTime.Now;
+            repositorioEstoque.AdicionarImovelEstoque(pedido.Imovel.Id, pedido.Combo.Id);
+            foreach (var adicional in pedido.Adicionais)
+            {
+                adicional.Adicional.Quantidade += 1;
+                repositorioAdicionais.Alterar(adicional.Adicional);
+            }
+            repositorio.Alterar(pedido);
             return Ok();
         }
 
