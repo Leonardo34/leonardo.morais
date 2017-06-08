@@ -44,13 +44,18 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
                 .Include("Combo")
                 .Include("Imovel")
                 .Include("Cliente")
-                .Include("Adicionais")
                 .ToList();
         }
 
         public Pedido ObterPorId(int id)
         {
-            return contexto.Pedidos.FirstOrDefault(p => p.Id == id);
+            return contexto.Pedidos
+                .Include("Combo")
+                .Include("Imovel")
+                .Include("Cliente")
+                .Include("Adicionais")
+                .Include("Adicionais.Adicional")
+                .FirstOrDefault(p => p.Id == id);
         }
     }
 }
