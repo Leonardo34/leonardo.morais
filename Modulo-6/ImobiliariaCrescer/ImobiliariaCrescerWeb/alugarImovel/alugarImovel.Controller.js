@@ -16,13 +16,13 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
 
     $scope.selecionarImovel = function(tipoImovel) {
         $scope.step++;
-        $scope.pedido.Imovel = tipoImovel;
-        obterCombosDisponiveis();
+        $scope.pedido.Imovel = JSON.parse(tipoImovel);
+        obterCombosDisponiveis($scope.pedido.Imovel.Id);
     }
 
     $scope.selecionarCombo = function(combo) {
         $scope.step++;
-        $scope.pedido.Combo = combo;
+        $scope.pedido.Combo = JSON.parse(combo);
         obterAdicionaisDisponiveis();
     }
 
@@ -48,8 +48,8 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
         }) 
     }
 
-    function obterCombosDisponiveis() {
-        locacaoService.buscarCombos().then(res => {
+    function obterCombosDisponiveis(idImovel) {
+        locacaoService.buscarCombos(idImovel).then(res => {
             $scope.combos = res.data.data;
         })
     }

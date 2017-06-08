@@ -8,8 +8,8 @@ app.service('locacaoService', function($http) {
         return $http.get('http://localhost:50573/api/imoveis');
     }
 
-    this.buscarCombos = function() {
-        return $http.get('http://localhost:50573/api/combos');
+    this.buscarCombos = function(idImovel) {
+        return $http.get('http://localhost:50573/api/combos/disponiveis/' + idImovel);
     }
 
     this.buscarAdicionais = function() {
