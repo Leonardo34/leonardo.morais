@@ -20,4 +20,16 @@ app.service('locacaoService', function($http) {
         console.log(pedido);
         return $http.post('http://localhost:50573/api/pedidos', pedido);
     }
+
+    this.buscarPedidosCliente = function(idCliente) {
+        return $http.get('http://localhost:50573/api/pedidos/cliente/' + idCliente);
+    }
+
+    this.entregarLocacao = function(idLocacao) {
+        return $http.post('http://localhost:50573/api/pedidos/devolver/' + idLocacao);
+    }
+
+    this.buscarRelatorioMensal = function() {
+        return $http.get('http://localhost:50573/api/pedidos/relatorio');
+    }
 });
