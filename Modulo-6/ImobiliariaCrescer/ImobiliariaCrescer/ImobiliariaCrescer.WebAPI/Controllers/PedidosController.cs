@@ -44,6 +44,24 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
         }
 
         [AutenticacaoBasic64]
+        [Route("cliente/{idCliente:int}")]
+        [HttpGet]
+        public HttpResponseMessage GetPedidosEmAbertoByCliente(int idCliente)
+        {
+            var pedidos = repositorio.BuscarPedidosAbertosCliente(idCliente);
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = pedidos });
+        }
+
+        [AutenticacaoBasic64]
+        [Route("relatorio")]
+        [HttpGet]
+        public HttpResponseMessage GetRelatorioMensal()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, 
+                new { data = repositorio.BuscarRelatorioMensal() });
+        }
+
+        [AutenticacaoBasic64]
         [HttpPost]
         public IHttpActionResult Post(PedidoModel pedidoModel)
         {
@@ -81,14 +99,16 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
         [AutenticacaoBasic64]
         [Route("devolver/{id:int}")]
         [HttpPost]
-        public IHttpActionResult DevolverImovel(int id)
+        public HttpResponseMessage DevolverImovel(int id)
         {
             var pedido = repositorio.ObterPorId(id);
             if (pedido.DataEntregaRealizada != null)
             {
-                return BadRequest();
+                return Request.CreateResponse(HttpStatusCode.NotFound,
+                   new { error = "Não existe pedido com o id informado" });
             }
             pedido.DataEntregaRealizada = DateTime.Now;
+            pedido.CalcularPrecoTotal();
             repositorioEstoque.AdicionarImovelEstoque(pedido.Imovel.Id, pedido.Combo.Id);
             foreach (var adicional in pedido.Adicionais)
             {
@@ -96,7 +116,7 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
                 repositorioAdicionais.Alterar(adicional.Adicional);
             }
             repositorio.Alterar(pedido);
-            return Ok();
+            return Request.CreateResponse(HttpStatusCode.OK, new { data = pedido.TotalPago });
         }
 
         [AutenticacaoBasic64]
