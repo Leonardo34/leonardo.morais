@@ -1,0 +1,29 @@
+<!-- multistep form -->
+<form id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li ng-class="{ 'active': step >= 1 }">Selecionar Cliente</li>
+    <li ng-class="{ 'active': step >= 2 }">Selecionar Pedido</li>
+  </ul>
+    <div ng-show="step == 1">
+        <fieldset>
+            <h2 class="fs-title">Escolha o cliente</h2>
+            <h3 class="fs-subtitle">Adicione o cliente através do CPF</h3>
+            <input type="text" name="cpf" placeholder="CPF" ng-model="Cpf"/>
+            <input type="button" name="next" class="next action-button" value="Next" ng-click="adicionarCliente()"/>
+        </fieldset>
+    </div>
+    <div ng-show="step == 2">
+        <fieldset>
+            <h2 class="fs-title">Escolha a locação a ser entregue</h2>
+            <h3 class="fs-subtitle">Selecione </h3>
+            <select required class="form-control" ng-model="pedidoFinalizar">
+                <option ng-repeat="each in pedidos | orderBy: 'Id'" value="{{ each }}">
+                    {{ each.Id }}
+                </option>
+            </select>
+            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="previous()"/>
+            <input type="button" name="next" class="next action-button" value="" ng-click="entregar(pedidoFinalizar)" />
+        </fieldset>
+    </div>
+</form>

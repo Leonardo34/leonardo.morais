@@ -17,6 +17,17 @@ app.config(function ($routeProvider) {
         }
       }
     })
+    })
+    .when('/devolverImovel', {
+      controller: 'devolucao.Controller',
+      templateUrl: 'devoluçaoImovel/devolucao.html',
+      css: 'styless/styless.css',
+      resolve: {
+        autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+        }
+      }
+    })
     .when('/alugarImovel', {
       controller: 'alugarImovel.Controller',
       templateUrl: 'alugarImovel/alugarImovel.html',
