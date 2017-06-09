@@ -36,6 +36,15 @@ app.config(function ($routeProvider) {
           return authService.isAutenticadoPromise();
         }
       }
+    }).when('/relatorioAtrasos', {
+      controller: 'relatorioAtrasos.Controller',
+      templateUrl: 'relatorios/relatorioAtrasos.html',
+      css: 'styless/styless.css',
+      resolve: {
+        autenticado: function (authService) {
+          return authService.isAutenticadoPromise();
+        }
+      }
     })
     .when('/alugarImovel', {
       controller: 'alugarImovel.Controller',

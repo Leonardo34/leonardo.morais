@@ -32,4 +32,8 @@ app.service('locacaoService', function($http) {
     this.buscarRelatorioMensal = function() {
         return $http.get('http://localhost:50573/api/pedidos/relatorio');
     }
+
+    this.buscarPedidosAtrasados = function() {
+        return $http.get('http://localhost:50573/api/pedidos/relatorio/atrasos');
+    }
 });
