@@ -30,5 +30,20 @@ namespace ImobiliariaCrescer.Infraestrutura.Entidades
                 TotalPrevisto += adicional.Adicional.PrecoPorDia * diffDays;
             }
         }
+
+        public void CalcularPrecoTotal()
+        {
+            TotalPago = TotalPrevisto;
+            TimeSpan ts = ((DateTime)DataEntregaRealizada) - DataEntregaPrevista;
+            var diffDays = ts.Days;
+            if (diffDays > 0)
+            {
+                TotalPago += Combo.PrecoPorDia * diffDays * 2;
+                foreach (var adicional in Adicionais)
+                {
+                    TotalPago += adicional.Adicional.PrecoPorDia * diffDays * 2;
+                }
+            }
+        }
     }
 }
