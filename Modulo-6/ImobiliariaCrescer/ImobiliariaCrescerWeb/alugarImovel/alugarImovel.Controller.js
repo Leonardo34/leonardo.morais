@@ -35,7 +35,17 @@ app.controller('alugarImovel.Controller', function($scope, authService, $locatio
     $scope.confirmarPedido = function(diasAluguel) {
         $scope.pedido.diasAluguel = parseInt(diasAluguel);
         console.log($scope.pedido);
-        locacaoService.confirmarLocacao($scope.pedido);
+        locacaoService.confirmarLocacao($scope.pedido).then(res => {
+            $scope.step = 1;
+            delete $scope.cliente;
+            delete $scope.tipoImovel;
+            delete $scope.Combo;
+            delete $scope.AdicionaisSelecionados;
+            delete $scope.diasAluguel;
+            window.alert("Pedido confirmado com sucesso");
+        }, err => {
+            window.alert("Problema ao realizar confirmação da locação");
+        });
     }
 
     $scope.previous = function() {
