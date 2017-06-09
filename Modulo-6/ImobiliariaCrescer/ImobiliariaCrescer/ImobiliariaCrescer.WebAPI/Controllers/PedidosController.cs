@@ -62,6 +62,15 @@ namespace ImobiliariaCrescer.WebAPI.Controllers
         }
 
         [AutenticacaoBasic64]
+        [Route("relatorio/atrasos")]
+        [HttpGet]
+        public HttpResponseMessage GetPedidosEmAtraso()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK,
+                new { data = repositorio.BuscarPedidosEmAtraso() });
+        }
+
+        [AutenticacaoBasic64]
         [HttpPost]
         public IHttpActionResult Post(PedidoModel pedidoModel)
         {

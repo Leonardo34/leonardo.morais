@@ -81,12 +81,13 @@ namespace ImobiliariaCrescer.Infraestrutura.Repositorios
                 .ToList();
         }
 
-        public List<Cliente> BuscarClientesEmAtraso()
+        public List<Pedido> BuscarPedidosEmAtraso()
         {
             return contexto.Pedidos
                 .Include("Cliente")
-                .Where(p => Convert.ToInt32(p.DataEntregaRealizada.Value.Subtract(p.DataEntregaPrevista).TotalDays) > 0)
-                .Select(p => p.Cliente)
+                .Where(p => p.DataEntregaPrevista <= DateTime.Now &&
+                    p.DataEntregaRealizada == null)
+                .OrderByDescending(p => p.DataEntregaPrevista)
                 .ToList();
         }
     }
