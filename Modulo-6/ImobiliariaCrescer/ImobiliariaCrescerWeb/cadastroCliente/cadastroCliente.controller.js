@@ -4,6 +4,7 @@ app.controller('cadastroCliente.Controller', function($scope, authService, $loca
     $scope.cadastrarCliente = function() {
         clientesService.salvarCliente($scope.cliente).then(res => {
             window.alert('foi');
+            delete $scope.cliente;
         })
     };
 });

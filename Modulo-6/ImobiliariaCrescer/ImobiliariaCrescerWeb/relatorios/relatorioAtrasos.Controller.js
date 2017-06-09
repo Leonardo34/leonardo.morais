@@ -3,7 +3,7 @@ app.controller('relatorioAtrasos.Controller', function($scope, authService, $loc
     
     carregarPedidosAtrasados();
 
-    function carregarRelatorio() {
+    function carregarPedidosAtrasados() {
         locacaoService.buscarPedidosAtrasados().then(res => {
             $scope.pedidos = res.data.data;
         })
