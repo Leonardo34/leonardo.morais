@@ -1,0 +1,36 @@
+<div class="relatorio-container">
+        <div class="panel-heading">RELATORIO MENSAL</div>
+        <div class="panel-body">
+          <p>Relatorio de alugueis do mês atual</p>
+        </div> 
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>CPF</th>
+                    <th>Data Locação</th>
+                    <th>Data Entrega Realizada</th>
+                    <th>Data Entrega prevista</th>
+                    <th>Imovel</th>
+                    <th>Combo</th>
+                    <th>Preco Previsto</th>
+                    <th>Preco Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="each in pedidos | orderBy: 'Id'">
+                    <td>{{ each.Cliente.Nome }}</td>
+                    <td>{{ each.Cliente.Cpf }}</td>
+                    <td>{{ each.DataVenda | date }}</td>
+                    <td>{{ each.DataEntregaRealizada | date }}</td>
+                    <td>{{ each.DataEntregaPrevista | date }}</td>
+                    <td>{{ each.Imovel.Tipo }}</td>
+                    <td>{{ each.Combo.Nome }}
+                    <td>{{ each.TotalPrevisto }}</td>
+                    <td>{{ each.TotalPago }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>Fatutamento mensal: {{ rendaMensal }}</h1>
+</div>

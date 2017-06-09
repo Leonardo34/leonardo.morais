@@ -19,6 +19,7 @@
         <script src="cadastroCliente/cadastroCliente.Controller.js"></script>
         <script src="alugarImovel/alugarImovel.Controller.js"></script>
         <script src="devoluçaoImovel/devolucao.Controller.js"></script>
+        <script src="relatorios/relatorioMensal.Controller.js"></script>
     </head>
 
     <body ng-app="imobiliariaCrescerApp" ng-controller="headerController">
@@ -32,7 +33,8 @@
                 <li role="presentation" ng-class="{ 'active': url.path == '/login' }" ng-hide="isAutenticado()"><a href="#!/login">LOGIN</a></li>
                 <li role="presentation" ng-hide="!isAutenticado()" ng-class="{ 'active': url.path == '/alugarImovel' }"><a href="#!/alugarImovel">ALUGAR IMÓVEL</a></li>
                 <li role="presentation" ng-class="{ 'active': url.path == '/cadastroCliente' }" ng-hide="!isAutenticado()"><a href="#!/cadastroCliente">ADICIONAR CLIENTE</a></li>
-                <li role="presentation" ng-class="{ 'active': url.path == '/devolverImovel' }" ng-hide="!isAutenticado()"><a href="#!/devolverImove">DEVOLVER IMOVEL</a></li>
+                <li role="presentation" ng-class="{ 'active': url.path == '/devolverImovel' }" ng-hide="!isAutenticado()"><a href="#!/devolverImovel">DEVOLVER IMOVEL</a></li>
+                <li role="presentation" ng-class="{ 'active': url.path == '/relatorioMensal' }" ng-hide="!isAutenticado()"><a href="#!/relatorioMensal">RELATORIO MENSAL</a></li>
                 <li role="presentation" ng-click="logout()" ng-hide="!isAutenticado()"><a>LOGOUT</a></li>
             </ul>
         </nav>

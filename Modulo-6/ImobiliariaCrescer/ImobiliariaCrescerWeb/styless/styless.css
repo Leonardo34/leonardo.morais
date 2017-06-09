@@ -93,7 +93,7 @@ input[type="submit"]:disabled {
 
 body {
 
-height:100vh;
+  min-height:100vh;
 	background: 
 		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
     background-repeat:no-repeat;
@@ -219,4 +219,9 @@ height:100vh;
 #progressbar li.active:before,  #progressbar li.active:after{
 	background: #27AE60;
 	color: white;
+}
+
+.relatorio-container {
+	background-color: white;
+	padding: 20px;
 }
