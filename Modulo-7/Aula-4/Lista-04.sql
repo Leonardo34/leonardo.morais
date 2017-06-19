@@ -74,3 +74,15 @@ End TR_AUD1_LOG_APOSTA;
 
 -------------------------------------------------------------------------------------------
 
+
+SELECT Sum(Valor) as ValorArrecadado,
+    Count(*) as Quantidade, 
+    Cid.UF, 
+    IDConcurso
+FROM Aposta apos 
+INNER JOIN CIDADE Cid ON Cid.IDCidade = apo.IDCidade
+GROUP BY UF, IDConcurso;
+
+-------------------------------------------------------------------------------------------------
+
+
