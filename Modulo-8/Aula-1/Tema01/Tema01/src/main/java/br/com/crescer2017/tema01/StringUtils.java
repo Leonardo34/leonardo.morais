@@ -6,7 +6,7 @@ import java.util.List;
 
 public class StringUtils implements IStringUtils {
     public boolean isEmpty(String string) {
-        return string == null || string.isEmpty();
+        return string == null || string.replaceAll(" ", "").isEmpty();
     }
     
     public String inverter(String string) {
