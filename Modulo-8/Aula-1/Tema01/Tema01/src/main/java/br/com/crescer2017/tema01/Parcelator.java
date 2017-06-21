@@ -6,12 +6,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Parcelator implements IParcelator {
 
     @Override
     public Map<String, BigDecimal> calcular(BigDecimal valorParcelar, int numeroParcelas, double taxaJuros, Date dataPrimeiroVencimento) {
-        Map<String, BigDecimal> parcelas = new HashMap<>();
+        Map<String, BigDecimal> parcelas = new TreeMap<>();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Calendar dataVencimento = Calendar.getInstance();
         dataVencimento.setTime(dataPrimeiroVencimento);
