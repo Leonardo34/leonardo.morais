@@ -299,3 +299,5 @@ __pycache__/
 *.xsd.cs
 
 # End of https://www.gitignore.io/api/visualstudio
+/Modulo-8/Aula-1/Tema01/Tema01/nbproject/
+/Modulo-8/Aula-1/Tema01/Tema01/target/
