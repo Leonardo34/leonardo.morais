@@ -1,5 +1,6 @@
 package br.com.crescer.aula1;
 
+
 enum Estado {
     AC("Acre"), AL("Alagoas"), ES("EspíritoSanto"), AP("Amapá"),
     BA("Bahia"), CE("Ceará"), DF("DistritoFederal"), GO("Goiás"),

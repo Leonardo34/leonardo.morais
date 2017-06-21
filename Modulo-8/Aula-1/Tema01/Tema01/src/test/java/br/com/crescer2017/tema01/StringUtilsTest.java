@@ -100,5 +100,4 @@ public class StringUtilsTest {
         assertFalse(stringUtils.isPalindromo("uva"));
         assertFalse(stringUtils.isPalindromo("Ame a Emo"));
     }
-
 }
