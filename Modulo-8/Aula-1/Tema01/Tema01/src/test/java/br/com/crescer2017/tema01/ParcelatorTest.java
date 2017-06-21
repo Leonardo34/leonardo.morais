@@ -23,7 +23,7 @@ public class ParcelatorTest {
         SimpleDateFormat dataFormat = new SimpleDateFormat("dd/MM/yyyy");
         Map<String, BigDecimal> parcelas = parcelator.calcular(new BigDecimal(100), 5, 1.1, dataFormat.parse("30/06/2016"));
         assertEquals(110.00, parcelas.get("30/06/2016").doubleValue(), 0.01);
-        assertEquals(110.00, parcelas.get("31/07/2016").doubleValue(), 0.01);
+        assertEquals(110.00, parcelas.get("30/07/2016").doubleValue(), 0.01);
         assertEquals(110.00, parcelas.get("30/08/2016").doubleValue(), 0.01);
     }
 }
