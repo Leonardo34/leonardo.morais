@@ -1,15 +1,18 @@
 package br.com.crescer2017.tema02;
 
+import br.com.crescer2017.tema01.StringUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
 public class FileUtils implements IFileUtils {
+    private final StringUtils stringUtils = new StringUtils();
 
     @Override
     public boolean mk(String string) throws IOException {
         File file = new File(string);
-        if (file.isDirectory()) {
+        String fileExtension = stringUtils.getFileExtension(string);
+        if (fileExtension.isEmpty()) {
             return file.mkdir();
         }
         return file.createNewFile();
@@ -57,6 +60,6 @@ public class FileUtils implements IFileUtils {
         FileUtils utils = new FileUtils();
         System.out.println(utils.ls("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints"));
         System.out.println(utils.ls("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\teste.txt"));
-        System.out.println(utils.mk("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\Dir"));
+        System.out.println(utils.mk("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\Dirteste"));
     }
 }
