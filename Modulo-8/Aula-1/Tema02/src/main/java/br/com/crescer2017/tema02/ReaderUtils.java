@@ -18,9 +18,14 @@ public class ReaderUtils implements IReaderUtils {
                 new BufferedReader(new FileReader(string))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                conteudo.append(line);
+                conteudo.append(line + "\n");
             }
         }
         return conteudo.toString();
-    } 
+    }
+    
+    public static void main(String[] args) throws Exception {
+        ReaderUtils utils = new ReaderUtils();
+        System.out.println(utils.read("C:\\Users\\leonardo.morais\\Documents\\leonardo.morais\\teste.txt"));
+    }
 }
