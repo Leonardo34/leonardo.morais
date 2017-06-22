@@ -18,9 +18,14 @@ public class FileUtils implements IFileUtils {
 
     @Override
     public String ls(String string) throws IOException {
-        StringBuilder files = new StringBuilder();
-        ls(files, new File(string));
-        return files.toString();
+        StringBuilder nomesArq = new StringBuilder();
+        File folder = new File(string);
+        if (folder.isDirectory()) {
+            ls(nomesArq, folder);
+        } else {
+            nomesArq.append(folder.getAbsolutePath());
+        }
+        return nomesArq.toString();
     }
 
     @Override
@@ -46,6 +51,8 @@ public class FileUtils implements IFileUtils {
     
     public static void main(String[] args) throws IOException {
         FileUtils utils = new FileUtils();
-        System.out.println(utils.ls("C:\\Users\\Leonardo\\Documents\\Divisao"));
+        System.out.println(utils.ls("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints"));
+        System.out.println(utils.ls("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\teste.txt"));
+        System.out.println(utils.mk("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\teste.txt"));
     }
 }
