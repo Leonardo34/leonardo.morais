@@ -31,6 +31,14 @@ public class StringUtils implements IStringUtils {
         return isPalindromo(normalized, 0, normalized.length() - 1);
     }
     
+    public String getFileExtension(String fileName) {
+        int i = fileName.lastIndexOf(".");
+        if (i > 0) {
+            return fileName.substring(i + 1);
+        }
+        return "";
+    }
+    
     private boolean isPalindromo(String string, int base, int limit) {
         if (base >= limit) {
             return true;
