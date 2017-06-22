@@ -8,7 +8,11 @@ public class FileUtils implements IFileUtils {
 
     @Override
     public boolean mk(String string) throws IOException {
-        return new File(string).createNewFile();
+        File file = new File(string);
+        if (file.isDirectory()) {
+            return file.mkdir();
+        }
+        return file.createNewFile();
     }
 
     @Override
@@ -53,6 +57,6 @@ public class FileUtils implements IFileUtils {
         FileUtils utils = new FileUtils();
         System.out.println(utils.ls("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints"));
         System.out.println(utils.ls("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\teste.txt"));
-        System.out.println(utils.mk("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\teste.txt"));
+        System.out.println(utils.mk("C:\\Users\\Leonardo\\Pictures\\Pat2Math Prints\\Dir"));
     }
 }
