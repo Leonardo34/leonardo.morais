@@ -305,3 +305,11 @@ __pycache__/
 /Modulo-8/Aula-1/Tema02/target/
 /Modulo-8/Aula-1/Tema02/nbproject/
 /Modulo-8/Aula-1/Aula3/target/
+/Modulo-8/Aula-1/Tema03/target/
+*.txt
+
+Modulo-8/Aula-1/Tema01/target/surefire-reports/TEST-br\.com\.crescer2017\.tema01\.ParcelatorTest\.xml
+
+Modulo-8/Aula-1/Tema01/target/surefire-reports/TEST-br\.com\.crescer2017\.tema01\.CalendarUtilsTest\.xml
+
+Modulo-8/Aula-1/Tema01/target/surefire-reports/TEST-br\.com\.crescer2017\.tema01\.StringUtilsTest\.xml
