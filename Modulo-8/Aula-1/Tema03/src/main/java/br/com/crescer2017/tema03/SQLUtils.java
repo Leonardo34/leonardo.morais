@@ -17,7 +17,8 @@ public class SQLUtils implements ISQLUtils {
     public void runFile(String filename) throws Exception {
         IReaderUtils readerUtils = new ReaderUtils();
         String query = readerUtils.read(filename);
-        executeQuery(query);
+        System.out.println(query);
+        insert(query);
     }
 
     @Override
@@ -98,6 +99,7 @@ public class SQLUtils implements ISQLUtils {
         SQLUtils utils = new SQLUtils();
         System.out.println(utils.executeQuery("SELECT * FROM PAIS"));
         //utils.importCSV(new File("pais.txt"));
-        utils.exportCSV("SELECT * FROM PAIS");
+        //utils.exportCSV("SELECT * FROM PAIS");
+        //utils.runFile("C:\\Users\\Leonardo\\Pictures\\leonardo.morais\\Modulo-8\\Aula-1\\pais.txt");
     }
 }
