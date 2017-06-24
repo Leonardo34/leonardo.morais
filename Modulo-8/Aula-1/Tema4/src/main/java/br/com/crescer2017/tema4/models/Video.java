@@ -3,8 +3,10 @@ package br.com.crescer2017.tema4.models;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
@@ -32,7 +34,18 @@ public class Video {
     @Basic(optional = false)
     private String duracao;
     
-    @ManyToOne
+    @Column(name = "NOME")
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_GENERO")
     private Genero genero;
     
