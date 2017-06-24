@@ -1,26 +1,46 @@
 package br.com.crescer2017.tema4.models.repository;
 
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 
-public class GenericDao<E, I> implements CrudDao<E, I> {
+public abstract class GenericDao<E, I> implements CrudDao<E, I> {
+    protected EntityManager entityManager = 
+            Persistence.createEntityManagerFactory("localPU").createEntityManager();
+    
+    private Class<E> persistedEntity;
+    
+    public GenericDao(Class<E> persistedEntity) {
+        this.persistedEntity = persistedEntity;
+    }
 
     @Override
     public E save(E e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.getTransaction().begin();
+        entityManager.merge(e);
+        entityManager.flush();
+        entityManager.getTransaction().commit();
+        return e;
     }
 
     @Override
     public void remove(E e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.getTransaction().begin();
+        entityManager.remove(e);
+        entityManager.getTransaction().commit();
     }
 
     @Override
     public E loadById(I id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return entityManager.find(persistedEntity, id);
     }
 
     @Override
     public List<E> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }  
+        Session session = entityManager.unwrap(Session.class);
+        Criteria criteria = session.createCriteria(persistedEntity);
+        return criteria.list();
+    } 
 }
