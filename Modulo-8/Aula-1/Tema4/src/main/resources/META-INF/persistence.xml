@@ -3,6 +3,10 @@
   <persistence-unit name="localPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>br.com.crescer2017.tema4.models.Funcionario</class>
+    <class>br.com.crescer2017.tema4.models.Cliente</class>
+    <class>br.com.crescer2017.tema4.models.Genero</class>
+    <class>br.com.crescer2017.tema4.models.Video</class>
+    <class>br.com.crescer2017.tema4.models.Locacao</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
       <property name="javax.persistence.jdbc.user" value="system"/>
