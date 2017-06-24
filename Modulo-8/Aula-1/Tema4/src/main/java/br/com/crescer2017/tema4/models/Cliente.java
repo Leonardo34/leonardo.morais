@@ -18,8 +18,8 @@ public class Cliente {
     @Id 
     @Basic(optional = false)
     @Column(name = "ID")
-    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_FUNCIONARIO")
-    @SequenceGenerator(name = "SEQ_FUNCIONARIO", sequenceName = "SEQ_FUNCIONARIO", allocationSize=1)
+    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_CLIENTE")
+    @SequenceGenerator(name = "SEQ_CLIENTE", sequenceName = "SEQ_CLIENTE", allocationSize=1)
     private Long id;
 
     @Column(name = "NOME")
