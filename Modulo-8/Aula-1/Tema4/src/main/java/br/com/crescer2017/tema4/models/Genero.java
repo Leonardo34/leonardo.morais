@@ -2,6 +2,7 @@ package br.com.crescer2017.tema4.models;
 
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Genero {
     @Basic(optional = false)
     private String descricao;
     
-    @OneToMany(mappedBy="genero")
+    @OneToMany(mappedBy="genero", cascade=CascadeType.ALL)
     private List<Video> videos;
 
     public Long getId() {
