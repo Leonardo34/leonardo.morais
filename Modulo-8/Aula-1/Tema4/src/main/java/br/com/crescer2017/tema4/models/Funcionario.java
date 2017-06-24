@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,7 +21,7 @@ public class Funcionario implements Serializable {
     @Id 
     @Basic(optional = false)
     @Column(name = "ID")
-    @GeneratedValue(strategy = IDENTITY, generator = "SEQ_FUNCIONARIO")
+    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_FUNCIONARIO")
     @SequenceGenerator(name = "SEQ_FUNCIONARIO", sequenceName = "SEQ_FUNCIONARIO", allocationSize=1)
     private Long id;
 
