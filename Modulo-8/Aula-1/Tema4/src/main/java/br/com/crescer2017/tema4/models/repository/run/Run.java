@@ -6,19 +6,19 @@ import br.com.crescer2017.tema4.repository.GeneroDao;
 import br.com.crescer2017.tema4.repository.VideoDao;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class Run {
     public static void main(String[] args) {
-        VideoDao dao = new VideoDao();
-        GeneroDao genDao = new GeneroDao();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("localPU");
+        EntityManager em = emf.createEntityManager();
+        VideoDao dao = new VideoDao(em);
+        GeneroDao genDao = new GeneroDao(em);
         Genero genero = genDao.loadById(new Long(8));
-        Video video = new Video();
-        video.setDuracao("TESTE");
-        video.setValor(BigDecimal.ZERO);
-        video.setGenero(genero);
-        genero.setVideos(new ArrayList<>());
-        genero.getVideos().add(video);
-        genDao.save(genero);
         System.out.println(genero.getDescricao());
+        em.close();
+        emf.close();
     }
 }

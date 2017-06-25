@@ -2,18 +2,16 @@ package br.com.crescer2017.tema4.repository;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 public abstract class GenericDao<E, I> implements CrudDao<E, I> {
-    protected EntityManager entityManager = 
-            Persistence.createEntityManagerFactory("localPU").createEntityManager();
-    
+    protected EntityManager entityManager;  
     private Class<E> persistedEntity;
     
-    public GenericDao(Class<E> persistedEntity) {
+    public GenericDao(Class<E> persistedEntity, EntityManager entityManager) {
         this.persistedEntity = persistedEntity;
+        this.entityManager = entityManager;
     }
 
     @Override
