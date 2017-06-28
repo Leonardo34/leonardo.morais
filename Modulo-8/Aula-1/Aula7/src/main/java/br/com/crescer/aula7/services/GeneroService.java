@@ -10,21 +10,21 @@ import org.springframework.stereotype.Service;
 public class GeneroService {   
     
     @Autowired
-    private GeneroRepository repositorio;
+    private GeneroRepository generoRepositorio;
     
     public List<Genero> list() {
-        return (List) repositorio.findAll();
+        return (List) generoRepositorio.findAll();
     }
     
     public Genero addGenero(Genero genero) {
-        return repositorio.save(genero);
+        return generoRepositorio.save(genero);
     }
     
     public void remove(Genero genero) {
-        repositorio.delete(genero);
+        generoRepositorio.delete(genero);
     }
     
     public Genero getGeneroById(Long id) {
-        return repositorio.findOne(id);
+        return generoRepositorio.findOne(id);
     }
 }
