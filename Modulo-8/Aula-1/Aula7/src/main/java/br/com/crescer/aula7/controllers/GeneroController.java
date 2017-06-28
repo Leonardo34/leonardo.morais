@@ -33,9 +33,9 @@ public class GeneroController {
         service.addGenero(genero);
     }
     
-    @DeleteMapping(value = "/genero")
-    public void removeGenero(@RequestBody Genero genero) {
-        service.remove(genero);
+    @DeleteMapping(value = "/genero/{id}")
+    public void removeGenero(@PathVariable Long id) {
+        service.remove(service.getGeneroById(id));
     }
     
     @PutMapping(value = "/genero")

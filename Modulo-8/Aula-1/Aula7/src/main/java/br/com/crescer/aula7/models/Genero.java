@@ -1,11 +1,14 @@
 package br.com.crescer.aula7.models;
 
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,6 +25,9 @@ public class Genero {
     @Column(name = "DESCRICAO")
     @Basic(optional = false)
     private String descricao;
+    
+    @OneToMany(mappedBy="genero", cascade = CascadeType.ALL)
+    private List<Video> videos;
 
     public Long getId() {
         return id;
@@ -37,5 +43,13 @@ public class Genero {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    public List<Video> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 }
