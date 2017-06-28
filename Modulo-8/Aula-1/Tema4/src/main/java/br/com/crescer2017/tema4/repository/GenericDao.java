@@ -17,7 +17,7 @@ public abstract class GenericDao<E, I> implements CrudDao<E, I> {
     @Override
     public E save(E e) {
         entityManager.getTransaction().begin();
-        entityManager.merge(e);
+        e = entityManager.merge(e);
         entityManager.flush();
         entityManager.getTransaction().commit();
         return e;
