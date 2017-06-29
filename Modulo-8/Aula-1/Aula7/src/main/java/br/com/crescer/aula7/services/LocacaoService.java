@@ -16,7 +16,7 @@ public class LocacaoService {
         return (List) locacaoRepositorio.findAll();
     }
     
-    public Locacao addGenero(Locacao locacao) {
+    public Locacao addLocacao(Locacao locacao) {
         return locacaoRepositorio.save(locacao);
     }
     
@@ -24,7 +24,7 @@ public class LocacaoService {
         locacaoRepositorio.delete(locacao);
     }
     
-    public Locacao getGeneroById(Long id) {
+    public Locacao getLocacaoById(Long id) {
         return locacaoRepositorio.findOne(id);
     }
 }

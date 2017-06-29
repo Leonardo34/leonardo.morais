@@ -44,7 +44,7 @@ public class Video {
         this.nome = nome;
     }
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "ID_GENERO")
     private Genero genero;
     

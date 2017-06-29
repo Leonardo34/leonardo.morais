@@ -16,7 +16,7 @@ public class ClienteService {
         return (List) clienteRepositorio.findAll();
     }
     
-    public Cliente addGenero(Cliente cliente) {
+    public Cliente addCliente(Cliente cliente) {
         return clienteRepositorio.save(cliente);
     }
     
@@ -24,7 +24,7 @@ public class ClienteService {
         clienteRepositorio.delete(cliente);
     }
     
-    public Cliente getGeneroById(Long id) {
+    public Cliente getClienteById(Long id) {
         return clienteRepositorio.findOne(id);
     }
 }

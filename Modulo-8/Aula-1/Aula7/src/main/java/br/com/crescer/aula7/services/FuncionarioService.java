@@ -16,7 +16,7 @@ public class FuncionarioService {
         return (List) funcionarioRepositorio.findAll();
     }
     
-    public Funcionario addGenero(Funcionario funcionario) {
+    public Funcionario addFuncionario(Funcionario funcionario) {
         return funcionarioRepositorio.save(funcionario);
     }
     
@@ -24,7 +24,7 @@ public class FuncionarioService {
         funcionarioRepositorio.delete(funcionario);
     }
     
-    public Funcionario getGeneroById(Long id) {
+    public Funcionario getFuncionarioById(Long id) {
         return funcionarioRepositorio.findOne(id);
     }
 }

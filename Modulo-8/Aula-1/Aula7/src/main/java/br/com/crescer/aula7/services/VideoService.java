@@ -16,7 +16,7 @@ public class VideoService {
         return (List) generoRepositorio.findAll();
     }
     
-    public Video addGenero(Video video) {
+    public Video addVideo(Video video) {
         return generoRepositorio.save(video);
     }
     
@@ -24,7 +24,7 @@ public class VideoService {
         generoRepositorio.delete(video);
     }
     
-    public Video getGeneroById(Long id) {
+    public Video getVideoById(Long id) {
         return generoRepositorio.findOne(id);
     }
 }
