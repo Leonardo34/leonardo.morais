@@ -1,5 +1,6 @@
 package br.com.crescer.aula7.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -26,6 +27,7 @@ public class Genero {
     @Basic(optional = false)
     private String descricao;
     
+    @JsonIgnore
     @OneToMany(mappedBy="genero", cascade = CascadeType.ALL)
     private List<Video> videos;
 
