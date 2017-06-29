@@ -6,4 +6,8 @@ app.config(function ($routeProvider) {
       controller: 'loginController',
       templateUrl: 'login/login.html'
     })
+    .when('/feed', {
+      controller: 'feedController',
+      templateUrl: 'feed/feed.html'
+    })
 });

@@ -123,3 +123,17 @@ body, html {
 .forgot-password:focus{
     color: rgb(12, 97, 33);
 }
+
+.container {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.feed-container {
+
+}
+
+.post-image img {
+    width: 100%;
+    max-height: 500px;
+}
