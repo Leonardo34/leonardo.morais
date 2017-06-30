@@ -1,6 +1,5 @@
 package br.com.crescer.social.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -21,7 +20,6 @@ public class Post implements Serializable {
     @Column(name = "ID_POST")
     private Long id;
     
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO")
     private Usuario usuario;

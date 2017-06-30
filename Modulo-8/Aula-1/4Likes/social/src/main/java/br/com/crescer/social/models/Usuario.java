@@ -38,6 +38,7 @@ public class Usuario implements Serializable {
     @Column(name = "PASSWORD")
     private String senha;
     
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     List<Post> posts;
     
