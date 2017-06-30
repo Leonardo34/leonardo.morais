@@ -1,9 +1,7 @@
 package br.com.crescer.social.controller;
 
 import br.com.crescer.social.models.Post;
-import br.com.crescer.social.models.Usuario;
 import br.com.crescer.social.services.PostService;
-import br.com.crescer.social.services.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -21,25 +19,18 @@ public class PostController {
     @Autowired
     private PostService postService;
     
-    @Autowired
-    private UsuarioService usuarioService;
-    
     @PostMapping(value = "/post")
     public void adicionarPost(@RequestBody Post post, @AuthenticationPrincipal User user) {
-        Usuario usuarioLogado = usuarioService.findByEmail(user.getUsername());
-        post.setUsuario(usuarioLogado);
-        postService.save(post);
+        postService.save(post, user);
     }
     
     @GetMapping(value = "posts/{id}")
     public List<Post> getPostsByUser(@PathVariable Long id) {
-        return usuarioService.findById(id).getPosts();
+        return postService.getPostsByUserId(id);
     }
     
     @GetMapping(value = "posts/feed")
     public List<Post> getFeedPosts(@AuthenticationPrincipal User user, Pageable pageable) {
-        List<Usuario> amigos = 
-                usuarioService.findByEmail(user.getUsername()).getAmigos();
-        return postService.getFeedPosts(amigos, pageable);
+        return postService.getFeedPosts(user, pageable);
     }
 }
