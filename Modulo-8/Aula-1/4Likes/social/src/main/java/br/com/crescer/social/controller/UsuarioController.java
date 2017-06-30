@@ -58,4 +58,9 @@ public class UsuarioController {
     public void updateCliente(@RequestBody Usuario usuario) {
         usuarioService.update(usuario);
     }
+    
+    @GetMapping("/usuarioLogado")
+    public Usuario getUsuarioLogado(@AuthenticationPrincipal User user) {
+        return usuarioService.findByEmail(user.getUsername());
+    }
 }

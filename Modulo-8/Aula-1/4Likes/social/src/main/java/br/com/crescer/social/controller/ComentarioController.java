@@ -18,7 +18,7 @@ public class ComentarioController {
     
     @PostMapping(value = "/comentario/{id}")
     public void adicionarPost(@RequestBody Comentario comentario, 
-            @AuthenticationPrincipal User user, @PathVariable Long idPost) {
-        comentarioService.save(comentario, user, idPost);
+            @AuthenticationPrincipal User user, @PathVariable Long id) {
+        comentarioService.save(comentario, user, id);
     }
 }
