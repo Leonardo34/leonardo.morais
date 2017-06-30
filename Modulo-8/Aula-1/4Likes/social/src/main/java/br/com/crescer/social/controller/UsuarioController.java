@@ -36,11 +36,17 @@ public class UsuarioController {
     }
     
     @PostMapping(value = "/usuario/convite/{id}")
-    public void addUsuario(@PathVariable Long id, @AuthenticationPrincipal User user) {
+    public void enviarConvite(@PathVariable Long id, @AuthenticationPrincipal User user) {
         Usuario usuarioLogado = usuarioService.findByEmail(user.getUsername());
         Usuario usuarioSolicitado = usuarioService.findById(id);
-        usuarioSolicitado.getConvites().add(usuarioService.findById(id));
-        usuarioService.update(usuarioSolicitado);
+        usuarioService.enviarConviteAmizade(usuarioLogado, usuarioSolicitado);
+    }
+    
+    @PostMapping(value = "/usuario/aceitar/{id}")
+    public void aceitarConvite(@PathVariable Long id, @AuthenticationPrincipal User user) {
+        Usuario usuarioLogado = usuarioService.findByEmail(user.getUsername());
+        Usuario usuarioAceitar = usuarioService.findById(id);
+        usuarioService.aceitarConviteAmizade(usuarioLogado, usuarioAceitar);
     }
     
     @DeleteMapping(value = "/usuario/{id}")

@@ -42,4 +42,17 @@ public class UsuarioService {
     public Usuario update(Usuario usuario) {
         return usuarioRepositorio.save(usuario);
     }
+    
+    public void enviarConviteAmizade(Usuario solicitante, Usuario requisitado) {
+        requisitado.getConvites().add(solicitante);
+        update(requisitado);
+    }
+    
+    public void aceitarConviteAmizade(Usuario usuario, Usuario usuarioAdicionar) {
+        usuario.getConvites().remove(usuarioAdicionar);
+        usuario.getAmigos().add(usuarioAdicionar);
+        usuarioAdicionar.getAmigos().add(usuario);
+        update(usuario);
+        update(usuarioAdicionar);
+    }
 }
