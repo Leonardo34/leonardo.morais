@@ -10,9 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * @author carloshenrique
- */
 @Service
 public class SocialUserDetailsService implements UserDetailsService {
 
@@ -22,7 +19,7 @@ public class SocialUserDetailsService implements UserDetailsService {
         if ("admin".equals(username)) {
             grants.add(() -> "ROLE_ADMIN");
         }
-        return new User(username, new BCryptPasswordEncoder().encode("password"), grants);
+        return new User(username, "password", grants);
     }
 
 }

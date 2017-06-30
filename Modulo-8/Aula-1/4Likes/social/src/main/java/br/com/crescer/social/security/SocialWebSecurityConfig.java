@@ -10,9 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-/**
- * @author carloshenrique
- */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -36,10 +33,5 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .cors().disable()
                 .csrf().disable();
-    }
-
-    @Autowired
-    public void setDetailsService(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 }
