@@ -38,6 +38,17 @@ public class Post implements Serializable {
     
     @OneToMany(mappedBy = "post")
     private List<Like> likes;
+    
+    @OneToMany(mappedBy = "post")
+    private List<Comentario> comentarios;
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
 
     public List<Like> getLikes() {
         return likes;
