@@ -25,4 +25,28 @@ public class Like implements Serializable {
     @ManyToOne
     @JoinColumn(name = "ID_POST")
     private Post post;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Usuario getUsuarioCurtida() {
+        return usuarioCurtida;
+    }
+
+    public void setUsuarioCurtida(Usuario usuarioCurtida) {
+        this.usuarioCurtida = usuarioCurtida;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
 }

@@ -1,5 +1,6 @@
 package br.com.crescer.social.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -40,9 +41,11 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "usuario")
     List<Post> posts;
     
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Usuario> amigos;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Usuario> convites;
 
