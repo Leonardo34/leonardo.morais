@@ -1,5 +1,6 @@
 package br.com.crescer.social.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -27,6 +28,7 @@ public class Comentario implements Serializable {
     @Column(name = "TITULO_COMENTARIO")
     private String conteudo;
     
+    @JsonIgnore 
     @ManyToOne
     @JoinColumn(name = "ID_POST")
     private Post post;
