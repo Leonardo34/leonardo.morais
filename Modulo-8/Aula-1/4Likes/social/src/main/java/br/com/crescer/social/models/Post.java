@@ -1,6 +1,7 @@
 package br.com.crescer.social.models;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Size;
 
@@ -33,6 +35,17 @@ public class Post implements Serializable {
     @Basic(optional = false)
     @Column(name = "URL_FOTO_IMAGEM")
     private String urlImagem;
+    
+    @OneToMany(mappedBy = "post")
+    private List<Like> likes;
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
 
     public Long getId() {
         return id;

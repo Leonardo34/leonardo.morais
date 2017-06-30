@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 public class Usuario implements Serializable {
@@ -28,6 +29,7 @@ public class Usuario implements Serializable {
     @Column(name = "NOME_USUARIO")
     private String nome;
     
+    @Email
     @Size(min = 1, max = 40, message = "o tamanho do e-mail deve estar entre {min} e {max}.")
     @Basic(optional = false)
     @Column(name = "EMAIL_USUARIO")
@@ -40,7 +42,7 @@ public class Usuario implements Serializable {
     
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
-    List<Post> posts;
+    private List<Post> posts;
     
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
