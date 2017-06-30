@@ -6,6 +6,7 @@ import br.com.crescer.social.services.PostService;
 import br.com.crescer.social.services.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,8 +32,14 @@ public class PostController {
     }
     
     @GetMapping(value = "posts/{id}")
-    public List<Post> getPostsUser(@PathVariable Long id) {
+    public List<Post> getPostsByUser(@PathVariable Long id) {
         return usuarioService.findById(id).getPosts();
     }
     
+    @GetMapping(value = "posts/feed")
+    public List<Post> getFeedPosts(@AuthenticationPrincipal User user, Pageable pageable) {
+        List<Usuario> amigos = 
+                usuarioService.findByEmail(user.getUsername()).getAmigos();
+        return postService.getFeedPosts(amigos, pageable);
+    }
 }

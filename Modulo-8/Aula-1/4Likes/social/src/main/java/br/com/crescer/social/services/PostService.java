@@ -1,7 +1,9 @@
 package br.com.crescer.social.services;
 
 import br.com.crescer.social.models.Post;
+import br.com.crescer.social.models.Usuario;
 import br.com.crescer.social.repository.PostRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,5 +37,9 @@ public class PostService {
 
     public Post update(Post post) {
         return postRepositorio.save(post);
+    }
+    
+    public List<Post> getFeedPosts(List<Usuario> amigos, Pageable pageable) {
+        return postRepositorio.findByUsuarioInOrderByIdDesc(amigos, pageable);
     }
 }
