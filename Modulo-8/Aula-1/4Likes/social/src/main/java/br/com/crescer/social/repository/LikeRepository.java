@@ -1,8 +1,8 @@
 package br.com.crescer.social.repository;
 
 import br.com.crescer.social.models.Like;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface LikeRepository extends CrudRepository<Like, Long> {
+public interface LikeRepository extends PagingAndSortingRepository<Like, Long> {
     
 }
