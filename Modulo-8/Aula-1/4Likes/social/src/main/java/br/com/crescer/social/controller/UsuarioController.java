@@ -2,7 +2,9 @@ package br.com.crescer.social.controller;
 
 import br.com.crescer.social.models.Usuario;
 import br.com.crescer.social.services.UsuarioService;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -50,17 +52,24 @@ public class UsuarioController {
     }
     
     @DeleteMapping(value = "/usuario/{id}")
-    public void removeCliente(@PathVariable Long id) {
+    public void removeUsuario(@PathVariable Long id) {
         usuarioService.delete(id);
     }
     
     @PutMapping(value = "/usuario")
-    public void updateCliente(@RequestBody Usuario usuario) {
+    public void updateUsuario(@RequestBody Usuario usuario) {
         usuarioService.update(usuario);
     }
     
+    @GetMapping(value = "/usuario/amigos")
+    public List<Usuario> getAmigosUsuario(@AuthenticationPrincipal User user) {
+        return usuarioService.findByEmail(user.getUsername()).getAmigos();
+    }
+    
     @GetMapping("/usuarioLogado")
-    public Usuario getUsuarioLogado(@AuthenticationPrincipal User user) {
-        return usuarioService.findByEmail(user.getUsername());
+    public Map<String, Object> listarUsuarios(@AuthenticationPrincipal User user) {
+        final Map<String, Object> hashMap = new HashMap<>();
+        hashMap.put("dados", user);
+        return hashMap;
     }
 }
