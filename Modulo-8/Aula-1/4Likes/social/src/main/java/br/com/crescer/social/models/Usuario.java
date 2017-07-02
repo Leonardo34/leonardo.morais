@@ -2,7 +2,9 @@ package br.com.crescer.social.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
@@ -46,11 +50,45 @@ public class Usuario implements Serializable {
     
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Usuario> amigos;
+    private Set<Usuario> amigos;
 
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Usuario> convites;
+    private Set<Usuario> convites;
+    
+    @Temporal(TemporalType.DATE)
+    @Column(name = "DATA_NASCIMENTO")
+    private Date dataNascimento;
+    
+    @Column(name = "SEXO")
+    private Character sexo;
+    
+    @Column(name = "IMAGEM_PERFIL")
+    private String imagemPerfil;
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public Character getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Character sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getImagemPerfil() {
+        return imagemPerfil;
+    }
+
+    public void setImagemPerfil(String imagemPerfil) {
+        this.imagemPerfil = imagemPerfil;
+    }
 
     public Long getId() {
         return id;
@@ -92,19 +130,19 @@ public class Usuario implements Serializable {
         this.posts = posts;
     }
 
-    public List<Usuario> getAmigos() {
+    public Set<Usuario> getAmigos() {
         return amigos;
     }
 
-    public void setAmigos(List<Usuario> amigos) {
+    public void setAmigos(Set<Usuario> amigos) {
         this.amigos = amigos;
     }
 
-    public List<Usuario> getConvites() {
+    public Set<Usuario> getConvites() {
         return convites;
     }
 
-    public void setConvites(List<Usuario> convites) {
+    public void setConvites(Set<Usuario> convites) {
         this.convites = convites;
     }
     

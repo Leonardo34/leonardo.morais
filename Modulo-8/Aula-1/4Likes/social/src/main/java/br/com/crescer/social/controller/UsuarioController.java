@@ -5,6 +5,7 @@ import br.com.crescer.social.services.UsuarioService;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -62,7 +63,7 @@ public class UsuarioController {
     }
     
     @GetMapping(value = "/usuario/amigos")
-    public List<Usuario> getAmigosUsuario(@AuthenticationPrincipal User user) {
+    public Set<Usuario> getAmigosUsuario(@AuthenticationPrincipal User user) {
         return usuarioService.findByEmail(user.getUsername()).getAmigos();
     }
     
