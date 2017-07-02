@@ -23,19 +23,24 @@
     </head>
 
     <body ng-app="4LikesApp" ng-controller="headerController">
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-fixed-top" ng-hide="!isAutenticado()">
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded" ng-hide="!isAutenticado()">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">4Likes</a>
+            <a class="navbar-brand" href="#/login">4Likes</a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Feed <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#!/feed">Feed <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Amigos</a>
+                    <a class="nav-link" href="#!/amigos">Amigos</a>
+                </li>
+                <li class="nav-item">      
+                    <a class="nav-link" ng-click="teste()" data-toggle="modal" data-target="#exampleModalLong">
+                        Novo post
+                    </a>     
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" ng-click="logout()">Logout</a>
@@ -47,6 +52,33 @@
                 </form>
             </div>
         </nav>
+
+        <!-- Modal novo post -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">New Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputTitulo">Post Title</label>
+                        <input type="text" ng-model="post.titulo" class="form-control" id="inputTitulo" aria-describedby="emailHelp" placeholder="Description">
+                        <label for="inputUrl">Image URL</label>
+                        <input type="text" ng-model="post.urlImagem" class="form-control" id="inputUrl"placeholder="Image Url">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="enviarPost()" class="btn btn-primary">Send Post</button>
+            </div>
+            </div>
+        </div>
+        </div>
 		<div class="container">
             <ng-view></ng-view>		
 		</div>

@@ -19,4 +19,8 @@ app.service('postService', function($http) {
     this.getPostsByUser = function(id) {
         return $http.get('http://localhost:9090/posts/' + id);
     }
+
+    this.enviarPost = function(post) {
+        return $http.post('http://localhost:9090/post', post);
+    }
 });
