@@ -7,4 +7,8 @@ app.service('usuarioService', function($http) {
     this.carregarDadosUsuario = function(id) {
         return $http.get('http://localhost:9090/usuario/' + id);
     }
+
+    this.carregarAmigos = function() {
+        return $http.get('http://localhost:9090/usuario/amigos');
+    }
 });

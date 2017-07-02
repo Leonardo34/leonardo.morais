@@ -1,31 +1,21 @@
-<div class="row">
-        	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
+<div class="row friends-container">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 profile-show-container" ng-repeat="each in amigos">
+        <div class="item-1">
+            <div class="img-container">
+                <a href="#"><img src="{{ each.imagemPerfil }}" /></a>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-                <div class="item-1">
-                	<div class="img-container">
-                    	<a href="#"><img src="https://randomuser.me/api/portraits/women/60.jpg" /></a>
-                    </div>
-                    <div class="robin-key">
-                    	<p>Lori Miles</p>
-
-                        <ul>
-                        	<li><i class="fa fa-check"></i></li>
-                            <li><a href="#"><i class="fa fa-plus"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <ul class="follow-list">
-                    	<li><a href="#"><i class="fa fa-heart"></i> 150</a></li>
-                        <li><a href="#"><i class="fa fa-users"></i> 200</a></li>
-                        <li><a href="#"><i class="fa fa-building-o"></i> 80</a></li>
-                        <li><a href="#"><i class="fa fa-comments"></i> 120</a></li>
-                    </ul>
-                </div>
+            <div class="robin-key">
+                <p><a href="#!/perfil/{{ each.id }}">{{ each.nome }}</a></p>
+                <ul>
+                    <li><a href="#"><i class="fa fa-times remove-friend"></i></a></li>
+                </ul>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-            </div>
+            <ul class="follow-list">
+                <li><a href="#"><i class="fa fa-heart"></i> 150</a></li>
+                <li><a href="#"><i class="fa fa-users"></i> 200</a></li>
+                <li><a href="#"><i class="fa fa-building-o"></i> 80</a></li>
+                <li><a href="#"><i class="fa fa-comments"></i> 120</a></li>
+            </ul>
         </div>
+    </div>
+</div>
