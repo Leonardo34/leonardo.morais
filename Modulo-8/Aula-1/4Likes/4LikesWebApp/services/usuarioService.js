@@ -11,4 +11,8 @@ app.service('usuarioService', function($http) {
     this.carregarAmigos = function() {
         return $http.get('http://localhost:9090/usuario/amigos');
     }
+
+    this.carregarAmigosByIdUsuario = function(id) {
+        return $http.get('http://localhost:9090/usuario/amigos/' + id);
+    }
 });
