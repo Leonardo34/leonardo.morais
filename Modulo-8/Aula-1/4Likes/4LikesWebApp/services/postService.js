@@ -15,4 +15,8 @@ app.service('postService', function($http) {
     this.enviarComentario = function(comentario, post) {
         return $http.post('http://localhost:9090/comentario/' + post.id, comentario);
     }
+
+    this.getPostsByUser = function(id) {
+        return $http.get('http://localhost:9090/posts/' + id);
+    }
 });
