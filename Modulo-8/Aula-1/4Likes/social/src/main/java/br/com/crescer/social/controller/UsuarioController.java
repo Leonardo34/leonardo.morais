@@ -68,6 +68,11 @@ public class UsuarioController {
         return usuarioService.findByEmail(user.getUsername()).getAmigos();
     }
     
+    @GetMapping(value = "/usuario/convites")
+    public Set<Usuario> getConvites(@AuthenticationPrincipal User user) {
+        return usuarioService.findByEmail(user.getUsername()).getConvites();
+    }
+    
     @GetMapping(value = "/usuario/amigos/{id}")
     public Set<Usuario> getAmigosByIdUsuario(@PathVariable Long id) {
         return usuarioService.findById(id).getAmigos();
