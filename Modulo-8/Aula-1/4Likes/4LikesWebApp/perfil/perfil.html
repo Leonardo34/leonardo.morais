@@ -3,121 +3,28 @@
         <img src="https://mdbootstrap.com/images/avatars/img%20(1).jpg" alt="" class="rounded-circle img-fluid">
     </div>
     <div class="col-md-9 p-t-2">
-        <h2 class="h2-responsive">@janedoe <button type="button" class="btn btn-info">Follow</button></h2>
-        <p>Jane Doe</p>
+        <h2 class="h2-responsive">{{ usuario.email }} <button type="button" class="btn btn-info">ADICIONAR</button></h2>
+        <p>{{ usuario.nome }}</p>
 
         <ul class="flex-menu">
-            <li><strong>41</strong> posts</li>
-            <li><strong>47k</strong> followers</li>
-            <li><strong>208</strong> following</li>
+            <li><strong>{{ posts.length }}</strong> posts</li>
+            <li><strong>47k</strong> amigos</li>
         </ul>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
+    <div class="col-sm-12 col-md-6 col-lg-4 image-post" ng-repeat="each in posts">
         <div class="view overlay hm-black-light m-b-2">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(1).jpg" class="img-fluid " alt="">
+            <img src="https://mdbootstrap.com/images/regular/nature/img%20(1).jpg" class="img-fluid" ng-click="teste()" alt="">
             <div class="mask flex-center">
                 <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
+                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> {{ each.comentarios.length }}</p></li>
+                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> {{ each.likes.length }}</i></p></li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(2).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(3).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(4).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(5).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(6).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(7).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(8).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post">
-        <div class="view overlay hm-black-light">
-            <img src="https://mdbootstrap.com/images/regular/nature/img%20(9).jpg" class="img-fluid " alt="">
-            <div class="mask flex-center">
-                <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> 32</p></li>
-                    <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> 1.2K</i></p></li>
-                </ul>
-            </div>
-        </div>
-    </div>					
+    </div>		
 </div>
 </div>
 </main>

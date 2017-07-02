@@ -14,7 +14,7 @@ app.config(function ($routeProvider) {
       controller: 'amigosController',
       templateUrl: 'amigos/amigos.html'
     })
-    .when('/perfil', {
+    .when('/perfil/:id', {
       controller: 'perfilController',
       templateUrl: 'perfil/perfil.html'
     })
