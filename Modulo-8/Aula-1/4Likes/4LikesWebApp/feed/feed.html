@@ -5,7 +5,7 @@
                 <span class="post-img-header pull-left">
                     <img src="{{ each.usuario.imagemPerfil }}" alt="User Avatar" class="rounded-circle img-fluid">
                 </span>
-                <div class="pull-left post-username-header"><p><strong>{{ each.usuario.nome }}</strong></div>
+                <div class="pull-left post-username-header"><p><a href="#!/perfil/{{ each.id }}"><strong>{{ each.usuario.nome }}</strong></a></div>
             </div>
             <img class="card-img-top" src="{{ each.urlImagem }}" alt="Card image cap">
             <div class="reactions">
