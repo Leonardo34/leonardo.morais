@@ -2,6 +2,7 @@ package br.com.crescer.social.services;
 
 import br.com.crescer.social.models.Usuario;
 import br.com.crescer.social.repository.UsuarioRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -54,5 +55,9 @@ public class UsuarioService {
         usuarioAdicionar.getAmigos().add(usuario);
         update(usuario);
         update(usuarioAdicionar);
+    }
+    
+    public List<Usuario> findByNomeLike(String nome) {
+        return usuarioRepositorio.findByNomeContaining(nome);
     }
 }

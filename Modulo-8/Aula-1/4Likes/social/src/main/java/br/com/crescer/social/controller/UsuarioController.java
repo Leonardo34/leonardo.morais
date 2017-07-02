@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -70,6 +71,11 @@ public class UsuarioController {
     @GetMapping(value = "/usuario/amigos/{id}")
     public Set<Usuario> getAmigosByIdUsuario(@PathVariable Long id) {
         return usuarioService.findById(id).getAmigos();
+    }
+    
+    @GetMapping(value = "usuario/name")
+    public List<Usuario> getUsuariosByName(@RequestParam String nome) {
+        return usuarioService.findByNomeLike("%" + nome + "%");
     }
     
     @GetMapping("/usuarioLogado")
