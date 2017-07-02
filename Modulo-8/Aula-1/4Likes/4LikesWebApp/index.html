@@ -4,21 +4,24 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
         <link rel="stylesheet" href="css/styles.css"></link>
+        <link rel="stylesheet" href="css/mdb.min.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js" type="text/javascript"></script>
         <script src="https://rawgit.com/cwi-crescer-2017-1/instrutores/master/modulo-05-angularjs/auth/auth.module.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"></link>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
         <script src="app.js"></script>
+        <script src="header.controller.js"></script>
         <script src="login/login.controller.js"></script>
         <script src="feed/feed.controller.js"></script>
         <script src="services/usuarioService.js"></script>
         <script src="services/postService.js"></script>
     </head>
 
-    <body ng-app="4LikesApp">
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <body ng-app="4LikesApp" ng-controller="headerController">
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-fixed-top" ng-hide="!isAutenticado()">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,12 +36,12 @@
                     <a class="nav-link" href="#">Amigos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Plus</a>
+                    <a class="nav-link" ng-click="logout()">Logout</a>
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
