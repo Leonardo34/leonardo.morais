@@ -3,17 +3,17 @@
         <div class="card" id="card-post" ng-repeat="each in posts">
             <div class="post-header">
                 <span class="post-img-header pull-left">
-                    <img src="http://celebrityfitnesstraining.com/wp-content/uploads/2011/09/megan-fox-diet-workout-weight-loss.jpg" alt="User Avatar" class="rounded-circle img-fluid">
+                    <img src="{{ each.usuario.imagemPerfil }}" alt="User Avatar" class="rounded-circle img-fluid">
                 </span>
                 <div class="pull-left post-username-header"><p><strong>{{ each.usuario.nome }}</strong></div>
             </div>
-            <img class="card-img-top" src="http://celebrityfitnesstraining.com/wp-content/uploads/2011/09/megan-fox-diet-workout-weight-loss.jpg" alt="Card image cap">
+            <img class="card-img-top" src="{{ each.urlImagem }}" alt="Card image cap">
             <div class="reactions">
                 <p><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(each) === false, 'fa fa-heart fa-2x liked': postCurtido(each) === true }" ng-click="likePost(each)" aria-hidden="true"></i></p>
                 <p><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></p>
             </div>
             <div class="card-block">
-                <h4 class="card-title">{{ each.urlImagem }}</h4>
+                <h4 class="card-title">{{ each.titulo }}</h4>
             </div>
             <div class="container comentario">
                 <div>
