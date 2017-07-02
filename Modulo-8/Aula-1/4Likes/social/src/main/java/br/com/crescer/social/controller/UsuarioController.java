@@ -67,9 +67,9 @@ public class UsuarioController {
     }
     
     @GetMapping("/usuarioLogado")
-    public Map<String, Object> listarUsuarios(@AuthenticationPrincipal User user) {
-        final Map<String, Object> hashMap = new HashMap<>();
-        hashMap.put("dados", user);
+    public Map<String, Usuario> listarUsuarios(@AuthenticationPrincipal User user) {
+        final Map<String, Usuario> hashMap = new HashMap<>();
+        hashMap.put("dados", usuarioService.findByEmail(user.getUsername()));
         return hashMap;
     }
 }
