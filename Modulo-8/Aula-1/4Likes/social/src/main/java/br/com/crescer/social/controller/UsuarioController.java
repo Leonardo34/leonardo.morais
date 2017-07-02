@@ -67,6 +67,11 @@ public class UsuarioController {
         return usuarioService.findByEmail(user.getUsername()).getAmigos();
     }
     
+    @GetMapping(value = "/usuario/amigos/{id}")
+    public Set<Usuario> getAmigosByIdUsuario(@PathVariable Long id) {
+        return usuarioService.findById(id).getAmigos();
+    }
+    
     @GetMapping("/usuarioLogado")
     public Map<String, Usuario> listarUsuarios(@AuthenticationPrincipal User user) {
         final Map<String, Usuario> hashMap = new HashMap<>();
