@@ -3,7 +3,10 @@
         <img src="{{ usuario.imagemPerfil }}" alt="" class="profile-image-circle">
     </div>
     <div class="col-md-9 p-t-2">
-        <h2 class="h2-responsive">{{ usuario.nome }} <button type="button" class="btn btn-info">ADICIONAR</button></h2>
+        <h2 class="h2-responsive">{{ usuario.nome }} 
+            <button ng-hide="isAmigos() == true" type="button" class="btn btn-info">ADICIONAR</button>
+            <button ng-hide="isAmigos() == false" type="button" class="btn btn-info disabled">AMIGOS <i class="fa fa-check"></i></button>
+        </h2>
         <p>{{ usuario.email }}</p>
 
         <ul class="flex-menu">

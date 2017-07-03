@@ -4,7 +4,10 @@ app.controller('perfilController', function($scope, authService, postService, $r
     carregarAmigosPerfil($routeParams.id);
 
     $scope.isAmigos = function() {
-        
+        let usuarioLogado = authService.getUsuario();
+        console.log(usuarioLogado);
+        console.log($scope.amigos);
+        return $scope.amigos.some(a => a.id == usuarioLogado.id);
     }
 
     function carregarPostsUsuario(id) {
