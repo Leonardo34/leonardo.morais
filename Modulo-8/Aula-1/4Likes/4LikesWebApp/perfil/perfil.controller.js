@@ -27,6 +27,7 @@ app.controller('perfilController', function($scope, authService, postService, $r
         usuarioService.carregarDadosUsuario(id).then(res => {
             $scope.usuario = res.data;
             console.log(res.data);
+            checarConvitePendente();
         });
     }
 
@@ -41,4 +42,13 @@ app.controller('perfilController', function($scope, authService, postService, $r
         $scope.postAtual = post;
     };
 
+    $scope.isUsuarioLogado = function(usuario) {
+        return usuario.id == authService.getUsuario().id;
+    }
+
+    function checarConvitePendente() {
+        usuarioService.possuiConvitePendente($scope.usuario.id).then(res => {
+            $scope.convitePendente = res.data;
+        })
+    }
 });

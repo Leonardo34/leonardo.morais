@@ -96,4 +96,11 @@ public class UsuarioController {
         hashMap.put("dados", usuarioService.findByEmail(user.getUsername()));
         return hashMap;
     }
+    
+    @GetMapping("/usuario/convite/pendente/{id}")
+    public boolean convitePendente(@AuthenticationPrincipal User user, @PathVariable Long id) {
+        Usuario usuarioLogado = usuarioService.findByEmail(user.getUsername());
+        Usuario usuarioAConferirConvites = usuarioService.findById(id);
+        return usuarioAConferirConvites.getConvites().contains(usuarioLogado);
+    }
 }
