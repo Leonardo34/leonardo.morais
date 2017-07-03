@@ -18,6 +18,10 @@ app.config(function ($routeProvider) {
       controller: 'perfilController',
       templateUrl: 'perfil/perfil.html'
     })
+    .when('/cadastro', {
+      controller: 'cadastroController',
+      templateUrl: 'cadastro/cadastro.html'
+    })
 });
 
 angular.module('4LikesApp').constant('authConfig', {
