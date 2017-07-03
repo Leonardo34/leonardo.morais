@@ -1,10 +1,10 @@
-app.controller('loginController', function($scope, $location, authService) { 
+app.controller('loginController', function($scope, $location, authService, toastr) { 
 
     $scope.login = function() {
         authService.login($scope.usuario).then(res => {
-            alert('Login com sucesso!');
+            toastr.success('Login com sucesso!');
         }, error => {
-            alert('Erro no Login!');
+            toastr.error('Erro no Login!');
         })
         console.log($scope.usuario);
     }

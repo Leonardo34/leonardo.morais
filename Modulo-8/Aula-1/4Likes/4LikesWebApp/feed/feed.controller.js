@@ -6,7 +6,7 @@ app.controller('feedController', function($scope, authService, postService, toas
             $scope.posts = res.data;
             console.log($scope.posts);
         }, error => {
-            window.alert("Erro");
+            toastr.error("Erro carregando post do servidor");
         })
     }
 
