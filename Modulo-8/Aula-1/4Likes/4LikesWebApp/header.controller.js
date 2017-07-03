@@ -9,7 +9,9 @@ app.controller('headerController', function($scope, authService,  $location, pos
     carregarConvitesAmizade();
 
     $scope.enviarPost = function() {
-        postService.enviarPost($scope.post);
+        postService.enviarPost($scope.post).then(res => {
+            toastr.success("Post enviado com sucesso");
+        });
     }
 
     function carregarConvitesAmizade() {
