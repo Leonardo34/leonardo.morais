@@ -31,4 +31,8 @@ app.service('usuarioService', function($http) {
     this.carregarUsuariosPorNome = function(nome) {
         return $http.get('http://localhost:9090/usuario/name?nome=' + nome);
     }
+
+    this.registrarUsuario = function(usuario) {
+        return $http.post('http://localhost:9090/usuario', usuario);
+    }
 });

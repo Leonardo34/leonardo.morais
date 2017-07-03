@@ -1,0 +1,12 @@
+<div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin">
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="usuario.email" required autofocus>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="usuario.senha" required>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Your Name" ng-model="usuario.nome" required>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Profile Image" ng-model="usuario.imagemPerfil" required>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" ng-click="cadastrar(usuario)">Sign Up</button>
+    </form>
+</div>
