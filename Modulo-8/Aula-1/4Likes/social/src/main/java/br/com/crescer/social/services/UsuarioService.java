@@ -58,6 +58,6 @@ public class UsuarioService {
     }
     
     public List<Usuario> findByNomeLike(String nome) {
-        return usuarioRepositorio.findByNomeContaining(nome);
+        return usuarioRepositorio.findByNomeContainingIgnoreCase(nome);
     }
 }
