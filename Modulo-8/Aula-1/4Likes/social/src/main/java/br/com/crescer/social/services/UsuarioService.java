@@ -68,4 +68,11 @@ public class UsuarioService {
     public List<Usuario> findByNomeLike(String nome) {
         return usuarioRepositorio.findByNomeContainingIgnoreCase(nome);
     }
+    
+    public void removerAmigo(Usuario usuario, Usuario usuarioAExcluir) {
+        usuario.getAmigos().remove(usuarioAExcluir);
+        usuarioAExcluir.getAmigos().remove(usuario);
+        update(usuario);
+        update(usuarioAExcluir);
+    }
 }

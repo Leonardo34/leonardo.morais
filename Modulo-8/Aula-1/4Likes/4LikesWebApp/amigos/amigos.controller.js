@@ -6,4 +6,10 @@ app.controller('amigosController', function($scope, authService, usuarioService)
             $scope.amigos = res.data;
         })
     }
+
+    $scope.removerAmigo = function(id) {
+        usuarioService.removerAmigo(id).then(res => {
+            carregarAmigos();
+        })
+    }
 });

@@ -7,7 +7,7 @@
             <div class="robin-key">
                 <p><a href="#!/perfil/{{ each.id }}">{{ each.nome }}</a></p>
                 <ul>
-                    <li><a href="#"><i class="fa fa-times remove-friend"></i></a></li>
+                    <li><a ng-click="removerAmigo(each.id)"><i class="fa fa-times remove-friend"></i></a></li>
                 </ul>
             </div>
             <ul class="follow-list">

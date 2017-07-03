@@ -94,6 +94,13 @@ public class UsuarioController {
         return usuarioService.findById(id).getAmigos();
     }
     
+    @PostMapping(value = "/usuario/remover/{id}")
+    public void excluirAmigo(@AuthenticationPrincipal User user, @PathVariable Long id) {
+        Usuario usuarioLogado = usuarioService.findByEmail(user.getUsername());
+        Usuario usuarioAExcluir = usuarioService.findById(id);
+        usuarioService.removerAmigo(usuarioLogado, usuarioAExcluir);
+    }
+    
     @GetMapping(value = "usuario/name")
     public List<Usuario> getUsuariosByName(@RequestParam String nome) {
         return usuarioService.findByNomeLike("%" + nome + "%");

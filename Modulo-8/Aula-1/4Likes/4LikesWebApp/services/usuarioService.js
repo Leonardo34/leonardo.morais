@@ -48,4 +48,8 @@ app.service('usuarioService', function($http) {
     this.updateUsuario = function(usuario) {
         return $http.post('http://localhost:9090/usuario/update', usuario);
     }
+
+    this.removerAmigo = function(id) {
+        return $http.post('http://localhost:9090/usuario/remover/' + id, {});
+    }
 });
