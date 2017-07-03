@@ -579,3 +579,9 @@ a {
 .edit-profile {
     margin-left: 15px;
 }
+
+.img-like {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}

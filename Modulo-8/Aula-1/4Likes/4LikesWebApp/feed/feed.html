@@ -8,6 +8,9 @@
                 <div class="pull-left post-username-header"><p><a href="#!/perfil/{{ each.usuario.id }}"><strong>{{ each.usuario.nome }}</strong></a></div>
             </div>
             <img class="card-img-top" src="{{ each.urlImagem }}" alt="Card image cap">
+            <div class="card-footer">
+                <a class="text-muted" ng-click="carregarLikes(each.likes)" data-toggle="modal" data-target="#likes">{{ each.likes.length }} Likes</a>
+            </div>
             <div class="reactions">
                 <p><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(each) === false, 'fa fa-heart fa-2x liked': postCurtido(each) === true }" ng-click="likePost(each)" aria-hidden="true"></i></p>
                 <p><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></p>
@@ -31,5 +34,22 @@
         <div class="col-md-2 offset-md-5 text-center">
             <button type="button" ng-click="proximaPagina()" class="btn btn-info">Mais</button>
         </div>  
+    </div>
+</div>
+
+<div id="likes" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="each in likes">
+                        <div class="col-xs-12 col-sm-2">
+                            <img src="{{ each.usuarioCurtida.imagemPerfil }}" alt="Scott Stevens" class="img-like" />
+                        </div>
+                        <div><p><a href="#!/perfil/{{ each.usuarioCurtida.id }}"><strong>{{ each.usuarioCurtida.nome }}</strong></a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

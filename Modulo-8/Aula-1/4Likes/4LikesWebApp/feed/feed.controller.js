@@ -53,4 +53,8 @@ app.controller('feedController', function($scope, authService, postService, toas
         $scope.pageSize += $scope.pageSize;
         carregarPostsFeed();
     }
+
+    $scope.carregarLikes = function(postLikes) {
+        $scope.likes = postLikes;
+    }
 });

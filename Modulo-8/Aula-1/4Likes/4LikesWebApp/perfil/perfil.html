@@ -53,6 +53,9 @@
                             <div class="pull-left post-username-header"><p><a href="#!/perfil/{{ postAtual.usuario.id }}"><strong>{{ postAtual.usuario.nome }}</strong></a></div>
                         </div>
                         <img class="card-img-top" src="{{ postAtual.urlImagem }}" alt="Card image cap">
+                        <div class="card-footer">
+                            <a class="text-muted">{{ postAtual.likes.length }} Likes</a>
+                        </div>
                         <div class="reactions">
                             <p><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(postAtual) === false, 'fa fa-heart fa-2x liked': postCurtido(postAtual) === true }" ng-click="likePost(postAtual)" aria-hidden="true"></i></p>
                             <p><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></p>
