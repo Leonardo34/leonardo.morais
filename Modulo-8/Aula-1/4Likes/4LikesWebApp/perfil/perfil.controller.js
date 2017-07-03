@@ -1,4 +1,4 @@
-app.controller('perfilController', function($scope, authService, postService, $routeParams, usuarioService) {
+app.controller('perfilController', function($scope, authService, postService, $routeParams, usuarioService, toastr) {
     carregarDadosUsuario($routeParams.id);
     carregarPostsUsuario($routeParams.id);
     carregarAmigosPerfil($routeParams.id);
@@ -8,6 +8,12 @@ app.controller('perfilController', function($scope, authService, postService, $r
         console.log(usuarioLogado);
         console.log($scope.amigos);
         return $scope.amigos.some(a => a.id == usuarioLogado.id);
+    }
+
+    $scope.enviarConvite = function(id) {
+        usuarioService.enviarConvite(id).then(res => {
+            toastr.success("Convite enviado para " + $scope.usuario.nome);
+        })
     }
 
     function carregarPostsUsuario(id) {
@@ -30,4 +36,9 @@ app.controller('perfilController', function($scope, authService, postService, $r
             console.log(res.data);
         })
     }
+
+    $scope.abrirPost = function(post) {
+        $scope.postAtual = post;
+    };
+
 });

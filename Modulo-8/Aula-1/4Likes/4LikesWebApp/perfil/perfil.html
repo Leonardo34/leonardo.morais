@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-9 p-t-2">
         <h2 class="h2-responsive">{{ usuario.nome }} 
-            <button ng-hide="isAmigos() == true" type="button" class="btn btn-info">ADICIONAR</button>
+            <button ng-click="enviarConvite(usuario.id)" ng-hide="isAmigos() == true" type="button" class="btn btn-info">ADICIONAR</button>
             <button ng-hide="isAmigos() == false" type="button" class="btn btn-info disabled">AMIGOS <i class="fa fa-check"></i></button>
         </h2>
         <p>{{ usuario.email }}</p>
@@ -17,9 +17,9 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 image-post" ng-repeat="each in posts">
-        <div class="view overlay hm-black-light" id="img-post">
-            <img src="{{ each.urlImagem }}" class="img-fluid" ng-click="teste()" alt="">
+    <div class="col-sm-12 col-md-6 col-lg-4 image-post" data-toggle="modal" data-target="#post" ng-repeat="each in posts">
+        <div class="view overlay hm-black-light" ng-click="abrirPost(each)"  id="img-post">
+            <img src="{{ each.urlImagem }}" class="img-fluid" alt="">
             <div class="mask flex-center">
                 <ul class="flex-menu">
                     <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> {{ each.comentarios.length }}</p></li>
@@ -29,5 +29,47 @@
         </div>
     </div>		
 </div>
+
+
+<div id="post" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Post de {{ usuario.nome }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" ng-controller="feedController">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" id="card-post">
+                        <div class="post-header">
+                            <span class="post-img-header pull-left">
+                                <img src="{{ postAtual.usuario.imagemPerfil }}" alt="User Avatar" class="rounded-circle img-fluid">
+                            </span>
+                            <div class="pull-left post-username-header"><p><a href="#!/perfil/{{ postAtual.usuario.id }}"><strong>{{ postAtual.usuario.nome }}</strong></a></div>
+                        </div>
+                        <img class="card-img-top" src="{{ postAtual.urlImagem }}" alt="Card image cap">
+                        <div class="reactions">
+                            <p><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(postAtual) === false, 'fa fa-heart fa-2x liked': postCurtido(postAtual) === true }" ng-click="likePost(postAtual)" aria-hidden="true"></i></p>
+                            <p><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></p>
+                        </div>
+                        <div class="card-block">
+                            <h4 class="card-title">{{ postAtual.titulo }}</h4>
+                        </div>
+                        <div class="container comentario">
+                            <div>
+                                <p ng-repeat="comentario in postAtual.comentarios"><strong>{{ comentario.usuario.nome }}</strong> {{ comentario.conteudo }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea ng-enter="adicionarComentario(comentarioUsuario, postAtual)" class="form-control" ng-model="comentarioUsuario.conteudo" placeholder="Digite seu comentario" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
-</main>
