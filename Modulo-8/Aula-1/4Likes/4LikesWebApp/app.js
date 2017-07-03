@@ -1,4 +1,4 @@
-var app = angular.module("4LikesApp", ['ngRoute', 'ui.bootstrap', 'auth']);
+var app = angular.module("4LikesApp", ['ngRoute', 'toastr', 'ui.bootstrap', 'auth']);
 
 app.config(function ($routeProvider) {
     $routeProvider
