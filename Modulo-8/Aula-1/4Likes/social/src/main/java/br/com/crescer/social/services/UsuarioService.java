@@ -35,7 +35,10 @@ public class UsuarioService {
         return usuarioRepositorio.findByEmail(email);
     }
 
-    public Usuario save(Usuario usuario) {
+    public Usuario save(Usuario usuario) throws Exception {
+        if (findByEmail(usuario.getEmail()) != null) {
+            throw new Exception("Email já cadastrado no sistema");
+        }
         usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         return usuarioRepositorio.save(usuario);
     }
