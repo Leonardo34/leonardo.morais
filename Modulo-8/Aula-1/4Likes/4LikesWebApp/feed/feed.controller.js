@@ -1,17 +1,14 @@
 app.controller('feedController', function($scope, authService, postService, toastr) {
+    $scope.pageSize = 2;
     carregarPostsFeed();
 
     function carregarPostsFeed() {
-        postService.getPostsFeed().then(res => {
+        postService.getPostsFeed(0, $scope.pageSize).then(res => {
             $scope.posts = res.data;
             console.log($scope.posts);
         }, error => {
             toastr.error("Erro carregando post do servidor");
         })
-    }
-
-    $scope.vai = function() {
-        console.log("vai")
     }
 
     $scope.postCurtido = function(post) {
@@ -50,5 +47,10 @@ app.controller('feedController', function($scope, authService, postService, toas
         let usuario = authService.getUsuario();
         let like = post.likes.find(l => l.usuarioCurtida.id == usuario.id);
         return like.id;
+    }
+
+    $scope.proximaPagina = function() {
+        $scope.pageSize += $scope.pageSize;
+        carregarPostsFeed();
     }
 });

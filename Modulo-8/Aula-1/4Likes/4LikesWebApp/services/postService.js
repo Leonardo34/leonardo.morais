@@ -1,7 +1,7 @@
 app.service('postService', function($http) {
  
-    this.getPostsFeed = function() {
-        return $http.get('http://localhost:9090/posts/feed');
+    this.getPostsFeed = function(page = 0, size = 5) {
+        return $http.get('http://localhost:9090/posts/feed?page=' + page + '&size=' + size);
     }
 
     this.curtirPost = function(idPost) {
