@@ -17,12 +17,19 @@
             </div>
             <div class="container comentario">
                 <div>
-                    <p ng-repeat="comentario in each.comentarios"><strong>{{ comentario.usuario.nome }}</strong> {{ comentario.conteudo }}</p>
+                    <p ng-repeat="comentario in each.comentarios"><a href="#!/perfil/{{ comentario.usuario.id }}"><strong>{{ comentario.usuario.nome }}</strong></a> {{ comentario.conteudo }}</p>
                 </div>
             </div>
             <div class="form-group">
                 <textarea ng-enter="adicionarComentario(comentario, each)" class="form-control" ng-model="comentario.conteudo" placeholder="Digite seu comentario" rows="3"></textarea>
             </div>
         </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 offset-md-5 text-center">
+            <button type="button" ng-click="proximaPagina()" class="btn btn-info">Mais</button>
+        </div>  
     </div>
 </div>

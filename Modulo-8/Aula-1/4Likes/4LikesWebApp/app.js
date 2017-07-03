@@ -22,6 +22,7 @@ app.config(function ($routeProvider) {
       controller: 'cadastroController',
       templateUrl: 'cadastro/cadastro.html'
     })
+    .otherwise({redirectTo: '/login'});
 });
 
 angular.module('4LikesApp').constant('authConfig', {
