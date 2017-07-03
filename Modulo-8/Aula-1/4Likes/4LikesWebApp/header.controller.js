@@ -17,7 +17,6 @@ app.controller('headerController', function($scope, authService,  $location, pos
     function carregarConvitesAmizade() {
         usuarioService.carregarConvites().then(res => {
             $scope.convites = res.data;
-            console.log(res.data);
         })
     }
 
@@ -38,8 +37,6 @@ app.controller('headerController', function($scope, authService,  $location, pos
         console.log(nome);
         usuarioService.carregarUsuariosPorNome(nome).then(res => {
             $scope.usuariosEncontrados = res.data;
-            console.log("resposta");
-            console.log(res.data);
         })
     }
 });

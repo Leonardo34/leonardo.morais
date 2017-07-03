@@ -39,6 +39,15 @@ public class UsuarioController {
         usuarioService.save(usuario);
     }
     
+    @PostMapping(value = "/usuario/update")
+    public Usuario updateUsuario(@RequestBody Usuario usuario, 
+            @AuthenticationPrincipal User user) {
+        Usuario usuarioBanco = usuarioService.findByEmail(user.getUsername());
+        usuarioBanco.setNome(usuario.getNome());
+        usuarioBanco.setImagemPerfil(usuario.getImagemPerfil());
+        return usuarioService.update(usuarioBanco);
+    }
+    
     @PostMapping(value = "/usuario/convite/{id}")
     public void enviarConvite(@PathVariable Long id, @AuthenticationPrincipal User user) {
         Usuario usuarioLogado = usuarioService.findByEmail(user.getUsername());

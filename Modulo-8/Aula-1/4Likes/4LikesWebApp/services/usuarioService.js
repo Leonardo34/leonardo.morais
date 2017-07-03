@@ -44,4 +44,8 @@ app.service('usuarioService', function($http) {
     this.possuiConvitePendente = function(id) {
         return $http.get('http://localhost:9090/usuario/convite/pendente/' + id);
     }
+
+    this.updateUsuario = function(usuario) {
+        return $http.post('http://localhost:9090/usuario/update', usuario);
+    }
 });

@@ -5,8 +5,6 @@ app.controller('perfilController', function($scope, authService, postService, $r
 
     $scope.isAmigos = function() {
         let usuarioLogado = authService.getUsuario();
-        console.log(usuarioLogado);
-        console.log($scope.amigos);
         return $scope.amigos.some(a => a.id == usuarioLogado.id);
     }
 
@@ -20,14 +18,12 @@ app.controller('perfilController', function($scope, authService, postService, $r
     function carregarPostsUsuario(id) {
         postService.getPostsByUser(id).then(res => {
             $scope.posts = res.data;
-            console.log(res.data);
         });
     }
 
     function carregarDadosUsuario(id) {
         usuarioService.carregarDadosUsuario(id).then(res => {
             $scope.usuario = res.data;
-            console.log(res.data);
             checarConvitePendente();
         });
     }
@@ -35,7 +31,6 @@ app.controller('perfilController', function($scope, authService, postService, $r
     function carregarAmigosPerfil(id) {
         usuarioService.carregarAmigosByIdUsuario(id).then(res => {
             $scope.amigos = res.data;
-            console.log(res.data);
         })
     }
 
@@ -45,6 +40,12 @@ app.controller('perfilController', function($scope, authService, postService, $r
 
     $scope.isUsuarioLogado = function(usuario) {
         return usuario.id == authService.getUsuario().id;
+    }
+
+    $scope.editarInformacoes = function(usuario) {
+        usuarioService.updateUsuario(usuario).then(res => {
+            $route.reload();
+        })
     }
 
     function checarConvitePendente() {

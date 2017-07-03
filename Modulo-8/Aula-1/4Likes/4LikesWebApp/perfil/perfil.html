@@ -90,11 +90,8 @@
             <form class="form-signin">
                 <input type="text" id="inputEmail" class="form-control" placeholder="Your Name" ng-model="edit.nome" required>
                 <input type="text" id="inputEmail" class="form-control" placeholder="Profile Image" ng-model="edit.imagemPerfil" required>
+                <button type="button" data-dismiss="modal" ng-click="editarInformacoes(edit)" class="btn btn-primary">Edit</button>
             </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" ng-click="editarInformacoes()" class="btn btn-primary">Edit</button>
-        </div>
         </div>
     </div>
 </div>
