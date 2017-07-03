@@ -1,4 +1,4 @@
-app.controller('perfilController', function($scope, authService, postService, $routeParams, usuarioService, toastr) {
+app.controller('perfilController', function($scope, authService, postService, $routeParams, usuarioService, toastr, $route) {
     carregarDadosUsuario($routeParams.id);
     carregarPostsUsuario($routeParams.id);
     carregarAmigosPerfil($routeParams.id);
@@ -13,6 +13,7 @@ app.controller('perfilController', function($scope, authService, postService, $r
     $scope.enviarConvite = function(id) {
         usuarioService.enviarConvite(id).then(res => {
             toastr.success("Convite enviado para " + $scope.usuario.nome);
+            $route.reload();
         })
     }
 
