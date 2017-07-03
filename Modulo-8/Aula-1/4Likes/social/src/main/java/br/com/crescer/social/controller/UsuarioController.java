@@ -53,6 +53,13 @@ public class UsuarioController {
         usuarioService.aceitarConviteAmizade(usuarioLogado, usuarioAceitar);
     }
     
+    @PostMapping(value = "/usuario/rejeitar/{id}")
+    public void rejeitarConvite(@PathVariable Long id, @AuthenticationPrincipal User user) {
+        Usuario usuarioLogado = usuarioService.findByEmail(user.getUsername());
+        Usuario usuarioAceitar = usuarioService.findById(id);
+        usuarioService.rejeitarConviteAmizade(usuarioLogado, usuarioAceitar);
+    }
+    
     @DeleteMapping(value = "/usuario/{id}")
     public void removeUsuario(@PathVariable Long id) {
         usuarioService.delete(id);

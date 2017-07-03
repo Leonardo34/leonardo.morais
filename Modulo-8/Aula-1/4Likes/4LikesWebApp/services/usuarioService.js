@@ -24,6 +24,11 @@ app.service('usuarioService', function($http) {
         return $http.post('http://localhost:9090/usuario/aceitar/' + id);
     }
 
+    this.rejeitarConvite = function(id) {
+        return $http.post('http://localhost:9090/usuario/rejeitar/' + id);
+    }
+
+    
     this.carregarConvites = function() {
         return $http.get('http://localhost:9090/usuario/convites');
     }

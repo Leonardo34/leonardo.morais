@@ -26,6 +26,12 @@ app.controller('headerController', function($scope, authService,  $location, pos
         })
     }
 
+    $scope.rejeitarConvite = function(id) {
+        usuarioService.rejeitarConvite(id).then(res => {
+            carregarConvitesAmizade();
+        })
+    }
+
     $scope.buscarUsuariosPorNome = function(nome) {
         console.log(nome);
         usuarioService.carregarUsuariosPorNome(nome).then(res => {

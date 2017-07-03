@@ -60,6 +60,11 @@ public class UsuarioService {
         update(usuarioAdicionar);
     }
     
+    public void rejeitarConviteAmizade(Usuario usuario, Usuario usuarioARejeitar) {
+        usuario.getConvites().remove(usuarioARejeitar);
+        update(usuario);
+    }
+    
     public List<Usuario> findByNomeLike(String nome) {
         return usuarioRepositorio.findByNomeContainingIgnoreCase(nome);
     }

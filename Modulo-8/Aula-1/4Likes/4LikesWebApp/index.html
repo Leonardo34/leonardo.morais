@@ -108,7 +108,7 @@
                                 <div class="pull-left nome-convite"><p><a href="#!/perfil/{{ each.id }}"><strong>{{ each.nome }}</strong></a></div>
                             </div>
                             <div class="col-xs-12 col-sm-4 action-invites">
-                                <a ng-click="teste()" href="#" class="pull-right" id="no-friend"><i class="fa fa-times fa-2x remove-friend"></i></a>
+                                <a ng-click="rejeitarConvite(each.id)" href="#" class="pull-right" id="no-friend"><i class="fa fa-times fa-2x remove-friend"></i></a>
                                 <a href="#" ng-click="aceitarConvite(each.id)" class="pull-left" id="accept-friend"><i class="fa fa-check fa-2x acept-friend"></i></a>
                             </div>
                         </li>
