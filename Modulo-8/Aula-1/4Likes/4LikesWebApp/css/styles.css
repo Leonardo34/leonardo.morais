@@ -574,3 +574,7 @@ center, center *{ color: #ffffff !important; font-size:14pt; }
 a {
     color: #3f4c6b !important;
 }
+
+.edit-profile {
+    margin-left: 15px;
+}

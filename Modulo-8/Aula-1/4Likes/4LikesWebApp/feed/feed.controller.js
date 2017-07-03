@@ -38,11 +38,12 @@ app.controller('feedController', function($scope, authService, postService, toas
     }
 
     $scope.adicionarComentario = function(comentario, post) {
-        console.log(comentario);
+        let novoComentario = { 
+            conteudo : comentario.conteudo, 
+            usuario : authService.getUsuario() 
+        };
         postService.enviarComentario(comentario, post).then(() => carregarPostsFeed());
-        comentario.usuario = authService.getUsuario();
-        post.comentarios.push(comentario);
-        delete $scope.comentario;
+        post.comentarios.push(novoComentario);
     }
 
     function getIdLikeUsuarioLogado(post) {
