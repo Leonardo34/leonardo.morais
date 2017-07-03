@@ -37,7 +37,7 @@ public class UsuarioService {
 
     public Usuario save(Usuario usuario) throws Exception {
         if (findByEmail(usuario.getEmail()) != null) {
-            throw new Exception("Email já cadastrado no sistema");
+            throw new Exception("Email já cadastrado no 4Likes");
         }
         usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         return usuarioRepositorio.save(usuario);
