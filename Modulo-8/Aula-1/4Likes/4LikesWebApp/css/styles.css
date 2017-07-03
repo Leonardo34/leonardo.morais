@@ -564,3 +564,13 @@ center, center *{ color: #ffffff !important; font-size:14pt; }
 .img-container a img {
     max-height: 110px;
 }
+
+.img-convite {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+a {
+    color: #3f4c6b !important;
+}

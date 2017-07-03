@@ -1,4 +1,4 @@
-app.controller('feedController', function($scope, authService, postService) {
+app.controller('feedController', function($scope, authService, postService, toastr) {
     carregarPostsFeed();
 
     function carregarPostsFeed() {
@@ -20,11 +20,18 @@ app.controller('feedController', function($scope, authService, postService) {
     }
 
     $scope.likePost = function(post) {
+
         if ($scope.postCurtido(post)) {
             let idLike = getIdLikeUsuarioLogado(post);
-            postService.descurtirPost(idLike).then(() => carregarPostsFeed());
+            postService.descurtirPost(idLike).then(res => { 
+                carregarPostsFeed();
+                toastr.success("Post Descurtido");
+            });
         } else {
-            postService.curtirPost(post.id).then(() => carregarPostsFeed());
+            postService.curtirPost(post.id).then(res => { 
+                carregarPostsFeed();
+                toastr.success("Post Curtido");
+            });
         }
     }
 

@@ -12,6 +12,8 @@
         <script src="https://rawgit.com/cwi-crescer-2017-1/instrutores/master/modulo-05-angularjs/auth/auth.module.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"></link>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+        <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
         <script src="app.js"></script>
         <script src="header.controller.js"></script>
         <script src="login/login.controller.js"></script>
@@ -42,43 +44,105 @@
                         Novo post
                     </a>     
                 </li>
+                <li class="nav-item">      
+                    <a class="nav-link" data-toggle="modal" data-target="#convites">
+                        Convites Amizade
+                    </a>     
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" ng-click="logout()">Logout</a>
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input ng-model="search.nome" class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button ng-click="buscarUsuariosPorNome(search.nome)" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#descobrir">Search</button>
                 </form>
             </div>
         </nav>
 
         <!-- Modal novo post -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">New Post</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="inputTitulo">Post Title</label>
-                        <input type="text" ng-model="post.titulo" class="form-control" id="inputTitulo" aria-describedby="emailHelp" placeholder="Description">
-                        <label for="inputUrl">Image URL</label>
-                        <input type="text" ng-model="post.urlImagem" class="form-control" id="inputUrl"placeholder="Image Url">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" ng-click="enviarPost()" class="btn btn-primary">Send Post</button>
-            </div>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">New Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputTitulo">Post Title</label>
+                            <input type="text" ng-model="post.titulo" class="form-control" id="inputTitulo" aria-describedby="emailHelp" placeholder="Description">
+                            <label for="inputUrl">Image URL</label>
+                            <input type="text" ng-model="post.urlImagem" class="form-control" id="inputUrl"placeholder="Image Url">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="enviarPost()" class="btn btn-primary">Send Post</button>
+                </div>
+                </div>
             </div>
         </div>
+
+        <!-- Modal Convites -->
+        <div  id="convites" class="modal fade" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Convites de amizade</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="each in convites">
+                            <div class="col-xs-12 col-sm-3">
+                                <img src="{{ each.imagemPerfil }}" alt="Scott Stevens" class="img-convite" />
+                            </div>
+                            <div class="col-xs-12 col-sm-5">
+                                <div class="pull-left nome-convite"><p><a href="#!/perfil/{{ each.id }}"><strong>{{ each.nome }}</strong></a></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 action-invites">
+                                <a ng-click="teste()" href="#" class="pull-right" id="no-friend"><i class="fa fa-times fa-2x remove-friend"></i></a>
+                                <a href="#" ng-click="aceitarConvite(each.id)" class="pull-left" id="accept-friend"><i class="fa fa-check fa-2x acept-friend"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Modal Busca -->
+        <div  id="descobrir" class="modal fade" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Usuarios Encontrados</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="each in usuariosEncontrados">
+                            <div class="col-xs-12 col-sm-3">
+                                <img src="{{ each.imagemPerfil }}" alt="Scott Stevens" class="img-convite" />
+                            </div>
+                            <div class="col-xs-12 col-sm-5">
+                                <div class="pull-left nome-convite"><p><a href="#!/perfil/{{ each.id }}"><strong>{{ each.nome }}</strong></a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
 		<div class="container">
             <ng-view></ng-view>		
 		</div>
