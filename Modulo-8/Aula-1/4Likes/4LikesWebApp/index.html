@@ -32,30 +32,30 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <a class="navbar-brand" href="#/login">4Likes</a>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item" ng-class="{ 'active': url.path == '/feed' }">
-                    <a class="nav-link" href="#!/feed">Feed <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item" ng-class="{ 'active': url.path == '/amigos' }">
-                    <a class="nav-link" href="#!/amigos">Amigos</a>
-                </li>
-                <li class="nav-item">      
-                    <a class="nav-link" ng-click="teste()" data-toggle="modal" data-target="#exampleModalLong">
-                        Novo post
-                    </a>     
-                </li>
-                <li class="nav-item">      
-                    <a class="nav-link" data-toggle="modal" data-target="#convites">
-                        Convites Amizade
-                    </a>     
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" ng-click="logout()">Logout</a>
-                </li>
+                    <li class="nav-item" ng-class="{ 'active': url.path == '/feed' }">
+                        <a class="nav-link" href="#!/feed">4Likes</a>
+                    </li>
+                    <li class="nav-item" ng-class="{ 'active': url.path == '/perfil/' + getUsuario().id }">
+                        <a class="nav-link" href="#!/perfil/{{ getUsuario().id }}">Perfil</a>
+                    </li>
+                    <li class="nav-item" ng-class="{ 'active': url.path == '/amigos' }">
+                        <a class="nav-link" href="#!/amigos">Amigos</a>
+                    </li>
+                    <li class="nav-item">      
+                        <a class="nav-link" ng-click="teste()" data-toggle="modal" data-target="#exampleModalLong">
+                            Novo post
+                        </a>     
+                    </li>
+                    <li class="nav-item">      
+                        <a class="nav-link" data-toggle="modal" data-target="#convites">
+                            Convites Amizade
+                        </a>     
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ng-click="logout()">Logout</a>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input ng-model="search.nome" class="form-control mr-sm-2" type="text" placeholder="Search">
