@@ -12,6 +12,9 @@ app.controller('feedController', function($scope, authService, postService, toas
     }
 
     $scope.postCurtido = function(post) {
+        if (typeof post === "undefined") {
+            return false;
+        }
         let usuario = authService.getUsuario();
         return post.likes.some(l => l.usuarioCurtida.id == usuario.id);
     }

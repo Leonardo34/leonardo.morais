@@ -53,4 +53,12 @@ app.controller('perfilController', function($scope, authService, postService, $r
             $scope.convitePendente = res.data;
         })
     }
+
+    $scope.isLoadingFinished = function() {
+        return typeof $scope.convitePendente !== "undefined"
+                && typeof $scope.amigos !== "undefined"
+                && typeof $scope.usuario !== "undefined"
+                && typeof $scope.convitePendente !== "undefined"
+                && typeof $scope.posts !== "undefined";
+    }
 });

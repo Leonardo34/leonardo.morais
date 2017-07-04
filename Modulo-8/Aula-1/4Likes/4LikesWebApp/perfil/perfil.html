@@ -4,16 +4,15 @@
     </div>
     <div class="col-md-9 p-t-2">
         <h2 class="h2-responsive">{{ usuario.nome }} 
-            <button ng-cloak ng-click="enviarConvite(usuario.id)" ng-hide="isAmigos() == true || isUsuarioLogado(usuario) == true || convitePendente == true" type="button" class="btn btn-info">ADICIONAR</button>
-            <button ng-cloak ng-hide="isAmigos() == false" type="button" class="btn btn-info disabled">AMIGOS <i class="fa fa-check"></i></button>
-            <a ng-cloak ng-if="isUsuarioLogado(usuario) == true" class="edit-profile" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o"></i></a>
-            <button ng-cloak ng-hide="convitePendente == false" type="button" class="btn btn-info disabled">CONVITE ENVIADO <i class="fa fa-check"></i></button>
+            <button ng-cloak ng-click="enviarConvite(usuario.id)" ng-hide="isLoadingFinished() == false || isAmigos() == true || isLoadingFinished() == false || isUsuarioLogado(usuario) == true || convitePendente == true" type="button" class="btn btn-info">ADICIONAR</button>
+            <button ng-cloak ng-hide="isLoadingFinished() == false || isAmigos() == false" type="button" class="btn btn-info disabled">AMIGOS <i class="fa fa-check"></i></button>
+            <a ng-cloak ng-if="isLoadingFinished() == true && isUsuarioLogado(usuario) == true" class="edit-profile" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o"></i></a>
+            <button ng-cloak ng-hide="isLoadingFinished() == false || convitePendente == false" type="button" class="btn btn-info disabled">CONVITE ENVIADO <i class="fa fa-check"></i></button>
         </h2>
         <p>{{ usuario.email }}</p>
-
         <ul class="flex-menu">
-            <li><strong>{{ posts.length }}</strong> posts</li>
-            <li><strong>{{ amigos.length }}</strong> amigos</li>
+            <li ng-if="isLoadingFinished()"><strong>{{ posts.length }}</strong> posts</li>
+            <li ng-if="isLoadingFinished()"><strong>{{ amigos.length }}</strong> amigos</li>
         </ul>
     </div>
 </div>
@@ -24,7 +23,7 @@
             <img src="{{ each.urlImagem }}" class="img-fluid" alt="">
             <div class="mask flex-center">
                 <ul class="flex-menu">
-                    <li><p class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> {{ each.comentarios.length }}</p></li>
+                    <li><p data-toggle="modal" data-target="#edit" class="white-text"><i class="fa fa-comment" aria-hidden="true"></i> {{ each.comentarios.length }}</p></li>
                     <li><p class="white-text"><i class="fa fa-heart" aria-hidden="true"></i> {{ each.likes.length }}</i></p></li>
                 </ul>
             </div>
