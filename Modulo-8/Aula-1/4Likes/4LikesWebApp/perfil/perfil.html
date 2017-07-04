@@ -51,20 +51,22 @@
                             </span>
                             <div class="pull-left post-username-header"><p><a href="#!/perfil/{{ postAtual.usuario.id }}"><strong>{{ postAtual.usuario.nome }}</strong></a></div>
                         </div>
-                        <img class="card-img-top" src="{{ postAtual.urlImagem }}" alt="Card image cap">
-                        <div class="card-footer">
-                            <a class="text-muted">{{ postAtual.likes.length }} Likes</a>
+                        <div class="post-image" ng-dblclick="likePost(postAtual)" ng-class="{'post-liked': postCurtido(postAtual)}">
+                            <img class="card-img-top" src="{{ postAtual.urlImagem }}" alt="Card image cap">
+                        </div>
+                        <div class="likes-number">
+                            <h5><a class="text-muted">{{ postAtual.likes.length }} Likes</a></h5>
                         </div>
                         <div class="reactions">
-                            <p><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(postAtual) === false, 'fa fa-heart fa-2x liked': postCurtido(postAtual) === true }" ng-click="likePost(postAtual)" aria-hidden="true"></i></p>
-                            <p><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></p>
+                            <p><a><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(postAtual) === false, 'fa fa-heart fa-2x liked': postCurtido(postAtual) === true }" ng-click="likePost(postAtual)" aria-hidden="true"></i></a></p>
+                            <p><a><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></a></p>
                         </div>
                         <div class="card-block">
                             <h4 class="card-title">{{ postAtual.titulo }}</h4>
                         </div>
                         <div class="container comentario">
                             <div>
-                                <p ng-repeat="comentario in postAtual.comentarios"><strong>{{ comentario.usuario.nome }}</strong> {{ comentario.conteudo }}</p>
+                                <p ng-repeat="comentario in postAtual.comentarios"><a href="#!/perfil/{{ comentario.usuario.id }}"><strong>{{ comentario.usuario.nome }}</strong></a> {{ comentario.conteudo }}</p>
                             </div>
                         </div>
                         <div class="form-group">

@@ -1,4 +1,6 @@
-app.controller('perfilController', function($scope, authService, postService, $routeParams, usuarioService, toastr, $route) {
+app.controller('perfilController', function($scope, authService, 
+        postService, $routeParams, usuarioService, toastr, $route, $location) {
+    $scope.url.path = $location.path();
     carregarDadosUsuario($routeParams.id);
     carregarPostsUsuario($routeParams.id);
     carregarAmigosPerfil($routeParams.id);
