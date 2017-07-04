@@ -14,7 +14,7 @@
                 <a class="text-muted" ng-click="carregarLikes(each.likes)" data-toggle="modal" data-target="#likes"><strong>{{ each.likes.length }} Likes</strong></a>
             </div>
             <div class="reactions">
-                <p><a><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(each) === false, 'fa fa-heart fa-2x liked': postCurtido(each) === true }" ng-click="likePost(each)" aria-hidden="true"></i></a></p>
+                <p><a><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(each) === false, 'linkDisabled' : flagLike, 'fa fa-heart fa-2x liked': postCurtido(each) === true }" ng-click="likePost(each)" aria-hidden="true"></i></a></p>
                 <p><a><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></a></p>
             </div>
             <div class="card-block">

@@ -28,7 +28,7 @@ app.config(function ($routeProvider) {
 angular.module('4LikesApp').constant('authConfig', {
 
     // Obrigatória - URL da API que retorna o usuário
-    urlUsuario: 'http://localhost:9090/usuarioLogado',
+    urlUsuario: 'http://10.99.0.33:9090/usuarioLogado',
 
     // Obrigatória - URL da aplicação que possui o formulário de login
     urlLogin: '/login',

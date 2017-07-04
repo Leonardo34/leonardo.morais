@@ -620,3 +620,9 @@ a {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
+.linkDisabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  color: grey;
+}

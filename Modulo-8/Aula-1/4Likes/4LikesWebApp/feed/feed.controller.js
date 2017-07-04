@@ -2,6 +2,8 @@ app.controller('feedController', function($scope, authService, postService, toas
     $scope.url.path = $location.path();
     $scope.pageSize = 2;
     carregarPostsFeed();
+    $scope.flagLike = false;
+
 
     function carregarPostsFeed() {
         postService.getPostsFeed(0, $scope.pageSize).then(res => {
@@ -32,9 +34,14 @@ app.controller('feedController', function($scope, authService, postService, toas
             let index = post.likes.findIndex(l => l.usuarioCurtida.id == authService.getUsuario().id);
             post.likes.splice(index, 1);
         } else {
+            $scope.flagLike = true;
+            post.likes.push( { usuarioCurtida : authService.getUsuario() })
             postService.curtirPost(post.id).then(res => {
                 carregarPostsFeed();
+                let index = post.likes.findIndex(l => l.usuarioCurtida.id == authService.getUsuario().id);
+                post.likes.splice(index, 1);
                 post.likes.push(res.data);
+                $scope.flagLike = false;
                 //toastr.success("Post Curtido");
             });
         }
