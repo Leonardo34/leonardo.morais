@@ -17,9 +17,9 @@ public class LikeController {
     private LikeService likeService;
     
     @PostMapping(value = "/like/{id}")
-    public void adicionarLike(@RequestBody Like like, 
+    public Like adicionarLike(@RequestBody Like like, 
             @AuthenticationPrincipal User user, @PathVariable Long id) {
-        likeService.save(like, user, id);
+        return likeService.save(like, user, id);
     }
     
     @PostMapping(value = "/deslike/{id}")

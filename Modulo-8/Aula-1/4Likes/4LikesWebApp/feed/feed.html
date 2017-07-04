@@ -7,13 +7,15 @@
                 </span>
                 <div class="pull-left post-username-header"><p><a href="#!/perfil/{{ each.usuario.id }}"><strong>{{ each.usuario.nome }}</strong></a></div>
             </div>
-            <img class="card-img-top" src="{{ each.urlImagem }}" alt="Card image cap">
-            <div class="card-footer">
-                <a class="text-muted" ng-click="carregarLikes(each.likes)" data-toggle="modal" data-target="#likes">{{ each.likes.length }} Likes</a>
+            <div class="post-image" ng-dblclick="likePost(each)" ng-class="{'post-liked': postCurtido(each)}">
+                <img class="card-img-top" src="{{ each.urlImagem }}" alt="Card image cap">
+            </div>
+            <div class="likes-number">
+                <a class="text-muted" ng-click="carregarLikes(each.likes)" data-toggle="modal" data-target="#likes"><strong>{{ each.likes.length }} Likes</strong></a>
             </div>
             <div class="reactions">
-                <p><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(each) === false, 'fa fa-heart fa-2x liked': postCurtido(each) === true }" ng-click="likePost(each)" aria-hidden="true"></i></p>
-                <p><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></p>
+                <p><a><i ng-class="{ 'fa fa-heart-o fa-2x' : postCurtido(each) === false, 'fa fa-heart fa-2x liked': postCurtido(each) === true }" ng-click="likePost(each)" aria-hidden="true"></i></a></p>
+                <p><a><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></a></p>
             </div>
             <div class="card-block">
                 <h4 class="card-title">{{ each.titulo }}</h4>
@@ -46,7 +48,7 @@
                         <div class="col-xs-12 col-sm-2">
                             <img src="{{ each.usuarioCurtida.imagemPerfil }}" alt="Scott Stevens" class="img-like" />
                         </div>
-                        <div><p><a href="#!/perfil/{{ each.usuarioCurtida.id }}"><strong>{{ each.usuarioCurtida.nome }}</strong></a></div>
+                        <div><p><a href="#!/perfil/{{ each.usuarioCurtida.id }}"  data-toggle="modal" data-target="#likes"><strong>{{ each.usuarioCurtida.nome }}</strong></a></div>
                     </li>
                 </ul>
             </div>
