@@ -1,13 +1,13 @@
-<div class="row perfil-container">
+<div class="row perfil-container ng-cloak">
     <div class="col-md-2 offset-md-1">
         <img src="{{ usuario.imagemPerfil }}" alt="" class="profile-image-circle">
     </div>
     <div class="col-md-9 p-t-2">
         <h2 class="h2-responsive">{{ usuario.nome }} 
-            <button ng-click="enviarConvite(usuario.id)" ng-hide="isAmigos() == true || isUsuarioLogado(usuario) == true || convitePendente == true" type="button" class="btn btn-info">ADICIONAR</button>
-            <button ng-hide="isAmigos() == false" type="button" class="btn btn-info disabled">AMIGOS <i class="fa fa-check"></i></button>
-            <a ng-if="isUsuarioLogado(usuario) == true" class="edit-profile" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o"></i></a>
-            <button ng-hide="convitePendente == false" type="button" class="btn btn-info disabled">CONVITE ENVIADO <i class="fa fa-check"></i></button>
+            <button ng-cloak ng-click="enviarConvite(usuario.id)" ng-hide="isAmigos() == true || isUsuarioLogado(usuario) == true || convitePendente == true" type="button" class="btn btn-info">ADICIONAR</button>
+            <button ng-cloak ng-hide="isAmigos() == false" type="button" class="btn btn-info disabled">AMIGOS <i class="fa fa-check"></i></button>
+            <a ng-cloak ng-if="isUsuarioLogado(usuario) == true" class="edit-profile" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o"></i></a>
+            <button ng-cloak ng-hide="convitePendente == false" type="button" class="btn btn-info disabled">CONVITE ENVIADO <i class="fa fa-check"></i></button>
         </h2>
         <p>{{ usuario.email }}</p>
 
